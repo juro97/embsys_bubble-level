@@ -3,7 +3,7 @@
 # Projektmitglieder
 - Thomas Galler
 - Paul Jurassovits
-- Shanaz-Isabell Westenberger
+- Schahnaz-Isabel Westenberger
 
 ## Orderstruktur
 
