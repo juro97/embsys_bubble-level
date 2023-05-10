@@ -1,0 +1,84 @@
+[DEVICE]
+Name=P32MX795F512L
+Clock=80000000
+[MEMORY_MODEL]
+Value=0
+[BUILD_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=_3D_Motion_click_main.c
+[USE_EEPROM]
+Value=0
+[EEPROM_DEFINITION]
+Value=
+[EXPANDED NODES]
+Node1=Sources
+Node2=Header Files
+Node3=Output Files
+Count=3
+[USE_HEAP]
+Value=0
+[HEAP_SIZE]
+Value=2000
+[FILES]
+Count=11
+File0=_3D_Motion_click_main.c
+File1=_3D_Motion_click_events_code.c
+File2=_3D_Motion_click_driver.c
+File3=_3D_Motion_click_resources.c
+File4=3D Motion Click Driver\sensors.c
+File5=3D Motion Click Driver\interrupts.c
+File6=3D Motion Click Driver\vregs.c
+File7=3D Motion Click Driver\sf.c
+File8=3D Motion Click Driver\i2cIO.c
+File9=3D Motion Click Driver\flashupdate.c
+File10=3D Motion Click Driver\system.c
+[BINARIES]
+Count=0
+[IMAGES]
+Count=1
+File0=3D_Motion_click.jpg
+ActiveImageIndex=0
+[OPENED_FILES]
+Count=1
+File0=_3D_Motion_click_main.c
+[EEPROM]
+Count=0
+[ACTIVE_COMMENTS_FILES]
+Count=1
+File0=_3D_Motion_click.xml
+[OTHER_FILES]
+Count=0
+[SEARCH_PATH]
+Count=0
+[HEADER_PATH]
+Count=1
+Path0=3D Motion Click Driver\
+[HEADERS]
+Count=2
+File0=3D Motion Click Driver\_3D_Motion_click_objects.h
+File1=3D Motion Click Driver\_3D_Motion_click_resources.h
+[PLDS]
+Count=0
+[Useses]
+Count=10
+File0=TFT_TouchPanel
+File1=ADC
+File2=TFT_Fonts
+File3=TFT_Defs
+File4=TFT
+File5=I2C
+File6=C_Math
+File7=C_String
+File8=Sprintf
+File9=C_Type
+[INTERRUPT_DEFS]
+EBASE=9FC01000
+VECTOR_SPACEING=32
+VECTOR_MODE=1
+USE_SRS=7
+[EXPANDED_NODES]
+Node0=Sources
+Node1=Header Files
+Node2=Image Files
+Count=3
