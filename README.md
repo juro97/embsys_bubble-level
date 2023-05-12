@@ -6,6 +6,7 @@ Diese soll die Neigungsdaten über einen geeigneten Sensor einlesen, verarbeiten
 - Thomas Galler
 - Paul Jurassovits
 - Schahnaz-Isabel Westenberger
+- Melchior Lebesmühlbacher
 
 ## Orderstruktur
 |
