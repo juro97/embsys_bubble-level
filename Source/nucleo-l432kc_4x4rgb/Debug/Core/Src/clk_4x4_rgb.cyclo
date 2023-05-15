@@ -1,0 +1,3 @@
+clk_4x4_rgb.c:291:6:printDataOnMatrix	1
+clk_4x4_rgb.c:371:6:serverReachable	1
+clk_4x4_rgb.c:389:6:getSensorDataFromServer	2

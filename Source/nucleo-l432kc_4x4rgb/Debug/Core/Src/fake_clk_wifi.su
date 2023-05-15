@@ -1,0 +1,3 @@
+../Core/Src/fake_clk_wifi.c:25:6:fakeWifi_init	8	static
+../Core/Src/fake_clk_wifi.c:31:15:fakeWifi_readCodePattern	16	static
+../Core/Src/fake_clk_wifi.c:38:6:fakeWifi_send	24	static

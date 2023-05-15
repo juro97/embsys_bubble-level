@@ -1,0 +1,3 @@
+fake_clk_wifi.c:25:6:fakeWifi_init	1
+fake_clk_wifi.c:31:15:fakeWifi_readCodePattern	1
+fake_clk_wifi.c:38:6:fakeWifi_send	2
