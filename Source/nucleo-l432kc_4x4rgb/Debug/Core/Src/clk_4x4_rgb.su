@@ -1,3 +1,3 @@
-../Core/Src/clk_4x4_rgb.c:291:6:printDataOnMatrix	8	static
-../Core/Src/clk_4x4_rgb.c:371:6:serverReachable	8	static
-../Core/Src/clk_4x4_rgb.c:389:6:getSensorDataFromServer	8	static
+../Core/Src/clk_4x4_rgb.c:308:6:printDataOnMatrix	8	static
+../Core/Src/clk_4x4_rgb.c:388:6:serverReachable	8	static
+../Core/Src/clk_4x4_rgb.c:406:6:getSensorDataFromServer	8	static

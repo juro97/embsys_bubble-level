@@ -18,8 +18,8 @@
 
 /* Duty Cycle wurde geschätzt, da unklar in DB */
 #define NONE 	0
-#define ONE 	60
-#define ZERO	40
+#define ONE 	33
+#define ZERO	66
 
 extern TIM_HandleTypeDef htim1;
 
@@ -50,7 +50,11 @@ typedef struct  __attribute__((__packed__)) {
 
 
 /* 0x000000 */
-const rgb_led off = { 0 };
+const rgb_led off = {
+	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
+	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
+	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
+};
 
 const rgb_led all_on = {
 	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
@@ -60,15 +64,15 @@ const rgb_led all_on = {
 
 /* 0xFF0000 */
 const rgb_led red = {
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
+	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
 /* 0x00FF00 */
 const rgb_led green = {
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
@@ -88,23 +92,24 @@ const rgb_led yellow = {
 
 /* 0xFFA500 => b */
 const rgb_led orange = {
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
+	{ONE, ZERO, ONE, ZERO, ZERO, ONE, ZERO, ONE},
 	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
+
 };
 
 /* 0x646464 => b */
 const rgb_led light_white = {
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ONE, ONE, ZERO, ZERO, ONE, ZERO, ZERO},
+	{ZERO, ONE, ONE, ZERO, ZERO, ONE, ZERO, ZERO},
+	{ZERO, ONE, ONE, ZERO, ZERO, ONE, ZERO, ZERO},
 };
 
 /* 0xFFFFFF*/
 const rgb_led strong_white = {
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ONE, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
+	{ONE, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
+	{ONE, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
 };
 
 
@@ -114,8 +119,14 @@ const rgb_led strong_white = {
 rgb_pattern *ptr_Rgb4x4Click = NULL;
 
 
-// Pattern für RGB Modul aus
-rgb_pattern rgb4x4click_off = { 0 };
+/******* for testing */
+
+// Pattern für Wasserwaage in Mittelpunkt
+rgb_pattern rgb4x4click_all_off = {{
+		off, off, off, off,
+		off, off, off, off,
+		off, off, off, off,
+}};
 
 // Pattern für Wasserwaage in Mittelpunkt
 rgb_pattern rgb4x4click_all_on = {{
@@ -123,6 +134,12 @@ rgb_pattern rgb4x4click_all_on = {{
 		all_on, all_on, all_on, all_on,
 		all_on, all_on, all_on, all_on,
 }};
+
+
+
+
+
+/* ************************** */
 
 // Pattern für Wasserwaage in Mittelpunkt
 rgb_pattern rgb4x4click_centered = {{
@@ -353,7 +370,7 @@ void printDataOnMatrix()
 			ptr_Rgb4x4Click = &rgb4x4click_strongShift_r1c1;
 			break;
 		default:
-			ptr_Rgb4x4Click = &rgb4x4click_all_on;
+			ptr_Rgb4x4Click = &rgb4x4click_shakeDetection;
 			break;
 			/* You should not be here, might code error handling later */
 	}
