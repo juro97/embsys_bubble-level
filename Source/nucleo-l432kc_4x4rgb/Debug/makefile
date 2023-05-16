@@ -38,34 +38,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := 4x4-test
+BUILD_ARTIFACT_NAME := nucleo-l432kc_4x4rgb
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-4x4-test.elf \
+nucleo-l432kc_4x4rgb.elf \
 
 MAP_FILES += \
-4x4-test.map \
+nucleo-l432kc_4x4rgb.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-4x4-test.list \
+nucleo-l432kc_4x4rgb.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: 4x4-test.elf secondary-outputs
+main-build: nucleo-l432kc_4x4rgb.elf secondary-outputs
 
 # Tool invocations
-4x4-test.elf 4x4-test.map: $(OBJS) $(USER_OBJS) /home/juro/dev/stm32/4x4-test/STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "4x4-test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/juro/dev/stm32/4x4-test/STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="4x4-test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+nucleo-l432kc_4x4rgb.elf nucleo-l432kc_4x4rgb.map: $(OBJS) $(USER_OBJS) /home/juro/Schreibtisch/dev/embsys_bubble-level/Source/nucleo-l432kc_4x4rgb/STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "nucleo-l432kc_4x4rgb.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/juro/Schreibtisch/dev/embsys_bubble-level/Source/nucleo-l432kc_4x4rgb/STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_4x4rgb.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -74,14 +74,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-4x4-test.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "4x4-test.list"
+nucleo-l432kc_4x4rgb.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "nucleo-l432kc_4x4rgb.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) 4x4-test.elf 4x4-test.list 4x4-test.map default.size.stdout
+	-$(RM) default.size.stdout nucleo-l432kc_4x4rgb.elf nucleo-l432kc_4x4rgb.list nucleo-l432kc_4x4rgb.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

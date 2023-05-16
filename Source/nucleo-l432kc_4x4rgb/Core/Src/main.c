@@ -22,7 +22,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tasks.h"
 #include "clk_4x4_rgb.h"
 
 /* USER CODE END Includes */

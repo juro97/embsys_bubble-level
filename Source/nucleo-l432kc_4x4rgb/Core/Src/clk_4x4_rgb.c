@@ -14,7 +14,7 @@
 #include "fake_clk_wifi.h"
 
 /* 16 LED * 24byte color values */
-#define PWM_STREAM_LENGTH	(3072/4)
+#define PWM_STREAM_LENGTH	384
 
 /* Duty Cycle wurde geschätzt, da unklar in DB */
 #define NONE 	0
@@ -39,8 +39,8 @@ extern TIM_HandleTypeDef htim1;
 
 
 typedef struct __attribute__((__packed__)) {
-	uint8_t red[8];  	/*8 bits of the color represented by logic one (60) and by logic zero (40) */
-	uint8_t green[8];
+	uint8_t green[8];  	/*8 bits of the color represented by logic one (60) and by logic zero (40) */
+	uint8_t red[8];
 	uint8_t blue[8];
 } rgb_led;
 
