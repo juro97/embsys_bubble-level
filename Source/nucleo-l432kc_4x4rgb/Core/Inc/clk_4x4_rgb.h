@@ -14,7 +14,7 @@
 #include "main.h"
 
 bool getSensorDataFromServer();
-void printDataOnMatrix();
+void printDataOnMatrix(char *ch);
 
 
 #endif /* INC_CLK_4X4_RGB_H_ */

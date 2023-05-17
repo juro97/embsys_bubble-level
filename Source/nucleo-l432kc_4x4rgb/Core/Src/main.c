@@ -52,28 +52,21 @@ osThreadId_t ConServerTaskHandle;
 const osThreadAttr_t ConServerTask_attributes = {
   .name = "ConServerTask",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityHigh,
 };
-/* Definitions for checkRGBTask */
-osThreadId_t checkRGBTaskHandle;
-const osThreadAttr_t checkRGBTask_attributes = {
-  .name = "checkRGBTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+/* Definitions for newDataTimer */
+osTimerId_t newDataTimerHandle;
+const osTimerAttr_t newDataTimer_attributes = {
+  .name = "newDataTimer"
 };
-/* Definitions for getValuesTask */
-osThreadId_t getValuesTaskHandle;
-const osThreadAttr_t getValuesTask_attributes = {
-  .name = "getValuesTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for mutex_printPermission */
-osMutexId_t mutex_printPermissionHandle;
-const osMutexAttr_t mutex_printPermission_attributes = {
-  .name = "mutex_printPermission"
+/* Definitions for sem_printPermission */
+osSemaphoreId_t sem_printPermissionHandle;
+const osSemaphoreAttr_t sem_printPermission_attributes = {
+  .name = "sem_printPermission"
 };
 /* USER CODE BEGIN PV */
+
+bool g_getNewData = false;
 
 /* USER CODE END PV */
 
@@ -84,8 +77,7 @@ static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
 void StartConServerTask(void *argument);
-void StartCheckRGBTask(void *argument);
-void StartGetValuesTask(void *argument);
+void newDataTimerCallback(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -133,17 +125,22 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
-  /* Create the mutex(es) */
-  /* creation of mutex_printPermission */
-  mutex_printPermissionHandle = osMutexNew(&mutex_printPermission_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
 
+  /* Create the semaphores(s) */
+  /* creation of sem_printPermission */
+  sem_printPermissionHandle = osSemaphoreNew(1, 1, &sem_printPermission_attributes);
+
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* creation of newDataTimer */
+  newDataTimerHandle = osTimerNew(newDataTimerCallback, osTimerPeriodic, NULL, &newDataTimer_attributes);
 
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
@@ -156,12 +153,6 @@ int main(void)
   /* Create the thread(s) */
   /* creation of ConServerTask */
   ConServerTaskHandle = osThreadNew(StartConServerTask, NULL, &ConServerTask_attributes);
-
-  /* creation of checkRGBTask */
-  checkRGBTaskHandle = osThreadNew(StartCheckRGBTask, NULL, &checkRGBTask_attributes);
-
-  /* creation of getValuesTask */
-  getValuesTaskHandle = osThreadNew(StartGetValuesTask, NULL, &getValuesTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -398,9 +389,13 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim) {
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+{
+	// Stop DMA
 	HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+
 	// Give Back Semaphore
+	osSemaphoreRelease(sem_printPermissionHandle);
 }
 
 /* USER CODE END 4 */
@@ -415,52 +410,26 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim) {
 void StartConServerTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+	char ch[] = {'1', '4', 'F'};
+	int i = 0;
   /* Infinite loop */
   for(;;)
   {
-    osDelay(3000);
+
+	  printDataOnMatrix(&ch[i%3]);
+	  ++i;
+
+    osDelay(1000);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_StartCheckRGBTask */
-/**
-* @brief Function implementing the checkRGBTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartCheckRGBTask */
-void StartCheckRGBTask(void *argument)
+/* newDataTimerCallback function */
+void newDataTimerCallback(void *argument)
 {
-  /* USER CODE BEGIN StartCheckRGBTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(3000);
-  }
-  /* USER CODE END StartCheckRGBTask */
-}
-
-/* USER CODE BEGIN Header_StartGetValuesTask */
-/**
-* @brief Function implementing the getValuesTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartGetValuesTask */
-void StartGetValuesTask(void *argument)
-{
-  /* USER CODE BEGIN StartGetValuesTask */
-	printDataOnMatrix();
-  /* Infinite loop */
-  for(;;)
-  {
-	printDataOnMatrix();
-	//printDataOnMatrix();
-	  //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
-    osDelay(3000);
-  }
-  /* USER CODE END StartGetValuesTask */
+  /* USER CODE BEGIN newDataTimerCallback */
+	g_getNewData = true;
+  /* USER CODE END newDataTimerCallback */
 }
 
 /**

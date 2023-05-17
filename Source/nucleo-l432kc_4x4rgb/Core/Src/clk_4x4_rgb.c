@@ -2,42 +2,77 @@
  *  Taktfrequenz: 80MHz
  *  Uebertragungsdauer 1 Bit: 1.25uS
  * 	Frequenz PWM: 1/1.25uS = 800kHz
- * 	Counter Periode: 800kHz/800kHz=100
+ * 	Auto Reload Register: 800kHz/800kHz=100
+ * 	Capture Compare Register: 33/66
  */
+
+/* Codes
+ * ==================
+ * a = middle
+ * b = out of scope
+ * c = shake detected
+ * d = light shift lo
+ * e = light shift lu
+ * f = light shift ro
+ * g = light shift ru
+ * h = strong shift r1c1
+ * i = strong shift r1c2
+ * j = strong shift r1c3
+ * k = strong shift r1c4
+ * l = strong shift r2c1
+ * m = strong shift r2c4
+ * n = strong shift r3c1
+ * o = strong shift r3c4
+ * p = strong shift r4c1
+ * q = strong shift r4c2
+ * r = strong shift r4c3
+ * s = strong shift r4c4
+ * z = off
+ */
+
+/*************************************
+ *********** INCLUDES ****************
+ *************************************/
 
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
 #include "main.h"
+#include "cmsis_os.h"
+
 #include "clk_4x4_rgb.h"
 #include "fake_clk_wifi.h"
 
-/* 16 LED * 24byte color values */
-#define PWM_STREAM_LENGTH	384
+
+/*************************************
+ *********** DEFINES *****************
+ *************************************/
+
+/* 1/4/16 LED * 24 Bit color values */
+#define PWM_STREAM_LENGTH_1_LED 			24
+#define PWM_STREAM_LENGTH_1_ROW			 	96
+#define PWM_STREAM_LENGTH_FULL_DISPLAY		384
 
 /* Duty Cycle wurde geschätzt, da unklar in DB */
 #define NONE 	0
 #define ONE 	33
 #define ZERO	66
 
+
+/****************************************************
+ *********** Variables, Typedefs, .. ****************
+ ****************************************************/
+
+/* those are declared in the main.c file */
 extern TIM_HandleTypeDef htim1;
+extern osSemaphoreId_t sem_printPermissionHandle;
 
-/* Durch die Vordefinierten Farben und RGB Patterns spart man sich CPU Zeit während der Laufzeit, da
- * diese nicht mehr berechnet werden müssen. Dies geht jedoch auf Kosten der Speichereffizienz, welche
- * aber in diesem Fall nicht von Relevanz ist
- *
- * 1 Farbe ==> 3 * 8 Byte = 24 Byte
- * 8 Farben insgesamt verfügbar ==> **** 192 Byte ****
- *
- * 1 Pattern ==> 16 * 1LED (24 Byte) ==> 384 Byte
- * 20 Pattern ==> 20 * 384 Byte ==> **** 7800 Byte ****
- *
- * Durch die vorherige Definierung der Patterns werden 7792 Bytes an Speicher verbraucht
- *
- */
+//GyroValues: Datentyp noch anpassen;; Daten können per DMA geändert werden, daher volatile
+volatile char patternCode = 'z';
 
 
+/* datatypes for the colors and patterns */
 typedef struct __attribute__((__packed__)) {
 	uint8_t green[8];  	/*8 bits of the color represented by logic one (60) and by logic zero (40) */
 	uint8_t red[8];
@@ -49,6 +84,7 @@ typedef struct  __attribute__((__packed__)) {
 } rgb_pattern;
 
 
+/* predefined colors */
 /* 0x000000 */
 const rgb_led off = {
 	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
@@ -56,6 +92,7 @@ const rgb_led off = {
 	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
 };
 
+/* 0xFFFFFF */
 const rgb_led all_on = {
 	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
@@ -114,34 +151,20 @@ const rgb_led strong_white = {
 
 
 
+/* predefined patterns */
 
-/* Pointer to RGB Pattern */
-rgb_pattern *ptr_Rgb4x4Click = NULL;
-
-
-/******* for testing */
-
-// Pattern für Wasserwaage in Mittelpunkt
 rgb_pattern rgb4x4click_all_off = {{
 		off, off, off, off,
 		off, off, off, off,
 		off, off, off, off,
 }};
 
-// Pattern für Wasserwaage in Mittelpunkt
 rgb_pattern rgb4x4click_all_on = {{
 		all_on, all_on, all_on, all_on,
 		all_on, all_on, all_on, all_on,
 		all_on, all_on, all_on, all_on,
 }};
 
-
-
-
-
-/* ************************** */
-
-// Pattern für Wasserwaage in Mittelpunkt
 rgb_pattern rgb4x4click_centered = {{
 	light_white, light_white, 	light_white, 	light_white,
 	light_white, green, 		green, 			light_white,
@@ -163,7 +186,6 @@ rgb_pattern rgb4x4click_shakeDetection = {{
 	blue, 	off, 	off, 	blue
 }};
 
-/* Pattern für Wasserwaage leicht schief */
 rgb_pattern rgb4x4click_lightShift_lu = {{
 	yellow, yellow, yellow, off,
 	yellow, green, 	yellow, off,
@@ -192,7 +214,6 @@ rgb_pattern rgb4x4click_lightShift_ro = {{
 	off, yellow, yellow, yellow,
 }};
 
-/* Pattern für Wasserwaage stark schief */
 rgb_pattern rgb4x4click_strongShift_r1c1 = {{
 	red,yellow,off,off,
 	yellow,yellow,off,off,
@@ -277,37 +298,27 @@ rgb_pattern rgb4x4click_strongShift_r4c4 = {{
 	off, 	off,	yellow, 	red
 }};
 
-//GyroValues: Datentyp noch anpassen;; Daten können per DMA geändert werden, daher volatile
-volatile unsigned char patternCode = 'z';
+/* For testing purpose only */
+rgb_pattern rgb4x4click_onlyOneLed = {{ red }};
+rgb_pattern rgb4x4click_twoLed = {{ red, green }};
+rgb_pattern rgb4x4click_oneRow = {{ red, green, blue, strong_white }};
 
 
-/* Codes
- * ==================
- * a = middle
- * b = out of scope
- * c = shake detected
- * d = light shift lo
- * e = light shift lu
- * f = light shift ro
- * g = light shift ru
- * h = strong shift r1c1
- * i = strong shift r1c2
- * j = strong shift r1c3
- * k = strong shift r1c4
- * l = strong shift r2c1
- * m = strong shift r2c4
- * n = strong shift r3c1
- * o = strong shift r3c4
- * p = strong shift r4c1
- * q = strong shift r4c2
- * r = strong shift r4c3
- * s = strong shift r4c4
- * z = off
+/* pointer to a rgb_pattern for switching */
+rgb_pattern *ptr_Rgb4x4Click = NULL;
+
+
+
+/*************************************
+ ***** METHOD Implementations*********
+ *************************************/
+
+/**
+ * takes a pointer to a character as argument and prints the pattern
  */
-
-void printDataOnMatrix()
+void printDataOnMatrix(char *ch)
 {
-	switch('M')
+	switch(*ch)
 	{
 		case 'a':
 			ptr_Rgb4x4Click = &rgb4x4click_centered;
@@ -369,18 +380,31 @@ void printDataOnMatrix()
 		case 'z':
 			ptr_Rgb4x4Click = &rgb4x4click_strongShift_r1c1;
 			break;
+		case '1':
+			ptr_Rgb4x4Click = &rgb4x4click_onlyOneLed;
+			break;
+		case '4':
+			ptr_Rgb4x4Click = &rgb4x4click_oneRow;
+			break;
+		case 'F':
+			ptr_Rgb4x4Click = &rgb4x4click_all_on;
+			break;
 		default:
+			/* You should not be here, might code error handling later */
 			ptr_Rgb4x4Click = &rgb4x4click_shakeDetection;
 			break;
-			/* You should not be here, might code error handling later */
+
 	}
 
-	// not necessary
-	// Get Semaphore
-	// Enter Critical Section
-	HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *) ptr_Rgb4x4Click, PWM_STREAM_LENGTH);
-	// Exit Critical Section
-	// Return Semaphore happens in the Transmission Complete Callback
+
+	osSemaphoreAcquire(sem_printPermissionHandle, osWaitForever);
+
+	/* actually not really necessary and quite useless, just to be 101% sure*/
+	taskENTER_CRITICAL();
+
+	HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *) ptr_Rgb4x4Click, PWM_STREAM_LENGTH_FULL_DISPLAY);
+
+	taskEXIT_CRITICAL();
 
 }
 
@@ -407,12 +431,12 @@ bool getSensorDataFromServer()
 {
 	if( serverReachable() == true )
 	{
-		printDataOnMatrix(fakeWifi_readCodePattern());
+		//printDataOnMatrix();
 
 		return true;
 	}
 
-	printDataOnMatrix('z');
+	//printDataOnMatrix('z');
 
 	return false;
 }
