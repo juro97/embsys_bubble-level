@@ -45,7 +45,7 @@ I2C_HandleTypeDef hi2c1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+bool g_newDataAvailable = false;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -267,23 +267,23 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(RGB_LED_GREEN_GPIO_Port, RGB_LED_GREEN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, MOTION_CLICK_WAKE_Pin|RGB_LED_GREEN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : MOTION_CLICK_WAKE_Pin RGB_LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = MOTION_CLICK_WAKE_Pin|RGB_LED_GREEN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : MOTION_CLICK_INTERRUPT_Pin */
   GPIO_InitStruct.Pin = MOTION_CLICK_INTERRUPT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(MOTION_CLICK_INTERRUPT_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : RGB_LED_GREEN_Pin */
-  GPIO_InitStruct.Pin = RGB_LED_GREEN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(RGB_LED_GREEN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LD3_Pin */
   GPIO_InitStruct.Pin = LD3_Pin;
@@ -297,6 +297,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+/* ISR is executed when the 3d motion module send data available through PA3
+ * In the ISR a bit is set, that data is available */
+void HAL_GPIO_EXTI_Callback()
+{
+	g_newDataAvailable = true;
+}
 
 /* USER CODE END 4 */
 

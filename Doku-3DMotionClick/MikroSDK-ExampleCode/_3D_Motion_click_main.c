@@ -1,34 +1,17 @@
 /*
  * Project name:
       3D Motion click (Using MM7150 motion module)
- * Copyright:
-     (c) Mikroelektronika, 2015.
- * Revision History:
-        20150731:
-       - initial release (FJ);
  * Description:
      This is a sample program which demonstrates the usage of the Microchip's MM7150 motion module. 
      This module contains the SSC7150 motion coprocessor with integrated 9-axis sensor fusion 
      as well as high performance MEMS technology including a 3-axis accelerometer, gyroscope and magnetometer.
      Example displays data acquired from the sensors on TFT display.
  * Test configuration:
-     MCU:             P32MX795F512L
-                      http://ww1.microchip.com/downloads/en/DeviceDoc/61156F.pdf
-     Dev.Board:       EasyPIC Fusion v7
-                      http://www.mikroe.com/easypic-fusion/
      Oscillator:      XT-PLL, 80.000MHz
-     Ext. Modules:    3D Motion click Board - ac:_3D_Motion_click
-                      http://www.mikroe.com/click/dac/
-     SW:              mikroC PRO for PIC32
-                      http://www.mikroe.com/mikroc/pic32/
- * NOTES:
-     - Place 3D Motion click board at the mikroBUS socket 1.
-     - Place EasyTFT and turn on backlight at SW11.
-     - Turn on touch panel switches at SW11.
+
  */
 
-#include "_3D_Motion_click_objects.h"
-#include "_3D_Motion_click_resources.h"
+
 #include "3D Motion Click Driver\app.h"
 
 // 3D motion click module connections
@@ -78,8 +61,6 @@ void main() {
 
   result = VREG_init();                // Initialize VREG registers
   
-  Start_TP();                          // Start touch panel module
-
   // State machine selectec sensor
   while (1) {
     Check_TP();
