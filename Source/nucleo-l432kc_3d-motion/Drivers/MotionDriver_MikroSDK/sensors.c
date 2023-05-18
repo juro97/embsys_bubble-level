@@ -1,4 +1,3 @@
-#include "_3D_Motion_click_objects.h"
 #include "app.h"
 
 static double prev_dat[4] = {0};                                  // Used to hold previous data readings to preclude redundant data output
@@ -54,22 +53,11 @@ void _accel() {
       prev_dat[1] = dDataY;
       prev_dat[2] = dDataZ;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
-
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-
-    Label21.Caption = _x;
-    Label22.Caption = _y;
-    Label23.Caption = _z;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 170);
-
-    DrawLabel(&Label21);
-    DrawLabel(&Label22);
-    DrawLabel(&Label23);
+*/
 
     if (flag)
     {
@@ -135,21 +123,11 @@ void _gyro() {
       prev_dat[2] = dDataZ;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-
-    Label35.Caption = _x;
-    Label36.Caption = _y;
-    Label37.Caption = _z;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 170);
-
-    DrawLabel(&Label35);
-    DrawLabel(&Label36);
-    DrawLabel(&Label37);
+*/
 
     if (flag)
     {
@@ -200,18 +178,10 @@ void _compass() {
     if (prev_dat[0] != dDataX)                      // Ensure that this data has not yet been displayed on LCD
     {
       prev_dat[0] = dDataX;                       // Store the current data value for later reference
-      sprintf(_x, "%4.3f", dDataX);
+      //sprintf(_x, "%4.3f", dDataX);
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-    sprintf(_x, "%4.3f", dDataX);
-
-    Label28.Caption = _x;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 170);
-
-    DrawLabel(&Label28);
+    //sprintf(_x, "%4.3f", dDataX);
 
     if (flag)
     {
@@ -281,25 +251,12 @@ void _orient() {
       prev_dat[2] = dDataZ;
       prev_dat[3] = dDataW;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
-
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
     sprintf(_w, "%4.3f", dDataW);
-
-    Label49.Caption = _x;
-    Label50.Caption = _y;
-    Label51.Caption = _z;
-    Label27.Caption = _w;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 200);
-
-    DrawLabel(&Label49);
-    DrawLabel(&Label50);
-    DrawLabel(&Label51);
-    DrawLabel(&Label27);
+*/
     
     if (flag)
     {
@@ -364,22 +321,11 @@ void _inclin() {
       prev_dat[2] = dDataZ;
     }     //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-
-    Label42.Caption = _x;
-    Label43.Caption = _y;
-    Label44.Caption = _z;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 200);
-
-    DrawLabel(&Label42);
-    DrawLabel(&Label43);
-    DrawLabel(&Label44);
+*/
 
     if (flag)
     {
@@ -454,21 +400,11 @@ void _rawAccel() {
       prev_dat[2] = dDataZ;
     }    //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-
-    X_Axis_Data.Caption = _x;
-    Y_Axis_Data.Caption = _y;
-    Z_Axis_Data.Caption = _z;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 170);
-
-    DrawLabel(&X_Axis_Data);
-    DrawLabel(&Y_Axis_Data);
-    DrawLabel(&Z_Axis_Data);
+*/
 
     if (flag)
     {
@@ -539,21 +475,11 @@ void _rawMagnet() {
       prev_dat[2] = dDataZ;
     }    //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-
-    Label14.Caption = _x;
-    Label15.Caption = _y;
-    Label16.Caption = _z;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 280, 170);
-
-    DrawLabel(&Label14);
-    DrawLabel(&Label15);
-    DrawLabel(&Label16);
+*/
 
     if (flag)
     {
@@ -625,21 +551,11 @@ void _rawGyro() {
       prev_dat[2] = dDataZ;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
+/*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-
-    Label7.Caption = _x;
-    Label8.Caption = _y;
-    Label9.Caption = _z;
-
-    TFT_Set_Pen(CL_WHITE, 1);
-    TFT_Set_Brush(1, CL_WHITE, 0, LEFT_TO_RIGHT, CL_BLACK, CL_WHITE);
-    TFT_Rectangle(145, 98, 240, 170);
-
-    DrawLabel(&Label7);
-    DrawLabel(&Label8);
-    DrawLabel(&Label9);
+*/
 
     if (flag)
     {

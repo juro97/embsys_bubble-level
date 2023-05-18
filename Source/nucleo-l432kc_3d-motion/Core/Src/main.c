@@ -60,6 +60,19 @@ static void MX_I2C1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+// 3D motion click module connections - have to be set in cubemx?
+sbit WKUP at LATB8_bit;
+sbit RST at LATC1_bit;
+sbit INT_PIN at RE8_bit;
+
+sbit WKUP_DIR at TRISB8_bit;
+sbit RST_DIR at TRISC1_bit;
+sbit INT_PIN_DIR at TRISE8_bit;
+// 3D motion click module connections
+
+uint8_t state = 0;
+uint8_t result;
+
 /* USER CODE END 0 */
 
 /**

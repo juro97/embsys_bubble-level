@@ -1,5 +1,5 @@
 /*****************************************************************************
-* © 2014 Microchip Technology Inc. and its subsidiaries.
+* ï¿½ 2014 Microchip Technology Inc. and its subsidiaries.
 * You may use this software and any derivatives exclusively with
 * Microchip products.
 * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".
@@ -67,9 +67,9 @@ typedef unsigned long UINT32;
 #define FALSE 0
 
 //  Peripheral Include Files
-#include "System.h"
+#include "system.h"
 #include "interrupts.h"
-#include "VREGS.h"
+#include "vregs.h"
 #include "i2cIO.h"
 #include "sf.h"
 #include "flashupdate.h"
