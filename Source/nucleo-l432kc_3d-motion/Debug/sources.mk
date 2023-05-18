@@ -24,5 +24,8 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
+Drivers/MotionDriver_MikroSDK/Inc \
+Drivers/MotionDriver_Mikrochip/Microchip_Initializer_Files \
+Drivers/MotionDriver_Mikrochip \
 Drivers/STM32L4xx_HAL_Driver/Src \
 
