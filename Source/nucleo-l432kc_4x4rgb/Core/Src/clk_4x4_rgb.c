@@ -387,6 +387,9 @@ void printDataOnMatrix(char *ch)
 			ptr_Rgb4x4Click = &rgb4x4click_oneRow;
 			break;
 		case 'F':
+			ptr_Rgb4x4Click = &rgb4x4click_all_off;
+			break;
+		case 'N':
 			ptr_Rgb4x4Click = &rgb4x4click_all_on;
 			break;
 		default:

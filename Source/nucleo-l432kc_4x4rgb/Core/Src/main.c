@@ -410,13 +410,13 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 void StartConServerTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	char ch[] = {'1', '4', 'F'};
+	char ch[] = {'1', '4', 'F', 'N'};
 	int i = 0;
   /* Infinite loop */
   for(;;)
   {
 
-	  printDataOnMatrix(&ch[i%3]);
+	  printDataOnMatrix(&ch[i%4]);
 	  ++i;
 
     osDelay(1000);
