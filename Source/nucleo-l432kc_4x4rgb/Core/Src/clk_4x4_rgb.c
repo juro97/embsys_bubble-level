@@ -56,8 +56,8 @@
 
 /* Duty Cycle wurde geschätzt, da unklar in DB */
 #define NONE 	0
-#define ONE 	33
-#define ZERO	66
+#define ONE 	57
+#define ZERO	31
 
 
 /****************************************************
@@ -94,21 +94,21 @@ const rgb_led off = {
 
 /* 0xFFFFFF */
 const rgb_led all_on = {
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 };
 
 /* 0xFF0000 */
 const rgb_led red = {
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ZERO, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
 /* 0x00FF00 */
 const rgb_led green = {
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
@@ -117,181 +117,181 @@ const rgb_led green = {
 const rgb_led blue = {
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ZERO, ONE, ONE},
 };
 
 /* 0xFFFF00 */
 const rgb_led yellow = {
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
 /* 0xFFA500 => b */
 const rgb_led orange = {
-	{ONE, ZERO, ONE, ZERO, ZERO, ONE, ZERO, ONE},
-	{ONE, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ONE, ZERO, ZERO, ONE, ZERO, ONE},
+	{ZERO, ZERO, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 
 };
 
 /* 0x646464 => b */
 const rgb_led light_white = {
-	{ZERO, ONE, ONE, ZERO, ZERO, ONE, ZERO, ZERO},
-	{ZERO, ONE, ONE, ZERO, ZERO, ONE, ZERO, ZERO},
-	{ZERO, ONE, ONE, ZERO, ZERO, ONE, ZERO, ZERO},
+	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
+	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
+	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
 };
 
 /* 0xFFFFFF*/
 const rgb_led strong_white = {
-	{ONE, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
-	{ONE, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
-	{ONE, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
 };
 
 
 
 /* predefined patterns */
 
-rgb_pattern rgb4x4click_all_off = {{
+const rgb_pattern rgb4x4click_all_off = {{
 		off, off, off, off,
 		off, off, off, off,
 		off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_all_on = {{
+const rgb_pattern rgb4x4click_all_on = {{
 		all_on, all_on, all_on, all_on,
 		all_on, all_on, all_on, all_on,
 		all_on, all_on, all_on, all_on,
 }};
 
-rgb_pattern rgb4x4click_centered = {{
+const rgb_pattern rgb4x4click_centered = {{
 	light_white, light_white, 	light_white, 	light_white,
 	light_white, green, 		green, 			light_white,
 	light_white, green, 		green, 			light_white,
 	light_white, light_white, 	light_white,	light_white
 }};
 
-rgb_pattern rgb4x4click_outOfScope = {{
+const rgb_pattern rgb4x4click_outOfScope = {{
 	red, red, red, red,
 	red, light_white, light_white, red,
 	red, light_white, light_white, red,
 	red, red, red, red,
 }};
 
-rgb_pattern rgb4x4click_shakeDetection = {{
+const rgb_pattern rgb4x4click_shakeDetection = {{
 	blue,	off, 	off, 	blue,
 	off, 	blue, 	blue, 	off,
 	off, 	blue, 	blue, 	off,
 	blue, 	off, 	off, 	blue
 }};
 
-rgb_pattern rgb4x4click_lightShift_lu = {{
+const rgb_pattern rgb4x4click_lightShift_lu = {{
 	yellow, yellow, yellow, off,
 	yellow, green, 	yellow, off,
 	yellow, yellow, yellow, off,
 	off, 	off, 	off, 	off,
 }};
 
-rgb_pattern rgb4x4click_lightShift_lo = {{
+const rgb_pattern rgb4x4click_lightShift_lo = {{
 	off, off, off, off,
 	yellow, yellow, yellow, off,
 	yellow, green, yellow, off,
 	yellow, yellow, yellow,off
 }};
 
-rgb_pattern rgb4x4click_lightShift_ru = {{
+const rgb_pattern rgb4x4click_lightShift_ru = {{
 	off, yellow, yellow, yellow,
 	off, yellow, green, yellow,
 	off, yellow, yellow, yellow,
 	off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_lightShift_ro = {{
+const rgb_pattern rgb4x4click_lightShift_ro = {{
 	off, off, off, off,
 	off, yellow, yellow, yellow,
 	off, yellow, green, yellow,
 	off, yellow, yellow, yellow,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r1c1 = {{
+const rgb_pattern rgb4x4click_strongShift_r1c1 = {{
 	red,yellow,off,off,
 	yellow,yellow,off,off,
 	off, off, off, off,
 	off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r1c2 = {{
+const rgb_pattern rgb4x4click_strongShift_r1c2 = {{
 	yellow, red, yellow, off,
 	yellow,yellow,yellow,off,
 	off, off, off, off,
 	off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r1c3 = {{
+const rgb_pattern rgb4x4click_strongShift_r1c3 = {{
 	off,yellow,red,yellow,
 	off,yellow,yellow,yellow,
 	off, off, off, off,
 	off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r1c4 = {{
+const rgb_pattern rgb4x4click_strongShift_r1c4 = {{
 	off, off, yellow,red,
 	off, off,yellow,yellow,
 	off, off, off, off,
 	off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r2c1 = {{
+const rgb_pattern rgb4x4click_strongShift_r2c1 = {{
 	yellow,yellow,off,off,
 	red,yellow,off,off,
 	yellow,yellow,off,off,
 	off, off, off, off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r2c4 = {{
+const rgb_pattern rgb4x4click_strongShift_r2c4 = {{
 	off, 	off, 	yellow, 	yellow,
 	off,	off, 	yellow, 	red,
 	off, 	off, 	yellow, 	yellow,
 	off, 	off, 	off, 		off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r3c1 = {{
+const rgb_pattern rgb4x4click_strongShift_r3c1 = {{
 	off,	off, 	off, off,
 	yellow, yellow, off, off,
 	red, 	yellow, off, off,
 	yellow, yellow, off, off
 }};
 
-rgb_pattern rgb4x4click_strongShift_r3c4 = {{
+const rgb_pattern rgb4x4click_strongShift_r3c4 = {{
 	off,	off,	off,	off,
 	off,	off, 	yellow,	yellow,
 	off,	off,	yellow, red,
 	off,	off,	yellow, yellow,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r4c1 = {{
+const rgb_pattern rgb4x4click_strongShift_r4c1 = {{
 	off,	off, 	off, off,
 	off, 	off, 	off, off,
 	yellow, yellow, off, off,
 	red, 	yellow, off, off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r4c2 = {{
+const rgb_pattern rgb4x4click_strongShift_r4c2 = {{
 	off, 	off, 	off, 		off,
 	off, 	off, 	off, 		off,
 	yellow, yellow, yellow, 	off,
 	yellow, red, 	yellow, 	off,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r4c3 = {{
+const rgb_pattern rgb4x4click_strongShift_r4c3 = {{
 	off,	off,	off,		off,
 	off,	off, 	off, 		off,
 	off,	yellow, yellow, 	yellow,
 	off,	yellow, red,  		yellow,
 }};
 
-rgb_pattern rgb4x4click_strongShift_r4c4 = {{
+const rgb_pattern rgb4x4click_strongShift_r4c4 = {{
 	off,	off, 	off,	 	off,
 	off,	off, 	off, 		off,
 	off,	off, 	yellow, 	yellow,
@@ -299,13 +299,19 @@ rgb_pattern rgb4x4click_strongShift_r4c4 = {{
 }};
 
 /* For testing purpose only */
-rgb_pattern rgb4x4click_onlyOneLed = {{ red }};
-rgb_pattern rgb4x4click_twoLed = {{ red, green }};
-rgb_pattern rgb4x4click_oneRow = {{ red, green, blue, strong_white }};
+const rgb_pattern rgb4x4click_onlyOneLed = {{
+		red, off, off, off,
+		red, off, off, off,
+		red, off, off, off,
+		red, off, off, off,
+}};
+
+const rgb_pattern rgb4x4click_twoLed = {{ red, green }};
+const rgb_pattern rgb4x4click_oneRow = {{ red, green, blue, strong_white }};
 
 
 /* pointer to a rgb_pattern for switching */
-rgb_pattern *ptr_Rgb4x4Click = NULL;
+rgb_pattern const *ptr_Rgb4x4Click = NULL;
 
 
 
@@ -316,7 +322,7 @@ rgb_pattern *ptr_Rgb4x4Click = NULL;
 /**
  * takes a pointer to a character as argument and prints the pattern
  */
-void printDataOnMatrix(char *ch)
+void printDataOnMatrix(char const *ch)
 {
 	switch(*ch)
 	{
@@ -381,12 +387,12 @@ void printDataOnMatrix(char *ch)
 			ptr_Rgb4x4Click = &rgb4x4click_strongShift_r1c1;
 			break;
 		case '1':
-			ptr_Rgb4x4Click = &rgb4x4click_onlyOneLed;
+			ptr_Rgb4x4Click = &rgb4x4click_all_off;
 			break;
 		case '4':
 			ptr_Rgb4x4Click = &rgb4x4click_oneRow;
 			break;
-		case 'F':
+		case 'R':
 			ptr_Rgb4x4Click = &rgb4x4click_all_off;
 			break;
 		case 'N':

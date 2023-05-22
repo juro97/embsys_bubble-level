@@ -278,7 +278,7 @@ static void MX_TIM1_Init(void)
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_ENABLE;
-  sConfigOC.OCIdleState = TIM_OCIDLESTATE_SET;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
   {
@@ -410,13 +410,20 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 void StartConServerTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	char ch[] = {'1', '4', 'F', 'N'};
+	char ch[] = {'a', 'b', 'c', 'R'};
 	int i = 0;
   /* Infinite loop */
+
+	/* send reset code */
+	printDataOnMatrix(&ch[1]);
+
+
   for(;;)
   {
 
-	  printDataOnMatrix(&ch[i%4]);
+	  /* send reset code */
+	  printDataOnMatrix(&ch[3]);
+	  printDataOnMatrix(&ch[i%3]);
 	  ++i;
 
     osDelay(1000);
