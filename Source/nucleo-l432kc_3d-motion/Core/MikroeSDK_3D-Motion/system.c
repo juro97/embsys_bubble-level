@@ -1,4 +1,4 @@
-#include "app.h"
+#include "../MikroeSDK_3D-Motion/app.h"
 extern atomic sfr sbit WKUP;
 
 /** Wake_signal
@@ -9,6 +9,6 @@ extern atomic sfr sbit WKUP;
 void Wake_signal()
 {
     WKUP = 0;                                             //assert wake signal
-    Delay_ms(2);                                          //spec says 3µs assertion, let's use ms delay and wait ~2 ms
+    Delay_ms(2);                                          //spec says 3ï¿½s assertion, let's use ms delay and wait ~2 ms
     WKUP = 1;                                             //de-assert wake signal
 }

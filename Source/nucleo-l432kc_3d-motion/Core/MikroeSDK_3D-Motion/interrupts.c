@@ -1,4 +1,4 @@
-#include "app.h"
+#include "../MikroeSDK_3D-Motion/app.h"
 
 extern volatile BOOL TIMER_1MS_FLG;
 extern volatile BOOL EC_DATA_AVAIL;                               // HIDI2_HOST_INT indicates EC data available

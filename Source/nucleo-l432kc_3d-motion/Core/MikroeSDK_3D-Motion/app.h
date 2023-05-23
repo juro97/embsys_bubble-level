@@ -67,14 +67,14 @@ typedef unsigned long UINT32;
 #define FALSE 0
 
 //  Peripheral Include Files
-#include "system.h"
-#include "interrupts.h"
-#include "vregs.h"
-#include "i2cIO.h"
-#include "sf.h"
-#include "flashupdate.h"
-#include "err.h"
-#include "sensors.h"
+#include "../MikroeSDK_3D-Motion/system.h"
+#include "../MikroeSDK_3D-Motion/interrupts.h"
+#include "../MikroeSDK_3D-Motion/vregs.h"
+#include "../MikroeSDK_3D-Motion/i2cIO.h"
+#include "../MikroeSDK_3D-Motion/sf.h"
+#include "../MikroeSDK_3D-Motion/flashupdate.h"
+#include "../MikroeSDK_3D-Motion/err.h"
+#include "../MikroeSDK_3D-Motion/sensors.h"
 
 //****************************************************************************
 //****************************************************************************

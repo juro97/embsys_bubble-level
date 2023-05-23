@@ -1,38 +1,48 @@
 /*
- *  Taktfrequenz: 80MHz
- *  Uebertragungsdauer 1 Bit: 1.25uS
- * 	Frequenz PWM: 1/1.25uS = 800kHz
- * 	Auto Reload Register: 800kHz/800kHz=100
- * 	Capture Compare Register: 33/66
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Clock Frequency: 80MHz
+ *  PWM Transmission Time for one 1 Bit: 1.25us
+ * 	PWM Frequency: 1/1.25us = 800kHz
+ * 	TIM1 Auto Reload Register: 800kHz/800kHz=100
+ * 	TIM1 Capture Compare Register: 57/31
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ * 	Received Data Codes
+ * 	==================
+ * 	a = middle
+ * 	b = out of scope
+ * 	c = shake detected
+ * 	d = light shift lo
+ * 	e = light shift lu
+ * 	f = light shift ro
+ * 	g = light shift ru
+ * 	h = strong shift r1c1
+ * 	i = strong shift r1c2
+ * 	j = strong shift r1c3
+ * 	k = strong shift r1c4
+ * 	l = strong shift r2c1
+ * 	m = strong shift r2c4
+ * 	n = strong shift r3c1
+ * 	o = strong shift r3c4
+ * 	p = strong shift r4c1
+ * 	q = strong shift r4c2
+ * 	r = strong shift r4c3
+ * 	s = strong shift r4c4
+ *
+ *	X = unknown error //TODO
+ * 	Y = waiting for pairing //TODO
+ * 	Z = reset, all led off //TODO
+ *
+ * 	"RED", "GREEN; "WHITE", etc.  =>  Identify LED to do an operation like setBrightness on
+ *
+ *
  */
 
-/* Codes
- * ==================
- * a = middle
- * b = out of scope
- * c = shake detected
- * d = light shift lo
- * e = light shift lu
- * f = light shift ro
- * g = light shift ru
- * h = strong shift r1c1
- * i = strong shift r1c2
- * j = strong shift r1c3
- * k = strong shift r1c4
- * l = strong shift r2c1
- * m = strong shift r2c4
- * n = strong shift r3c1
- * o = strong shift r3c4
- * p = strong shift r4c1
- * q = strong shift r4c2
- * r = strong shift r4c3
- * s = strong shift r4c4
- * z = off
- */
-
-/*************************************
- *********** INCLUDES ****************
- *************************************/
+/**************************************************************************
+ ******************************** INCLUDES ********************************
+ **************************************************************************/
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -45,282 +55,300 @@
 #include "fake_clk_wifi.h"
 
 
-/*************************************
- *********** DEFINES *****************
- *************************************/
+/**************************************************************************
+ ******************************** DEFINES *********************************
+ **************************************************************************/
 
-/* 1/4/16 LED * 24 Bit color values */
-#define PWM_STREAM_LENGTH_1_LED 			24
-#define PWM_STREAM_LENGTH_1_ROW			 	96
+/* Comment in for the data to be received via the Wifi Test Module */
+#define FAKE_WIFI
+
+
+/* 16 LED * 24 Bit color values */
 #define PWM_STREAM_LENGTH_FULL_DISPLAY		384
 
-/* Duty Cycle wurde geschätzt, da unklar in DB */
-#define NONE 	0
+/* CCR Register Values for PWM Duty Cycle */
 #define ONE 	57
 #define ZERO	31
 
 
-/****************************************************
- *********** Variables, Typedefs, .. ****************
- ****************************************************/
+/**************************************************************************
+ **************************** TYPEDEFS, VARS ******************************
+ **************************************************************************/
 
-/* those are declared in the main.c file */
+/* Those are declared in the main.c file */
 extern TIM_HandleTypeDef htim1;
 extern osSemaphoreId_t sem_printPermissionHandle;
 
-//GyroValues: Datentyp noch anpassen;; Daten können per DMA geändert werden, daher volatile
-volatile char patternCode = 'z';
 
-
-/* datatypes for the colors and patterns */
-typedef struct __attribute__((__packed__)) {
-	uint8_t green[8];  	/*8 bits of the color represented by logic one (60) and by logic zero (40) */
+/* Datatype for one LED */
+typedef struct __attribute__((__packed__))
+{
+	uint8_t green[8];
 	uint8_t red[8];
 	uint8_t blue[8];
 } rgb_led;
 
-typedef struct  __attribute__((__packed__)) {
+
+/* Datatype for full 4x4 Matrix */
+typedef struct  __attribute__((__packed__))
+{
 	rgb_led led[16];
 } rgb_pattern;
 
 
-/* predefined colors */
-/* 0x000000 */
-const rgb_led off = {
+
+/* Predefined Colors for one LED */
+const rgb_led off =
+{
 	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
 	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
 	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
 };
 
-/* 0xFFFFFF */
-const rgb_led all_on = {
+const rgb_led all_on =
+{
 	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
 };
 
-/* 0xFF0000 */
-const rgb_led red = {
+const rgb_led red =
+{
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ONE, ONE, ZERO, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
-/* 0x00FF00 */
-const rgb_led green = {
+const rgb_led green =
+{
 	{ZERO, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
-/* 0x0000FF */
-const rgb_led blue = {
+const rgb_led blue =
+{
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ONE, ONE, ZERO, ONE, ONE},
 };
 
-/* 0xFFFF00 */
-const rgb_led yellow = {
+
+const rgb_led yellow =
+{
 	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
-/* 0xFFA500 => b */
-const rgb_led orange = {
+const rgb_led orange =
+{
 	{ZERO, ZERO, ONE, ZERO, ZERO, ONE, ZERO, ONE},
 	{ZERO, ZERO, ONE, ONE, ONE, ONE, ONE, ONE},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 
 };
 
-/* 0x646464 => b */
-const rgb_led light_white = {
+const rgb_led white =
+{
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
 };
 
-/* 0xFFFFFF*/
-const rgb_led strong_white = {
-	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
-};
 
 
+/* Predefined Patterns for the Matrix */
 
-/* predefined patterns */
-
-const rgb_pattern rgb4x4click_all_off = {{
-		off, off, off, off,
-		off, off, off, off,
-		off, off, off, off,
+const rgb_pattern rgb4x4click_centered =
+{{
+	white, 	white, 	white, 	white,
+	white, 	green, 	green, 	white,
+	white, 	green, 	green, 	white,
+	white, 	white, 	white,	white
 }};
 
-const rgb_pattern rgb4x4click_all_on = {{
-		all_on, all_on, all_on, all_on,
-		all_on, all_on, all_on, all_on,
-		all_on, all_on, all_on, all_on,
+const rgb_pattern rgb4x4click_outOfScope =
+{{
+	red, 	red, 	red, 	red,
+	red, 	white,	white,	red,
+	red, 	white,	white,	red,
+	red, 	red, 	red, 	red,
 }};
 
-const rgb_pattern rgb4x4click_centered = {{
-	light_white, light_white, 	light_white, 	light_white,
-	light_white, green, 		green, 			light_white,
-	light_white, green, 		green, 			light_white,
-	light_white, light_white, 	light_white,	light_white
-}};
-
-const rgb_pattern rgb4x4click_outOfScope = {{
-	red, red, red, red,
-	red, light_white, light_white, red,
-	red, light_white, light_white, red,
-	red, red, red, red,
-}};
-
-const rgb_pattern rgb4x4click_shakeDetection = {{
+const rgb_pattern rgb4x4click_shakeDetection =
+{{
 	blue,	off, 	off, 	blue,
 	off, 	blue, 	blue, 	off,
 	off, 	blue, 	blue, 	off,
 	blue, 	off, 	off, 	blue
 }};
 
-const rgb_pattern rgb4x4click_lightShift_lu = {{
+const rgb_pattern rgb4x4click_lightShift_lu =
+{{
 	yellow, yellow, yellow, off,
 	yellow, green, 	yellow, off,
 	yellow, yellow, yellow, off,
 	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_lightShift_lo = {{
-	off, off, off, off,
+const rgb_pattern rgb4x4click_lightShift_lo =
+{{
+	off, 	off, 	off, 	off,
 	yellow, yellow, yellow, off,
-	yellow, green, yellow, off,
-	yellow, yellow, yellow,off
+	yellow, green, 	yellow, off,
+	yellow, yellow, yellow,	off
 }};
 
-const rgb_pattern rgb4x4click_lightShift_ru = {{
-	off, yellow, yellow, yellow,
-	off, yellow, green, yellow,
-	off, yellow, yellow, yellow,
-	off, off, off, off,
+const rgb_pattern rgb4x4click_lightShift_ru =
+{{
+	off, 	yellow, yellow, yellow,
+	off, 	yellow, green, 	yellow,
+	off, 	yellow, yellow, yellow,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_lightShift_ro = {{
-	off, off, off, off,
-	off, yellow, yellow, yellow,
-	off, yellow, green, yellow,
-	off, yellow, yellow, yellow,
+const rgb_pattern rgb4x4click_lightShift_ro =
+{{
+	off, 	off, 	off, 	off,
+	off, 	yellow, yellow, yellow,
+	off, 	yellow, green, 	yellow,
+	off, 	yellow, yellow, yellow,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r1c1 = {{
-	red,yellow,off,off,
-	yellow,yellow,off,off,
-	off, off, off, off,
-	off, off, off, off,
+const rgb_pattern rgb4x4click_strongShift_r1c1 =
+{{
+	red,	yellow,	off,	off,
+	yellow,	yellow,	off,	off,
+	off, 	off, 	off, 	off,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r1c2 = {{
-	yellow, red, yellow, off,
-	yellow,yellow,yellow,off,
-	off, off, off, off,
-	off, off, off, off,
+const rgb_pattern rgb4x4click_strongShift_r1c2 =
+{{
+	yellow,	red, 	yellow, off,
+	yellow,	yellow,	yellow,	off,
+	off, 	off, 	off, 	off,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r1c3 = {{
-	off,yellow,red,yellow,
-	off,yellow,yellow,yellow,
-	off, off, off, off,
-	off, off, off, off,
+const rgb_pattern rgb4x4click_strongShift_r1c3 =
+{{
+	off,	yellow,	red,	yellow,
+	off,	yellow,	yellow,	yellow,
+	off, 	off, 	off, 	off,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r1c4 = {{
-	off, off, yellow,red,
-	off, off,yellow,yellow,
-	off, off, off, off,
-	off, off, off, off,
+const rgb_pattern rgb4x4click_strongShift_r1c4 =
+{{
+	off, 	off, 	yellow,	red,
+	off, 	off,	yellow,	yellow,
+	off, 	off, 	off, 	off,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r2c1 = {{
-	yellow,yellow,off,off,
-	red,yellow,off,off,
-	yellow,yellow,off,off,
-	off, off, off, off,
+const rgb_pattern rgb4x4click_strongShift_r2c1 =
+{{
+	yellow,	yellow,	off,	off,
+	red,	yellow,	off,	off,
+	yellow,	yellow,	off,	off,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r2c4 = {{
-	off, 	off, 	yellow, 	yellow,
-	off,	off, 	yellow, 	red,
-	off, 	off, 	yellow, 	yellow,
-	off, 	off, 	off, 		off,
+const rgb_pattern rgb4x4click_strongShift_r2c4 =
+{{
+	off, 	off, 	yellow, yellow,
+	off,	off, 	yellow, red,
+	off, 	off, 	yellow, yellow,
+	off, 	off, 	off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r3c1 = {{
-	off,	off, 	off, off,
-	yellow, yellow, off, off,
-	red, 	yellow, off, off,
-	yellow, yellow, off, off
+const rgb_pattern rgb4x4click_strongShift_r3c1 =
+{{
+	off,	off, 	off, 	off,
+	yellow, yellow, off, 	off,
+	red, 	yellow, off, 	off,
+	yellow, yellow, off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r3c4 = {{
+const rgb_pattern rgb4x4click_strongShift_r3c4 =
+{{
 	off,	off,	off,	off,
 	off,	off, 	yellow,	yellow,
 	off,	off,	yellow, red,
 	off,	off,	yellow, yellow,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r4c1 = {{
-	off,	off, 	off, off,
-	off, 	off, 	off, off,
-	yellow, yellow, off, off,
-	red, 	yellow, off, off,
+const rgb_pattern rgb4x4click_strongShift_r4c1 =
+{{
+	off,	off, 	off, 	off,
+	off, 	off, 	off, 	off,
+	yellow, yellow, off, 	off,
+	red, 	yellow, off, 	off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r4c2 = {{
-	off, 	off, 	off, 		off,
-	off, 	off, 	off, 		off,
-	yellow, yellow, yellow, 	off,
-	yellow, red, 	yellow, 	off,
+const rgb_pattern rgb4x4click_strongShift_r4c2 =
+{{
+	off, 	off, 	off, 	off,
+	off, 	off, 	off, 	off,
+	yellow, yellow, yellow, off,
+	yellow, red, 	yellow, off,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r4c3 = {{
-	off,	off,	off,		off,
-	off,	off, 	off, 		off,
-	off,	yellow, yellow, 	yellow,
-	off,	yellow, red,  		yellow,
+const rgb_pattern rgb4x4click_strongShift_r4c3 =
+{{
+	off,	off,	off,	off,
+	off,	off, 	off, 	off,
+	off,	yellow, yellow, yellow,
+	off,	yellow, red,  	yellow,
 }};
 
-const rgb_pattern rgb4x4click_strongShift_r4c4 = {{
-	off,	off, 	off,	 	off,
-	off,	off, 	off, 		off,
-	off,	off, 	yellow, 	yellow,
-	off, 	off,	yellow, 	red
+const rgb_pattern rgb4x4click_strongShift_r4c4 =
+{{
+	off,	off, 	off,	off,
+	off,	off, 	off, 	off,
+	off,	off, 	yellow, yellow,
+	off, 	off,	yellow, red
 }};
 
-/* For testing purpose only */
-const rgb_pattern rgb4x4click_onlyOneLed = {{
-		red, off, off, off,
-		red, off, off, off,
-		red, off, off, off,
-		red, off, off, off,
+const rgb_pattern rgb4x4click_error =
+{{
+	off,	off, 	off,	off,
+	off,	off, 	off, 	off,
+	off,	off, 	yellow, yellow,
+	off, 	off,	yellow, red
 }};
 
-const rgb_pattern rgb4x4click_twoLed = {{ red, green }};
-const rgb_pattern rgb4x4click_oneRow = {{ red, green, blue, strong_white }};
+const rgb_pattern rgb4x4click_pairing =
+{{
+	off,	off, 	off,	off,
+	off,	off, 	off, 	off,
+	off,	off, 	yellow, yellow,
+	off, 	off,	yellow, red
+}};
+
+const rgb_pattern rgb4x4click_all_off =
+{{
+	off, 	off, 	off, 	off,
+	off, 	off,	off, 	off,
+	off, 	off, 	off, 	off,
+}};
 
 
-/* pointer to a rgb_pattern for switching */
+/* Pointer to the RGB Matrix Patterns */
 rgb_pattern const *ptr_Rgb4x4Click = NULL;
 
 
 
-/*************************************
- ***** METHOD Implementations*********
- *************************************/
+
+/**************************************************************************
+ ******************************** METHODS *********************************
+ **************************************************************************/
 
 /**
- * takes a pointer to a character as argument and prints the pattern
+ * @brief	Prints the received Data from the Broker and prints it on the 4x4 Matrix
+ * @param	ch - Pointer to a Char holding the Information to print
  */
 void printDataOnMatrix(char const *ch)
 {
@@ -383,32 +411,24 @@ void printDataOnMatrix(char const *ch)
 		case 's':
 			ptr_Rgb4x4Click = &rgb4x4click_strongShift_r4c4;
 			break;
-		case 'z':
-			ptr_Rgb4x4Click = &rgb4x4click_strongShift_r1c1;
+		case 'X':
+			ptr_Rgb4x4Click = &rgb4x4click_error;
+		case 'Y':
+			ptr_Rgb4x4Click = &rgb4x4click_pairing;
 			break;
-		case '1':
+		case 'Z':
 			ptr_Rgb4x4Click = &rgb4x4click_all_off;
-			break;
-		case '4':
-			ptr_Rgb4x4Click = &rgb4x4click_oneRow;
-			break;
-		case 'R':
-			ptr_Rgb4x4Click = &rgb4x4click_all_off;
-			break;
-		case 'N':
-			ptr_Rgb4x4Click = &rgb4x4click_all_on;
 			break;
 		default:
-			/* You should not be here, might code error handling later */
-			ptr_Rgb4x4Click = &rgb4x4click_shakeDetection;
+			/* You should not be here */
+			ptr_Rgb4x4Click = &rgb4x4click_error;
 			break;
-
 	}
 
-
+	/* Wait until previous DMA Transfer is Completed */
 	osSemaphoreAcquire(sem_printPermissionHandle, osWaitForever);
 
-	/* actually not really necessary and quite useless, just to be 101% sure*/
+	/* Actually not really necessary and quite useless, just to be 101% sure*/
 	taskENTER_CRITICAL();
 
 	HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *) ptr_Rgb4x4Click, PWM_STREAM_LENGTH_FULL_DISPLAY);
@@ -418,35 +438,62 @@ void printDataOnMatrix(char const *ch)
 }
 
 
-bool serverReachable()
+//TODO
+/**
+ * @brief	Calls the Broker for new Sensor Data
+ * @param	pData - Pointer to Data Buffer
+ * @param	pSize - Pointer to Variable holding the Size of the Buffer
+ * @return	false if Buffer to Small, Broker not reachable, inreliable sensor values, else true
+ */
+bool getSensorDataFromServer(const *pData, const size_t const *pSize)
 {
-	/* FAKE wifi module */
-	static char fakeReceiveBuffer[64];
-	static bool isReachable = false;
-
-	/* we dont do anything with te fakeReceivedData when pinging, yet */
-	isReachable = fakeWifi_send(WIFIESP_IS_CONNECTED, fakeReceiveBuffer, sizeof(fakeReceiveBuffer));
-
-	return isReachable;
-	/* real wifi module */
-	/* return wiFiClick_SendATCommand("AT-CWSTATE"); */
+	// check if buffer size is enough, else return false
+	// check if server is reachable, else return false
+	// check if server values are reliable, else return false
+	// write new data into buffer
+	// return true
 }
 
 
-/* Diese Funktion wird Periodisch 5x pro Sekunde aus dem Task per Software Timer aufgerufen */
-
-/* Hole die Daten vom Server */
-bool getSensorDataFromServer()
+//TODO
+/**
+ * @brief	Checks if the Broker is eachable
+ * @return	false if not reachable
+ */
+bool serverReachable()
 {
-	if( serverReachable() == true )
-	{
-		//printDataOnMatrix();
 
-		return true;
-	}
+}
 
-	//printDataOnMatrix('z');
 
-	return false;
+//TODO
+/**
+ * @brief	Sets the Brightness of one single Color
+ * @param	colCode - The Color Code to identify the LED Color like "GREEN" or "RED"
+ * @param	brightness - Value between 1 and 10 for Intensity
+ * @return	false when there were wrong input parameters, else true
+ */
+bool setSingleColorBrightness(const char const* colCode, const uint8_t const *brightness)
+{
+
+	/*
+	 * Check Input Parameters
+	 * Map colCode and brightness to according categories
+	 */
+}
+
+
+//TODO
+/**
+ * @brief	Sets the Brightness of all Colors
+ * @param	brightness - Value between 1 and 10 for Intensity
+ * @return	false when there were wrong input parameters, else true
+ */
+bool setAllColorBrightnesses(const uint8_t const *brightness)
+{
+	/*
+	 * Check Input Parameters
+	 * Map brightness to according categories
+	 */
 }
 

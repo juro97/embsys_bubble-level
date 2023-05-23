@@ -16,6 +16,8 @@ RM := rm -rf
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/MikroeSDK_V2_WiFi/sr/subdir.mk
+-include Core/MikroeSDK_V1_WiFi/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

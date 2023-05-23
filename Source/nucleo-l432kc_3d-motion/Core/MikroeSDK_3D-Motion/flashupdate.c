@@ -1,5 +1,5 @@
 /*****************************************************************************
-* © 2014 Microchip Technology Inc. and its subsidiaries.
+* ï¿½ 2014 Microchip Technology Inc. and its subsidiaries.
 * You may use this software and any derivatives exclusively with
 * Microchip products.
 * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".
@@ -43,7 +43,7 @@
 //****************************************************************************
 //****************************************************************************
           
-#include "app.h"
+#include "../MikroeSDK_3D-Motion/app.h"
 
 //*****************************************************************************
 //*****************************************************************************

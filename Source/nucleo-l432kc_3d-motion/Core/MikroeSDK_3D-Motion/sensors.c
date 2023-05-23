@@ -1,4 +1,4 @@
-#include "app.h"
+#include "../MikroeSDK_3D-Motion/app.h"
 
 static double prev_dat[4] = {0};                                  // Used to hold previous data readings to preclude redundant data output
 extern char flag;
