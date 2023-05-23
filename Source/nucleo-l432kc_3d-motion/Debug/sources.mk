@@ -22,10 +22,10 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/MikroeSDK_3D-Motion \
+Core/MikroeSDK_V1_WiFi \
+Core/MikroeSDK_V2_WiFi/sr \
 Core/Src \
 Core/Startup \
-Drivers/MotionDriver_MikroSDK/Inc \
-Drivers/MotionDriver_Mikrochip/Microchip_Initializer_Files \
-Drivers/MotionDriver_Mikrochip \
 Drivers/STM32L4xx_HAL_Driver/Src \
 

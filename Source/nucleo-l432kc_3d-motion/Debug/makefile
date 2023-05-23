@@ -10,11 +10,11 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
--include Drivers/MotionDriver_Mikrochip/Microchip_Initializer_Files/subdir.mk
--include Drivers/MotionDriver_Mikrochip/subdir.mk
--include Drivers/MotionDriver_MikroSDK/Inc/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/MikroeSDK_V2_WiFi/sr/subdir.mk
+-include Core/MikroeSDK_V1_WiFi/subdir.mk
+-include Core/MikroeSDK_3D-Motion/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
