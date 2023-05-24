@@ -54,7 +54,7 @@
  * \defgroup commands AT commands 
  * \{
  */
-#define WIFIESP_CHECK						"AT"
+#define WIFIESP_CHECK			"AT"
 #define WIFIESP_RST                         "AT+RST"
 #define WIFIESP_CHECK_FIRMWARE              "AT+GMR"
 #define WIFIESP_SET_MODE                    "AT+CWMODE"
