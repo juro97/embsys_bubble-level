@@ -9,11 +9,13 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include Core/MikroeSDK_V2_WiFi/sr/subdir.mk
--include Core/MikroeSDK_V1_WiFi/subdir.mk
 -include Core/MikroeSDK_3D-Motion/subdir.mk
 -include objects.mk
 
@@ -63,8 +65,8 @@ all: main-build
 main-build: nucleo-l432kc_3d-motion.elf secondary-outputs
 
 # Tool invocations
-nucleo-l432kc_3d-motion.elf nucleo-l432kc_3d-motion.map: $(OBJS) $(USER_OBJS) /home/juro/Schreibtisch/dev/embsys_bubble-level/Source/nucleo-l432kc_3d-motion/STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "nucleo-l432kc_3d-motion.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/juro/Schreibtisch/dev/embsys_bubble-level/Source/nucleo-l432kc_3d-motion/STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_3d-motion.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+nucleo-l432kc_3d-motion.elf nucleo-l432kc_3d-motion.map: $(OBJS) $(USER_OBJS) C:\Users\pjura\Desktop\dev\stm32\embsys_bubble-level\Source\nucleo-l432kc_3d-motion\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "nucleo-l432kc_3d-motion.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\pjura\Desktop\dev\stm32\embsys_bubble-level\Source\nucleo-l432kc_3d-motion\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_3d-motion.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,0 +1,8 @@
+../Core/MikroeSDK_3D-Motion/sensors.c:7:6:_accel	128	static
+../Core/MikroeSDK_3D-Motion/sensors.c:76:6:_gyro	128	static
+../Core/MikroeSDK_3D-Motion/sensors.c:146:6:_compass	128	static
+../Core/MikroeSDK_3D-Motion/sensors.c:200:6:_orient	128	static
+../Core/MikroeSDK_3D-Motion/sensors.c:275:6:_inclin	128	static
+../Core/MikroeSDK_3D-Motion/sensors.c:346:6:_rawAccel	64	static
+../Core/MikroeSDK_3D-Motion/sensors.c:423:6:_rawMagnet	128	static
+../Core/MikroeSDK_3D-Motion/sensors.c:498:6:_rawGyro	128	static

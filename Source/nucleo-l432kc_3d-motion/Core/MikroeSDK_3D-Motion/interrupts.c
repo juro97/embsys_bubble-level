@@ -1,70 +1,64 @@
 #include "../MikroeSDK_3D-Motion/app.h"
+#include "stm32l4xx_hal.h"
 
 extern volatile BOOL TIMER_1MS_FLG;
-extern volatile BOOL EC_DATA_AVAIL;                               // HIDI2_HOST_INT indicates EC data available
+extern volatile BOOL EC_DATA_AVAIL;
+extern TIM_HandleTypeDef htim2;
 volatile UINT32 I2C_TIMEOUT_1MS_CNTR = 0;
 
-void IntPinHandler() iv IVT_EXTERNAL_1 ilevel 7 ics ICS_SRS{
-  if (IFS0bits.INT1IF)                                            // Check the HID_I2C_ALERT (INT1) interrupt : indicates data from EC available
-  {
-    if (!EC_DATA_AVAIL)                                           // If a falling edge occurred (data is available from EC)
+// Interrupt pin handler, assuming INT1 is connected to PA3
+void EXTI3_IRQHandler(void)
+{
+    // Check if EXTI line interrupt detected
+    if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_3) != RESET)
     {
-      INTCONbits.INT1EP = 1;                                      // INT1 Edge configured to interrupt on rising edge (wait for end of data)
-      EC_DATA_AVAIL = TRUE;                                       // Toggle EC_DATA_AVAIL flag to notify data received
+        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_3);
+        HAL_GPIO_EXTI_Callback(GPIO_PIN_3);
     }
-    else
+}
+
+// EXTI line detection callbacks
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if(GPIO_Pin == GPIO_PIN_3) // if the interrupt comes from INT1 (PA3)
     {
-      INTCONbits.INT1EP = 0;                                      // INT1 Edge configured to interrupt on falling edge (data is no longer available)
-      EC_DATA_AVAIL = FALSE;                                      // interrupt de-asserted
+        if (!EC_DATA_AVAIL)
+        {
+            EC_DATA_AVAIL = TRUE;
+        }
+        else
+        {
+            EC_DATA_AVAIL = FALSE;
+        }
     }
-
-    IFS0bits.INT1IF = 0;                                          // Clear int flag
-  }
 }
 
-void TimerHandler() iv IVT_TIMER_1 ilevel 7 ics ICS_AUTO{
-  IFS0bits.T1IF = 0;                                              // Clear IF bit
-  TIMER_1MS_FLG = 1;                                              // 1 ms flag
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    if(htim->Instance == TIM2) // if the interrupt comes from TIM2
+    {
+        TIMER_1MS_FLG = TRUE;
+    }
 }
 
-void InitTimer() {
-  T1CON = 0x8010;
-  T1IE_bit = 1;
-  T1IF_bit = 0;
-  T1IP0_bit = 1;
-  T1IP1_bit = 1;
-  T1IP2_bit = 1;
-  PR1 = 10000;
-  TMR1 = 0;
-}
+void InitTimer()
+{
+    TIM_HandleTypeDef htim2;
 
-void InitI2CTimer() {
-  T2CON = 0x0010;
-  T2IE_bit = 1;
-  T2IF_bit = 0;
-  T2IP0_bit = 1;
-  T2IP1_bit = 1;
-  T2IP2_bit = 1;
-  PR2 = 40000;
-  TMR2 = 0;
-}
+    __TIM2_CLK_ENABLE();
 
-void Timer2Interrupt() iv IVT_TIMER_2 ilevel 7 ics ICS_SRS{
-  T2IF_bit = 0;
-  I2C_TIMEOUT_1MS_CNTR++;                                         // increment global count val
+    // Configure the timer
+    htim2.Instance = TIM2;
+    htim2.Init.Period = 10000 - 1; // 1ms time base
+    htim2.Init.Prescaler = HAL_RCC_GetPCLK1Freq() / 1000000 - 1; // 1MHz counter clock
+    htim2.Init.ClockDivision = 0;
+    htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+    HAL_TIM_Base_Init(&htim2);
 
-  if (I2C_TIMEOUT_1MS_CNTR >= I2_TIMEOUT_PERIOD)
-  {                                                               // looks like i2c taking too long
-    StopI2CTimer();                                               // turn off timer
-    error_handler("i2c ",0, I2C_TIMEOUT_ERR);                     // displays to LCD and uart **does not return***
-  }
-}
+    // Enable the timer interrupts
+    HAL_NVIC_SetPriority(TIM2_IRQn, 0, 1);
+    HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
-void StopI2CTimer() {
-  T2CONbits.ON = 0;
-}
-
-void StartI2CTimer() {
-  I2C_TIMEOUT_1MS_CNTR = 0;
-  T2CONbits.ON = 1;
+    // Start the timer
+    HAL_TIM_Base_Start_IT(&htim2);
 }

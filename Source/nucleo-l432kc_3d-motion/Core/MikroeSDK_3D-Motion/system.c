@@ -1,5 +1,5 @@
 #include "../MikroeSDK_3D-Motion/app.h"
-extern atomic sfr sbit WKUP;
+#include "main.h"
 
 /** Wake_signal
 * @note        assert wake signal on RE9, wait 1 ms, deassert
@@ -8,7 +8,7 @@ extern atomic sfr sbit WKUP;
 */
 void Wake_signal()
 {
-    WKUP = 0;                                             //assert wake signal
-    Delay_ms(2);                                          //spec says 3�s assertion, let's use ms delay and wait ~2 ms
-    WKUP = 1;                                             //de-assert wake signal
+	 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	 HAL_Delay(2);
+	 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);                                             //de-assert wake signal
 }

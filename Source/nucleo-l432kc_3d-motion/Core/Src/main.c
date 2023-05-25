@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../../Core/MikroeSDK_3D-Motion/app.h"
-#include "../MikroeSDK_V2_WiFi/sr/wifiesp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,6 +42,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
+
+TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart2;
 
@@ -76,6 +77,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM2_Init(void);
 void StartInputTask(void *argument);
 void StartProcessTask(void *argument);
 void StartOutputTask(void *argument);
@@ -86,16 +88,6 @@ void StartOutputTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-// 3D motion click module connections - have to be set in cubemx?
-sbit WKUP at LATB8_bit;
-sbit RST at LATC1_bit;
-sbit INT_PIN at RE8_bit;
-
-sbit WKUP_DIR at TRISB8_bit;
-sbit RST_DIR at TRISC1_bit;
-sbit INT_PIN_DIR at TRISE8_bit;
-// 3D motion click module connections
 
 uint8_t state = 0;
 uint8_t result;
@@ -132,30 +124,16 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-	// Umschreiben auf STM32
-	AD1PCFG = 0xFFFF;                    // Set all pins as digital
-	JTAGEN_bit = 0;                      // Disable JTAG
-	RST_DIR = 0;                         // Set RST pin as output
-	RST = 0;                             // Reset device
-	Delay_ms(2);
-	RST = 1;
-	WKUP_DIR = 0;                        // Set WKUP pin as output
-	ODCB8_bit = 0;                       // Push-pull
-	WKUP = 1;                            // Wake up device
-	INT_PIN_DIR = 1;                     // Set INT pin as input
-	IFS0bits.INT1IF = 0;                 // Clear INT1 flag
-	IPC1bits.INT1IP = 7;                 // Assign INT1 priority
-	IPC1bits.INT1IS = 0;                 // Assign INT1 priority
-	INTCONbits.INT1EP = 0; // INT1 Edge set to interrupt on falling edge initially
-	IEC0bits.INT1IE = 1;
+
+
+	//WKUP = 1;                            // Wake up device
+
+
 	InitTimer();                         // Initialize timer
 	InitI2CTimer();                      // Initialize I2C timer
-	EnableInterrupts();                  // Enable interrupts
-	Delay_ms(100);
-	I2C2_Init(100000);                   // Initialize I2C module
-	Delay_ms(100);
 	result = VREG_init();                // Initialize VREG registers
 
 
@@ -371,6 +349,58 @@ static void MX_I2C1_Init(void)
 }
 
 /**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 4294967295;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_TRIGGER;
+  sSlaveConfig.InputTrigger = TIM_TS_ITR0;
+  if (HAL_TIM_SlaveConfigSynchro(&htim2, &sSlaveConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -455,9 +485,6 @@ static void MX_GPIO_Init(void)
 
 /* ISR is executed when the 3d motion module send data available through PA3
  * In the ISR a bit is set, that data is available */
-void HAL_GPIO_EXTI_Callback() {
-	g_newDataAvailable = true;
-}
 
 /* USER CODE END 4 */
 
@@ -512,7 +539,7 @@ void StartOutputTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  /* added the example code from the wifi click library main file */
+	  /* added the example code from the wifi click library main file
 	  app_error_flag = wifiesp_rsp_check( WIFIESP_RECEIVE );
 	     Delay_ms( 100 );
 	     if ( app_error_flag == APP_OK )
@@ -531,7 +558,8 @@ void StartOutputTask(void *argument)
 	         app_error_flag = wifiesp_rsp_check( RSP_OK );
 	         wifiesp_error_check( app_error_flag );
 	         Delay_ms( 100 );
-	     }
+
+	     }*/
 
 
     osDelay(1000);

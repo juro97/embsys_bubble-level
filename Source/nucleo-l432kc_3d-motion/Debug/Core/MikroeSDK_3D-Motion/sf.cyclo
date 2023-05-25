@@ -1,0 +1,6 @@
+sf.c:83:8:hid_i2c_descriptor_handler	12
+sf.c:165:7:hid_i2c_cmd_process	29
+sf.c:348:7:report_parse	53
+sf.c:572:8:ret_exponent	6
+sf.c:610:7:HOST_SF_LIB_HID_Set_Report	8
+sf.c:666:7:HOST_SF_LIB_HID_Get_Report	3
