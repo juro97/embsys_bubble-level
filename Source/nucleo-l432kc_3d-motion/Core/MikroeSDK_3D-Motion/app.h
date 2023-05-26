@@ -1,3 +1,23 @@
+/*****************************************************************************
+* © 2014 Microchip Technology Inc. and its subsidiaries.
+* You may use this software and any derivatives exclusively with
+* Microchip products.
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".
+* NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE,
+* INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY,
+* AND FITNESS FOR A PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP
+* PRODUCTS, COMBINATION WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.
+* TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL
+* CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF
+* FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+* MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE
+* OF THESE TERMS.
+*****************************************************************************/
+
 /** @file  app.h
 *   Generic include header file
 ***************************************************************************
@@ -47,14 +67,14 @@ typedef unsigned long UINT32;
 #define FALSE 0
 
 //  Peripheral Include Files
-#include "../MikroeSDK_3D-Motion/system.h"
-#include "../MikroeSDK_3D-Motion/interrupts.h"
-#include "../MikroeSDK_3D-Motion/vregs.h"
-#include "../MikroeSDK_3D-Motion/i2cIO.h"
-#include "../MikroeSDK_3D-Motion/sf.h"
-#include "../MikroeSDK_3D-Motion/flashupdate.h"
-#include "../MikroeSDK_3D-Motion/err.h"
-#include "../MikroeSDK_3D-Motion/sensors.h"
+#include "System.h"
+#include "interrupts.h"
+#include "VREGS.h"
+#include "i2cIO.h"
+#include "sf.h"
+#include "flashupdate.h"
+#include "err.h"
+#include "sensors.h"
 
 //****************************************************************************
 //****************************************************************************

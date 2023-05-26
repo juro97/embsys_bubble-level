@@ -1,1 +1,2 @@
-i2cIO.c:15:19:i2c_cmd_WrRd	9
+i2cIO.c:15:6:error_handler	1
+i2cIO.c:34:7:i2c_cmd_WrRd	10

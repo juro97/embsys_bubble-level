@@ -1,5 +1,11 @@
 Core/MikroeSDK_3D-Motion/i2cIO.o: ../Core/MikroeSDK_3D-Motion/i2cIO.c \
- ../Core/Inc/main.h ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
+ ../Core/MikroeSDK_3D-Motion/app.h ../Core/MikroeSDK_3D-Motion/System.h \
+ ../Core/MikroeSDK_3D-Motion/interrupts.h \
+ ../Core/MikroeSDK_3D-Motion/VREGS.h ../Core/MikroeSDK_3D-Motion/i2cIO.h \
+ ../Core/MikroeSDK_3D-Motion/sf.h \
+ ../Core/MikroeSDK_3D-Motion/flashupdate.h \
+ ../Core/MikroeSDK_3D-Motion/err.h ../Core/Inc/main.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
@@ -29,15 +35,15 @@ Core/MikroeSDK_3D-Motion/i2cIO.o: ../Core/MikroeSDK_3D-Motion/i2cIO.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/app.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/system.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/interrupts.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/vregs.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/i2cIO.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sf.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/flashupdate.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/err.h \
- ../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sensors.h
+ ../Core/MikroeSDK_3D-Motion/sensors.h
+../Core/MikroeSDK_3D-Motion/app.h:
+../Core/MikroeSDK_3D-Motion/System.h:
+../Core/MikroeSDK_3D-Motion/interrupts.h:
+../Core/MikroeSDK_3D-Motion/VREGS.h:
+../Core/MikroeSDK_3D-Motion/i2cIO.h:
+../Core/MikroeSDK_3D-Motion/sf.h:
+../Core/MikroeSDK_3D-Motion/flashupdate.h:
+../Core/MikroeSDK_3D-Motion/err.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -69,12 +75,4 @@ Core/MikroeSDK_3D-Motion/i2cIO.o: ../Core/MikroeSDK_3D-Motion/i2cIO.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/app.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/system.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/interrupts.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/vregs.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/i2cIO.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sf.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/flashupdate.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/err.h:
-../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sensors.h:
+../Core/MikroeSDK_3D-Motion/sensors.h:

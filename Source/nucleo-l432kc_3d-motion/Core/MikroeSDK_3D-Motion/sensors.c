@@ -1,4 +1,5 @@
-#include "../MikroeSDK_3D-Motion/app.h"
+#include "main.h"
+#include "app.h"
 
 static double prev_dat[4] = {0};                                  // Used to hold previous data readings to preclude redundant data output
 extern char flag;
@@ -53,11 +54,12 @@ void _accel() {
       prev_dat[1] = dDataY;
       prev_dat[2] = dDataZ;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
-/*
+
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-*/
+    */
 
     if (flag)
     {
@@ -123,11 +125,11 @@ void _gyro() {
       prev_dat[2] = dDataZ;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-/*
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-*/
+	*/
 
     if (flag)
     {
@@ -251,13 +253,14 @@ void _orient() {
       prev_dat[2] = dDataZ;
       prev_dat[3] = dDataW;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
-/*
+
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
     sprintf(_w, "%4.3f", dDataW);
-*/
-    
+    */
+
     if (flag)
     {
       flag = 0;
@@ -321,11 +324,11 @@ void _inclin() {
       prev_dat[2] = dDataZ;
     }     //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-/*
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-*/
+    */
 
     if (flag)
     {
@@ -400,11 +403,11 @@ void _rawAccel() {
       prev_dat[2] = dDataZ;
     }    //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-/*
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-*/
+    */
 
     if (flag)
     {
@@ -475,11 +478,11 @@ void _rawMagnet() {
       prev_dat[2] = dDataZ;
     }    //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-/*
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-*/
+    */
 
     if (flag)
     {
@@ -551,11 +554,11 @@ void _rawGyro() {
       prev_dat[2] = dDataZ;
     }   //NOTE: If data does not change in response to movement of sensor, SSC7150 not sending EC_DATA_AVAIL interrupts and 'may' need POR
 
-/*
+    /*
     sprintf(_x, "%4.3f", dDataX);
     sprintf(_y, "%4.3f", dDataY);
     sprintf(_z, "%4.3f", dDataZ);
-*/
+    */
 
     if (flag)
     {

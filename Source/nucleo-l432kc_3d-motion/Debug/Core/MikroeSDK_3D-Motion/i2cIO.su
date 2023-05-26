@@ -1,1 +1,2 @@
-../Core/MikroeSDK_3D-Motion/i2cIO.c:15:19:i2c_cmd_WrRd	32	static
+../Core/MikroeSDK_3D-Motion/i2cIO.c:15:6:error_handler	96	static
+../Core/MikroeSDK_3D-Motion/i2cIO.c:34:7:i2c_cmd_WrRd	32	static

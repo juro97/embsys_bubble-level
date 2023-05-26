@@ -41,14 +41,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/app.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/system.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/interrupts.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/vregs.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/i2cIO.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sf.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/flashupdate.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/err.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sensors.h
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/System.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/interrupts.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/VREGS.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/i2cIO.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/sf.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/flashupdate.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/err.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/sensors.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -92,11 +92,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/app.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/system.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/interrupts.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/vregs.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/i2cIO.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sf.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/flashupdate.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/err.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/../MikroeSDK_3D-Motion/sensors.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/System.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/interrupts.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/VREGS.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/i2cIO.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/sf.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/flashupdate.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/err.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/sensors.h:

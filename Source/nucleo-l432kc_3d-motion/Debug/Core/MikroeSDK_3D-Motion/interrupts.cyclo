@@ -1,4 +1,0 @@
-interrupts.c:10:6:EXTI3_IRQHandler	2
-interrupts.c:21:6:HAL_GPIO_EXTI_Callback	3
-interrupts.c:36:6:HAL_TIM_PeriodElapsedCallback	2
-interrupts.c:44:6:InitTimer	1
