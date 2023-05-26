@@ -1,0 +1,13 @@
+main.c:109:5:main	1
+main.c:195:6:SystemClock_Config	4
+main.c:256:13:MX_I2C1_Init	4
+main.c:304:13:MX_TIM2_Init	4
+main.c:349:13:MX_TIM15_Init	4
+main.c:395:13:MX_USART2_UART_Init	2
+main.c:430:13:MX_GPIO_Init	1
+main.c:476:6:HAL_GPIO_EXTI_Callback	3
+main.c:509:6:StartInputTask	1
+main.c:541:6:StartProcessTask	1
+main.c:558:6:StartOutputTask	1
+main.c:578:6:HAL_TIM_PeriodElapsedCallback	4
+main.c:610:6:Error_Handler	1

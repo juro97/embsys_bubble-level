@@ -1,5 +1,5 @@
 /*****************************************************************************
-* © 2014 Microchip Technology Inc. and its subsidiaries.
+* ï¿½ 2014 Microchip Technology Inc. and its subsidiaries.
 * You may use this software and any derivatives exclusively with
 * Microchip products.
 * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".
@@ -366,7 +366,7 @@ UINT8 HOST_SF_LIB_VREG_write(UINT8 ucRegOffset, UINT16 usData)
                 {
                     Wake_signal();                                   //assert wake signal (1 ms toggle of RE9 signal to SSC150)
 
-                    Delay_ms(12);                                      //wait 12 ms (11 ms min per spec) after wake signal and before sending POWER_ON command to SSC7150
+                    HAL_Delay(12);                                      //wait 12 ms (11 ms min per spec) after wake signal and before sending POWER_ON command to SSC7150
                                         
                     if (!hid_i2c_cmd_process(0, POWER_ON, ARB_ID))  // Issue the wake command (parameters 1 and 3 are not used)
                     {
@@ -375,7 +375,7 @@ UINT8 HOST_SF_LIB_VREG_write(UINT8 ucRegOffset, UINT16 usData)
                         _VREGS.stat.stat4.ShSleepWakeStatus = VREG_WAKE_SUCCESS; // Status update to notify command set succesful
                                                 
                         //spec says must wait a minimum of 30 ms before next command to SSC7150, so let's wait here...
-                        Delay_ms(31);                                  //dDlay_ms 31 ms (30 ms min per spec)
+                        HAL_Delay(31);                                  //dDlay_ms 31 ms (30 ms min per spec)
                     }
                     else
                     {
@@ -404,7 +404,7 @@ UINT8 HOST_SF_LIB_VREG_write(UINT8 ucRegOffset, UINT16 usData)
                         _VREGS.SHC.SHwake = FALSE;                   // Clear SHC (VREG00) bit that shows device is not awake
                         
                         //spec says must wait a minimum of 70 ms before wake command, so let's wait here...
-                        Delay_ms(71);                                  //dDlay_ms 71 ms (70 ms min per spec)
+                        HAL_Delay(71);                                  //dDlay_ms 71 ms (70 ms min per spec)
                                                 
                         return SUCCESS;                             // no need to continue checking (since we already checked if any sensors were enabled) and we won't wake & sleep at the same time
                    }

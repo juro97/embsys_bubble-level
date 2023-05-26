@@ -20,8 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32l4xx_it.h"
-#include "FreeRTOS.h"
-#include "task.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -58,6 +56,10 @@
 
 /* External variables --------------------------------------------------------*/
 extern I2C_HandleTypeDef hi2c1;
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim15;
+extern TIM_HandleTypeDef htim16;
+
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -153,34 +155,68 @@ void DebugMon_Handler(void)
   /* USER CODE END DebugMonitor_IRQn 1 */
 }
 
-/**
-  * @brief This function handles System tick timer.
-  */
-void SysTick_Handler(void)
-{
-  /* USER CODE BEGIN SysTick_IRQn 0 */
-
-  /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-#if (INCLUDE_xTaskGetSchedulerState == 1 )
-  if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
-  {
-#endif /* INCLUDE_xTaskGetSchedulerState */
-  xPortSysTickHandler();
-#if (INCLUDE_xTaskGetSchedulerState == 1 )
-  }
-#endif /* INCLUDE_xTaskGetSchedulerState */
-  /* USER CODE BEGIN SysTick_IRQn 1 */
-
-  /* USER CODE END SysTick_IRQn 1 */
-}
-
 /******************************************************************************/
 /* STM32L4xx Peripheral Interrupt Handlers                                    */
 /* Add here the Interrupt Handlers for the used peripherals.                  */
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32l4xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line3 interrupt.
+  */
+void EXTI3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
+
+  /* USER CODE END EXTI3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(MOTION_CLICK_INTERRUPT_Pin);
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM1 break interrupt and TIM15 global interrupt.
+  */
+void TIM1_BRK_TIM15_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
+
+  /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim15);
+  /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 1 */
+
+  /* USER CODE END TIM1_BRK_TIM15_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
+  */
+void TIM1_UP_TIM16_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
+
+  /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim16);
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM2 global interrupt.
+  */
+void TIM2_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM2_IRQn 0 */
+
+  /* USER CODE END TIM2_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim2);
+  /* USER CODE BEGIN TIM2_IRQn 1 */
+
+  /* USER CODE END TIM2_IRQn 1 */
+}
 
 /**
   * @brief This function handles I2C1 event interrupt.

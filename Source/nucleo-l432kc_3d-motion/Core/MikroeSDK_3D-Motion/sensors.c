@@ -61,9 +61,9 @@ void _accel() {
     sprintf(_z, "%4.3f", dDataZ);
     */
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+     // flag = 0;
       //Disable the Accelerometer on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -72,7 +72,7 @@ void _accel() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat);   // error display
-    }
+    //}
 }
 
 void _gyro() {
@@ -131,9 +131,9 @@ void _gyro() {
     sprintf(_z, "%4.3f", dDataZ);
 	*/
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+    //  flag = 0;
       //Disable the Gyrometer on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -142,7 +142,7 @@ void _gyro() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }
 
 void _compass() {
@@ -185,9 +185,9 @@ void _compass() {
 
     //sprintf(_x, "%4.3f", dDataX);
 
-    if (flag)
-    {
-      flag = 0;
+   // if (flag)
+    //{
+    //  flag = 0;
       //Disable the Compass on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -196,7 +196,7 @@ void _compass() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }
 
 void _orient() {
@@ -261,9 +261,9 @@ void _orient() {
     sprintf(_w, "%4.3f", dDataW);
     */
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+     // flag = 0;
       //Disable the orientation sensor on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -272,7 +272,7 @@ void _orient() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }
 
 void _inclin() {
@@ -330,9 +330,9 @@ void _inclin() {
     sprintf(_z, "%4.3f", dDataZ);
     */
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+      //flag = 0;
       // Disable the Inclinometer on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -341,7 +341,7 @@ void _inclin() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }
 
   char _x[11], _y[11], _z[11], _w[11];
@@ -409,9 +409,9 @@ void _rawAccel() {
     sprintf(_z, "%4.3f", dDataZ);
     */
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+      //flag = 0;
       // Disable the Raw Accelerometer & corresponding ACCEL sensor on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -420,7 +420,7 @@ void _rawAccel() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }
 
 void _rawMagnet() {
@@ -484,9 +484,9 @@ void _rawMagnet() {
     sprintf(_z, "%4.3f", dDataZ);
     */
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+      //flag = 0;
       //Disable the Raw Magnometer on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -495,7 +495,7 @@ void _rawMagnet() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }
 
 void _rawGyro() {
@@ -560,9 +560,9 @@ void _rawGyro() {
     sprintf(_z, "%4.3f", dDataZ);
     */
 
-    if (flag)
-    {
-      flag = 0;
+    //if (flag)
+    //{
+      //flag = 0;
       //Disable the Raw Gyro on exit
       if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS)  // Read data from the Sensor Hub Configuration register
       {
@@ -571,5 +571,5 @@ void _rawGyro() {
       }
       else
         error_handler("VRRd", VREG_SHC, ucRetStat); // error display
-    }
+    //}
 }

@@ -13,3 +13,4 @@ void Wake_signal()
     osDelay(2000); //spec says 3�s assertion, let's use ms delay and wait ~2 ms
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  //de-assert wake signal
 }
+

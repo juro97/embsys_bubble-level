@@ -1,8 +1,8 @@
 #ifndef INTERRUPTS_H
 #define	INTERRUPTS_H
 
-void InitTimer();
-void InitI2CTimer();
+/* Init Functions are in the Main File */
+
 void StartI2CTimer();
 void StopI2CTimer();
 
