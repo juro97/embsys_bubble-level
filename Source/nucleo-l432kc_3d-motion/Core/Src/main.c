@@ -53,7 +53,7 @@ osThreadId_t inputTaskHandle;
 const osThreadAttr_t inputTask_attributes = {
   .name = "inputTask",
   .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityAboveNormal,
 };
 /* Definitions for processTask */
 osThreadId_t processTaskHandle;
@@ -71,7 +71,6 @@ const osThreadAttr_t outputTask_attributes = {
 };
 /* USER CODE BEGIN PV */
 
-bool g_newDataAvailable = false;
 
 extern volatile BOOL I2C_TIMEOUT_1MS_CNTR;
 extern volatile UINT32 TIMER_1MS_FLG;
@@ -162,10 +161,10 @@ int main(void)
   inputTaskHandle = osThreadNew(StartInputTask, NULL, &inputTask_attributes);
 
   /* creation of processTask */
-  processTaskHandle = osThreadNew(StartProcessTask, NULL, &processTask_attributes);
+  //processTaskHandle = osThreadNew(StartProcessTask, NULL, &processTask_attributes);
 
   /* creation of outputTask */
-  outputTaskHandle = osThreadNew(StartOutputTask, NULL, &outputTask_attributes);
+  //outputTaskHandle = osThreadNew(StartOutputTask, NULL, &outputTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
@@ -522,8 +521,9 @@ void StartInputTask(void *argument)
 	  };
 
 	  /* Infinite loop */
-	  for (size_t i = 0; ; ++i)
+	  for (size_t i = 0; i; ++i)
 	  {
+		  Wake_signal();
 	      (*fp_SensorDatas[i%7])();  // Note: array has 7 elements, not 8
 	      osDelay(3000);
 	  }
