@@ -53,7 +53,7 @@ osThreadId_t inputTaskHandle;
 const osThreadAttr_t inputTask_attributes = {
   .name = "inputTask",
   .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityAboveNormal,
+  .priority = (osPriority_t) osPriorityHigh,
 };
 /* Definitions for processTask */
 osThreadId_t processTaskHandle;
@@ -68,6 +68,11 @@ const osThreadAttr_t outputTask_attributes = {
   .name = "outputTask",
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal2,
+};
+/* Definitions for getNewDataTimer */
+osTimerId_t getNewDataTimerHandle;
+const osTimerAttr_t getNewDataTimer_attributes = {
+  .name = "getNewDataTimer"
 };
 /* USER CODE BEGIN PV */
 
@@ -88,6 +93,7 @@ static void MX_TIM15_Init(void);
 void StartInputTask(void *argument);
 void StartProcessTask(void *argument);
 void StartOutputTask(void *argument);
+void getNewDataCallback(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -147,6 +153,10 @@ int main(void)
   /* USER CODE BEGIN RTOS_SEMAPHORES */
 	/* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* creation of getNewDataTimer */
+  getNewDataTimerHandle = osTimerNew(getNewDataCallback, osTimerPeriodic, NULL, &getNewDataTimer_attributes);
 
   /* USER CODE BEGIN RTOS_TIMERS */
 	/* start timers, add new ones, ... */
@@ -520,11 +530,13 @@ void StartInputTask(void *argument)
 	      _rawAccel, _rawGyro, _rawMagnet, _accel, _compass, _inclin, _orient
 	  };
 
+	  static size_t i = 0;
 	  /* Infinite loop */
-	  for (size_t i = 0; i; ++i)
+	  for (;;)
 	  {
 		  Wake_signal();
 	      (*fp_SensorDatas[i%7])();  // Note: array has 7 elements, not 8
+	      ++i;
 	      osDelay(3000);
 	  }
 
@@ -565,6 +577,14 @@ void StartOutputTask(void *argument)
 			osDelay(1000);
 		}
   /* USER CODE END StartOutputTask */
+}
+
+/* getNewDataCallback function */
+void getNewDataCallback(void *argument)
+{
+  /* USER CODE BEGIN getNewDataCallback */
+
+  /* USER CODE END getNewDataCallback */
 }
 
 /**
