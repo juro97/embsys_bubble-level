@@ -43,7 +43,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/app.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/System.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/interrupts.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/VREGS.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/vregs.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/i2cIO.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/sf.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/flashupdate.h \
@@ -94,7 +94,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/app.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/System.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/interrupts.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/VREGS.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/vregs.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/i2cIO.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/sf.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/flashupdate.h:

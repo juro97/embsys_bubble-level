@@ -32,6 +32,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define I2C_TIMEOUT_IN_MS			1
+#define DATA_REFRESH_CYCLE_IN_MS	200
+#define ONE_MS						1
 
 /* USER CODE END PD */
 
@@ -42,9 +45,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
-
-TIM_HandleTypeDef htim2;
-TIM_HandleTypeDef htim15;
 
 UART_HandleTypeDef huart2;
 
@@ -74,6 +74,16 @@ osTimerId_t getNewDataTimerHandle;
 const osTimerAttr_t getNewDataTimer_attributes = {
   .name = "getNewDataTimer"
 };
+/* Definitions for i2cTimer */
+osTimerId_t i2cTimerHandle;
+const osTimerAttr_t i2cTimer_attributes = {
+  .name = "i2cTimer"
+};
+/* Definitions for oneMsTimer */
+osTimerId_t oneMsTimerHandle;
+const osTimerAttr_t oneMsTimer_attributes = {
+  .name = "oneMsTimer"
+};
 /* USER CODE BEGIN PV */
 
 
@@ -88,12 +98,12 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
-static void MX_TIM2_Init(void);
-static void MX_TIM15_Init(void);
 void StartInputTask(void *argument);
 void StartProcessTask(void *argument);
 void StartOutputTask(void *argument);
 void getNewDataCallback(void *argument);
+void i2cTimerCallback(void *argument);
+void oneMsTimerCallback(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -137,8 +147,6 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
-  MX_TIM2_Init();
-  MX_TIM15_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -158,8 +166,26 @@ int main(void)
   /* creation of getNewDataTimer */
   getNewDataTimerHandle = osTimerNew(getNewDataCallback, osTimerPeriodic, NULL, &getNewDataTimer_attributes);
 
+  /* creation of i2cTimer */
+  i2cTimerHandle = osTimerNew(i2cTimerCallback, osTimerPeriodic, NULL, &i2cTimer_attributes);
+
+  /* creation of oneMsTimer */
+  oneMsTimerHandle = osTimerNew(oneMsTimerCallback, osTimerPeriodic, NULL, &oneMsTimer_attributes);
+
   /* USER CODE BEGIN RTOS_TIMERS */
-	/* start timers, add new ones, ... */
+
+  /* for final version make this beautiful */
+  /* I2C Failure Timer is stopped/started in interrupt.c file */
+
+  	if(osTimerStart(oneMsTimerHandle, ONE_MS) != osOK)
+  	{
+  		/* Timer Could not be started */ while(1);
+  	}
+
+  	if(osTimerStart(getNewDataTimerHandle, DATA_REFRESH_CYCLE_IN_MS) != osOK)
+  	{
+  		/* Timer Could not be started */ while(1);
+  	}
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -171,10 +197,10 @@ int main(void)
   inputTaskHandle = osThreadNew(StartInputTask, NULL, &inputTask_attributes);
 
   /* creation of processTask */
-  //processTaskHandle = osThreadNew(StartProcessTask, NULL, &processTask_attributes);
+  processTaskHandle = osThreadNew(StartProcessTask, NULL, &processTask_attributes);
 
   /* creation of outputTask */
-  //outputTaskHandle = osThreadNew(StartOutputTask, NULL, &outputTask_attributes);
+  outputTaskHandle = osThreadNew(StartOutputTask, NULL, &outputTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
@@ -189,6 +215,18 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  /* In Case we come to this section, delete all ressources */
+	osTimerDelete(getNewDataTimerHandle);
+	osTimerDelete(oneMsTimerHandle);
+	osTimerDelete(i2cTimerHandle);
+
+	osThreadTerminate(inputTaskHandle);
+	osThreadTerminate(processTaskHandle);
+	osThreadTerminate(outputTaskHandle);
+
+	/*TODO:  some more stuff has to be done here, but later .. */
+
 	while (1) {
     /* USER CODE END WHILE */
 
@@ -302,97 +340,6 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
-  * @brief TIM2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM2_Init(void)
-{
-
-  /* USER CODE BEGIN TIM2_Init 0 */
-
-  /* USER CODE END TIM2_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 80000000;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
-
-  /* USER CODE END TIM2_Init 2 */
-
-}
-
-/**
-  * @brief TIM15 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM15_Init(void)
-{
-
-  /* USER CODE BEGIN TIM15_Init 0 */
-
-  /* USER CODE END TIM15_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM15_Init 1 */
-
-  /* USER CODE END TIM15_Init 1 */
-  htim15.Instance = TIM15;
-  htim15.Init.Prescaler = 0;
-  htim15.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim15.Init.Period = 40000;
-  htim15.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim15.Init.RepetitionCounter = 0;
-  htim15.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim15) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim15, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim15, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM15_Init 2 */
-
-  /* USER CODE END TIM15_Init 2 */
 
 }
 
@@ -521,22 +468,20 @@ void StartInputTask(void *argument)
 
 		/* TODO: REWRITE FOR OUR CONTROLLER and delete unnecessary stuff */
 
-		Wake_signal();
+	Wake_signal();
 	  result = VREG_init();                // Initialize VREG registers
 
-
 	  /* function pointer to functions getting specific sensor data */
-	  void (*fp_SensorDatas[])() = {
+	  /*void (*fp_SensorDatas[])() = {
 	      _rawAccel, _rawGyro, _rawMagnet, _accel, _compass, _inclin, _orient
-	  };
+	  };*/
 
-	  static size_t i = 0;
+	  //static size_t i = 0;
 	  /* Infinite loop */
 	  for (;;)
 	  {
 		  Wake_signal();
-	      (*fp_SensorDatas[i%7])();  // Note: array has 7 elements, not 8
-	      ++i;
+	      _rawGyro();  // Note: array has 7 elements, not 8
 	      osDelay(3000);
 	  }
 
@@ -587,6 +532,28 @@ void getNewDataCallback(void *argument)
   /* USER CODE END getNewDataCallback */
 }
 
+/* i2cTimerCallback function */
+void i2cTimerCallback(void *argument)
+{
+  /* USER CODE BEGIN i2cTimerCallback */
+	I2C_TIMEOUT_1MS_CNTR++;
+
+	if (I2C_TIMEOUT_1MS_CNTR >= I2_TIMEOUT_PERIOD)
+	{                                                               // looks like i2c taking too long
+	 	  StopI2CTimer();                                               // turn off timer
+	 	  error_handler("i2c ",0, I2C_TIMEOUT_ERR);                     // displays to LCD and uart **does not return***
+	}
+  /* USER CODE END i2cTimerCallback */
+}
+
+/* oneMsTimerCallback function */
+void oneMsTimerCallback(void *argument)
+{
+  /* USER CODE BEGIN oneMsTimerCallback */
+	 TIMER_1MS_FLG = 1;
+  /* USER CODE END oneMsTimerCallback */
+}
+
 /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM16 interrupt took place, inside
@@ -604,22 +571,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-  if(htim->Instance == TIM2)
-   {
- 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
 
- 	 I2C_TIMEOUT_1MS_CNTR++;
-
- 	  if (I2C_TIMEOUT_1MS_CNTR >= I2_TIMEOUT_PERIOD)
- 	  {                                                               // looks like i2c taking too long
- 	      StopI2CTimer();                                               // turn off timer
- 	      error_handler("i2c ",0, I2C_TIMEOUT_ERR);                     // displays to LCD and uart **does not return***
- 	  }
-   }
-
-  if(htim->Instance == TIM15) {
-	  TIMER_1MS_FLG = 1;
-  }
   /* USER CODE END Callback 1 */
 }
 

@@ -42,7 +42,7 @@ Core/MikroeSDK_3D-Motion/system.o: ../Core/MikroeSDK_3D-Motion/system.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/MikroeSDK_3D-Motion/app.h ../Core/MikroeSDK_3D-Motion/System.h \
  ../Core/MikroeSDK_3D-Motion/interrupts.h \
- ../Core/MikroeSDK_3D-Motion/VREGS.h ../Core/MikroeSDK_3D-Motion/i2cIO.h \
+ ../Core/MikroeSDK_3D-Motion/vregs.h ../Core/MikroeSDK_3D-Motion/i2cIO.h \
  ../Core/MikroeSDK_3D-Motion/sf.h \
  ../Core/MikroeSDK_3D-Motion/flashupdate.h \
  ../Core/MikroeSDK_3D-Motion/err.h ../Core/MikroeSDK_3D-Motion/sensors.h
@@ -91,7 +91,7 @@ Core/MikroeSDK_3D-Motion/system.o: ../Core/MikroeSDK_3D-Motion/system.c \
 ../Core/MikroeSDK_3D-Motion/app.h:
 ../Core/MikroeSDK_3D-Motion/System.h:
 ../Core/MikroeSDK_3D-Motion/interrupts.h:
-../Core/MikroeSDK_3D-Motion/VREGS.h:
+../Core/MikroeSDK_3D-Motion/vregs.h:
 ../Core/MikroeSDK_3D-Motion/i2cIO.h:
 ../Core/MikroeSDK_3D-Motion/sf.h:
 ../Core/MikroeSDK_3D-Motion/flashupdate.h:
