@@ -1,5 +1,5 @@
-../Core/Src/clk_4x4_rgb.c:353:6:printDataOnMatrix	16	static
-../Core/Src/clk_4x4_rgb.c:448:6:getSensorDataFromServer	16	static
-../Core/Src/clk_4x4_rgb.c:463:6:serverReachable	4	static
-../Core/Src/clk_4x4_rgb.c:476:6:setSingleColorBrightness	16	static
-../Core/Src/clk_4x4_rgb.c:492:6:setAllColorBrightnesses	16	static
+../Core/Src/clk_4x4_rgb.c:351:6:printDataOnMatrix	16	static
+../Core/Src/clk_4x4_rgb.c:446:6:getSensorDataFromServer	16	static
+../Core/Src/clk_4x4_rgb.c:461:6:serverReachable	4	static
+../Core/Src/clk_4x4_rgb.c:474:6:setSingleColorBrightness	16	static
+../Core/Src/clk_4x4_rgb.c:490:6:setAllColorBrightnesses	16	static

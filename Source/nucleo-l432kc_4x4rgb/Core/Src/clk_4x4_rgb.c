@@ -1,12 +1,12 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- *
- *  Clock Frequency: 80MHz
- *  PWM Transmission Time for one 1 Bit: 1.25us
- * 	PWM Frequency: 1/1.25us = 800kHz
- * 	TIM1 Auto Reload Register: 800kHz/800kHz=100
- * 	TIM1 Capture Compare Register: 57/31
- *
+ *																   *
+ *  Clock Frequency: 80MHz										   *
+ *  PWM Transmission Time for one 1 Bit: 1.25us					   *
+ * 	PWM Frequency: 1/1.25us = 800kHz							   *
+ * 	TIM1 Auto Reload Register: 800kHz/800kHz=100				   *
+ * 	TIM1 Capture Compare Register: 57/31						   *
+ *																   *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
  * 	Received Data Codes
@@ -37,7 +37,6 @@
  *
  * 	"RED", "GREEN; "WHITE", etc.  =>  Identify LED to do an operation like setBrightness on
  *
- *
  */
 
 /**************************************************************************
@@ -60,8 +59,7 @@
  **************************************************************************/
 
 /* Comment in for the data to be received via the Wifi Test Module */
-#define FAKE_WIFI
-
+#define VIRTUAL_WIFI
 
 /* 16 LED * 24 Bit color values */
 #define PWM_STREAM_LENGTH_FULL_DISPLAY		384
@@ -115,13 +113,13 @@ const rgb_led all_on =
 const rgb_led red =
 {
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ONE, ONE, ZERO, ONE, ONE},
+	{ZERO, ZERO, ZERO, ONE,  ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
 
 const rgb_led green =
 {
-	{ZERO, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
+	{ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 };
@@ -130,7 +128,7 @@ const rgb_led blue =
 {
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ONE, ONE, ZERO, ONE, ONE},
+	{ZERO, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
 };
 
 
@@ -314,10 +312,10 @@ const rgb_pattern rgb4x4click_strongShift_r4c4 =
 
 const rgb_pattern rgb4x4click_error =
 {{
-	off,	off, 	off,	off,
+	red,	off, 	off,	red,
 	off,	off, 	off, 	off,
-	off,	off, 	yellow, yellow,
-	off, 	off,	yellow, red
+	off,	off, 	off, 	off,
+	red, 	off,	off, 	red,
 }};
 
 const rgb_pattern rgb4x4click_pairing =
@@ -452,6 +450,15 @@ bool getSensorDataFromServer(const *pData, const size_t const *pSize)
 	// check if server values are reliable, else return false
 	// write new data into buffer
 	// return true
+
+#ifdef VIRTUAL_WIFI /* Using Virtual WiFi Device for Testing Purposes */
+
+
+#else /* Using Click Board for WiFi Communication */
+
+
+#endif
+
 }
 
 
@@ -462,6 +469,8 @@ bool getSensorDataFromServer(const *pData, const size_t const *pSize)
  */
 bool serverReachable()
 {
+
+
 
 }
 

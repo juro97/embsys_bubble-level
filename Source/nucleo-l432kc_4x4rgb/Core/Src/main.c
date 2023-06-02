@@ -410,7 +410,7 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 void StartConServerTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	char ch[] = {'a', 'b', 'c', 'R'};
+	char ch[] = {'a', 'b', 'c', 'Z'};
 	int i = 0;
   /* Infinite loop */
 

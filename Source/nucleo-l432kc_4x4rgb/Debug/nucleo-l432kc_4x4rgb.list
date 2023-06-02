@@ -1311,7 +1311,7 @@ void StartConServerTask(void *argument)
  8000a60:	af00      	add	r7, sp, #0
  8000a62:	6078      	str	r0, [r7, #4]
   /* USER CODE BEGIN 5 */
-	char ch[] = {'a', 'b', 'c', 'R'};
+	char ch[] = {'a', 'b', 'c', 'Z'};
  8000a64:	4b13      	ldr	r3, [pc, #76]	; (8000ab4 <StartConServerTask+0x58>)
  8000a66:	60bb      	str	r3, [r7, #8]
 	int i = 0;
@@ -1359,7 +1359,7 @@ void StartConServerTask(void *argument)
  8000aae:	f004 f953 	bl	8004d58 <osDelay>
 	  printDataOnMatrix(&ch[3]);
  8000ab2:	e7e1      	b.n	8000a78 <StartConServerTask+0x1c>
- 8000ab4:	52636261 	.word	0x52636261
+ 8000ab4:	5a636261 	.word	0x5a636261
  8000ab8:	55555556 	.word	0x55555556
 
 08000abc <newDataTimerCallback>:

@@ -1,5 +1,5 @@
-clk_4x4_rgb.c:353:6:printDataOnMatrix	23
-clk_4x4_rgb.c:448:6:getSensorDataFromServer	1
-clk_4x4_rgb.c:463:6:serverReachable	1
-clk_4x4_rgb.c:476:6:setSingleColorBrightness	1
-clk_4x4_rgb.c:492:6:setAllColorBrightnesses	1
+clk_4x4_rgb.c:351:6:printDataOnMatrix	23
+clk_4x4_rgb.c:446:6:getSensorDataFromServer	1
+clk_4x4_rgb.c:461:6:serverReachable	1
+clk_4x4_rgb.c:474:6:setSingleColorBrightness	1
+clk_4x4_rgb.c:490:6:setAllColorBrightnesses	1
