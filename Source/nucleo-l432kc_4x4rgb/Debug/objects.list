@@ -1,7 +1,3 @@
-"./Core/MikroeSDK_V1_WiFi/main.o"
-"./Core/MikroeSDK_V1_WiFi/wifible.o"
-"./Core/MikroeSDK_V2_WiFi/sr/main.o"
-"./Core/MikroeSDK_V2_WiFi/sr/wifiesp.o"
 "./Core/Src/clk_4x4_rgb.o"
 "./Core/Src/clk_wifi.o"
 "./Core/Src/fake_clk_wifi.o"
