@@ -2,15 +2,15 @@
 #include "main.h"
 #include "cmsis_os.h"
 
-extern volatile BOOL TIMER_1MS_FLG;
-extern volatile BOOL EC_DATA_AVAIL; // HIDI2_HOST_INT indicates EC data available
-
 extern osTimerId_t i2cTimerHandle;
-
 extern TIM_HandleTypeDef htim2;
 
-volatile UINT32 I2C_TIMEOUT_1MS_CNTR = 0;
+volatile UINT32 I2C_TIMEOUT_50MS_CNTR = 0;
 
+/* Every 50ms the Software Timer gets triggered.
+ * Within the ISR the Counter Value gets incremented by 50.
+ * On 250ms, the i2c connection send an error.
+ */
 
 void StopI2CTimer()
 {
@@ -19,6 +19,9 @@ void StopI2CTimer()
 
 void StartI2CTimer()
 {
-  I2C_TIMEOUT_1MS_CNTR = 0;
-  osTimerStart(i2cTimerHandle, 1);
+  /* Reset the Counter Value */
+	I2C_TIMEOUT_50MS_CNTR = 0;
+
+  /* Start the Software Timer and set 50ms as Overflow Value */
+  osTimerStart(i2cTimerHandle, 50);
 }

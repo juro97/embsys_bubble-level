@@ -41,7 +41,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/app.h \
- ../Core/Src/../../Core/MikroeSDK_3D-Motion/System.h \
+ ../Core/Src/../../Core/MikroeSDK_3D-Motion/system.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/interrupts.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/vregs.h \
  ../Core/Src/../../Core/MikroeSDK_3D-Motion/i2cIO.h \
@@ -92,7 +92,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/app.h:
-../Core/Src/../../Core/MikroeSDK_3D-Motion/System.h:
+../Core/Src/../../Core/MikroeSDK_3D-Motion/system.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/interrupts.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/vregs.h:
 ../Core/Src/../../Core/MikroeSDK_3D-Motion/i2cIO.h:

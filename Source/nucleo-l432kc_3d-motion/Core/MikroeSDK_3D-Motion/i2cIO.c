@@ -6,7 +6,7 @@ extern TIM_HandleTypeDef htim2;
 extern UART_HandleTypeDef huart2;
 
 volatile uint16_t status = 0;
-volatile BOOL TIMER_1MS_FLG = FALSE;	// 1 msec timer interrupt flag
+volatile BOOL TIMER_50MS_FLG = FALSE;	// 1 msec timer interrupt flag
 volatile BOOL EC_DATA_AVAIL = FALSE;	// EC data available for read flag
 
 /*

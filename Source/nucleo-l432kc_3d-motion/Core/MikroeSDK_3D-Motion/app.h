@@ -34,7 +34,7 @@ typedef unsigned long UINT32;
 #define FALSE 0
 
 //  Peripheral Include Files
-#include "System.h"
+#include "system.h"
 #include "interrupts.h"
 #include "vregs.h"
 #include "i2cIO.h"

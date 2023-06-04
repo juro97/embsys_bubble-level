@@ -15,9 +15,6 @@
           
 #include "app.h"
 
-//*****************************************************************************
-//  Section : File scope variables and functions
-//*****************************************************************************
 
 extern HID_DESCRIPTOR_TABLE HID_FIELD;                              //structure for HID Descriptor
 
@@ -50,10 +47,6 @@ char ErrorString[][50] =                                            //List of er
         "Unknown Error, Error code out of range"
 };
 
-
-//*****************************************************************************
-//  Section : Code
-//*****************************************************************************
 
 /** flash_info_command
 * @note        Implements flash info(+ reset) command during flash update

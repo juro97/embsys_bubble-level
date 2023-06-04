@@ -1,5 +1,5 @@
 /*****************************************************************************
-* © 2014 Microchip Technology Inc. and its subsidiaries.
+* ï¿½ 2014 Microchip Technology Inc. and its subsidiaries.
 * You may use this software and any derivatives exclusively with
 * Microchip products.
 * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".
@@ -65,7 +65,7 @@ UINT8 RPT_DESC[HID_RPT_LEN] = {0};                                        //buff
 UINT8 RAW_SENSOR_CNT = 0;                                           //for backward compatibility to F/W with all-in-one RAW sensor data
 
 extern SF_VREGS _VREGS;                                              //structure containing the VREG registers 
-extern volatile BOOL TIMER_1MS_FLG;                                 // Timer counter variable 
+extern volatile BOOL TIMER_50MS_FLG;                                 // Timer counter variable
 extern volatile BOOL EC_DATA_AVAIL;                                 //HIDI2_HOST_INT indicates EC data available
 
 
@@ -192,17 +192,17 @@ UINT8 hid_i2c_cmd_process(UINT8 *ucCmdDatbuf, UINT8 ucCmd_req, UINT8 ucReport_id
             if (ucRetStat != SUCCESS)
                 return RESET_FAIL;
 
-            TIMER_1MS_FLG = 0;                                      // Prepare timer1 for counting
+            TIMER_50MS_FLG = 0;                                      // Prepare timer1 for counting
             usTimeout = TIMEOUT_5SEC;                               // 5 sec (as per HID spec) timeout for reset command 
             while (usTimeout)                                       // wait up to API spec timeout to respond with EC_DATA avail interrupt   
             {    
                 if (EC_DATA_AVAIL)                                  // EC interrupt asserted (data is available)
                     break; 
                                         
-                if (TIMER_1MS_FLG)
+                if (TIMER_50MS_FLG)
                 { 
-                    TIMER_1MS_FLG = 0;
-                    usTimeout--;                                    // 1 msec expired, reduce counter
+                    TIMER_50MS_FLG = 0;
+                    usTimeout = usTimeout - 50;                                    // 1 msec expired, reduce counter
                 }
             }
 
