@@ -1,5 +1,5 @@
-vregs.c:79:7:VREG_init	7
-vregs.c:132:7:set_state_data	9
-vregs.c:188:6:parse_update_VREG_data	9
-vregs.c:264:7:HOST_SF_LIB_VREG_read	7
-vregs.c:312:7:HOST_SF_LIB_VREG_write	59
+vregs.c:60:7:VREG_init	7
+vregs.c:113:7:set_state_data	9
+vregs.c:169:6:parse_update_VREG_data	9
+vregs.c:245:7:HOST_SF_LIB_VREG_read	7
+vregs.c:293:7:HOST_SF_LIB_VREG_write	59

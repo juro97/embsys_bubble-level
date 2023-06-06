@@ -30,7 +30,6 @@ void error_handler(char *str, UINT16 offset, UINT16 errval) {
  * @param bAdjust Use 1st 2 bytes returned as new length (=TRUE)
  * @return I2C_SUCCESS(=0), I2C_BUF_OVRFLO(=0x22)
  */
-
 UINT8 i2c_cmd_WrRd(UINT8 ucCmd, UINT8 ucBytes_wr, UINT8 *ucData_wr, UINT16 usBytes_rd, UINT8 *ucData_rd, BOOL bAdjust)
 {
 	if (ucBytes_wr > BUF_150)
