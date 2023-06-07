@@ -195,21 +195,22 @@ UINT8 hid_i2c_cmd_process(UINT8 *ucCmdDatbuf, UINT8 ucCmd_req, UINT8 ucReport_id
                 return RESET_FAIL;
 
             TIMER_50MS_FLG = 0;                                      // Prepare timer1 for counting
-            usTimeout = TIMEOUT_5SEC;                               // 5 sec (as per HID spec) timeout for reset command 
-            while (usTimeout > 51)                                       // wait up to API spec timeout to respond with EC_DATA avail interrupt
+            usTimeout = 900000;                               // 5 sec (as per HID spec) timeout for reset command
+            while (usTimeout > 10)                                       // wait up to API spec timeout to respond with EC_DATA avail interrupt
             {    
                 if (EC_DATA_AVAIL)                                  // EC interrupt asserted (data is available)
                     break; 
-
-                                        
+                --usTimeout;
+                /*
                 if (TIMER_50MS_FLG)
                 { 
                     TIMER_50MS_FLG = 0;
                     usTimeout = usTimeout - 50;                                    // 1 msec expired, reduce counter
                 }
+                */
             }
 
-            if (!usTimeout) 
+            if (usTimeout <= 10)
                 return RESET_FAIL;                                  // timeout occured without device responding with interrupt
                 
             ucRetStat = i2c_cmd_WrRd (READ,                         // EC_DATA_AVAIL flag was set indicating SSC7150 has data available to be read in response to the RESET CMD

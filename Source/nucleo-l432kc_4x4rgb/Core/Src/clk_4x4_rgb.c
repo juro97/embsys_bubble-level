@@ -52,6 +52,8 @@
 
 #include "clk_4x4_rgb.h"
 #include "fake_clk_wifi.h"
+#include "patterns.h"
+
 
 
 /**************************************************************************
@@ -64,9 +66,7 @@
 /* 16 LED * 24 Bit color values */
 #define PWM_STREAM_LENGTH_FULL_DISPLAY		384
 
-/* CCR Register Values for PWM Duty Cycle */
-#define ONE 	57
-#define ZERO	31
+
 
 
 /**************************************************************************
@@ -76,263 +76,6 @@
 /* Those are declared in the main.c file */
 extern TIM_HandleTypeDef htim1;
 extern osSemaphoreId_t sem_printPermissionHandle;
-
-
-/* Datatype for one LED */
-typedef struct __attribute__((__packed__))
-{
-	uint8_t green[8];
-	uint8_t red[8];
-	uint8_t blue[8];
-} rgb_led;
-
-
-/* Datatype for full 4x4 Matrix */
-typedef struct  __attribute__((__packed__))
-{
-	rgb_led led[16];
-} rgb_pattern;
-
-
-
-/* Predefined Colors for one LED */
-const rgb_led off =
-{
-	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
-	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
-	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
-};
-
-const rgb_led all_on =
-{
-	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ONE, ONE, ONE, ONE, ONE, ONE, ONE},
-};
-
-const rgb_led red =
-{
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ONE,  ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-};
-
-const rgb_led green =
-{
-	{ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-};
-
-const rgb_led blue =
-{
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE},
-};
-
-
-const rgb_led yellow =
-{
-	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ZERO, ZERO, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-};
-
-const rgb_led orange =
-{
-	{ZERO, ZERO, ONE, ZERO, ZERO, ONE, ZERO, ONE},
-	{ZERO, ZERO, ONE, ONE, ONE, ONE, ONE, ONE},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO, ZERO},
-
-};
-
-const rgb_led white =
-{
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
-	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
-};
-
-
-
-/* Predefined Patterns for the Matrix */
-
-const rgb_pattern rgb4x4click_centered =
-{{
-	white, 	white, 	white, 	white,
-	white, 	green, 	green, 	white,
-	white, 	green, 	green, 	white,
-	white, 	white, 	white,	white
-}};
-
-const rgb_pattern rgb4x4click_outOfScope =
-{{
-	red, 	red, 	red, 	red,
-	red, 	white,	white,	red,
-	red, 	white,	white,	red,
-	red, 	red, 	red, 	red,
-}};
-
-const rgb_pattern rgb4x4click_shakeDetection =
-{{
-	blue,	off, 	off, 	blue,
-	off, 	blue, 	blue, 	off,
-	off, 	blue, 	blue, 	off,
-	blue, 	off, 	off, 	blue
-}};
-
-const rgb_pattern rgb4x4click_lightShift_lu =
-{{
-	yellow, yellow, yellow, off,
-	yellow, green, 	yellow, off,
-	yellow, yellow, yellow, off,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_lightShift_lo =
-{{
-	off, 	off, 	off, 	off,
-	yellow, yellow, yellow, off,
-	yellow, green, 	yellow, off,
-	yellow, yellow, yellow,	off
-}};
-
-const rgb_pattern rgb4x4click_lightShift_ru =
-{{
-	off, 	yellow, yellow, yellow,
-	off, 	yellow, green, 	yellow,
-	off, 	yellow, yellow, yellow,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_lightShift_ro =
-{{
-	off, 	off, 	off, 	off,
-	off, 	yellow, yellow, yellow,
-	off, 	yellow, green, 	yellow,
-	off, 	yellow, yellow, yellow,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r1c1 =
-{{
-	red,	yellow,	off,	off,
-	yellow,	yellow,	off,	off,
-	off, 	off, 	off, 	off,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r1c2 =
-{{
-	yellow,	red, 	yellow, off,
-	yellow,	yellow,	yellow,	off,
-	off, 	off, 	off, 	off,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r1c3 =
-{{
-	off,	yellow,	red,	yellow,
-	off,	yellow,	yellow,	yellow,
-	off, 	off, 	off, 	off,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r1c4 =
-{{
-	off, 	off, 	yellow,	red,
-	off, 	off,	yellow,	yellow,
-	off, 	off, 	off, 	off,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r2c1 =
-{{
-	yellow,	yellow,	off,	off,
-	red,	yellow,	off,	off,
-	yellow,	yellow,	off,	off,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r2c4 =
-{{
-	off, 	off, 	yellow, yellow,
-	off,	off, 	yellow, red,
-	off, 	off, 	yellow, yellow,
-	off, 	off, 	off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r3c1 =
-{{
-	off,	off, 	off, 	off,
-	yellow, yellow, off, 	off,
-	red, 	yellow, off, 	off,
-	yellow, yellow, off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r3c4 =
-{{
-	off,	off,	off,	off,
-	off,	off, 	yellow,	yellow,
-	off,	off,	yellow, red,
-	off,	off,	yellow, yellow,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r4c1 =
-{{
-	off,	off, 	off, 	off,
-	off, 	off, 	off, 	off,
-	yellow, yellow, off, 	off,
-	red, 	yellow, off, 	off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r4c2 =
-{{
-	off, 	off, 	off, 	off,
-	off, 	off, 	off, 	off,
-	yellow, yellow, yellow, off,
-	yellow, red, 	yellow, off,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r4c3 =
-{{
-	off,	off,	off,	off,
-	off,	off, 	off, 	off,
-	off,	yellow, yellow, yellow,
-	off,	yellow, red,  	yellow,
-}};
-
-const rgb_pattern rgb4x4click_strongShift_r4c4 =
-{{
-	off,	off, 	off,	off,
-	off,	off, 	off, 	off,
-	off,	off, 	yellow, yellow,
-	off, 	off,	yellow, red
-}};
-
-const rgb_pattern rgb4x4click_error =
-{{
-	red,	off, 	off,	red,
-	off,	off, 	off, 	off,
-	off,	off, 	off, 	off,
-	red, 	off,	off, 	red,
-}};
-
-const rgb_pattern rgb4x4click_pairing =
-{{
-	off,	off, 	off,	off,
-	off,	off, 	off, 	off,
-	off,	off, 	yellow, yellow,
-	off, 	off,	yellow, red
-}};
-
-const rgb_pattern rgb4x4click_all_off =
-{{
-	off, 	off, 	off, 	off,
-	off, 	off,	off, 	off,
-	off, 	off, 	off, 	off,
-}};
-
 
 /* Pointer to the RGB Matrix Patterns */
 rgb_pattern const *ptr_Rgb4x4Click = NULL;
@@ -348,7 +91,7 @@ rgb_pattern const *ptr_Rgb4x4Click = NULL;
  * @brief	Prints the received Data from the Broker and prints it on the 4x4 Matrix
  * @param	ch - Pointer to a Char holding the Information to print
  */
-void printDataOnMatrix(char const *ch)
+void printDataOnMatrix(const char * const ch)
 {
 	switch(*ch)
 	{
@@ -443,22 +186,28 @@ void printDataOnMatrix(char const *ch)
  * @param	pSize - Pointer to Variable holding the Size of the Buffer
  * @return	false if Buffer to Small, Broker not reachable, inreliable sensor values, else true
  */
-bool getSensorDataFromServer(const *pData, const size_t const *pSize)
+bool getMotionDataFromServer(const char *pData)
 {
+#ifdef VIRTUAL_WIFI /* Using Virtual WiFi Device for Testing Purposes */
+
+	if(pData == NULL)
+	{
+		return false;
+	}
+
+	/* TODO: randomize the return value */
+	return 'a';
+
+
+#else /* Using Click Board for WiFi Communication */
+
 	// check if buffer size is enough, else return false
 	// check if server is reachable, else return false
 	// check if server values are reliable, else return false
 	// write new data into buffer
 	// return true
 
-#ifdef VIRTUAL_WIFI /* Using Virtual WiFi Device for Testing Purposes */
-
-
-#else /* Using Click Board for WiFi Communication */
-
-
 #endif
-
 }
 
 
@@ -469,9 +218,26 @@ bool getSensorDataFromServer(const *pData, const size_t const *pSize)
  */
 bool serverReachable()
 {
+#ifdef VIRTUAL_WIFI /* Using Virtual WiFi Device for Testing Purposes */
+
+	/* TODO: randomize the return value */
+	return true;
+
+#else /* Using Click Board for WiFi Communication */
+
+	/* TODO: Call Thomas Functions */
+#endif
+}
 
 
-
+//TODO
+/**
+ *  @brief: Connects to the Server
+ *  @return: true, if connection has worked
+ */
+bool connectToServer()
+{
+	return 1;
 }
 
 
@@ -482,13 +248,13 @@ bool serverReachable()
  * @param	brightness - Value between 1 and 10 for Intensity
  * @return	false when there were wrong input parameters, else true
  */
-bool setSingleColorBrightness(const char const* colCode, const uint8_t const *brightness)
+bool setSingleColorBrightness(const char * const colCode, const uint8_t * const brightness)
 {
-
 	/*
 	 * Check Input Parameters
 	 * Map colCode and brightness to according categories
 	 */
+	return true;
 }
 
 
@@ -498,11 +264,12 @@ bool setSingleColorBrightness(const char const* colCode, const uint8_t const *br
  * @param	brightness - Value between 1 and 10 for Intensity
  * @return	false when there were wrong input parameters, else true
  */
-bool setAllColorBrightnesses(const uint8_t const *brightness)
+bool setAllColorBrightnesses(const uint8_t * const brightness)
 {
 	/*
 	 * Check Input Parameters
 	 * Map brightness to according categories
 	 */
+	return true;
 }
 

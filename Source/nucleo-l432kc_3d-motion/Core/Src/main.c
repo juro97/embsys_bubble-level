@@ -104,12 +104,8 @@ int main(void) {
 	/* Start scheduler */
 	osKernelStart();
 
-	while (1) {
-		/* We should never get here */
 	}
-
 }
-
 
 
 /* *********************** Task Functions *********************** */
@@ -117,6 +113,10 @@ int main(void) {
 void StartInputTask(void *argument) {
 	Wake_signal();
 	result = VREG_init();
+
+	while (1) {
+	/* We should never get here */
+
 	for (;;) {
 		Wake_signal();
 		_rawGyro();  // Note: array has 7 elements, not 8
