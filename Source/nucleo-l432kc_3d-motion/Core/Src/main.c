@@ -1,312 +1,471 @@
-/* *********************** INCLUDES *********************** */
+/* USER CODE BEGIN Header */
+/**
+ * Timer 7 Freq: 32MHz
+ * Prescaler: 60k
+ * 1 Tick => 0,16s
+ * Reload: 50
+ * Overflow at ~5s
+ */
 
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
-#include "tasks.h"
-#include "../../Core/MikroeSDK_3D-Motion/app.h"
 
-/* *********************** DEFINES *********************** */
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "../MikroSDK-ExampleCode/app.h"
+/* USER CODE END Includes */
 
-#define DATA_REFRESH_CYCLE_IN_MS	200
-#define FIFTY_MS					50
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
 
-/* ******************** FUNC Prototypes ****************** */
+/* USER CODE END PTD */
 
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+
+/**
+ * Comment In/Out for visualizing the debug variables
+ */
+#define NDEBUG
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
+TIM_HandleTypeDef htim7;
+
+UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
+
+extern volatile BOOL usTimeout;
+extern volatile BOOL EC_DATA_AVAIL;
+
+extern volatile uint8_t x;
+extern volatile uint8_t y;
+extern volatile uint8_t z;
+
+
+char result;
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
-void StartInputTask(void *argument);
-void StartProcessTask(void *argument);
-void StartOutputTask(void *argument);
-void getNewDataCallback(void *argument);
-void i2cTimerCallback(void *argument);
-void fiftyMsTimerCallback(void *argument);
+static void MX_TIM7_Init(void);
+/* USER CODE BEGIN PFP */
 
-/* *********************** Vars and Structs *********************** */
+/* USER CODE END PFP */
 
-extern volatile BOOL I2C_TIMEOUT_50MS_CNTR;
-extern volatile UINT32 TIMER_1MS_FLG;
-extern volatile BOOL EC_DATA_AVAIL;
-extern volatile BOOL TIMER_50MS_FLG;
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 
-uint8_t state = 0;
-uint8_t result;
+/* USER CODE END 0 */
 
-I2C_HandleTypeDef hi2c1;
-UART_HandleTypeDef huart2;
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+  /* USER CODE END 1 */
 
-osThreadId_t inputTaskHandle;
-osThreadId_t processTaskHandle;
-osThreadId_t outputTaskHandle;
+  /* MCU Configuration--------------------------------------------------------*/
 
-osTimerId_t getNewDataTimerHandle;
-osTimerId_t i2cTimerHandle;
-osTimerId_t fiftyMsTimerHandle;
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-const osThreadAttr_t inputTask_attributes = {
-		.name = "inputTask",
-		.stack_size = 256 * 4,
-		.priority = (osPriority_t) osPriorityHigh,
-};
+  /* USER CODE BEGIN Init */
+  /* USER CODE END Init */
 
-const osThreadAttr_t processTask_attributes = {
-		.name = "processTask",
-		.stack_size = 256 * 4,
-		.priority = (osPriority_t) osPriorityNormal1,
-};
+  /* Configure the system clock */
+  SystemClock_Config();
 
-const osThreadAttr_t outputTask_attributes = { .name = "outputTask",
-		.stack_size = 256 * 4, .priority = (osPriority_t) osPriorityNormal2, };
+  /* USER CODE BEGIN SysInit */
+  /* USER CODE END SysInit */
 
-const osTimerAttr_t getNewDataTimer_attributes = { .name = "getNewDataTimer" };
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+  MX_I2C1_Init();
+  MX_TIM7_Init();
 
-const osTimerAttr_t i2cTimer_attributes = { .name = "i2cTimer" };
+  /* USER CODE BEGIN 2 */
 
-const osTimerAttr_t fiftyMsTimer_attributes = { .name = "fiftyMsTimer" };
+  HAL_Delay(1000);
+  /* Wake Up the Device */
+  Wake_signal();
+  HAL_Delay(100);
+  /* Reset the Device */
+  Reset_signal();
+  /* Wake Up the Device */
+  HAL_Delay(100);
+  Wake_signal();
+  HAL_Delay(100);
 
-/* *********************** Main *********************** */
+  /* Initialize the Virtual Register Bank */
+  while(VREG_init())
+  {
+	  HAL_Delay(1000);
+  }
+  /* Handle Initialization Error */
 
-int main(void) {
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+  /* USER CODE END 2 */
 
-	/* Configure the system clock */
-	SystemClock_Config();
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_USART2_UART_Init();
-	MX_I2C1_Init();
+  while (1)
+  {
 
-	/* Init scheduler */
-	osKernelInitialize();
+	  _accel();
+	  HAL_Delay(1000);
+    /* USER CODE END WHILE */
 
-	/* Create the timer(s) */
-	getNewDataTimerHandle = osTimerNew(getNewDataCallback, osTimerPeriodic,
-			NULL, &getNewDataTimer_attributes);
-	i2cTimerHandle = osTimerNew(i2cTimerCallback, osTimerPeriodic, NULL,
-			&i2cTimer_attributes);
-	fiftyMsTimerHandle = osTimerNew(fiftyMsTimerCallback, osTimerPeriodic, NULL,
-			&fiftyMsTimer_attributes);
-
-	/* Create the thread(s) */
-	inputTaskHandle = osThreadNew(StartInputTask, NULL, &inputTask_attributes);
-	processTaskHandle = osThreadNew(StartProcessTask, NULL,
-			&processTask_attributes);
-	outputTaskHandle = osThreadNew(StartOutputTask, NULL,
-			&outputTask_attributes);
-
-	/* Start the Timers */
-	osTimerStart(fiftyMsTimerHandle, FIFTY_MS);
-	osTimerStart(getNewDataTimerHandle, DATA_REFRESH_CYCLE_IN_MS);
-
-	/* Start scheduler */
-	osKernelStart();
-
-	}
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
 }
 
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-/* *********************** Task Functions *********************** */
+  /** Configure the main internal regulator output voltage
+  */
+  if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-void StartInputTask(void *argument) {
-	Wake_signal();
-	result = VREG_init();
+  /** Configure LSE Drive Capability
+  */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
 
-	while (1) {
-	/* We should never get here */
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.MSICalibrationValue = 0;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
+  RCC_OscInitStruct.PLL.PLLM = 1;
+  RCC_OscInitStruct.PLL.PLLN = 18;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	for (;;) {
-		Wake_signal();
-		_rawGyro();  // Note: array has 7 elements, not 8
-		osDelay(3000);
-	}
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Enable MSI Auto calibration
+  */
+  HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x00301739;
+  hi2c1.Init.OwnAddress1 = 128;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
 
 }
 
-void StartProcessTask(void *argument) {
-	for (;;) {
-		osDelay(1000);
-	}
+/**
+  * @brief TIM7 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+
+  /* USER CODE END TIM7_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 60000-1;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 50;
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+
+  /* USER CODE END TIM7_Init 2 */
+
 }
 
-void StartOutputTask(void *argument) {
-	for (;;) {
-		osDelay(1000);
-	}
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
 }
 
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
-/* *********************** Callbacks & ISRs *********************** */
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
-void getNewDataCallback(void *argument) {
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(MOTION_WAKE_PIN_GPIO_Port, MOTION_WAKE_PIN_Pin, GPIO_PIN_SET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(MOTION_RESET_PIN_GPIO_Port, MOTION_RESET_PIN_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : MOTION_WAKE_PIN_Pin */
+  GPIO_InitStruct.Pin = MOTION_WAKE_PIN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(MOTION_WAKE_PIN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : MOTION_EXTI_PIN_Pin */
+  GPIO_InitStruct.Pin = MOTION_EXTI_PIN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(MOTION_EXTI_PIN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : MOTION_RESET_PIN_Pin LD3_Pin */
+  GPIO_InitStruct.Pin = MOTION_RESET_PIN_Pin|LD3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 6, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
-void i2cTimerCallback(void *argument) {
-	I2C_TIMEOUT_50MS_CNTR = I2C_TIMEOUT_50MS_CNTR;
-	if (I2C_TIMEOUT_50MS_CNTR >= I2_TIMEOUT_PERIOD) { // looks like i2c taking too long
-		StopI2CTimer();                                        // turn off timer
-		error_handler("i2c ", 0, I2C_TIMEOUT_ERR); // displays to LCD and uart **does not return***
-	}
+/* USER CODE BEGIN 4 */
+
+/**
+ * @brief: Checks if the Interrupt came from the Click Module and sets the Data Available Flag.
+ * 			Sets the Interrupt to fire on opposite Signal-Edge.
+ * @param: The Pin from where the Interrupt came from
+ * TODO: Directly Write to the Registers without using the HAL functions
+ */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+
+#ifdef NDEBUG
+	  static size_t profiler_exti3CallBack = 0;
+	  ++profiler_exti3CallBack;
+#endif
+
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    /* Check if the INT Source is our Data Available PIN */
+    if(GPIO_Pin == MOTION_EXTI_PIN_Pin)
+    {
+    	/*If no data available, but INT Line was driven LOW */
+        if (!EC_DATA_AVAIL)
+        {
+        	/* INT1 Edge configured to interrupt on rising edge (wait for end of data) */
+            GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+
+            /*Toggle EC_DATA_AVAIL flag to notify data received */
+            EC_DATA_AVAIL = TRUE;
+        }
+        /* if data was available and INT line got driven HIGH */
+        else
+        {
+        	/* INT1 Edge configured to interrupt on falling edge (data is no longer available) */
+            GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+
+            /*Toggle EC_DATA_AVAIL flag to notify that there is no new data rn */
+            EC_DATA_AVAIL = FALSE;
+        }
+
+		GPIO_InitStruct.Pin = MOTION_EXTI_PIN_Pin;
+        GPIO_InitStruct.Pull = GPIO_NOPULL;
+        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+
+        /* Re-Initialize the Portpin to Trigger on falling/rising Edge */
+        HAL_GPIO_Init(MOTION_EXTI_PIN_GPIO_Port, &GPIO_InitStruct);
+    }
 }
 
-void fiftyMsTimerCallback(void *argument) {
-	TIMER_50MS_FLG = TRUE;
+/* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM16 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM16) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* Interrupt Fires at around 5 seconds after start of Timer 7*/
+  if (htim->Instance == TIM7) {
+    usTimeout = TRUE;
+  }
+  /* USER CODE END Callback 1 */
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == GPIO_PIN_3) {
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
 
-		GPIO_PinState PinState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3);
+  __disable_irq();
 
-		if (PinState == GPIO_PIN_SET) {
-			// If the pin is set, the interrupt was caused by a rising edge
-			EC_DATA_AVAIL = TRUE;
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-		} else {
-			// If the pin is reset, the interrupt was caused by a falling edge
-			EC_DATA_AVAIL = FALSE;
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-		}
-
-	}
-}
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (htim->Instance == TIM16) {
-		HAL_IncTick();
-	}
-}
-
-
-/* *********************** Error Handler STuff *********************** */
-
-void Error_Handler(void) {
-	__disable_irq();
-	while (1) {
-	}
-}
-
-
-/* *********************** CUBE INIT STUFF *********************** */
-void SystemClock_Config(void) {
-	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
-	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
-
-	if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1)
-			!= HAL_OK) {
-		Error_Handler();
-	}
-
-	HAL_PWR_EnableBkUpAccess();
-	__HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
-
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE
-			| RCC_OSCILLATORTYPE_MSI;
-	RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-	RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-	RCC_OscInitStruct.MSICalibrationValue = 0;
-	RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
-	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
-	RCC_OscInitStruct.PLL.PLLM = 1;
-	RCC_OscInitStruct.PLL.PLLN = 40;
-	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
-	RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
-	RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
-		Error_Handler();
-	}
-	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
-			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-
-	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
-		Error_Handler();
-	}
-	HAL_RCCEx_EnableMSIPLLMode();
-}
-
-static void MX_I2C1_Init(void) {
-	hi2c1.Instance = I2C1;
-	hi2c1.Init.Timing = 0x00702991;
-	hi2c1.Init.OwnAddress1 = 0;
-	hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-	hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-	hi2c1.Init.OwnAddress2 = 0;
-	hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
-	hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-	hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-	if (HAL_I2C_Init(&hi2c1) != HAL_OK) {
-		Error_Handler();
-	}
-	if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE)
-			!= HAL_OK) {
-		Error_Handler();
-	}
-	if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK) {
-		Error_Handler();
-	}
-}
-
-static void MX_USART2_UART_Init(void) {
-	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 115200;
-	huart2.Init.WordLength = UART_WORDLENGTH_8B;
-	huart2.Init.StopBits = UART_STOPBITS_1;
-	huart2.Init.Parity = UART_PARITY_NONE;
-	huart2.Init.Mode = UART_MODE_TX_RX;
-	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-	huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-	huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-	if (HAL_UART_Init(&huart2) != HAL_OK) {
-		Error_Handler();
-	}
-}
-
-static void MX_GPIO_Init(void) {
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-
-	__HAL_RCC_GPIOC_CLK_ENABLE();
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-	__HAL_RCC_GPIOB_CLK_ENABLE();
-
-	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOA, MOTION_CLICK_WAKE_Pin | RGB_LED_GREEN_Pin,
-			GPIO_PIN_RESET);
-
-	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
-
-	/*Configure GPIO pins : MOTION_CLICK_WAKE_Pin RGB_LED_GREEN_Pin */
-	GPIO_InitStruct.Pin = MOTION_CLICK_WAKE_Pin | RGB_LED_GREEN_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-	/*Configure GPIO pin : MOTION_CLICK_INTERRUPT_Pin */
-	GPIO_InitStruct.Pin = MOTION_CLICK_INTERRUPT_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
-	GPIO_InitStruct.Pull = GPIO_PULLUP;
-	HAL_GPIO_Init(MOTION_CLICK_INTERRUPT_GPIO_Port, &GPIO_InitStruct);
-
-	/*Configure GPIO pin : LD3_Pin */
-	GPIO_InitStruct.Pin = LD3_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(LD3_GPIO_Port, &GPIO_InitStruct);
-
-	/* EXTI interrupt init*/
-	HAL_NVIC_SetPriority(EXTI3_IRQn, 5, 0);
-	HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+  while (1)
+  {
+	  ;
+  }
+  /* USER CODE END Error_Handler_Debug */
 }
 
 #ifdef  USE_FULL_ASSERT

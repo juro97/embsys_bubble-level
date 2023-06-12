@@ -1,0 +1,8 @@
+../Core/MikroSDK-ExampleCode/sensors.c:13:6:_accel	56	static
+../Core/MikroSDK-ExampleCode/sensors.c:70:6:_gyro	56	static
+../Core/MikroSDK-ExampleCode/sensors.c:132:6:_compass	40	static
+../Core/MikroSDK-ExampleCode/sensors.c:180:6:_orient	64	static
+../Core/MikroSDK-ExampleCode/sensors.c:248:6:_inclin	56	static
+../Core/MikroSDK-ExampleCode/sensors.c:310:6:_rawAccel	56	static
+../Core/MikroSDK-ExampleCode/sensors.c:381:6:_rawMagnet	56	static
+../Core/MikroSDK-ExampleCode/sensors.c:447:6:_rawGyro	56	static

@@ -1,0 +1,2 @@
+../Core/MikroSDK-ExampleCode/i2cIO.c:14:6:error_handler	24	static
+../Core/MikroSDK-ExampleCode/i2cIO.c:29:7:i2c_cmd_WrRd	32	static

@@ -1,3 +1,0 @@
-flashupdate.c:57:7:flash_info_command	5
-flashupdate.c:98:7:flash_write_command	8
-flashupdate.c:188:7:flash_verify_command	5

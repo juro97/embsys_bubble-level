@@ -9,14 +9,10 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include Core/MikroeSDK_3D-Motion/subdir.mk
+-include Core/MikroSDK-ExampleCode/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -39,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := nucleo-l432kc_3d-motion
+BUILD_ARTIFACT_NAME := 3d-motion-debug
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-nucleo-l432kc_3d-motion.elf \
+3d-motion-debug.elf \
 
 MAP_FILES += \
-nucleo-l432kc_3d-motion.map \
+3d-motion-debug.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-nucleo-l432kc_3d-motion.list \
+3d-motion-debug.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: nucleo-l432kc_3d-motion.elf secondary-outputs
+main-build: 3d-motion-debug.elf secondary-outputs
 
 # Tool invocations
-nucleo-l432kc_3d-motion.elf nucleo-l432kc_3d-motion.map: $(OBJS) $(USER_OBJS) C:\Users\pjura\Desktop\dev\stm32\embsys_bubble-level\Source\nucleo-l432kc_3d-motion\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "nucleo-l432kc_3d-motion.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\pjura\Desktop\dev\stm32\embsys_bubble-level\Source\nucleo-l432kc_3d-motion\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_3d-motion.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+3d-motion-debug.elf 3d-motion-debug.map: $(OBJS) $(USER_OBJS) C:\Users\pjura\Desktop\dev\stm32\3d-motion-debug\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "3d-motion-debug.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\pjura\Desktop\dev\stm32\3d-motion-debug\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3d-motion-debug.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-nucleo-l432kc_3d-motion.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "nucleo-l432kc_3d-motion.list"
+3d-motion-debug.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "3d-motion-debug.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout nucleo-l432kc_3d-motion.elf nucleo-l432kc_3d-motion.list nucleo-l432kc_3d-motion.map
+	-$(RM) 3d-motion-debug.elf 3d-motion-debug.list 3d-motion-debug.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

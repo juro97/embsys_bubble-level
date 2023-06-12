@@ -1,2 +1,0 @@
-../Core/MikroeSDK_3D-Motion/interrupts.c:15:6:StopI2CTimer	8	static
-../Core/MikroeSDK_3D-Motion/interrupts.c:20:6:StartI2CTimer	8	static

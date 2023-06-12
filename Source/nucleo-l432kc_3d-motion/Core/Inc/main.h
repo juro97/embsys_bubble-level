@@ -57,15 +57,15 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define MOTION_CLICK_WAKE_Pin GPIO_PIN_0
-#define MOTION_CLICK_WAKE_GPIO_Port GPIOA
+#define MOTION_WAKE_PIN_Pin GPIO_PIN_0
+#define MOTION_WAKE_PIN_GPIO_Port GPIOA
 #define VCP_TX_Pin GPIO_PIN_2
 #define VCP_TX_GPIO_Port GPIOA
-#define MOTION_CLICK_INTERRUPT_Pin GPIO_PIN_3
-#define MOTION_CLICK_INTERRUPT_GPIO_Port GPIOA
-#define MOTION_CLICK_INTERRUPT_EXTI_IRQn EXTI3_IRQn
-#define RGB_LED_GREEN_Pin GPIO_PIN_8
-#define RGB_LED_GREEN_GPIO_Port GPIOA
+#define MOTION_EXTI_PIN_Pin GPIO_PIN_3
+#define MOTION_EXTI_PIN_GPIO_Port GPIOA
+#define MOTION_EXTI_PIN_EXTI_IRQn EXTI3_IRQn
+#define MOTION_RESET_PIN_Pin GPIO_PIN_1
+#define MOTION_RESET_PIN_GPIO_Port GPIOB
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
@@ -74,6 +74,10 @@ void Error_Handler(void);
 #define VCP_RX_GPIO_Port GPIOA
 #define LD3_Pin GPIO_PIN_3
 #define LD3_GPIO_Port GPIOB
+#define CLICK_I2C1_SCK_Pin GPIO_PIN_6
+#define CLICK_I2C1_SCK_GPIO_Port GPIOB
+#define CLICK_I2C1_SDA_Pin GPIO_PIN_7
+#define CLICK_I2C1_SDA_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

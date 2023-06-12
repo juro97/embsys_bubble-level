@@ -1,5 +1,0 @@
-../Core/MikroeSDK_3D-Motion/vregs.c:60:7:VREG_init	56	static
-../Core/MikroeSDK_3D-Motion/vregs.c:113:7:set_state_data	104	static
-../Core/MikroeSDK_3D-Motion/vregs.c:169:6:parse_update_VREG_data	16	static
-../Core/MikroeSDK_3D-Motion/vregs.c:245:7:HOST_SF_LIB_VREG_read	72	static
-../Core/MikroeSDK_3D-Motion/vregs.c:293:7:HOST_SF_LIB_VREG_write	88	static

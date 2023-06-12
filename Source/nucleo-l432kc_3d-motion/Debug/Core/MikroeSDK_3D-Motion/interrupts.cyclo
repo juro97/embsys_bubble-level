@@ -1,2 +1,0 @@
-interrupts.c:15:6:StopI2CTimer	1
-interrupts.c:20:6:StartI2CTimer	1
