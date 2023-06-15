@@ -1,6 +1,0 @@
-../Core/MikroSDK-ExampleCode/sf.c:22:8:hid_i2c_descriptor_handler	72	static
-../Core/MikroSDK-ExampleCode/sf.c:104:7:hid_i2c_cmd_process	80	static
-../Core/MikroSDK-ExampleCode/sf.c:289:7:report_parse	32	static
-../Core/MikroSDK-ExampleCode/sf.c:513:8:ret_exponent	40	static
-../Core/MikroSDK-ExampleCode/sf.c:551:7:HOST_SF_LIB_HID_Set_Report	184	static
-../Core/MikroSDK-ExampleCode/sf.c:607:7:HOST_SF_LIB_HID_Get_Report	176	static

@@ -1,0 +1,5 @@
+../Core/Src/vregs.c:79:7:VREG_init	56	static
+../Core/Src/vregs.c:132:7:set_state_data	104	static
+../Core/Src/vregs.c:188:6:parse_update_VREG_data	16	static
+../Core/Src/vregs.c:264:7:HOST_SF_LIB_VREG_read	72	static
+../Core/Src/vregs.c:312:7:HOST_SF_LIB_VREG_write	88	static

@@ -1,3 +1,0 @@
-../Core/MikroSDK-ExampleCode/flashupdate.c:55:7:flash_info_command	16	static
-../Core/MikroSDK-ExampleCode/flashupdate.c:96:7:flash_write_command	176	static
-../Core/MikroSDK-ExampleCode/flashupdate.c:186:7:flash_verify_command	176	static

@@ -1,0 +1,8 @@
+sensors.c:7:6:_accel	13
+sensors.c:99:6:_gyro	13
+sensors.c:164:6:_compass	9
+sensors.c:213:6:_orient	15
+sensors.c:283:6:_inclin	13
+sensors.c:348:6:_rawAccel	14
+sensors.c:420:6:_rawMagnet	14
+sensors.c:490:6:_rawGyro	14

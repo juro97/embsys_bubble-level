@@ -1,5 +1,0 @@
-../Core/MikroSDK-ExampleCode/vregs.c:30:7:VREG_init	56	static
-../Core/MikroSDK-ExampleCode/vregs.c:83:7:set_state_data	104	static
-../Core/MikroSDK-ExampleCode/vregs.c:139:6:parse_update_VREG_data	16	static
-../Core/MikroSDK-ExampleCode/vregs.c:215:7:HOST_SF_LIB_VREG_read	72	static
-../Core/MikroSDK-ExampleCode/vregs.c:263:7:HOST_SF_LIB_VREG_write	88	static

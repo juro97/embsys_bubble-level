@@ -1,0 +1,2 @@
+../Core/Src/i2cIO.c:9:6:error_handler	24	static
+../Core/Src/i2cIO.c:29:7:i2c_cmd_WrRd	32	static
