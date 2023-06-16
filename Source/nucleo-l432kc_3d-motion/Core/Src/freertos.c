@@ -138,6 +138,9 @@ void StartGetDataTask(void *argument)
 	Wake_signal();
 	HAL_Delay(1000);
 
+	  HAL_NVIC_SetPriority(EXTI3_IRQn, 7, 0);
+	  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
 	/* Initialize the Virtual Register Bank */
 	while(VREG_init())
 	{
@@ -153,10 +156,8 @@ void StartGetDataTask(void *argument)
 	for (;;)
 	{
 		/* TODO: Connection to Module Works, but Data Retrieval does NOT */
-		_accel();
-		HAL_Delay(1000);
 		_gyro();
-		HAL_Delay(1000);
+		HAL_Delay(100);
 
 		/* TODO: Think of a nice way to store and transmit the data via the WIFI ESP */
 		/* Option 1: Store the Data in a Ring Buffer, and other Task sends it via function Call to WiFi Library => N: Might miss some old Data due to Buffer Overflow*/

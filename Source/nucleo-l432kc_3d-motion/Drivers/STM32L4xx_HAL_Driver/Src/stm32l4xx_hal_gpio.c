@@ -104,6 +104,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l4xx_hal.h"
+#include "main.h"
 
 /** @addtogroup STM32L4xx_HAL_Driver
   * @{
@@ -222,7 +223,7 @@ void HAL_GPIO_Init(GPIO_TypeDef  *GPIOx, GPIO_InitTypeDef *GPIO_Init)
         temp = GPIOx->PUPDR;
         temp &= ~(GPIO_PUPDR_PUPD0 << (position * 2U));
         temp |= ((GPIO_Init->Pull) << (position * 2U));
-        GPIOx->PUPDR = temp;
+
       }
 
       /* In case of Alternate function mode selection */
@@ -506,14 +507,12 @@ HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
   * @param  GPIO_Pin Specifies the port pin connected to corresponding EXTI line.
   * @retval None
   */
+
+extern volatile bool EC_DATA_AVAIL;
+
 void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
 {
-  /* EXTI line interrupt detected */
-  if(__HAL_GPIO_EXTI_GET_IT(GPIO_Pin) != 0x00u)
-  {
-    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
-    HAL_GPIO_EXTI_Callback(GPIO_Pin);
-  }
+
 }
 
 /**

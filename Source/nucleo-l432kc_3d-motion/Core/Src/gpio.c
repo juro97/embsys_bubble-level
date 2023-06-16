@@ -64,7 +64,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = MOTION_EXTI3_PIN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(MOTION_EXTI3_PIN_GPIO_Port, &GPIO_InitStruct);
 
@@ -76,8 +76,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(MOTION_RESET_PIN_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI3_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
 
 }
 
@@ -89,39 +88,11 @@ void MX_GPIO_Init(void)
  * @param: The Pin from where the Interrupt came from
  * TODO: Directly Write to the Registers without using the HAL functions
  */
+/*
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-    /* Check if the INT Source is our Data Available PIN */
-    if(GPIO_Pin == MOTION_EXTI3_PIN_Pin)
-    {
-    	/*If no data available, but INT Line was driven LOW */
-        if (!EC_DATA_AVAIL)
-        {
-        	/* INT1 Edge configured to interrupt on rising edge (wait for end of data) */
-            GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-
-            /*Toggle EC_DATA_AVAIL flag to notify data received */
-            EC_DATA_AVAIL = TRUE;
-        }
-        /* if data was available and INT line got driven HIGH */
-        else
-        {
-        	/* INT1 Edge configured to interrupt on falling edge (data is no longer available) */
-            GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-
-            /*Toggle EC_DATA_AVAIL flag to notify that there is no new data rn */
-            EC_DATA_AVAIL = FALSE;
-        }
-
-		GPIO_InitStruct.Pin = MOTION_EXTI3_PIN_Pin;
-        GPIO_InitStruct.Pull = GPIO_NOPULL;
-        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-
-        /* Re-Initialize the Portpin to Trigger on falling/rising Edge */
-        HAL_GPIO_Init(MOTION_EXTI3_PIN_GPIO_Port, &GPIO_InitStruct);
-    }
 }
+*/
 
 /* USER CODE END 2 */

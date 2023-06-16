@@ -152,6 +152,7 @@ void _gyro()
 	printf("%d\r\n", dDataY);
 	printf("%d\r\n", dDataZ);
 
+	/*
 		//Disable the Gyrometer on exit
 		if ((ucRetStat = HOST_SF_LIB_VREG_read(VREG_SHC, &wRMWdata)) == SUCCESS) // Read data from the Sensor Hub Configuration register
 				{
@@ -160,6 +161,7 @@ void _gyro()
 				error_handler("VRWr", VREG_SHC, ucRetStat); // error display
 		} else
 			error_handler("VRRd", VREG_SHC, ucRetStat); // error display
+			*/
 }
 
 void _compass() {

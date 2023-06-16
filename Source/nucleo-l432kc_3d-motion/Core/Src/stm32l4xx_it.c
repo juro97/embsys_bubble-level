@@ -162,16 +162,52 @@ void DebugMon_Handler(void)
 /**
   * @brief This function handles EXTI line3 interrupt.
   */
+
+#include "main.h"
+
+extern volatile bool EC_DATA_AVAIL;
+
 void EXTI3_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI3_IRQn 0 */
+  {
+      /* USER CODE BEGIN EXTI3_IRQn 0 */
 
-  /* USER CODE END EXTI3_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(MOTION_EXTI3_PIN_Pin);
-  /* USER CODE BEGIN EXTI3_IRQn 1 */
+      /* USER CODE END EXTI3_IRQn 0 */
 
-  /* USER CODE END EXTI3_IRQn 1 */
-}
+      /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+      /* Check if the INT Source is our Data Available PIN */
+      if (!EC_DATA_AVAIL)
+      {
+          /* INT1 Edge configured to interrupt on rising edge (wait for end of data) */
+
+          /* clear falling edge configuration for EXTI3 */
+          EXTI->FTSR1 &= ~(1U << 3);
+          /* set rising edge configuration for EXTI3 */
+          EXTI->RTSR1 |= (1U << 3);
+
+          /*Toggle EC_DATA_AVAIL flag to notify data received */
+          EC_DATA_AVAIL = TRUE;
+          /* clear EXTI3 interrupt flag */
+          __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+      }
+      else
+      {
+          /* INT1 Edge configured to interrupt on falling edge (data is no longer available) */
+
+          /* clear rising edge configuration for EXTI3 */
+          EXTI->RTSR1 &= ~(1U << 3);
+          /* set falling edge configuration for EXTI3 */
+          EXTI->FTSR1 |= (1U << 3);
+
+          /*Toggle EC_DATA_AVAIL flag to notify that there is no new data rn */
+          EC_DATA_AVAIL = FALSE;
+          /* clear EXTI3 interrupt flag */
+          __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+      }
+
+      /* USER CODE END EXTI3_IRQn 1 */
+  }
+
 
 /**
   * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
