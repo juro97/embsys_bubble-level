@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "retarget.h"
 #include "app.h"
+#include "../SYSVIEW/SEGGER_SYSVIEW.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +71,9 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
-  /* USER CODE END 1 */
+	// SEGGER_SYSVIEW_Conf();
+
+	/* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 

@@ -45,7 +45,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/i2c.h ../Core/Inc/usart.h ../Core/Inc/gpio.h \
- ../Core/Inc/retarget.h ../Core/Inc/app.h
+ ../Core/Inc/retarget.h ../Core/Inc/app.h \
+ ../Core/Src/../SYSVIEW/SEGGER_SYSVIEW.h ../Core/Src/../SYSVIEW/SEGGER.h \
+ ../Core/Src/../SYSVIEW/Global.h \
+ ../Core/Src/../SYSVIEW/SEGGER_SYSVIEW_ConfDefaults.h \
+ ../Core/Src/../SYSVIEW/SEGGER_SYSVIEW_Conf.h \
+ ../Core/Src/../SYSVIEW/SEGGER_RTT_Conf.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -103,3 +108,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/gpio.h:
 ../Core/Inc/retarget.h:
 ../Core/Inc/app.h:
+../Core/Src/../SYSVIEW/SEGGER_SYSVIEW.h:
+../Core/Src/../SYSVIEW/SEGGER.h:
+../Core/Src/../SYSVIEW/Global.h:
+../Core/Src/../SYSVIEW/SEGGER_SYSVIEW_ConfDefaults.h:
+../Core/Src/../SYSVIEW/SEGGER_SYSVIEW_Conf.h:
+../Core/Src/../SYSVIEW/SEGGER_RTT_Conf.h:

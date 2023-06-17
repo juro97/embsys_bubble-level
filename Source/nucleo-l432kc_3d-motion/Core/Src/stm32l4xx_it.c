@@ -175,7 +175,7 @@ void EXTI3_IRQHandler(void)
 
       /* USER CODE BEGIN EXTI3_IRQn 1 */
 
-      /* Check if the INT Source is our Data Available PIN */
+      /* Check if the INT Source is our Datstea Available PIN */
       if (!EC_DATA_AVAIL)
       {
           /* INT1 Edge configured to interrupt on rising edge (wait for end of data) */
@@ -188,7 +188,7 @@ void EXTI3_IRQHandler(void)
           /*Toggle EC_DATA_AVAIL flag to notify data received */
           EC_DATA_AVAIL = TRUE;
           /* clear EXTI3 interrupt flag */
-          __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+          EXTI->PR1 = (1U << 3);
       }
       else
       {
@@ -202,7 +202,7 @@ void EXTI3_IRQHandler(void)
           /*Toggle EC_DATA_AVAIL flag to notify that there is no new data rn */
           EC_DATA_AVAIL = FALSE;
           /* clear EXTI3 interrupt flag */
-          __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+          EXTI->PR1 = (1U << 3);
       }
 
       /* USER CODE END EXTI3_IRQn 1 */
