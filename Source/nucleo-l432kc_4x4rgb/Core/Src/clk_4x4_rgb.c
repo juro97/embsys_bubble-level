@@ -1,5 +1,4 @@
-/*
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *																   *
  *  Clock Frequency: 80MHz										   *
  *  PWM Transmission Time for one 1 Bit: 1.25us					   *
@@ -35,7 +34,6 @@
  * 	Y = waiting for pairing //TODO
  * 	Z = reset, all led off //TODO
  *
- * 	"RED", "GREEN; "WHITE", etc.  =>  Identify LED to do an operation like setBrightness on
  *
  */
 
@@ -46,14 +44,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "main.h"
 #include "cmsis_os.h"
 
 #include "clk_4x4_rgb.h"
-#include "fake_clk_wifi.h"
 #include "patterns.h"
-
 
 
 /**************************************************************************
@@ -65,8 +62,6 @@
 
 /* 16 LED * 24 Bit color values */
 #define PWM_STREAM_LENGTH_FULL_DISPLAY		384
-
-
 
 
 /**************************************************************************
@@ -81,11 +76,11 @@ extern osSemaphoreId_t sem_printPermissionHandle;
 rgb_pattern const *ptr_Rgb4x4Click = NULL;
 
 
-
-
 /**************************************************************************
  ******************************** METHODS *********************************
  **************************************************************************/
+
+/* TODO: @Thomas, diese einfach in deinem File aufrufen. */
 
 /**
  * @brief	Prints the received Data from the Broker and prints it on the 4x4 Matrix
@@ -93,8 +88,20 @@ rgb_pattern const *ptr_Rgb4x4Click = NULL;
  */
 void printDataOnMatrix(const char * const ch)
 {
+#ifdef VIRTUAL_WIFI
+
+	srand(time(0));
+	/* switch a random letter between a and m */
+	switch((rand() % (109 - 97 + 1)) + 97)
+	{
+
+#else
+
 	switch(*ch)
 	{
+
+#endif
+
 		case 'a':
 			ptr_Rgb4x4Click = &rgb4x4click_centered;
 			break;
@@ -178,98 +185,4 @@ void printDataOnMatrix(const char * const ch)
 
 }
 
-
-//TODO
-/**
- * @brief	Calls the Broker for new Sensor Data
- * @param	pData - Pointer to Data Buffer
- * @param	pSize - Pointer to Variable holding the Size of the Buffer
- * @return	false if Buffer to Small, Broker not reachable, inreliable sensor values, else true
- */
-bool getMotionDataFromServer(const char *pData)
-{
-#ifdef VIRTUAL_WIFI /* Using Virtual WiFi Device for Testing Purposes */
-
-	if(pData == NULL)
-	{
-		return false;
-	}
-
-	/* TODO: randomize the return value */
-	return 'a';
-
-
-#else /* Using Click Board for WiFi Communication */
-
-	// check if buffer size is enough, else return false
-	// check if server is reachable, else return false
-	// check if server values are reliable, else return false
-	// write new data into buffer
-	// return true
-
-#endif
-}
-
-
-//TODO
-/**
- * @brief	Checks if the Broker is eachable
- * @return	false if not reachable
- */
-bool serverReachable()
-{
-#ifdef VIRTUAL_WIFI /* Using Virtual WiFi Device for Testing Purposes */
-
-	/* TODO: randomize the return value */
-	return true;
-
-#else /* Using Click Board for WiFi Communication */
-
-	/* TODO: Call Thomas Functions */
-#endif
-}
-
-
-//TODO
-/**
- *  @brief: Connects to the Server
- *  @return: true, if connection has worked
- */
-bool connectToServer()
-{
-	return 1;
-}
-
-
-//TODO
-/**
- * @brief	Sets the Brightness of one single Color
- * @param	colCode - The Color Code to identify the LED Color like "GREEN" or "RED"
- * @param	brightness - Value between 1 and 10 for Intensity
- * @return	false when there were wrong input parameters, else true
- */
-bool setSingleColorBrightness(const char * const colCode, const uint8_t * const brightness)
-{
-	/*
-	 * Check Input Parameters
-	 * Map colCode and brightness to according categories
-	 */
-	return true;
-}
-
-
-//TODO
-/**
- * @brief	Sets the Brightness of all Colors
- * @param	brightness - Value between 1 and 10 for Intensity
- * @return	false when there were wrong input parameters, else true
- */
-bool setAllColorBrightnesses(const uint8_t * const brightness)
-{
-	/*
-	 * Check Input Parameters
-	 * Map brightness to according categories
-	 */
-	return true;
-}
 

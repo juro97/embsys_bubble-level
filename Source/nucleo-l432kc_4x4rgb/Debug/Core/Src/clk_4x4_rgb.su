@@ -1,6 +1,1 @@
-../Core/Src/clk_4x4_rgb.c:94:6:printDataOnMatrix	16	static
-../Core/Src/clk_4x4_rgb.c:189:6:getMotionDataFromServer	16	static
-../Core/Src/clk_4x4_rgb.c:219:6:serverReachable	4	static
-../Core/Src/clk_4x4_rgb.c:238:6:connectToServer	4	static
-../Core/Src/clk_4x4_rgb.c:251:6:setSingleColorBrightness	16	static
-../Core/Src/clk_4x4_rgb.c:267:6:setAllColorBrightnesses	16	static
+../Core/Src/clk_4x4_rgb.c:89:6:printDataOnMatrix	16	static

@@ -1,6 +1,1 @@
-clk_4x4_rgb.c:94:6:printDataOnMatrix	23
-clk_4x4_rgb.c:189:6:getMotionDataFromServer	2
-clk_4x4_rgb.c:219:6:serverReachable	1
-clk_4x4_rgb.c:238:6:connectToServer	1
-clk_4x4_rgb.c:251:6:setSingleColorBrightness	1
-clk_4x4_rgb.c:267:6:setAllColorBrightnesses	1
+clk_4x4_rgb.c:89:6:printDataOnMatrix	23

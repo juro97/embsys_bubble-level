@@ -1,6 +1,4 @@
 "./Core/Src/clk_4x4_rgb.o"
-"./Core/Src/clk_wifi.o"
-"./Core/Src/fake_clk_wifi.o"
 "./Core/Src/freertos.o"
 "./Core/Src/main.o"
 "./Core/Src/patterns.o"

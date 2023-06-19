@@ -38,8 +38,7 @@ Core/Src/clk_4x4_rgb.o: ../Core/Src/clk_4x4_rgb.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../Core/Inc/clk_4x4_rgb.h ../Core/Inc/main.h ../Core/Inc/fake_clk_wifi.h \
- ../Core/Inc/patterns.h
+ ../Core/Inc/clk_4x4_rgb.h ../Core/Inc/main.h ../Core/Inc/patterns.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -82,5 +81,4 @@ Core/Src/clk_4x4_rgb.o: ../Core/Src/clk_4x4_rgb.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../Core/Inc/clk_4x4_rgb.h:
 ../Core/Inc/main.h:
-../Core/Inc/fake_clk_wifi.h:
 ../Core/Inc/patterns.h:
