@@ -1,0 +1,18 @@
+﻿@page "/leveldata"
+
+<PageTitle>Level Data</PageTitle>
+
+<h1>Level</h1>
+
+<p role="status">Current level: @currentLevel</p>
+
+<button class="btn btn-primary" @onclick="Refresh">Refresh</button>
+
+@code {
+    private int currentLevel = 0;
+
+    private void Refresh()
+    {
+        currentLevel++;
+    }
+}

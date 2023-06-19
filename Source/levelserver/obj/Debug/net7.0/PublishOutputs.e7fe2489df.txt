@@ -1,0 +1,7 @@
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\levelserver.exe
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\appsettings.json
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\levelserver.dll
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\levelserver.deps.json
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\levelserver.runtimeconfig.json
+C:\Users\weste\source\repos\levelserver\bin\Debug\net7.0\publish\levelserver.pdb

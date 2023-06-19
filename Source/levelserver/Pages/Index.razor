@@ -1,0 +1,40 @@
+﻿@page "/"
+@using System.Timers
+@implements IDisposable
+
+<PageTitle>Wasserwaage</PageTitle>
+
+<h1>Wasserwaage</h1>
+
+<SurveyPrompt Title="Alles in Schieflage?" />
+
+@code {
+    private string currentTime = DateTime.Now.ToString("HH:mm:ss tt");
+
+    private Timer? secondsTimer;
+
+    protected override void OnInitialized()
+    {
+        //one second interval
+        secondsTimer = new Timer(1000);
+        secondsTimer.Enabled = true;
+        secondsTimer.AutoReset = true;
+        secondsTimer.Elapsed += (sender, e) => UpdateTime();
+    }
+
+    private void UpdateTime()
+    {
+        currentTime = DateTime.Now.ToString("HH:mm:ss tt");
+        InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        secondsTimer?.Dispose();
+    }
+}
+
+<p>@DateTime.Now</p>
