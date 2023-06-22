@@ -21,6 +21,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
+#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -45,15 +46,134 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 
+uint8_t updateLedMatrix = 0;
+
+uint8_t newDataAvailable = 0;
+
+uint8_t dataToPrint;
+
 /* USER CODE END Variables */
+/* Definitions for receiverTask */
+osThreadId_t receiverTaskHandle;
+const osThreadAttr_t receiverTask_attributes = {
+  .name = "receiverTask",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityHigh,
+};
+/* Definitions for updateScreenTimer */
+osTimerId_t updateScreenTimerHandle;
+const osTimerAttr_t updateScreenTimer_attributes = {
+  .name = "updateScreenTimer"
+};
+/* Definitions for sem_printPermission */
+osSemaphoreId_t sem_printPermissionHandle;
+const osSemaphoreAttr_t sem_printPermission_attributes = {
+  .name = "sem_printPermission"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
+void StartReceiverTask(void *argument);
+void updateScreenTimerCallback(void *argument);
+
+void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/**
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* creation of sem_printPermission */
+  sem_printPermissionHandle = osSemaphoreNew(1, 1, &sem_printPermission_attributes);
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* creation of updateScreenTimer */
+  updateScreenTimerHandle = osTimerNew(updateScreenTimerCallback, osTimerPeriodic, NULL, &updateScreenTimer_attributes);
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* creation of receiverTask */
+  receiverTaskHandle = osThreadNew(StartReceiverTask, NULL, &receiverTask_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  /* USER CODE END RTOS_EVENTS */
+
+}
+
+/* USER CODE BEGIN Header_StartReceiverTask */
+/**
+  * @brief  Function implementing the receiverTask thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_StartReceiverTask */
+void StartReceiverTask(void *argument)
+{
+  /* USER CODE BEGIN StartReceiverTask */
+
+
+	/* TODO: Init the WiFi */
+  for(;;)
+  {
+	  /* TODO Process WiFi Data */
+	  if(updateLedMatrix && newDataAvailable)
+	  {
+		  updateLedMatrix = 0;
+		  newDataAvailable = 1;
+
+		  printDataOnMatrix(&dataToPrint);
+	  }
+
+    osDelay(1);
+  }
+  /* USER CODE END StartReceiverTask */
+}
+
+/* updateScreenTimerCallback function */
+void updateScreenTimerCallback(void *argument)
+{
+  /* USER CODE BEGIN updateScreenTimerCallback */
+	updateLedMatrix = 1;
+  /* USER CODE END updateScreenTimerCallback */
+}
+
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+
+/* TODO: @Thomas diese bei dir dann aufrufen wenn neue Daten kommen */
+void NewDataAvailableCallback()
+{
+	newDataAvailable = 1;
+}
 
 /* USER CODE END Application */
 

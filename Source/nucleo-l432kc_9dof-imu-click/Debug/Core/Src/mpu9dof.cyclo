@@ -1,0 +1,7 @@
+mpu9dof.c:112:6:mpu9dof_default_cfg	1
+mpu9dof.c:164:6:mpu9dof_read	3
+mpu9dof.c:205:6:mpu9dof_calibrate_module	3
+mpu9dof.c:238:7:mpu9dof_process	2
+mpu9dof.c:278:6:mpu9dof_log_data	5
+mpu9dof.c:314:6:mpu9dof_generic_write	1
+mpu9dof.c:332:6:mpu9dof_generic_read	1

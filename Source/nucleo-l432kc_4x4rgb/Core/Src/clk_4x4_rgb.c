@@ -30,9 +30,7 @@
  * 	r = strong shift r4c3
  * 	s = strong shift r4c4
  *
- *	X = unknown error //TODO
- * 	Y = waiting for pairing //TODO
- * 	Z = reset, all led off //TODO
+ *	X = unknown error
  *
  *
  */
@@ -41,15 +39,8 @@
  ******************************** INCLUDES ********************************
  **************************************************************************/
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <time.h>
-
 #include "main.h"
-#include "cmsis_os.h"
 
-#include "clk_4x4_rgb.h"
 #include "patterns.h"
 
 
@@ -80,28 +71,14 @@ rgb_pattern const *ptr_Rgb4x4Click = NULL;
  ******************************** METHODS *********************************
  **************************************************************************/
 
-/* TODO: @Thomas, diese einfach in deinem File aufrufen. */
-
 /**
  * @brief	Prints the received Data from the Broker and prints it on the 4x4 Matrix
  * @param	ch - Pointer to a Char holding the Information to print
  */
 void printDataOnMatrix(const char * const ch)
 {
-#ifdef VIRTUAL_WIFI
-
-	srand(time(0));
-	/* switch a random letter between a and m */
-	switch((rand() % (109 - 97 + 1)) + 97)
-	{
-
-#else
-
 	switch(*ch)
 	{
-
-#endif
-
 		case 'a':
 			ptr_Rgb4x4Click = &rgb4x4click_centered;
 			break;

@@ -1,8 +1,0 @@
-../Core/Src/sensors.c:7:6:_accel	128	static
-../Core/Src/sensors.c:100:6:_gyro	128	static
-../Core/Src/sensors.c:167:6:_compass	128	static
-../Core/Src/sensors.c:216:6:_orient	128	static
-../Core/Src/sensors.c:286:6:_inclin	128	static
-../Core/Src/sensors.c:351:6:_rawAccel	64	static
-../Core/Src/sensors.c:423:6:_rawMagnet	128	static
-../Core/Src/sensors.c:493:6:_rawGyro	128	static

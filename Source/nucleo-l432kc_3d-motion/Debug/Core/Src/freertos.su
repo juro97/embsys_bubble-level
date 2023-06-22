@@ -1,3 +1,0 @@
-../Core/Src/freertos.c:80:6:MX_FREERTOS_Init	8	static
-../Core/Src/freertos.c:126:6:StartGetDataTask	24	static
-../Core/Src/freertos.c:170:6:timeBaseCallback	16	static
