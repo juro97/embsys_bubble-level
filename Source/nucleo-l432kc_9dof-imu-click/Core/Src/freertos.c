@@ -26,6 +26,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "mpu9dof.h"
+#include "wifiClick.h"
+#include "ATcommands.h"
 
 /* USER CODE END Includes */
 
@@ -69,6 +71,13 @@ const osThreadAttr_t sendDataTask_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for startWifiClickT */
+osThreadId_t startWifiClickTHandle;
+const osThreadAttr_t startWifiClickT_attributes = {
+  .name = "startWifiClickT",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for reportDataQueue */
 osMessageQueueId_t reportDataQueueHandle;
 const osMessageQueueAttr_t reportDataQueue_attributes = {
@@ -82,6 +91,7 @@ const osMessageQueueAttr_t reportDataQueue_attributes = {
 
 void StartReadDataTask(void *argument);
 void startSendDataTask(void *argument);
+void _startWifiClickTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -117,10 +127,13 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* creation of readDataTask */
-  readDataTaskHandle = osThreadNew(StartReadDataTask, NULL, &readDataTask_attributes);
+  //readDataTaskHandle = osThreadNew(StartReadDataTask, NULL, &readDataTask_attributes);
 
   /* creation of sendDataTask */
-  sendDataTaskHandle = osThreadNew(startSendDataTask, NULL, &sendDataTask_attributes);
+  //sendDataTaskHandle = osThreadNew(startSendDataTask, NULL, &sendDataTask_attributes);
+
+  /* creation of startWifiClickT */
+  startWifiClickTHandle = osThreadNew(_startWifiClickTask, NULL, &startWifiClickT_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -142,7 +155,6 @@ void MX_FREERTOS_Init(void) {
 void StartReadDataTask(void *argument)
 {
   /* USER CODE BEGIN StartReadDataTask */
-
 	printf("***------------- 9 DOF IMU Click ------------***\r\n");
 
     /* config the 9dof module */
@@ -181,7 +193,7 @@ void StartReadDataTask(void *argument)
 void startSendDataTask(void *argument)
 {
   /* USER CODE BEGIN startSendDataTask */
-
+	char at_cmd_buffer[AT_CMD_BUFFER_SIZE] = {0};
 	/* transfer interval in ms */
 	/* if transfer interval is smaller than sensor data rate, the que is blocking */
 #ifdef NDEBUG
@@ -213,6 +225,21 @@ void startSendDataTask(void *argument)
     osDelay(TRANSFER_INTERVAL);
   }
   /* USER CODE END startSendDataTask */
+}
+
+/* USER CODE BEGIN Header__startWifiClickTask */
+/**
+* @brief Function implementing the startWifiClickT thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header__startWifiClickTask */
+void _startWifiClickTask(void *argument)
+{
+  /* USER CODE BEGIN _startWifiClickTask */
+	StartWifiClick(argument);
+	osThreadExit();
+  /* USER CODE END _startWifiClickTask */
 }
 
 /* Private application code --------------------------------------------------*/
