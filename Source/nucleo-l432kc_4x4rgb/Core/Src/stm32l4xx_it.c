@@ -44,6 +44,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 extern TaskHandle_t xUartTaskHandle;
+extern osSemaphoreId_t sem_printPermissionHandle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -172,10 +173,14 @@ void DebugMon_Handler(void)
 void DMA1_Channel2_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel2_IRQn 0 */
-
   /* USER CODE END DMA1_Channel2_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_tim1_ch1);
   /* USER CODE BEGIN DMA1_Channel2_IRQn 1 */
+  	// Stop DMA
+  	HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
+
+  	// Give Back Semaphore
+  	osSemaphoreRelease(sem_printPermissionHandle);
 
   /* USER CODE END DMA1_Channel2_IRQn 1 */
 }

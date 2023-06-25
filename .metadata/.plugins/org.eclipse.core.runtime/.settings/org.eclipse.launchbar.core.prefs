@@ -1,0 +1,11 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_wifi,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TUT07 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_9dof-imu-click Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_4x4rgb Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TUT07\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TUT07\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_3d-motion\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_4x4rgb\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_9dof-imu-click\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-l432kc_wifi/activeLaunchMode=run
