@@ -1,7 +1,5 @@
 #include <wifiClick.h>
 
-// Create a bunch of ugly static global data for demonstration purposes
-// I DO NOT RECOMMEND to use global variables in your actual application!!
 const char *xUartHandlerTaskName = "UartHandler";
 const char *newLine = "\r\n";
 
@@ -21,9 +19,6 @@ TaskHandle_t xUartTaskHandle = NULL;
 
 char at_cmd_buffer[AT_CMD_BUFFER_SIZE] = {0};
 
-// NOTE: COPY & PASTING INTO SERIAL TERMINAL DOES NOT WORK!
-// The serial terminal is meant for human input, since it is character by character via interrupts!
-
 void StartWifiClick(void *argument) {
 	// Create tasks
 	//xTaskCreate(uart2Task, "Uart1Task", 128, NULL, osPriorityLow, NULL);
@@ -33,7 +28,7 @@ void StartWifiClick(void *argument) {
 	LL_USART_EnableIT_IDLE(USART1); // Enable idle line detection (interrupt) for uart1
 	HAL_UART_Receive_DMA(&huart1, uart1Buffer, BUFFER_SIZE);
 
-	// Configure Station+AP Mode
+	// Configure Station Mode
 	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Set_Mode, "%u", AT_WIFI_Station_Mode);
 	osDelay(10);
 	// Allow multiple connections
@@ -73,7 +68,7 @@ void UartHandlerTask(void *argument) {
 						length = new_pos - old_pos;
 
 						/*
-						 * Process here
+						 * Process here (Not used, but still kept to keep the wifiCode pretty similar to the other clicks)
 						 * */
 						HAL_UART_Transmit(&huart2, &uart1Buffer[old_pos], length, HAL_MAX_DELAY);
 					}

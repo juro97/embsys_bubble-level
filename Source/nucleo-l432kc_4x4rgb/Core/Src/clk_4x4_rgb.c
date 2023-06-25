@@ -160,6 +160,8 @@ void printDataOnMatrix(const char * const ch)
 
 	taskEXIT_CRITICAL();
 
+	osSemaphoreRelease(sem_printPermissionHandle);
+
 }
 
 

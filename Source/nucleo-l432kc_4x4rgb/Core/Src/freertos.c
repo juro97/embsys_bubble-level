@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "wifiClick.h"
 
 /* USER CODE END Includes */
 
@@ -60,6 +61,13 @@ const osThreadAttr_t receiverTask_attributes = {
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityHigh,
 };
+/* Definitions for startWifiClickT */
+osThreadId_t startWifiClickTHandle;
+const osThreadAttr_t startWifiClickT_attributes = {
+  .name = "startWifiClickT",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for updateScreenTimer */
 osTimerId_t updateScreenTimerHandle;
 const osTimerAttr_t updateScreenTimer_attributes = {
@@ -77,6 +85,7 @@ const osSemaphoreAttr_t sem_printPermission_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void StartReceiverTask(void *argument);
+void _startWifiClickTask(void *argument);
 void updateScreenTimerCallback(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -119,6 +128,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of receiverTask */
   receiverTaskHandle = osThreadNew(StartReceiverTask, NULL, &receiverTask_attributes);
 
+  /* creation of startWifiClickT */
+  startWifiClickTHandle = osThreadNew(_startWifiClickTask, NULL, &startWifiClickT_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -139,12 +151,8 @@ void MX_FREERTOS_Init(void) {
 void StartReceiverTask(void *argument)
 {
   /* USER CODE BEGIN StartReceiverTask */
-
-
-	/* TODO: Init the WiFi */
   for(;;)
   {
-	  /* TODO Process WiFi Data */
 	  if(updateLedMatrix && newDataAvailable)
 	  {
 		  updateLedMatrix = 0;
@@ -156,6 +164,21 @@ void StartReceiverTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartReceiverTask */
+}
+
+/* USER CODE BEGIN Header__startWifiClickTask */
+/**
+* @brief Function implementing the startWifiClickT thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header__startWifiClickTask */
+void _startWifiClickTask(void *argument)
+{
+  /* USER CODE BEGIN _startWifiClickTask */
+	StartWifiClick(&dataToPrint);
+	osThreadExit();
+  /* USER CODE END _startWifiClickTask */
 }
 
 /* updateScreenTimerCallback function */

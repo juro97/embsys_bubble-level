@@ -1,4 +1,5 @@
-../Core/Src/freertos.c:89:6:MX_FREERTOS_Init	8	static
-../Core/Src/freertos.c:139:6:StartReceiverTask	16	static
-../Core/Src/freertos.c:162:6:updateScreenTimerCallback	16	static
-../Core/Src/freertos.c:173:6:NewDataAvailableCallback	4	static
+../Core/Src/freertos.c:98:6:MX_FREERTOS_Init	8	static
+../Core/Src/freertos.c:151:6:StartReceiverTask	16	static
+../Core/Src/freertos.c:176:6:_startWifiClickTask	16	static
+../Core/Src/freertos.c:185:6:updateScreenTimerCallback	16	static
+../Core/Src/freertos.c:196:6:NewDataAvailableCallback	4	static

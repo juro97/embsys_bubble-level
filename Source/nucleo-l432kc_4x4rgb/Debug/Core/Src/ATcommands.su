@@ -1,0 +1,5 @@
+../Core/Src/ATcommands.c:3:5:at_test_command	32	static
+../Core/Src/ATcommands.c:14:5:at_query_command	32	static
+../Core/Src/ATcommands.c:25:5:at_set_command	44	static
+../Core/Src/ATcommands.c:52:5:at_setn_command	40	static
+../Core/Src/ATcommands.c:79:5:at_execute_command	32	static
