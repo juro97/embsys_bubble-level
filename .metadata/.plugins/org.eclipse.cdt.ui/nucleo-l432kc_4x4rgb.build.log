@@ -1,0 +1,17 @@
+12:27:27 **** Incremental Build of configuration Debug for project nucleo-l432kc_4x4rgb ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_4x4rgb.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_4x4rgb\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_4x4rgb.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_4x4rgb.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_4x4rgb.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_4x4rgb.elf  > "nucleo-l432kc_4x4rgb.list"
+   text	   data	    bss	    dec	    hex	filename
+  58884	    132	  25628	  84644	  14aa4	nucleo-l432kc_4x4rgb.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_4x4rgb.list
+ 
+
+12:27:28 Build Finished. 0 errors, 0 warnings. (took 1s.476ms)
+

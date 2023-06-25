@@ -1,5 +1,5 @@
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usart.h:3640:22:LL_USART_EnableIT_IDLE	40	static,ignoring_inline_asm
-../Core/Src/wifiClick.c:27:6:StartWifiClick	24	static
-../Core/Src/wifiClick.c:54:6:UartHandlerTask	40	static
-../Core/Src/wifiClick.c:123:6:HAL_UART_RxCpltCallback	32	static,ignoring_inline_asm
-../Core/Src/wifiClick.c:134:6:SendATCommand	16	static
+../Core/Src/wifiClick.c:22:6:StartWifiClick	24	static
+../Core/Src/wifiClick.c:49:6:UartHandlerTask	40	static
+../Core/Src/wifiClick.c:118:6:HAL_UART_RxCpltCallback	32	static,ignoring_inline_asm
+../Core/Src/wifiClick.c:129:6:SendATCommand	16	static

@@ -1,0 +1,27 @@
+11:59:22 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:208:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  208 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  207 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:206:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  206 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+
+11:59:23 Build Finished. 0 errors, 3 warnings. (took 1s.511ms)
+

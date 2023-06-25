@@ -1,0 +1,10 @@
+00:34:10 **** Incremental Build of configuration Debug for project nucleo-l432kc_wifi ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_wifi.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40764	    132	  19156	  60052	   ea94	nucleo-l432kc_wifi.elf
+Finished building: default.size.stdout
+ 
+
+00:34:11 Build Finished. 0 errors, 0 warnings. (took 402ms)
+

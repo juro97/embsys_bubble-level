@@ -38,7 +38,7 @@ void StartWifiClick(void *argument) {
 	at_set_command(at_cmd_buffer, SendATCommand, AT_IP_Server, "%u,%u", AT_IP_Server_Create, 80);
 	osDelay(10);
 	// CONNECT to wifi
-	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Connect, "\"%s\",\"%s\"", "ssid", "pw");
+	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Connect, "\"%s\",\"%s\"", "UPC54C3A83", "2jRddrfzdxaj");
 	osDelay(10);
 	at_execute_command(at_cmd_buffer, SendATCommand, AT_Startup);
 	osDelay(10);

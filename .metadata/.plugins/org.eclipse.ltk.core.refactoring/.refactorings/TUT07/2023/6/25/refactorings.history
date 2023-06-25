@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;TUT07/Core/Src/myTasks.c&apos; to &apos;wifiClick.c&apos;" description="Rename resource &apos;myTasks.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/myTasks.c" name="wifiClick.c" stamp="1687559715255" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;TUT07/Core/Inc/myTasks.h&apos; to &apos;wifiClick.h&apos;" description="Rename resource &apos;myTasks.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/myTasks.h" name="wifiClick.h" stamp="1687559728848" updateReferences="true"/>
+</session>
