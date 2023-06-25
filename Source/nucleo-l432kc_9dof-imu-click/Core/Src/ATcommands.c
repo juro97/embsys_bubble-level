@@ -23,6 +23,7 @@ int at_query_command(char *buffer, transmit_t tx, char *cmd) {
 }
 
 int at_set_command(char *buffer, transmit_t tx, char *cmd, const char* param_format, ...) {
+
 	va_list parameters;
 	int length = 0;
 	int tmp = 0;

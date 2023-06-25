@@ -197,11 +197,11 @@ void TIM1_UP_TIM16_IRQHandler(void)
   */
 void USART1_IRQHandler(void)
 {
-	/* USER CODE BEGIN USART1_IRQn 0 */
+  /* USER CODE BEGIN USART1_IRQn 0 */
 
-	  /* USER CODE END USART1_IRQn 0 */
-	  HAL_UART_IRQHandler(&huart1);
-	  /* USER CODE BEGIN USART1_IRQn 1 */
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
 	  if(LL_USART_IsEnabledIT_IDLE(USART1) && LL_USART_IsActiveFlag_IDLE(USART1))
 	  {
 		  LL_USART_ClearFlag_IDLE(USART1);        /* Clear IDLE line flag */
@@ -210,7 +210,7 @@ void USART1_IRQHandler(void)
 		  xTaskNotifyFromISR(xUartTaskHandle, UART1_IDLE_EVENT, eSetBits, &xHigherPriorityTaskWoken);
 		  portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 	  }
-	  /* USER CODE END USART1_IRQn 1 */
+  /* USER CODE END USART1_IRQn 1 */
 }
 
 /**

@@ -27,7 +27,6 @@
 /* USER CODE BEGIN Includes */
 #include "mpu9dof.h"
 #include "wifiClick.h"
-#include "ATcommands.h"
 
 /* USER CODE END Includes */
 
@@ -55,6 +54,7 @@ const uint8_t GYRO = 1;
 const uint8_t ACCEL = 2;
 const uint8_t RAW = 1;
 const uint8_t PROCESSED = 2;
+bool wifiIsReady = false;
 
 /* USER CODE END Variables */
 /* Definitions for readDataTask */
@@ -130,7 +130,7 @@ void MX_FREERTOS_Init(void) {
   //readDataTaskHandle = osThreadNew(StartReadDataTask, NULL, &readDataTask_attributes);
 
   /* creation of sendDataTask */
-  //sendDataTaskHandle = osThreadNew(startSendDataTask, NULL, &sendDataTask_attributes);
+  sendDataTaskHandle = osThreadNew(startSendDataTask, NULL, &sendDataTask_attributes);
 
   /* creation of startWifiClickT */
   startWifiClickTHandle = osThreadNew(_startWifiClickTask, NULL, &startWifiClickT_attributes);
@@ -178,7 +178,7 @@ void StartReadDataTask(void *argument)
 	  /* report the data to the sending task */
 	  osMessageQueuePut(reportDataQueueHandle, &data, 0U, 0U);
 
-	  osDelay(30);
+	  osDelay(100);
   }
   /* USER CODE END StartReadDataTask */
 }
@@ -194,6 +194,7 @@ void startSendDataTask(void *argument)
 {
   /* USER CODE BEGIN startSendDataTask */
 	char at_cmd_buffer[AT_CMD_BUFFER_SIZE] = {0};
+	char msg[25] = {0};
 	/* transfer interval in ms */
 	/* if transfer interval is smaller than sensor data rate, the que is blocking */
 #ifdef NDEBUG
@@ -207,11 +208,19 @@ void startSendDataTask(void *argument)
 
 	ReportData data;
 
+	while (!wifiIsReady){
+		osThreadYield();
+	}
+
   for(;;)
   {
-	if(osMessageQueueGet(reportDataQueueHandle, &data, 0U, 0U) == osOK)
+	if(osMessageQueueGet(reportDataQueueHandle, &data, 0U, 0U) == osOK || true)
 	{
-		/* CALL THE TRANSMIT TO RASPBY FUNCTION HERE */
+		sprintf(msg,"%d,%d,%d\n\r",data.roll, data.pitch, data.shake);
+		at_set_command(at_cmd_buffer, SendATCommand, AT_IP_Send, "0,%u", sizeof(msg), 80);
+		osDelay(10);
+		SendATCommand(msg,sizeof(msg));
+		osDelay(10);
 
 #ifdef NDEBUG
 	  /* delete logging for final version */
@@ -238,6 +247,7 @@ void _startWifiClickTask(void *argument)
 {
   /* USER CODE BEGIN _startWifiClickTask */
 	StartWifiClick(argument);
+	wifiIsReady = true;
 	osThreadExit();
   /* USER CODE END _startWifiClickTask */
 }

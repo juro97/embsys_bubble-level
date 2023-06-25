@@ -27,14 +27,14 @@ char at_cmd_buffer[AT_CMD_BUFFER_SIZE] = {0};
 void StartWifiClick(void *argument) {
 	// Create tasks
 	//xTaskCreate(uart2Task, "Uart1Task", 128, NULL, osPriorityLow, NULL);
-	xTaskCreate(UartHandlerTask, xUartHandlerTaskName, 128, NULL, osPriorityNormal1, &xUartTaskHandle);
+	xTaskCreate(UartHandlerTask, xUartHandlerTaskName, 256, NULL, osPriorityNormal1, &xUartTaskHandle);
 
 	// Activate UART interrupts and reception
 	LL_USART_EnableIT_IDLE(USART1); // Enable idle line detection (interrupt) for uart1
 	HAL_UART_Receive_DMA(&huart1, uart1Buffer, BUFFER_SIZE);
 
 	// Configure Station+AP Mode
-	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Set_Mode, "%u", AT_WIFI_Mixed_Mode);
+	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Set_Mode, "%u", AT_WIFI_Station_Mode);
 	osDelay(10);
 	// Allow multiple connections
 	at_set_command(at_cmd_buffer, SendATCommand, AT_IP_Set_MultiConnectionMode, "%u", AT_IP_ConnectionMode_Multiple);
@@ -49,16 +49,15 @@ void StartWifiClick(void *argument) {
 	osDelay(10);
 
 	HAL_UART_Receive_IT(&huart2, &uart2_rx_char, 1);
-
-	osThreadExit();
 }
 
 void UartHandlerTask(void *argument) {
 	uint32_t ulNotificationValue;
 	static size_t old_pos = 0;  // Track the position of last character processed
-
+    int counter = 0;
 	while(1)
 	{
+		counter = counter+1;
 		// Wait for a task notification indicating an uart event
 		if(xTaskNotifyWait(0x00, UINT32_MAX, &ulNotificationValue, portMAX_DELAY) == pdPASS) {
 
@@ -133,5 +132,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 }
 
 void SendATCommand(char *command, int length) {
+	taskENTER_CRITICAL();
 	HAL_UART_Transmit(&huart1, (uint8_t*)command, length, HAL_MAX_DELAY);
+	taskEXIT_CRITICAL();
 }
