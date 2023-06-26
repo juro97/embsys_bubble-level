@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
 #include "wifiClick.h"
+#include "printf.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -108,10 +109,11 @@ const osThreadAttr_t t4_Wifi_Starter_attributes = {
  * 	r = strong shift r4c3 --> 2000 - 84*2
  * 	s = strong shift r4c4 --> 2000 - 84*3
  *
- *	X = unknown error //TODO
- * 	Y = waiting for pairing //TODO
- * 	Z = reset, all led off //TODO
- *
+ */
+/**
+ * rx_x variables are used in the f4_set_TIM_Register() function, which is called in the START_Buzzer task
+ * based on the fields of the 4x4 RGB-Click, the rx_x variables are used to set an according sound by changing the ARR-value of TIM
+ * the sounds between the levels "middle - light shift - strong shift" are one octave apart. The sounds within a level vary by half-tone steps
  */
 const int rx_a = 500;
 const int rx_b = 5000;
@@ -133,8 +135,16 @@ const int rx_q = 2000 - 84*1;
 const int rx_r = 2000 - 84*2;
 const int rx_s = 2000 - 84*3;
 
-volatile char rx_wifi;
-volatile char rx_uart = 'Y';
+/**
+ * @param rx_wifi: will be written during runtime by the Wifi_Click.
+ * It is the comparison variable used in the switch-case block of the t3_Wifi_Listener task
+ */
+volatile char rx_wifi = 0;
+/**
+ * @param rx_uart: will receive values via UART during runtime.
+ * It is the comparison variable used in the switch-case block of the t1_Buzzer task
+ */
+volatile char rx_uart = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -157,32 +167,6 @@ void f4_send_UART();
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-/*
-int __io_putchar(int ch) {
-	int ret;
-
-	while ((ret=HAL_UART_GetState(&huart2)) != HAL_UART_STATE_READY)
-		;
-
-	if (ch == '\n') {
-		static uint8_t buf[2] = { '\r', '\n' };
-		HAL_UART_Transmit_IT(&huart2, buf, sizeof(buf));
-	} else {
-		static char buf;
-		buf = ch;
-		HAL_UART_Transmit_IT(&huart2, (uint8_t *)&buf, 1);
-	}
-	return ch;
-}
-
-int _write(int file, char *ptr, int len) {
-	for (int DataIdx = 0; DataIdx < len; DataIdx++) {
-		__io_putchar(*ptr++);
-	}
-	return len;
-}
-*/
 
 /* USER CODE END 0 */
 
@@ -530,9 +514,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+/**
+ * @brief Sets the sound of the Buzz-Click by writing into the Auto-Reload-Register and the Captcher-Compare-Register of TIM1.
+ * if the parameter value x = 0, the Buzz-Click will be silenced
+ * @param x is one of the rx_x values
+ */
 void f4_set_TIM_Register(int x)
 {
-	/*
 	if(x == 0){
 		TIM1 -> ARR = 0;
 		TIM1 -> CCR1 = 0;
@@ -541,20 +529,22 @@ void f4_set_TIM_Register(int x)
 		TIM1 -> ARR = x;
 		TIM1 -> CCR1 = (x/2);
 	}
-	*/
-	TIM1 -> ARR = 1000;
-	TIM1 -> CCR3 = 500;
-}
 
+}
+/**
+ * @brief Sends back the typed in value from the UART-Monitor
+ * @retval None
+ */
 void f4_send_UART()
 {
-	printf("Hello World %c\n", rx_uart);
+	printf("You pressed: %c\n", rx_uart);
 }
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_START_Buzzer */
 /**
-  * @brief  Function implementing the t1_Buzzer thread.
+  * @brief  Function implementing the t1_Buzzer thread. Starts the PWM and calls the f4_set_TIM_Register() function to set the sound of the Buzz-Click.
+  * If any other values than defined by the switch-case are written into rx_uart, the Buzz-Click will be silenced
   * @param  argument: Not used
   * @retval None
   */
@@ -563,7 +553,7 @@ void START_Buzzer(void *argument)
 {
   /* USER CODE BEGIN 5 */
 	if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK){
-		//ErrorHandling
+		printf("PWM didn't start. Try to refresh the project")
 	}
   /* Infinite loop */
   for(;;)
@@ -598,7 +588,7 @@ void START_Buzzer(void *argument)
 
 /* USER CODE BEGIN Header_START_Listener */
 /**
-* @brief Function implementing the t2_Listener thread.
+* @brief Function implementing the t2_Listener thread. Receives (hopefully) character values from the UART-Monitor and writes it into the rx_uart variable.
 * @param argument: Not used
 * @retval None
 */
@@ -623,7 +613,7 @@ f4_send_UART(rx_uart);
 
 /* USER CODE BEGIN Header_START_Wifi_Listener */
 /**
-* @brief Function implementing the t3_Wifi_Listene thread.
+* @brief Function implementing the t3_Wifi_Listene thread. Calls the f4_set_TIM_Register() function according to the received values in rx_wifi.
 * @param argument: Not used
 * @retval None
 */
@@ -665,7 +655,7 @@ void START_Wifi_Listener(void *argument)
 
 /* USER CODE BEGIN Header_START_Wifi_Starter */
 /**
-* @brief Function implementing the t4_Wifi_Starter thread.
+* @brief Function implementing the t4_Wifi_Starter thread. Starts the Wifi-Click that writes values into the rx_wifi variable.
 * @param argument: Not used
 * @retval None
 */
@@ -673,7 +663,7 @@ void START_Wifi_Listener(void *argument)
 void START_Wifi_Starter(void *argument)
 {
   /* USER CODE BEGIN START_Wifi_Starter */
-	//StartWifiClick(argument);
+	StartWifiClick(argument);
 	osThreadExit();
   /* USER CODE END START_Wifi_Starter */
 }
