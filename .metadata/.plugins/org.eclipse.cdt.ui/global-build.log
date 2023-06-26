@@ -1062,3 +1062,407 @@ Finished building: default.size.stdout
  
 Finished building: nucleo-l432kc_4x4rgb.list
  
+13:22:48 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+13:23:01 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+13:23:38 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+13:24:26 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+13:24:52 **** Incremental Build of configuration Debug for project nucleo-l432kc_4x4rgb ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_4x4rgb.elf 
+   text	   data	    bss	    dec	    hex	filename
+  58884	    132	  25628	  84644	  14aa4	nucleo-l432kc_4x4rgb.elf
+Finished building: default.size.stdout
+ 
+13:25:08 **** Incremental Build of configuration Debug for project nucleo-l432kc_4x4rgb ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_4x4rgb.elf 
+   text	   data	    bss	    dec	    hex	filename
+  58884	    132	  25628	  84644	  14aa4	nucleo-l432kc_4x4rgb.elf
+Finished building: default.size.stdout
+ 
+16:48:44 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/ATcommands.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ATcommands.d" -MT"Core/Src/ATcommands.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ATcommands.o"
+arm-none-eabi-gcc "../Core/Src/dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/dma.d" -MT"Core/Src/dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dma.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/mpu9dof.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mpu9dof.d" -MT"Core/Src/mpu9dof.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/mpu9dof.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc "../Core/Src/wifiClick.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/wifiClick.d" -MT"Core/Src/wifiClick.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/wifiClick.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+16:49:26 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+16:53:18 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:208:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  208 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  207 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:206:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  206 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  51152	    124	  17292	  68568	  10bd8	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+16:59:02 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:208:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  208 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  207 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:206:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  206 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  50408	    132	  25604	  76144	  12970	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:02:29 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/wifiClick.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/wifiClick.d" -MT"Core/Src/wifiClick.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/wifiClick.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  50416	    132	  25604	  76152	  12978	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:11:26 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:208:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  208 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  207 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:206:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  206 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  45696	    132	  25572	  71400	  116e8	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:16:05 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45696	    132	  25572	  71400	  116e8	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+17:19:38 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:208:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  208 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  207 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:206:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  206 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  50416	    132	  25604	  76152	  12978	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:20:12 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:208:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  208 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  207 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:206:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  206 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  55896	    132	  25620	  81648	  13ef0	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:21:13 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:209:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  209 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:208:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  208 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  207 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  51152	    124	  17292	  68568	  10bd8	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:21:48 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:209:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  209 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:208:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  208 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  207 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  55896	    132	  25620	  81648	  13ef0	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:22:38 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  55896	    132	  25620	  81648	  13ef0	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+17:23:26 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:225:30: error: 'processedData' undeclared (first use in this function)
+  225 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                              ^~~~~~~~~~~~~
+../Core/Src/freertos.c:225:30: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/freertos.c:209:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  209 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:208:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  208 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:207:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  207 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+17:24:07 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c:58:8: error: unknown type name 'ProcessedData'
+   58 | extern ProcessedData processedData;
+      |        ^~~~~~~~~~~~~
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:226:43: error: request for member 'roll' in something not a structure or union
+  226 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                           ^
+../Core/Src/freertos.c:226:63: error: request for member 'pitch' in something not a structure or union
+  226 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                                               ^
+../Core/Src/freertos.c:226:84: error: request for member 'shake' in something not a structure or union
+  226 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                                                                    ^
+../Core/Src/freertos.c:210:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  210 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:209:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  209 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:208:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  208 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+17:25:11 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/mpu9dof.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mpu9dof.d" -MT"Core/Src/mpu9dof.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/mpu9dof.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:227:43: error: invalid use of undefined type 'struct ProcessedData'
+  227 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                           ^
+../Core/Src/freertos.c:227:63: error: invalid use of undefined type 'struct ProcessedData'
+  227 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                                               ^
+../Core/Src/freertos.c:227:84: error: invalid use of undefined type 'struct ProcessedData'
+  227 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                                                                    ^
+../Core/Src/freertos.c:211:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  211 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:210:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  210 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:209:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  209 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+17:25:30 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c:59:8: error: unknown type name 'ProcessedData'
+   59 | extern ProcessedData processedData;
+      |        ^~~~~~~~~~~~~
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:227:43: error: request for member 'roll' in something not a structure or union
+  227 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                           ^
+../Core/Src/freertos.c:227:63: error: request for member 'pitch' in something not a structure or union
+  227 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                                               ^
+../Core/Src/freertos.c:227:84: error: request for member 'shake' in something not a structure or union
+  227 |   sprintf(msg,"%d,%d,%d\n\r",processedData.roll, processedData.pitch, processedData.shake);
+      |                                                                                    ^
+../Core/Src/freertos.c:211:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  211 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:210:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  210 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:209:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  209 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+make: *** [Core/Src/subdir.mk:67: Core/Src/freertos.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+17:26:09 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/dma.d" -MT"Core/Src/dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dma.o"
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/mpu9dof.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mpu9dof.d" -MT"Core/Src/mpu9dof.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/mpu9dof.o"
+arm-none-eabi-gcc "../Core/Src/report_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/report_data.d" -MT"Core/Src/report_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/report_data.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc "../Core/Src/wifiClick.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/wifiClick.d" -MT"Core/Src/wifiClick.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/wifiClick.o"
+../Core/Src/freertos.c: In function 'startSendDataTask':
+../Core/Src/freertos.c:210:16: warning: unused variable 'CALIBRATED_VALUES' [-Wunused-variable]
+  210 |  const uint8_t CALIBRATED_VALUES = 3;
+      |                ^~~~~~~~~~~~~~~~~
+../Core/Src/freertos.c:209:16: warning: unused variable 'OFFSET_VALUES' [-Wunused-variable]
+  209 |  const uint8_t OFFSET_VALUES = 2;
+      |                ^~~~~~~~~~~~~
+../Core/Src/freertos.c:208:16: warning: unused variable 'RAW_DATA' [-Wunused-variable]
+  208 |  const uint8_t RAW_DATA = 1;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_9dof-imu-click.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\projects\embsys_bubble-level\Source\nucleo-l432kc_9dof-imu-click\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_9dof-imu-click.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_9dof-imu-click.elf
+ 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+arm-none-eabi-objdump -h -S  nucleo-l432kc_9dof-imu-click.elf  > "nucleo-l432kc_9dof-imu-click.list"
+   text	   data	    bss	    dec	    hex	filename
+  55912	    132	  25620	  81664	  13f00	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_9dof-imu-click.list
+ 
+17:27:01 **** Incremental Build of configuration Debug for project nucleo-l432kc_9dof-imu-click ****
+make -j12 all 
+arm-none-eabi-size   nucleo-l432kc_9dof-imu-click.elf 
+   text	   data	    bss	    dec	    hex	filename
+  55912	    132	  25620	  81664	  13f00	nucleo-l432kc_9dof-imu-click.elf
+Finished building: default.size.stdout
+ 

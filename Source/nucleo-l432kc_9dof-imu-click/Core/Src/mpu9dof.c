@@ -153,14 +153,7 @@ typedef struct CalibratedData
     @see shake
     */
 
-typedef struct ProcessedData
-{
 
-	int16_t roll;
-	int16_t pitch;
-
-	uint8_t shake;
-} ProcessedData;
 
 
 RawData rawData;
