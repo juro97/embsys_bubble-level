@@ -1,11 +1,16 @@
 #include "patterns.h"
 
-/* CCR Register Values for PWM Duty Cycle */
+/**
+    @brief CCR Register Values for PWM Duty Cycle.
+    */
 #define ONE 	57
 #define ZERO	31
 
 
-/* Predefined Colors for one LED */
+/**
+    @brief Predefined Colors for one LED.
+    */
+
 const rgb_led off =
 {
 	{ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO,ZERO},
@@ -64,9 +69,10 @@ const rgb_led white =
 	{ZERO, ZERO, ZERO, ZERO, ZERO, ONE, ZERO, ZERO},
 };
 
+/**
 
-
-/* Predefined Patterns for the Matrix */
+    @brief Predefined Patterns for the Matrix.
+    */
 
 const rgb_pattern rgb4x4click_centered =
 {{

@@ -2,11 +2,11 @@
 @using levelserver.Data
 @inject WeatherForecastService ForecastService
 
-<PageTitle>Weather forecast</PageTitle>
+<PageTitle>9DOF Data</PageTitle>
 
-<h1>Weather forecast</h1>
+<h1>Level data overview</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p>This component demonstrates fetching data from 9dof click module.</p>
 
 @if (forecasts == null)
 {
@@ -17,9 +17,9 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
+                <th>X </th>
+                <th>Y </th>
+                <th>Z </th>
                 <th>Summary</th>
             </tr>
         </thead>

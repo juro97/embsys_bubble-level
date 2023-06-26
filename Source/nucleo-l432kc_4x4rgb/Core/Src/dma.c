@@ -33,20 +33,21 @@
 
 /* USER CODE END 1 */
 
+
 /**
-  * Enable DMA controller clock
-  */
+
+    @brief Initializes the DMA controller.
+    This function enables the clock for the DMA controller (DMA1) and configures the DMA interrupts.
+    It sets the interrupt priorities and enables the interrupts for DMA1 Channel 2 and Channel 5.
+*/
+
 void MX_DMA_Init(void)
 {
 
-  /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
 
-  /* DMA interrupt init */
-  /* DMA1_Channel2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
-  /* DMA1_Channel5_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel5_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel5_IRQn);
 

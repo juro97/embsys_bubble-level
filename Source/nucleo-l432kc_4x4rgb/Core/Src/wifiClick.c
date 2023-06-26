@@ -19,26 +19,31 @@ TaskHandle_t xUartTaskHandle = NULL;
 
 char at_cmd_buffer[AT_CMD_BUFFER_SIZE] = {0};
 
-void StartWifiClick(void *argument) {
-	// Create tasks
-	//xTaskCreate(uart2Task, "Uart1Task", 128, NULL, osPriorityLow, NULL);
-	xTaskCreate(UartHandlerTask, xUartHandlerTaskName, 256, &argument, osPriorityNormal1, &xUartTaskHandle);
+/**
 
-	// Activate UART interrupts and reception
+    @brief Starts the WiFi click functionality.
+
+    This function creates tasks, activates UART interrupts and reception, configures the station mode, allows multiple connections, 
+	starts a TCP server on port 80, connects to WiFi, and initiates startup.
+    @param argument Pointer to the argument passed to the function (unused).
+    */
+
+
+void StartWifiClick(void *argument) {
+	xTaskCreate(UartHandlerTask, xUartHandlerTaskName, 256, &argument, osPriorityNormal1, &xUartTaskHandle);
 	LL_USART_EnableIT_IDLE(USART1); // Enable idle line detection (interrupt) for uart1
 	HAL_UART_Receive_DMA(&huart1, uart1Buffer, BUFFER_SIZE);
 
-	// Configure Station Mode
 	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Set_Mode, "%u", AT_WIFI_Station_Mode);
 	osDelay(10);
-	// Allow multiple connections
+
 	at_set_command(at_cmd_buffer, SendATCommand, AT_IP_Set_MultiConnectionMode, "%u", AT_IP_ConnectionMode_Multiple);
 	osDelay(10);
-	// Start TCP server on Port 80
+
 	at_set_command(at_cmd_buffer, SendATCommand, AT_IP_Server, "%u,%u", AT_IP_Server_Create, 80);
 	osDelay(10);
-	// CONNECT to wifi
-	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Connect, "\"%s\",\"%s\"", "UPC54C3A83", "2jRddrfzdxaj");
+
+	at_set_command(at_cmd_buffer, SendATCommand, AT_WIFI_Connect, "\"%s\",\"%s\"", "wasserwaage", "embsy2023");
 	osDelay(10);
 	at_execute_command(at_cmd_buffer, SendATCommand, AT_Startup);
 	osDelay(10);
@@ -46,25 +51,34 @@ void StartWifiClick(void *argument) {
 	HAL_UART_Receive_IT(&huart2, &uart2_rx_char, 1);
 }
 
+/**
+
+    @brief Task function for handling UART events and processing data.
+
+    This task waits for task notifications indicating UART events and performs specific actions based on the received notifications. 
+	It handles both UART1 and UART2 events, such as receiving messages, processing data, and forwarding data to the appropriate UART.
+
+    @param[in] ch Pointer to the character array used for UART2 communication.
+    */
+
 void UartHandlerTask(char * ch) {
 	uint32_t ulNotificationValue;
-	static size_t old_pos = 0;  // Track the position of last character processed
+	static size_t old_pos = 0; 
 	size_t startPos = 0;
 	size_t currIndex = 0;
     char prefix[] = "+IPD,0,3:";
 	while(1)
 	{
-		// Wait for a task notification indicating an uart event
 		if(xTaskNotifyWait(0x00, UINT32_MAX, &ulNotificationValue, portMAX_DELAY) == pdPASS) {
 
-			if(ulNotificationValue & UART1_IDLE_EVENT) // Received message from UART1
+			if(ulNotificationValue & UART1_IDLE_EVENT) 
 			{
-				size_t new_pos = BUFFER_SIZE - huart1.hdmarx->Instance->CNDTR;  // Compute the new position in the buffer
+				size_t new_pos = BUFFER_SIZE - huart1.hdmarx->Instance->CNDTR; 
 				size_t length;
 
-				if(new_pos != old_pos)  // Check if any new data is received
+				if(new_pos != old_pos)  
 				{
-					if (new_pos > old_pos)  // If data does not wrap around the buffer
+					if (new_pos > old_pos)  
 					{
 						length = new_pos - old_pos;
 						
@@ -89,7 +103,7 @@ void UartHandlerTask(char * ch) {
 
 						HAL_UART_Transmit(&huart2, &uart1Buffer[old_pos], length, HAL_MAX_DELAY);
 					}
-					else  // If data wraps around the buffer
+					else  
 					{
 						/*
 						 * Process here --> keep in mind, that the data has to be composed, as it wraps around the buffer
@@ -131,7 +145,14 @@ void UartHandlerTask(char * ch) {
 	}
 }
 
-// Interrupt callback routine for UART
+/**
+    @brief UART receive complete callback.
+    This function is called when UART data reception is complete.
+    If the UART instance is USART2, it notifies the UART handler task about the event and resumes the task.
+    It also restarts UART reception for USART2.
+    @param huart Pointer to the UART handle structure.
+    */
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
   if(huart->Instance == USART2) {
@@ -142,6 +163,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	  HAL_UART_Receive_IT(&huart2, &uart2_rx_char, 1);
   }
 }
+
+/**
+
+    @brief Sends an AT command over UART.
+    This function transmits the specified AT command over UART1 with the given length.
+    It uses a critical section to ensure exclusive access to the UART transmission.
+    @param command Pointer to the AT command string.
+    @param length Length of the command string.
+    */
 
 void SendATCommand(char *command, int length) {
 	taskENTER_CRITICAL();

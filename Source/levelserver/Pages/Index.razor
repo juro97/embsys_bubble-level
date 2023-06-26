@@ -25,6 +25,7 @@
     private void UpdateTime()
     {
         currentTime = DateTime.Now.ToString("HH:mm:ss tt");
+
         InvokeAsync(() =>
         {
             StateHasChanged();

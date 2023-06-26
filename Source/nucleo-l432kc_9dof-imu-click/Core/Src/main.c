@@ -116,30 +116,38 @@ int main(void)
   /* USER CODE END 3 */
 }
 
+
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
+
+@brief Configures the system clock.
+This function configures the main internal regulator output voltage and sets up the RCC oscillator and clock structure.
+It utilizes the RCC_OscInitTypeDef and RCC_ClkInitStruct structures to configure the system clock.
+If the voltage scaling configuration fails, it calls the Error_Handler() function.
+*/
+
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Configure the main internal regulator output voltage
-  */
   if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
   {
     Error_Handler();
   }
 
-  /** Configure LSE Drive Capability
-  */
+/**
+ * @brief Configure LSE Drive Capability
+ */
+
+
   HAL_PWR_EnableBkUpAccess();
   __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
+/** 
+ * @brief Initializes the RCC Oscillators according to the specified parameters
+ * in the RCC_OscInitTypeDef structure.
+ */
+
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
@@ -157,8 +165,10 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
+/** 
+ * @brief Initializes the CPU, AHB and APB buses clocks
+ */
+
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -171,8 +181,10 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /** Enable MSI Auto calibration
-  */
+  /** 
+ * @brief Enable MSI Auto calibration
+ */
+
   HAL_RCCEx_EnableMSIPLLMode();
 }
 

@@ -150,14 +150,25 @@ void printDataOnMatrix(const char * const ch)
 			break;
 	}
 
-	/* Wait until previous DMA Transfer is Completed */
+/**
+
+@brief Acquires a semaphore to wait until the previous DMA transfer is completed.
+This function waits until the semaphore "sem_printPermissionHandle" is acquired,
+indicating that the previous DMA transfer has been completed. It waits indefinitely
+until the semaphore is available.
+*/
+	
 	osSemaphoreAcquire(sem_printPermissionHandle, osWaitForever);
 
-	/* Actually not really necessary and quite useless, just to be 101% sure*/
+/**
+
+@brief Starts DMA transfer for PWM output using TIM1.
+This function starts a DMA transfer for PWM output using TIM1 and the specified parameters.
+It utilizes a critical section to ensure exclusive access to the TIM1 and DMA resources.
+@param ptr_Rgb4x4Click Pointer to the data buffer for the DMA transfer.
+*/
 	taskENTER_CRITICAL();
-
 	HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *) ptr_Rgb4x4Click, PWM_STREAM_LENGTH_FULL_DISPLAY);
-
 	taskEXIT_CRITICAL();
 
 	osSemaphoreRelease(sem_printPermissionHandle);

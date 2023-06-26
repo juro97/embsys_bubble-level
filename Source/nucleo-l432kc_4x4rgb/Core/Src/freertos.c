@@ -148,6 +148,18 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartReceiverTask */
+
+/**
+
+    @brief Receiver task.
+
+    This task continuously checks for new data and triggers the printing of the data on the LED matrix
+    if both the updateLedMatrix flag and newDataAvailable flag are set. Once the data is printed,
+    it clears the updateLedMatrix flag and sets the newDataAvailable flag.
+
+    @param argument Pointer to the argument passed to the function (unused).
+    */
+
 void StartReceiverTask(void *argument)
 {
   /* USER CODE BEGIN StartReceiverTask */

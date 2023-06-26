@@ -102,8 +102,19 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
 
   /* USER CODE END USART1_MspInit 0 */
 
-  /** Initializes the peripherals clock
-  */
+/**
+
+    @brief Initializes the peripherals clock.
+
+    This function is used to initialize the clock for peripherals. It configures the peripheral clock selection for the USART1
+    peripheral. It sets the USART1 clock source to PCLK2.
+    The function calls the HAL_RCCEx_PeriphCLKConfig function with the PeriphClkInit structure as the argument. If the
+    configuration is not successful, the function calls the Error_Handler function.
+
+    @return None.
+    @see HAL_RCCEx_PeriphCLKConfig
+    @see Error_Handler
+    */
     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
     PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
@@ -117,7 +128,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USART1 GPIO Configuration
     PA9     ------> USART1_TX
-    PA10     ------> USART1_RX
+    PA10    ------> USART1_RX
     */
     GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;

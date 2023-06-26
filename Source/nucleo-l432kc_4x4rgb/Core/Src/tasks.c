@@ -16,16 +16,11 @@
 //then call task 1
 
 
-
-
 /* Task 1 */
 //Periodically Retrieve New Values
 //Normal Priority
 //if connection lost over some time ==> Retrieve Task 1
 //Yield Between the Periods so that Task 2 can be fired
-
-
-
 
 
 /* Task 2 */

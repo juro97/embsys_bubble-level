@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mSbBT2Jo2KohbLFY93qrEtj+YZLtdBOECJsJmWFpSJ8=",
+  "Hash": "yrfYPGyuohVX6adKZFpT7yXnC304sgh4Ji38TN3yUQ4=",
   "Source": "levelserver",
   "BasePath": "_content/levelserver",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "levelserver\\wwwroot",
       "Source": "levelserver",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\bundle\\levelserver.styles.css",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\bundle\\levelserver.styles.css",
       "SourceId": "levelserver",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "levelserver.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\weste\\source\\repos\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\bundle\\levelserver.styles.css"
+      "OriginalItemSpec": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\bundle\\levelserver.styles.css"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\levelserver.bundle.scp.css",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\levelserver.bundle.scp.css",
       "SourceId": "levelserver",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "levelserver.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\weste\\source\\repos\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\levelserver.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\levelserver.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,27 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
-      "BasePath": "_content/levelserver",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
-      "SourceId": "levelserver",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -119,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -136,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -153,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -170,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -187,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -204,10 +187,27 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
+      "BasePath": "_content/levelserver",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "SourceId": "levelserver",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\css\\site.css",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\favicon.png",
       "SourceId": "levelserver",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\weste\\source\\repos\\levelserver\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\weste\\Source\\Repos\\embsys_bubble-level\\Source\\levelserver\\wwwroot\\",
       "BasePath": "_content/levelserver",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
