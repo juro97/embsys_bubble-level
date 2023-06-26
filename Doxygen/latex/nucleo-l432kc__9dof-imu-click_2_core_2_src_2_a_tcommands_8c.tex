@@ -1,0 +1,137 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Core/\+Src/\+ATcommands.c File Reference}
+\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Src/ATcommands.c@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Src/ATcommands.c}}
+{\ttfamily \#include \char`\"{}ATcommands.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a5229c4c78666597686e083bc969df116}{at\+\_\+test\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Sends a test command. This function formats the command as \char`\"{}\%s=?\char`\"{} and sends it over the transmit channel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a3132c3123bbf85085996f919ad0b3c34}{at\+\_\+query\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Sends a query command. This function formats the command as \char`\"{}\%s?\char`\"{} and sends it over the transmit channel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_aa891b4a937c8dbb81e282c795dc4deda}{at\+\_\+set\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd, const char $\ast$param\+\_\+format,...)
+\begin{DoxyCompactList}\small\item\em Sends a set command with variable parameters. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a193e9e80d1572d1dff1ac1642b024138}{at\+\_\+setn\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, size\+\_\+t limit, char $\ast$cmd, const char $\ast$param\+\_\+format,...)
+\begin{DoxyCompactList}\small\item\em Sends a set command with limited length. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. The length of the formatted command is limited to the specified limit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a3e057756c54e4e762389b4ff69b579de}{at\+\_\+execute\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Sends an execute command. This function formats the command as \char`\"{}\%s\char`\"{} and sends it over the transmit channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a3e057756c54e4e762389b4ff69b579de}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a3e057756c54e4e762389b4ff69b579de}} 
+\index{ATcommands.c@{ATcommands.c}!at\_execute\_command@{at\_execute\_command}}
+\index{at\_execute\_command@{at\_execute\_command}!ATcommands.c@{ATcommands.c}}
+\doxysubsubsection{\texorpdfstring{at\_execute\_command()}{at\_execute\_command()}}
+{\footnotesize\ttfamily int at\+\_\+execute\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends an execute command. This function formats the command as \char`\"{}\%s\char`\"{} and sends it over the transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a3132c3123bbf85085996f919ad0b3c34}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a3132c3123bbf85085996f919ad0b3c34}} 
+\index{ATcommands.c@{ATcommands.c}!at\_query\_command@{at\_query\_command}}
+\index{at\_query\_command@{at\_query\_command}!ATcommands.c@{ATcommands.c}}
+\doxysubsubsection{\texorpdfstring{at\_query\_command()}{at\_query\_command()}}
+{\footnotesize\ttfamily int at\+\_\+query\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends a query command. This function formats the command as \char`\"{}\%s?\char`\"{} and sends it over the transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_aa891b4a937c8dbb81e282c795dc4deda}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_aa891b4a937c8dbb81e282c795dc4deda}} 
+\index{ATcommands.c@{ATcommands.c}!at\_set\_command@{at\_set\_command}}
+\index{at\_set\_command@{at\_set\_command}!ATcommands.c@{ATcommands.c}}
+\doxysubsubsection{\texorpdfstring{at\_set\_command()}{at\_set\_command()}}
+{\footnotesize\ttfamily int at\+\_\+set\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd,  }\item[{const char $\ast$}]{param\+\_\+format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Sends a set command with variable parameters. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+{\em param\+\_\+format} & The format string for the parameters. \\
+\hline
+{\em ...} & Additional parameters for the format string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a193e9e80d1572d1dff1ac1642b024138}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a193e9e80d1572d1dff1ac1642b024138}} 
+\index{ATcommands.c@{ATcommands.c}!at\_setn\_command@{at\_setn\_command}}
+\index{at\_setn\_command@{at\_setn\_command}!ATcommands.c@{ATcommands.c}}
+\doxysubsubsection{\texorpdfstring{at\_setn\_command()}{at\_setn\_command()}}
+{\footnotesize\ttfamily int at\+\_\+setn\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{size\+\_\+t}]{limit,  }\item[{char $\ast$}]{cmd,  }\item[{const char $\ast$}]{param\+\_\+format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Sends a set command with limited length. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. The length of the formatted command is limited to the specified limit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em limit} & The maximum length of the formatted command. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+{\em param\+\_\+format} & The format string for the parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a5229c4c78666597686e083bc969df116}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2_a_tcommands_8c_a5229c4c78666597686e083bc969df116}} 
+\index{ATcommands.c@{ATcommands.c}!at\_test\_command@{at\_test\_command}}
+\index{at\_test\_command@{at\_test\_command}!ATcommands.c@{ATcommands.c}}
+\doxysubsubsection{\texorpdfstring{at\_test\_command()}{at\_test\_command()}}
+{\footnotesize\ttfamily int at\+\_\+test\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends a test command. This function formats the command as \char`\"{}\%s=?\char`\"{} and sends it over the transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}

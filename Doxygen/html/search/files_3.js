@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['deprecated_5fdefinitions_2eh_0',['deprecated_definitions.h',['../nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2db46bd21e3e329bd94c9588384cb7fe2.html',1,'(Global Namespace)'],['../nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2deprecated__definitions_8h.html',1,'(Global Namespace)'],['../nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2deprecated__definitions_8h.html',1,'(Global Namespace)'],['../nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2deprecated__definitions_8h.html',1,'(Global Namespace)']]],
+  ['dma_2ec_1',['dma.c',['../nucleo-l432kc__4x4rgb_2_core_2_src_2dma_8c.html',1,'(Global Namespace)'],['../nucleo-l432kc__9dof-imu-click_2_core_2_src_2dma_8c.html',1,'(Global Namespace)'],['../nucleo-l432kc__wifi_2_core_2_src_2dma_8c.html',1,'(Global Namespace)']]],
+  ['dma_2ed_2',['dma.d',['../nucleo-l432kc__4x4rgb_2_debug_2_core_2_src_2dma_8d.html',1,'(Global Namespace)'],['../nucleo-l432kc__9dof-imu-click_2_debug_2_core_2_src_2dma_8d.html',1,'(Global Namespace)'],['../nucleo-l432kc__wifi_2_debug_2_core_2_src_2dma_8d.html',1,'(Global Namespace)']]],
+  ['dma_2eh_3',['dma.h',['../nucleo-l432kc__4x4rgb_2_core_2_inc_2dma_8h.html',1,'(Global Namespace)'],['../nucleo-l432kc__9dof-imu-click_2_core_2_inc_2dma_8h.html',1,'(Global Namespace)'],['../nucleo-l432kc__wifi_2_core_2_inc_2dma_8h.html',1,'(Global Namespace)']]]
+];

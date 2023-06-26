@@ -1,0 +1,143 @@
+\hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h}{}\doxysection{nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Core/\+Inc/stm32l4xx\+\_\+it.h File Reference}
+\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h}\index{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Core/Inc/stm32l4xx\_it.h@{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Core/Inc/stm32l4xx\_it.h}}
+
+
+This file contains the headers of the interrupt handlers.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a6ad7a5e3ee69cb6db6a6b9111ba898bc}{NMI\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Non maskable interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a2bffc10d5bd4106753b7c30e86903bea}{Hard\+Fault\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Hard fault interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a3150f74512510287a942624aa9b44cc5}{Mem\+Manage\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Memory management fault. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a850cefb17a977292ae5eb4cafa9976c3}{Bus\+Fault\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Prefetch fault, memory access fault. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a1d98923de2ed6b7309b66f9ba2971647}{Usage\+Fault\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Undefined instruction or illegal state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_adbdfb05858cc36fc520974df37ec3cb0}{Debug\+Mon\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Debug monitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_abd16b3391557c4a3a8020d675e2c452f}{DMA1\+\_\+\+Channel5\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles DMA1 channel5 global interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}{USART1\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles USART1 global interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a0ca6fd0e6f77921dd1123539857ba0a8}{USART2\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles USART2 global interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a0839a45f331c4c067939b9c4533bbf4d}{TIM6\+\_\+\+DAC\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles TIM6 global interrupt, DAC channel1 and channel2 underrun error interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the headers of the interrupt handlers. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a850cefb17a977292ae5eb4cafa9976c3}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a850cefb17a977292ae5eb4cafa9976c3}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!BusFault\_Handler@{BusFault\_Handler}}
+\index{BusFault\_Handler@{BusFault\_Handler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{BusFault\_Handler()}{BusFault\_Handler()}}
+{\footnotesize\ttfamily void Bus\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Prefetch fault, memory access fault. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_adbdfb05858cc36fc520974df37ec3cb0}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_adbdfb05858cc36fc520974df37ec3cb0}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!DebugMon\_Handler@{DebugMon\_Handler}}
+\index{DebugMon\_Handler@{DebugMon\_Handler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{DebugMon\_Handler()}{DebugMon\_Handler()}}
+{\footnotesize\ttfamily void Debug\+Mon\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Debug monitor. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_abd16b3391557c4a3a8020d675e2c452f}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_abd16b3391557c4a3a8020d675e2c452f}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!DMA1\_Channel5\_IRQHandler@{DMA1\_Channel5\_IRQHandler}}
+\index{DMA1\_Channel5\_IRQHandler@{DMA1\_Channel5\_IRQHandler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{DMA1\_Channel5\_IRQHandler()}{DMA1\_Channel5\_IRQHandler()}}
+{\footnotesize\ttfamily void DMA1\+\_\+\+Channel5\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles DMA1 channel5 global interrupt. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a2bffc10d5bd4106753b7c30e86903bea}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a2bffc10d5bd4106753b7c30e86903bea}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!HardFault\_Handler@{HardFault\_Handler}}
+\index{HardFault\_Handler@{HardFault\_Handler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{HardFault\_Handler()}{HardFault\_Handler()}}
+{\footnotesize\ttfamily void Hard\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Hard fault interrupt. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a3150f74512510287a942624aa9b44cc5}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a3150f74512510287a942624aa9b44cc5}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!MemManage\_Handler@{MemManage\_Handler}}
+\index{MemManage\_Handler@{MemManage\_Handler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{MemManage\_Handler()}{MemManage\_Handler()}}
+{\footnotesize\ttfamily void Mem\+Manage\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Memory management fault. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a6ad7a5e3ee69cb6db6a6b9111ba898bc}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a6ad7a5e3ee69cb6db6a6b9111ba898bc}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!NMI\_Handler@{NMI\_Handler}}
+\index{NMI\_Handler@{NMI\_Handler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{NMI\_Handler()}{NMI\_Handler()}}
+{\footnotesize\ttfamily void NMI\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Non maskable interrupt. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a0839a45f331c4c067939b9c4533bbf4d}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a0839a45f331c4c067939b9c4533bbf4d}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}}
+\index{TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{TIM6\_DAC\_IRQHandler()}{TIM6\_DAC\_IRQHandler()}}
+{\footnotesize\ttfamily void TIM6\+\_\+\+DAC\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles TIM6 global interrupt, DAC channel1 and channel2 underrun error interrupts. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a1d98923de2ed6b7309b66f9ba2971647}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a1d98923de2ed6b7309b66f9ba2971647}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!UsageFault\_Handler@{UsageFault\_Handler}}
+\index{UsageFault\_Handler@{UsageFault\_Handler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{UsageFault\_Handler()}{UsageFault\_Handler()}}
+{\footnotesize\ttfamily void Usage\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Undefined instruction or illegal state. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!USART1\_IRQHandler@{USART1\_IRQHandler}}
+\index{USART1\_IRQHandler@{USART1\_IRQHandler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{USART1\_IRQHandler()}{USART1\_IRQHandler()}}
+{\footnotesize\ttfamily void USART1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles USART1 global interrupt. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a0ca6fd0e6f77921dd1123539857ba0a8}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2stm32l4xx__it_8h_a0ca6fd0e6f77921dd1123539857ba0a8}} 
+\index{stm32l4xx\_it.h@{stm32l4xx\_it.h}!USART2\_IRQHandler@{USART2\_IRQHandler}}
+\index{USART2\_IRQHandler@{USART2\_IRQHandler}!stm32l4xx\_it.h@{stm32l4xx\_it.h}}
+\doxysubsubsection{\texorpdfstring{USART2\_IRQHandler()}{USART2\_IRQHandler()}}
+{\footnotesize\ttfamily void USART2\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles USART2 global interrupt. 
+

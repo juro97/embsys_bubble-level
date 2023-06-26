@@ -1,0 +1,80 @@
+\hypertarget{struct_stream_buffer_def__t}{}\doxysection{Stream\+Buffer\+Def\+\_\+t Struct Reference}
+\label{struct_stream_buffer_def__t}\index{StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a6eedf625958216bba9136d98dcfed196}{x\+Tail}}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a003e281d830468b1faabf4ba820f5ad0}{x\+Head}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a1ba6056c7e598ac40b4542c3b1614315}{x\+Length}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a9cc97a6ea4374a84aa4d1453459ffce4}{x\+Trigger\+Level\+Bytes}}
+\item 
+volatile \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{struct_stream_buffer_def__t_aae9dce0a57e217492d5511b8f728d165}{x\+Task\+Waiting\+To\+Receive}}
+\item 
+volatile \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{struct_stream_buffer_def__t_adcac505e0e57d53096673aae517ba651}{x\+Task\+Waiting\+To\+Send}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_stream_buffer_def__t_a52da69c2ee2160f94b7a1ee9298c970f}{puc\+Buffer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_ab8f6da769d17b9653e9a6d879e875e9b}{uc\+Flags}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_stream_buffer_def__t_a52da69c2ee2160f94b7a1ee9298c970f}\label{struct_stream_buffer_def__t_a52da69c2ee2160f94b7a1ee9298c970f}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!pucBuffer@{pucBuffer}}
+\index{pucBuffer@{pucBuffer}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{pucBuffer}{pucBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ puc\+Buffer}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_ab8f6da769d17b9653e9a6d879e875e9b}\label{struct_stream_buffer_def__t_ab8f6da769d17b9653e9a6d879e875e9b}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!ucFlags@{ucFlags}}
+\index{ucFlags@{ucFlags}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{ucFlags}{ucFlags}}
+{\footnotesize\ttfamily uint8\+\_\+t uc\+Flags}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_a003e281d830468b1faabf4ba820f5ad0}\label{struct_stream_buffer_def__t_a003e281d830468b1faabf4ba820f5ad0}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xHead@{xHead}}
+\index{xHead@{xHead}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xHead}{xHead}}
+{\footnotesize\ttfamily volatile size\+\_\+t x\+Head}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_a1ba6056c7e598ac40b4542c3b1614315}\label{struct_stream_buffer_def__t_a1ba6056c7e598ac40b4542c3b1614315}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xLength@{xLength}}
+\index{xLength@{xLength}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xLength}{xLength}}
+{\footnotesize\ttfamily size\+\_\+t x\+Length}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_a6eedf625958216bba9136d98dcfed196}\label{struct_stream_buffer_def__t_a6eedf625958216bba9136d98dcfed196}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTail@{xTail}}
+\index{xTail@{xTail}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTail}{xTail}}
+{\footnotesize\ttfamily volatile size\+\_\+t x\+Tail}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_aae9dce0a57e217492d5511b8f728d165}\label{struct_stream_buffer_def__t_aae9dce0a57e217492d5511b8f728d165}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTaskWaitingToReceive@{xTaskWaitingToReceive}}
+\index{xTaskWaitingToReceive@{xTaskWaitingToReceive}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTaskWaitingToReceive}{xTaskWaitingToReceive}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+Waiting\+To\+Receive}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_adcac505e0e57d53096673aae517ba651}\label{struct_stream_buffer_def__t_adcac505e0e57d53096673aae517ba651}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTaskWaitingToSend@{xTaskWaitingToSend}}
+\index{xTaskWaitingToSend@{xTaskWaitingToSend}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTaskWaitingToSend}{xTaskWaitingToSend}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+Waiting\+To\+Send}
+
+\mbox{\Hypertarget{struct_stream_buffer_def__t_a9cc97a6ea4374a84aa4d1453459ffce4}\label{struct_stream_buffer_def__t_a9cc97a6ea4374a84aa4d1453459ffce4}} 
+\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTriggerLevelBytes@{xTriggerLevelBytes}}
+\index{xTriggerLevelBytes@{xTriggerLevelBytes}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTriggerLevelBytes}{xTriggerLevelBytes}}
+{\footnotesize\ttfamily size\+\_\+t x\+Trigger\+Level\+Bytes}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2stream__buffer_8c}{stream\+\_\+buffer.\+c}}\item 
+nucleo-\/l432kc\+\_\+4x4rgb/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2stream__buffer_8c}{stream\+\_\+buffer.\+c}}\item 
+nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2stream__buffer_8c}{stream\+\_\+buffer.\+c}}\item 
+nucleo-\/l432kc\+\_\+wifi/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2stream__buffer_8c}{stream\+\_\+buffer.\+c}}\end{DoxyCompactItemize}

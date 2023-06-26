@@ -1,0 +1,192 @@
+\hypertarget{struct_____u_a_r_t___handle_type_def}{}\doxysection{\+\_\+\+\_\+\+UART\+\_\+\+Handle\+Type\+Def Struct Reference}
+\label{struct_____u_a_r_t___handle_type_def}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+
+
+UART handle Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32l4xx\+\_\+hal\+\_\+uart.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\+\_\+\+Type\+Def}} $\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a1d060932d1dc67ca32405468bf338d57}{Instance}}
+\item 
+\mbox{\hyperlink{struct_u_a_r_t___init_type_def}{UART\+\_\+\+Init\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a6b5ab0619ea07655a7f3bc92f78fafaa}{Init}}
+\item 
+\mbox{\hyperlink{struct_u_a_r_t___adv_feature_init_type_def}{UART\+\_\+\+Adv\+Feature\+Init\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a4785c6c4b0e998062a50b706a739c6c5}{Advanced\+Init}}
+\item 
+const uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a3946cfd9612d99a2187ee5b0a8f8b327}{p\+Tx\+Buff\+Ptr}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a80907b65d6f9541bc0dee444d16bc45b}{Tx\+Xfer\+Size}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a1823437fbed80bdd1510782ced4e5532}{Tx\+Xfer\+Count}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a3703562f94258ed34c57b3e5d3262e11}{p\+Rx\+Buff\+Ptr}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ac12f5f1f6295b3c3327d5feabf5a96fb}{Rx\+Xfer\+Size}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ad95a26d6b12b7087bba3d1b769175db2}{Rx\+Xfer\+Count}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ab8dae64f3b86c2eb2b7a080fcdee3ef4}{Mask}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga9f272475ea543a68fd8cb19f03a9bce9}{HAL\+\_\+\+UART\+\_\+\+Rx\+Type\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a861b12a5639c751ef2c54a2508b7919f}{Reception\+Type}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a79892931e20231304dba22812290b0bc}{Rx\+ISR}} )(struct \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def}{\+\_\+\+\_\+\+UART\+\_\+\+Handle\+Type\+Def}} $\ast$huart)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a2afb0222405d7cf4a065268d6fe89535}{Tx\+ISR}} )(struct \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def}{\+\_\+\+\_\+\+UART\+\_\+\+Handle\+Type\+Def}} $\ast$huart)
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} $\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a4a23a90a6b204f6fc30a71b2e185a03c}{hdmatx}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} $\ast$ \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a784d692c65f4f93348283922857f9e72}{hdmarx}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_s_t_m32_l4xx___h_a_l___driver_2_inc_2stm32l4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\+\_\+\+Lock\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}{Lock}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga94c58ae1f4dbcf6032224edfc93a6e19}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ab596705b6ce037e8debc149ccee148da}{g\+State}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga94c58ae1f4dbcf6032224edfc93a6e19}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a198c30da19a1529e1665bec6dc455815}{Rx\+State}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}{Error\+Code}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+UART handle Structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a4785c6c4b0e998062a50b706a739c6c5}\label{struct_____u_a_r_t___handle_type_def_a4785c6c4b0e998062a50b706a739c6c5}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!AdvancedInit@{AdvancedInit}}
+\index{AdvancedInit@{AdvancedInit}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{AdvancedInit}{AdvancedInit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_u_a_r_t___adv_feature_init_type_def}{UART\+\_\+\+Adv\+Feature\+Init\+Type\+Def}} Advanced\+Init}
+
+UART Advanced Features initialization parameters \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}\label{struct_____u_a_r_t___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!ErrorCode@{ErrorCode}}
+\index{ErrorCode@{ErrorCode}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{ErrorCode}{ErrorCode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t Error\+Code}
+
+UART Error code ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_ab596705b6ce037e8debc149ccee148da}\label{struct_____u_a_r_t___handle_type_def_ab596705b6ce037e8debc149ccee148da}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!gState@{gState}}
+\index{gState@{gState}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{gState}{gState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga94c58ae1f4dbcf6032224edfc93a6e19}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} g\+State}
+
+UART state information related to global Handle management and also related to Tx operations. This parameter can be a value of \mbox{\hyperlink{group___u_a_r_t___exported___types_ga94c58ae1f4dbcf6032224edfc93a6e19}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a784d692c65f4f93348283922857f9e72}\label{struct_____u_a_r_t___handle_type_def_a784d692c65f4f93348283922857f9e72}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!hdmarx@{hdmarx}}
+\index{hdmarx@{hdmarx}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{hdmarx}{hdmarx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} $\ast$ hdmarx}
+
+UART Rx DMA Handle parameters ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a4a23a90a6b204f6fc30a71b2e185a03c}\label{struct_____u_a_r_t___handle_type_def_a4a23a90a6b204f6fc30a71b2e185a03c}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!hdmatx@{hdmatx}}
+\index{hdmatx@{hdmatx}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{hdmatx}{hdmatx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} $\ast$ hdmatx}
+
+UART Tx DMA Handle parameters ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a6b5ab0619ea07655a7f3bc92f78fafaa}\label{struct_____u_a_r_t___handle_type_def_a6b5ab0619ea07655a7f3bc92f78fafaa}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Init@{Init}}
+\index{Init@{Init}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Init}{Init}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_u_a_r_t___init_type_def}{UART\+\_\+\+Init\+Type\+Def}} Init}
+
+UART communication parameters ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a1d060932d1dc67ca32405468bf338d57}\label{struct_____u_a_r_t___handle_type_def_a1d060932d1dc67ca32405468bf338d57}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Instance@{Instance}}
+\index{Instance@{Instance}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\+\_\+\+Type\+Def}} $\ast$ Instance}
+
+UART registers base address ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}\label{struct_____u_a_r_t___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Lock@{Lock}}
+\index{Lock@{Lock}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Lock}{Lock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_s_t_m32_l4xx___h_a_l___driver_2_inc_2stm32l4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\+\_\+\+Lock\+Type\+Def}} Lock}
+
+Locking object ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_ab8dae64f3b86c2eb2b7a080fcdee3ef4}\label{struct_____u_a_r_t___handle_type_def_ab8dae64f3b86c2eb2b7a080fcdee3ef4}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Mask@{Mask}}
+\index{Mask@{Mask}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Mask}{Mask}}
+{\footnotesize\ttfamily uint16\+\_\+t Mask}
+
+UART Rx RDR register mask ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a3703562f94258ed34c57b3e5d3262e11}\label{struct_____u_a_r_t___handle_type_def_a3703562f94258ed34c57b3e5d3262e11}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!pRxBuffPtr@{pRxBuffPtr}}
+\index{pRxBuffPtr@{pRxBuffPtr}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{pRxBuffPtr}{pRxBuffPtr}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ p\+Rx\+Buff\+Ptr}
+
+Pointer to UART Rx transfer Buffer \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a3946cfd9612d99a2187ee5b0a8f8b327}\label{struct_____u_a_r_t___handle_type_def_a3946cfd9612d99a2187ee5b0a8f8b327}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!pTxBuffPtr@{pTxBuffPtr}}
+\index{pTxBuffPtr@{pTxBuffPtr}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{pTxBuffPtr}{pTxBuffPtr}}
+{\footnotesize\ttfamily const uint8\+\_\+t $\ast$ p\+Tx\+Buff\+Ptr}
+
+Pointer to UART Tx transfer Buffer \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a861b12a5639c751ef2c54a2508b7919f}\label{struct_____u_a_r_t___handle_type_def_a861b12a5639c751ef2c54a2508b7919f}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!ReceptionType@{ReceptionType}}
+\index{ReceptionType@{ReceptionType}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{ReceptionType}{ReceptionType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga9f272475ea543a68fd8cb19f03a9bce9}{HAL\+\_\+\+UART\+\_\+\+Rx\+Type\+Type\+Def}} Reception\+Type}
+
+Type of ongoing reception ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a79892931e20231304dba22812290b0bc}\label{struct_____u_a_r_t___handle_type_def_a79892931e20231304dba22812290b0bc}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxISR@{RxISR}}
+\index{RxISR@{RxISR}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxISR}{RxISR}}
+{\footnotesize\ttfamily void($\ast$ Rx\+ISR)(struct \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def}{\+\_\+\+\_\+\+UART\+\_\+\+Handle\+Type\+Def}} $\ast$huart)}
+
+Function pointer on Rx IRQ handler \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a198c30da19a1529e1665bec6dc455815}\label{struct_____u_a_r_t___handle_type_def_a198c30da19a1529e1665bec6dc455815}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxState@{RxState}}
+\index{RxState@{RxState}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxState}{RxState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga94c58ae1f4dbcf6032224edfc93a6e19}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} Rx\+State}
+
+UART state information related to Rx operations. This parameter can be a value of \mbox{\hyperlink{group___u_a_r_t___exported___types_ga94c58ae1f4dbcf6032224edfc93a6e19}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_ad95a26d6b12b7087bba3d1b769175db2}\label{struct_____u_a_r_t___handle_type_def_ad95a26d6b12b7087bba3d1b769175db2}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxXferCount@{RxXferCount}}
+\index{RxXferCount@{RxXferCount}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxXferCount}{RxXferCount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t Rx\+Xfer\+Count}
+
+UART Rx Transfer Counter ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_ac12f5f1f6295b3c3327d5feabf5a96fb}\label{struct_____u_a_r_t___handle_type_def_ac12f5f1f6295b3c3327d5feabf5a96fb}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxXferSize@{RxXferSize}}
+\index{RxXferSize@{RxXferSize}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxXferSize}{RxXferSize}}
+{\footnotesize\ttfamily uint16\+\_\+t Rx\+Xfer\+Size}
+
+UART Rx Transfer size ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a2afb0222405d7cf4a065268d6fe89535}\label{struct_____u_a_r_t___handle_type_def_a2afb0222405d7cf4a065268d6fe89535}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!TxISR@{TxISR}}
+\index{TxISR@{TxISR}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{TxISR}{TxISR}}
+{\footnotesize\ttfamily void($\ast$ Tx\+ISR)(struct \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def}{\+\_\+\+\_\+\+UART\+\_\+\+Handle\+Type\+Def}} $\ast$huart)}
+
+Function pointer on Tx IRQ handler \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a1823437fbed80bdd1510782ced4e5532}\label{struct_____u_a_r_t___handle_type_def_a1823437fbed80bdd1510782ced4e5532}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!TxXferCount@{TxXferCount}}
+\index{TxXferCount@{TxXferCount}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{TxXferCount}{TxXferCount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t Tx\+Xfer\+Count}
+
+UART Tx Transfer Counter ~\newline
+ \mbox{\Hypertarget{struct_____u_a_r_t___handle_type_def_a80907b65d6f9541bc0dee444d16bc45b}\label{struct_____u_a_r_t___handle_type_def_a80907b65d6f9541bc0dee444d16bc45b}} 
+\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!TxXferSize@{TxXferSize}}
+\index{TxXferSize@{TxXferSize}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{TxXferSize}{TxXferSize}}
+{\footnotesize\ttfamily uint16\+\_\+t Tx\+Xfer\+Size}
+
+UART Tx Transfer size ~\newline
+ 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Drivers/\+STM32\+L4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_s_t_m32_l4xx___h_a_l___driver_2_inc_2stm32l4xx__hal__uart_8h}{stm32l4xx\+\_\+hal\+\_\+uart.\+h}}\item 
+nucleo-\/l432kc\+\_\+4x4rgb/\+Drivers/\+STM32\+L4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_drivers_2_s_t_m32_l4xx___h_a_l___driver_2_inc_2stm32l4xx__hal__uart_8h}{stm32l4xx\+\_\+hal\+\_\+uart.\+h}}\item 
+nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Drivers/\+STM32\+L4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_drivers_2_s_t_m32_l4xx___h_a_l___driver_2_inc_2stm32l4xx__hal__uart_8h}{stm32l4xx\+\_\+hal\+\_\+uart.\+h}}\item 
+nucleo-\/l432kc\+\_\+wifi/\+Drivers/\+STM32\+L4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{nucleo-l432kc__wifi_2_drivers_2_s_t_m32_l4xx___h_a_l___driver_2_inc_2stm32l4xx__hal__uart_8h}{stm32l4xx\+\_\+hal\+\_\+uart.\+h}}\end{DoxyCompactItemize}

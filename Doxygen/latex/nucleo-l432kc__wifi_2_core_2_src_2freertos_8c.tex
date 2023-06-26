@@ -1,0 +1,95 @@
+\hypertarget{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c}{}\doxysection{nucleo-\/l432kc\+\_\+wifi/\+Core/\+Src/freertos.c File Reference}
+\label{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c}\index{nucleo-\/l432kc\_wifi/Core/Src/freertos.c@{nucleo-\/l432kc\_wifi/Core/Src/freertos.c}}
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a99d0fdb0434092bcb24d9c9af917e4e9}{Start\+Default\+Task}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the default\+Task thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_abade755e13d07c10889ae83143656158}{MX\+\_\+\+FREERTOS\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Free\+RTOS initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a6a263905468b0c37de4ee5e50ede4e74}{default\+Task\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a25fbb54afdba71c24ba51ed50166ac8d}{default\+Task\+\_\+attributes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_abade755e13d07c10889ae83143656158}\label{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_abade755e13d07c10889ae83143656158}} 
+\index{freertos.c@{freertos.c}!MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}}
+\index{MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{MX\_FREERTOS\_Init()}{MX\_FREERTOS\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+FREERTOS\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Free\+RTOS initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a99d0fdb0434092bcb24d9c9af917e4e9}\label{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a99d0fdb0434092bcb24d9c9af917e4e9}} 
+\index{freertos.c@{freertos.c}!StartDefaultTask@{StartDefaultTask}}
+\index{StartDefaultTask@{StartDefaultTask}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{StartDefaultTask()}{StartDefaultTask()}}
+{\footnotesize\ttfamily void Start\+Default\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the default\+Task thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a25fbb54afdba71c24ba51ed50166ac8d}\label{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a25fbb54afdba71c24ba51ed50166ac8d}} 
+\index{freertos.c@{freertos.c}!defaultTask\_attributes@{defaultTask\_attributes}}
+\index{defaultTask\_attributes@{defaultTask\_attributes}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{defaultTask\_attributes}{defaultTask\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} default\+Task\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}defaultTask"{}},}
+\DoxyCodeLine{  .stack\_size = 256 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca45a2895ad30c79fb97de18cac7cc19f1}{osPriorityNormal}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a6a263905468b0c37de4ee5e50ede4e74}\label{nucleo-l432kc__wifi_2_core_2_src_2freertos_8c_a6a263905468b0c37de4ee5e50ede4e74}} 
+\index{freertos.c@{freertos.c}!defaultTaskHandle@{defaultTaskHandle}}
+\index{defaultTaskHandle@{defaultTaskHandle}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{defaultTaskHandle}{defaultTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} default\+Task\+Handle}
+
+File Name \+: freertos.\+c Description \+: Code for freertos applications
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

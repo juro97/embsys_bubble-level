@@ -1,0 +1,108 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/portable/\+Mem\+Mang/heap\+\_\+4.c File Reference}
+\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Middlewares/Third\_Party/FreeRTOS/Source/portable/MemMang/heap\_4.c@{nucleo-\/l432kc\_9dof-\/imu-\/click/Middlewares/Third\_Party/FreeRTOS/Source/portable/MemMang/heap\_4.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\+\_\+\+BLOCK\+\_\+\+LINK}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab622d8c674f2a417a666a7ed89109e79}{MPU\+\_\+\+WRAPPERS\+\_\+\+INCLUDED\+\_\+\+FROM\+\_\+\+API\+\_\+\+FILE}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab71bae5a95671265c828339d44c44b25}{heap\+MINIMUM\+\_\+\+BLOCK\+\_\+\+SIZE}}~( ( size\+\_\+t ) ( x\+Heap\+Struct\+Size $<$$<$ 1 ) )
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_adcef0c4245ebe20ca2b08a574c1caac9}{heap\+BITS\+\_\+\+PER\+\_\+\+BYTE}}~( ( size\+\_\+t ) 8 )
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\+\_\+\+BLOCK\+\_\+\+LINK}} \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a5867d4b64d89c6ab51e4783687f8960a}{Block\+Link\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ac56bcb7515f081a5b3df83935499fa4a}{pv\+Port\+Malloc}} (size\+\_\+t x\+Wanted\+Size)
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}{v\+Port\+Free}} (void $\ast$pv)
+\item 
+size\+\_\+t \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a0c28a12b313bc248be0cb7a37ed81bb7}{x\+Port\+Get\+Free\+Heap\+Size}} (void)
+\item 
+size\+\_\+t \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab222e4545b8ff12b62fd000fea6b34eb}{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a8bf103ce32ce8473574e9920af8b4eec}{v\+Port\+Initialise\+Blocks}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_abbecc6cff952357f60cce5014ecbe470}{v\+Port\+Get\+Heap\+Stats}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2portable_8h_aebfa6771f45f6a5ac026e91ee2fd57f4}{Heap\+Stats\+\_\+t}} $\ast$px\+Heap\+Stats)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_adcef0c4245ebe20ca2b08a574c1caac9}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_adcef0c4245ebe20ca2b08a574c1caac9}} 
+\index{heap\_4.c@{heap\_4.c}!heapBITS\_PER\_BYTE@{heapBITS\_PER\_BYTE}}
+\index{heapBITS\_PER\_BYTE@{heapBITS\_PER\_BYTE}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{heapBITS\_PER\_BYTE}{heapBITS\_PER\_BYTE}}
+{\footnotesize\ttfamily \#define heap\+BITS\+\_\+\+PER\+\_\+\+BYTE~( ( size\+\_\+t ) 8 )}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab71bae5a95671265c828339d44c44b25}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab71bae5a95671265c828339d44c44b25}} 
+\index{heap\_4.c@{heap\_4.c}!heapMINIMUM\_BLOCK\_SIZE@{heapMINIMUM\_BLOCK\_SIZE}}
+\index{heapMINIMUM\_BLOCK\_SIZE@{heapMINIMUM\_BLOCK\_SIZE}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{heapMINIMUM\_BLOCK\_SIZE}{heapMINIMUM\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define heap\+MINIMUM\+\_\+\+BLOCK\+\_\+\+SIZE~( ( size\+\_\+t ) ( x\+Heap\+Struct\+Size $<$$<$ 1 ) )}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab622d8c674f2a417a666a7ed89109e79}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab622d8c674f2a417a666a7ed89109e79}} 
+\index{heap\_4.c@{heap\_4.c}!MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE@{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+\index{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE@{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+{\footnotesize\ttfamily \#define MPU\+\_\+\+WRAPPERS\+\_\+\+INCLUDED\+\_\+\+FROM\+\_\+\+API\+\_\+\+FILE}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a5867d4b64d89c6ab51e4783687f8960a}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a5867d4b64d89c6ab51e4783687f8960a}} 
+\index{heap\_4.c@{heap\_4.c}!BlockLink\_t@{BlockLink\_t}}
+\index{BlockLink\_t@{BlockLink\_t}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{BlockLink\_t}{BlockLink\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\+\_\+\+BLOCK\+\_\+\+LINK}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a5867d4b64d89c6ab51e4783687f8960a}{Block\+Link\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ac56bcb7515f081a5b3df83935499fa4a}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ac56bcb7515f081a5b3df83935499fa4a}} 
+\index{heap\_4.c@{heap\_4.c}!pvPortMalloc@{pvPortMalloc}}
+\index{pvPortMalloc@{pvPortMalloc}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{pvPortMalloc()}{pvPortMalloc()}}
+{\footnotesize\ttfamily void $\ast$ pv\+Port\+Malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x\+Wanted\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}} 
+\index{heap\_4.c@{heap\_4.c}!vPortFree@{vPortFree}}
+\index{vPortFree@{vPortFree}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{vPortFree()}{vPortFree()}}
+{\footnotesize\ttfamily void v\+Port\+Free (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_abbecc6cff952357f60cce5014ecbe470}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_abbecc6cff952357f60cce5014ecbe470}} 
+\index{heap\_4.c@{heap\_4.c}!vPortGetHeapStats@{vPortGetHeapStats}}
+\index{vPortGetHeapStats@{vPortGetHeapStats}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{vPortGetHeapStats()}{vPortGetHeapStats()}}
+{\footnotesize\ttfamily void v\+Port\+Get\+Heap\+Stats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2portable_8h_aebfa6771f45f6a5ac026e91ee2fd57f4}{Heap\+Stats\+\_\+t}} $\ast$}]{px\+Heap\+Stats }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a8bf103ce32ce8473574e9920af8b4eec}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a8bf103ce32ce8473574e9920af8b4eec}} 
+\index{heap\_4.c@{heap\_4.c}!vPortInitialiseBlocks@{vPortInitialiseBlocks}}
+\index{vPortInitialiseBlocks@{vPortInitialiseBlocks}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{vPortInitialiseBlocks()}{vPortInitialiseBlocks()}}
+{\footnotesize\ttfamily void v\+Port\+Initialise\+Blocks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a0c28a12b313bc248be0cb7a37ed81bb7}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_a0c28a12b313bc248be0cb7a37ed81bb7}} 
+\index{heap\_4.c@{heap\_4.c}!xPortGetFreeHeapSize@{xPortGetFreeHeapSize}}
+\index{xPortGetFreeHeapSize@{xPortGetFreeHeapSize}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{xPortGetFreeHeapSize()}{xPortGetFreeHeapSize()}}
+{\footnotesize\ttfamily size\+\_\+t x\+Port\+Get\+Free\+Heap\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab222e4545b8ff12b62fd000fea6b34eb}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2portable_2_mem_mang_2heap__4_8c_ab222e4545b8ff12b62fd000fea6b34eb}} 
+\index{heap\_4.c@{heap\_4.c}!xPortGetMinimumEverFreeHeapSize@{xPortGetMinimumEverFreeHeapSize}}
+\index{xPortGetMinimumEverFreeHeapSize@{xPortGetMinimumEverFreeHeapSize}!heap\_4.c@{heap\_4.c}}
+\doxysubsubsection{\texorpdfstring{xPortGetMinimumEverFreeHeapSize()}{xPortGetMinimumEverFreeHeapSize()}}
+{\footnotesize\ttfamily size\+\_\+t x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

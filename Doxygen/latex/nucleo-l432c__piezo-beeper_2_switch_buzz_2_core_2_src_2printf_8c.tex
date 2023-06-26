@@ -1,0 +1,500 @@
+\hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c}{}\doxysection{nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Core/\+Src/printf.c File Reference}
+\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c}\index{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Core/Src/printf.c@{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Core/Src/printf.c}}
+{\ttfamily \#include \char`\"{}printf\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$printf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{uniondouble__with__bit__access}{double\+\_\+with\+\_\+bit\+\_\+access}}
+\item 
+struct \mbox{\hyperlink{structoutput__gadget__t}{output\+\_\+gadget\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structdouble__components}{double\+\_\+components}}
+\item 
+struct \mbox{\hyperlink{structscaling__factor}{scaling\+\_\+factor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab5c8572f224163200924dc1db8e1d185}{PRINTF\+\_\+\+INTEGER\+\_\+\+BUFFER\+\_\+\+SIZE}}~32
+\begin{DoxyCompactList}\small\item\em Small stand-\/alone implementation of the printf family of functions ({\ttfamily (v)printf}, {\ttfamily (v)s(n)printf} etc., geared towards use on embedded systems with a very limited resources. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a279e50dfa25839d4e6e4cafc5c73f459}{PRINTF\+\_\+\+DECIMAL\+\_\+\+BUFFER\+\_\+\+SIZE}}~32
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4b15959b0aa84ab08b78a2139c0d06f7}{PRINTF\+\_\+\+SUPPORT\+\_\+\+DECIMAL\+\_\+\+SPECIFIERS}}~1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5d877442f54f1e97a5631877a31dbb8b}{PRINTF\+\_\+\+SUPPORT\+\_\+\+EXPONENTIAL\+\_\+\+SPECIFIERS}}~1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae4729b96ea7788c880e6fd201a2f1907}{PRINTF\+\_\+\+SUPPORT\+\_\+\+WRITEBACK\+\_\+\+SPECIFIER}}~1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab6f8f053fe123435128cfcff1d407d75}{PRINTF\+\_\+\+DEFAULT\+\_\+\+FLOAT\+\_\+\+PRECISION}}~6
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab3e07dda1a24c543976dc69ea2c62f6c}{PRINTF\+\_\+\+MAX\+\_\+\+INTEGRAL\+\_\+\+DIGITS\+\_\+\+FOR\+\_\+\+DECIMAL}}~9
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a34aa02fd74c9f366b87312cf708dc9e1}{PRINTF\+\_\+\+SUPPORT\+\_\+\+LONG\+\_\+\+LONG}}~1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a009bc67e21c7542d964c1312163b9172}{PRINTF\+\_\+\+LOG10\+\_\+\+TAYLOR\+\_\+\+TERMS}}~4
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae30baef6c79d6259f11df587c427f28c}{PRINTF\+\_\+\+CHECK\+\_\+\+FOR\+\_\+\+NUL\+\_\+\+IN\+\_\+\+FORMAT\+\_\+\+SPECIFIER}}~1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae705ec5d8f325983e9c04affb48d659f}{PRINTF\+\_\+\+PREFER\+\_\+\+DECIMAL}}~false
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5795434162142e7ffc4d2d7af11d6e71}{PRINTF\+\_\+\+PREFER\+\_\+\+EXPONENTIAL}}~true
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7bcde5ce2ee4bf99e403e74fe1aaa2e}{PRINTF\+\_\+\+CONCATENATE}}(s1,  s2)~s1\#\#s2
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae064267e21e4d01ee506cc71aeb2efad}{PRINTF\+\_\+\+EXPAND\+\_\+\+THEN\+\_\+\+CONCATENATE}}(s1,  s2)~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7bcde5ce2ee4bf99e403e74fe1aaa2e}{PRINTF\+\_\+\+CONCATENATE}}(s1, s2)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a94334afb8b94c3d48b42d972925a9b4d}{PRINTF\+\_\+\+FLOAT\+\_\+\+NOTATION\+\_\+\+THRESHOLD}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae064267e21e4d01ee506cc71aeb2efad}{PRINTF\+\_\+\+EXPAND\+\_\+\+THEN\+\_\+\+CONCATENATE}}(1e,\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab3e07dda1a24c543976dc69ea2c62f6c}{PRINTF\+\_\+\+MAX\+\_\+\+INTEGRAL\+\_\+\+DIGITS\+\_\+\+FOR\+\_\+\+DECIMAL}})
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7b04ce70e8c9e609f02c796be254062}{FLAGS\+\_\+\+ZEROPAD}}~(1U $<$$<$  0U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac6c26878acb903cb07de2b9552fec26b}{FLAGS\+\_\+\+LEFT}}~(1U $<$$<$  1U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a3d8b1bd3dd657ac7856e8aa67b170fee}{FLAGS\+\_\+\+PLUS}}~(1U $<$$<$  2U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a2c249ce13d36626995f96880028b3d0a}{FLAGS\+\_\+\+SPACE}}~(1U $<$$<$  3U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e4ed2c9a700bf9cfddabb05debd4790}{FLAGS\+\_\+\+HASH}}~(1U $<$$<$  4U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a738a48de177a2e385f66995685334761}{FLAGS\+\_\+\+UPPERCASE}}~(1U $<$$<$  5U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5584c6d116b42ffdf2c2b7b72209cb25}{FLAGS\+\_\+\+CHAR}}~(1U $<$$<$  6U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e289a20e315f0a470da3f149d33c7a5}{FLAGS\+\_\+\+SHORT}}~(1U $<$$<$  7U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4d2ee94fbad75b263dd756cb4d52c167}{FLAGS\+\_\+\+INT}}~(1U $<$$<$  8U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a15a50af941ea5ca0a9517faf2f90b524}{FLAGS\+\_\+\+LONG}}~(1U $<$$<$  9U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4ac2d97fe74925064a50628a469403d3}{FLAGS\+\_\+\+LONG\+\_\+\+LONG}}~(1U $<$$<$ 10U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a7ffc74d008f9e494649d270668555dd1}{FLAGS\+\_\+\+PRECISION}}~(1U $<$$<$ 11U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac65b16dab08c378eb12307e41cedb696}{FLAGS\+\_\+\+ADAPT\+\_\+\+EXP}}~(1U $<$$<$ 12U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_abd39f2dd3c4a2fa9c72a3db97eda33bf}{FLAGS\+\_\+\+POINTER}}~(1U $<$$<$ 13U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac2d8918920a8b6bf644e9a7a075eb1bd}{FLAGS\+\_\+\+SIGNED}}~(1U $<$$<$ 14U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac0194a004d8ee898b82545e8a23227c3}{BASE\+\_\+\+BINARY}}~2
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a8706ee490451d2694347f1b6b6fd4cb8}{BASE\+\_\+\+OCTAL}}~8
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a7c2e9072939c9b2f8a5cafe37631b8a0}{BASE\+\_\+\+DECIMAL}}~10
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a11b0944d693580cca5cf793d5a7c9e9d}{BASE\+\_\+\+HEX}}~16
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac9eb7ba8198d4ec2aa0be1ff0c205a01}{PRINTF\+\_\+\+MAX\+\_\+\+POSSIBLE\+\_\+\+BUFFER\+\_\+\+SIZE}}~INT\+\_\+\+MAX
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a77eaa70b3533b8af6512f5a638b2363e}{DOUBLE\+\_\+\+STORED\+\_\+\+MANTISSA\+\_\+\+BITS}}~(DBL\+\_\+\+MANT\+\_\+\+DIG -\/ 1)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad2a522d43ad53357ddd2ee3968d5c96b}{PRINTF\+\_\+\+ABS}}(\+\_\+x)~( (\+\_\+x) $>$ 0 ? (\+\_\+x) \+: -\/(\+\_\+x) )
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a8d302099b82242df3916cbe38d476694}{ABS\+\_\+\+FOR\+\_\+\+PRINTING}}(\+\_\+x)~((\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af43407109a0952f9ce5dee4160f21235}{printf\+\_\+unsigned\+\_\+value\+\_\+t}}) ( (\+\_\+x) $>$ 0 ? (\+\_\+x) \+: -\/((\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a087d874d932f510310412187369a6cf9}{printf\+\_\+signed\+\_\+value\+\_\+t}})\+\_\+x) ))
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}{NUM\+\_\+\+DECIMAL\+\_\+\+DIGITS\+\_\+\+IN\+\_\+\+INT64\+\_\+T}}~18
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a30804263c8347c785606152ed327200c}{PRINTF\+\_\+\+MAX\+\_\+\+PRECOMPUTED\+\_\+\+POWER\+\_\+\+OF\+\_\+10}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}{NUM\+\_\+\+DECIMAL\+\_\+\+DIGITS\+\_\+\+IN\+\_\+\+INT64\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4eb82366ae6e3d185078bb8f54e1e19e}{PRINTF\+\_\+\+MAX\+\_\+\+SUPPORTED\+\_\+\+PRECISION}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}{NUM\+\_\+\+DECIMAL\+\_\+\+DIGITS\+\_\+\+IN\+\_\+\+INT64\+\_\+T}} -\/ 1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_adfc91b180601d6587c09c5faecc56460}{ADVANCE\+\_\+\+IN\+\_\+\+FORMAT\+\_\+\+STRING}}(cptr\+\_\+)~do \{ (cptr\+\_\+)++; \mbox{\hyperlink{_program_8cs_af2d0c02efe3fbc2d94e5b6e316777c4d}{if}} (!$\ast$(cptr\+\_\+)) return; \} while(0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a9d4a10dcdc829ae96fb79bb912da57e2}{printf\+\_\+flags\+\_\+t}}
+\item 
+typedef uint8\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac78b37a9c20028d552e74454f76bfd51}{numeric\+\_\+base\+\_\+t}}
+\item 
+typedef unsigned long long \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af43407109a0952f9ce5dee4160f21235}{printf\+\_\+unsigned\+\_\+value\+\_\+t}}
+\item 
+typedef long long \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a087d874d932f510310412187369a6cf9}{printf\+\_\+signed\+\_\+value\+\_\+t}}
+\item 
+typedef unsigned int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a248c42df6acfe93973ab8ea2148820c7}{printf\+\_\+size\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4d2b4bb68560a35998009ef8cb95971a}{vprintf\+\_\+}} (const char $\ast$format, va\+\_\+list arg)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e02341da161d0b6202df7f7a693f60c}{vsnprintf\+\_\+}} (char $\ast$s, size\+\_\+t n, const char $\ast$format, va\+\_\+list arg)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a28548a8b32597154c9e16b8d2a392830}{vsprintf\+\_\+}} (char $\ast$s, const char $\ast$format, va\+\_\+list arg)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a24c44087e6650233bdb2bd01b922a6e3}{vfctprintf}} (void($\ast$out)(char c, void $\ast$extra\+\_\+arg), void $\ast$extra\+\_\+arg, const char $\ast$format, va\+\_\+list arg)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a770cb7c9f4a7b37dc5b49c4c68a8308e}{printf\+\_\+}} (const char $\ast$format,...)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af1c675fe9e14a82d1d38d7a51fd23616}{sprintf\+\_\+}} (char $\ast$s, const char $\ast$format,...)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae0630706877a20271a3156f74776a494}{snprintf\+\_\+}} (char $\ast$s, size\+\_\+t n, const char $\ast$format,...)
+\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a568090fd375722092fc13aa54b253918}{fctprintf}} (void($\ast$out)(char c, void $\ast$extra\+\_\+arg), void $\ast$extra\+\_\+arg, const char $\ast$format,...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a8d302099b82242df3916cbe38d476694}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a8d302099b82242df3916cbe38d476694}} 
+\index{printf.c@{printf.c}!ABS\_FOR\_PRINTING@{ABS\_FOR\_PRINTING}}
+\index{ABS\_FOR\_PRINTING@{ABS\_FOR\_PRINTING}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{ABS\_FOR\_PRINTING}{ABS\_FOR\_PRINTING}}
+{\footnotesize\ttfamily \#define ABS\+\_\+\+FOR\+\_\+\+PRINTING(\begin{DoxyParamCaption}\item[{}]{\+\_\+x }\end{DoxyParamCaption})~((\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af43407109a0952f9ce5dee4160f21235}{printf\+\_\+unsigned\+\_\+value\+\_\+t}}) ( (\+\_\+x) $>$ 0 ? (\+\_\+x) \+: -\/((\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a087d874d932f510310412187369a6cf9}{printf\+\_\+signed\+\_\+value\+\_\+t}})\+\_\+x) ))}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_adfc91b180601d6587c09c5faecc56460}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_adfc91b180601d6587c09c5faecc56460}} 
+\index{printf.c@{printf.c}!ADVANCE\_IN\_FORMAT\_STRING@{ADVANCE\_IN\_FORMAT\_STRING}}
+\index{ADVANCE\_IN\_FORMAT\_STRING@{ADVANCE\_IN\_FORMAT\_STRING}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{ADVANCE\_IN\_FORMAT\_STRING}{ADVANCE\_IN\_FORMAT\_STRING}}
+{\footnotesize\ttfamily \#define ADVANCE\+\_\+\+IN\+\_\+\+FORMAT\+\_\+\+STRING(\begin{DoxyParamCaption}\item[{}]{cptr\+\_\+ }\end{DoxyParamCaption})~do \{ (cptr\+\_\+)++; \mbox{\hyperlink{_program_8cs_af2d0c02efe3fbc2d94e5b6e316777c4d}{if}} (!$\ast$(cptr\+\_\+)) return; \} while(0)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac0194a004d8ee898b82545e8a23227c3}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac0194a004d8ee898b82545e8a23227c3}} 
+\index{printf.c@{printf.c}!BASE\_BINARY@{BASE\_BINARY}}
+\index{BASE\_BINARY@{BASE\_BINARY}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{BASE\_BINARY}{BASE\_BINARY}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+BINARY~2}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a7c2e9072939c9b2f8a5cafe37631b8a0}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a7c2e9072939c9b2f8a5cafe37631b8a0}} 
+\index{printf.c@{printf.c}!BASE\_DECIMAL@{BASE\_DECIMAL}}
+\index{BASE\_DECIMAL@{BASE\_DECIMAL}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{BASE\_DECIMAL}{BASE\_DECIMAL}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+DECIMAL~10}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a11b0944d693580cca5cf793d5a7c9e9d}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a11b0944d693580cca5cf793d5a7c9e9d}} 
+\index{printf.c@{printf.c}!BASE\_HEX@{BASE\_HEX}}
+\index{BASE\_HEX@{BASE\_HEX}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{BASE\_HEX}{BASE\_HEX}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+HEX~16}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a8706ee490451d2694347f1b6b6fd4cb8}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a8706ee490451d2694347f1b6b6fd4cb8}} 
+\index{printf.c@{printf.c}!BASE\_OCTAL@{BASE\_OCTAL}}
+\index{BASE\_OCTAL@{BASE\_OCTAL}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{BASE\_OCTAL}{BASE\_OCTAL}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+OCTAL~8}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a77eaa70b3533b8af6512f5a638b2363e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a77eaa70b3533b8af6512f5a638b2363e}} 
+\index{printf.c@{printf.c}!DOUBLE\_STORED\_MANTISSA\_BITS@{DOUBLE\_STORED\_MANTISSA\_BITS}}
+\index{DOUBLE\_STORED\_MANTISSA\_BITS@{DOUBLE\_STORED\_MANTISSA\_BITS}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{DOUBLE\_STORED\_MANTISSA\_BITS}{DOUBLE\_STORED\_MANTISSA\_BITS}}
+{\footnotesize\ttfamily \#define DOUBLE\+\_\+\+STORED\+\_\+\+MANTISSA\+\_\+\+BITS~(DBL\+\_\+\+MANT\+\_\+\+DIG -\/ 1)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac65b16dab08c378eb12307e41cedb696}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac65b16dab08c378eb12307e41cedb696}} 
+\index{printf.c@{printf.c}!FLAGS\_ADAPT\_EXP@{FLAGS\_ADAPT\_EXP}}
+\index{FLAGS\_ADAPT\_EXP@{FLAGS\_ADAPT\_EXP}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_ADAPT\_EXP}{FLAGS\_ADAPT\_EXP}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+ADAPT\+\_\+\+EXP~(1U $<$$<$ 12U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5584c6d116b42ffdf2c2b7b72209cb25}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5584c6d116b42ffdf2c2b7b72209cb25}} 
+\index{printf.c@{printf.c}!FLAGS\_CHAR@{FLAGS\_CHAR}}
+\index{FLAGS\_CHAR@{FLAGS\_CHAR}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_CHAR}{FLAGS\_CHAR}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+CHAR~(1U $<$$<$  6U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e4ed2c9a700bf9cfddabb05debd4790}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e4ed2c9a700bf9cfddabb05debd4790}} 
+\index{printf.c@{printf.c}!FLAGS\_HASH@{FLAGS\_HASH}}
+\index{FLAGS\_HASH@{FLAGS\_HASH}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_HASH}{FLAGS\_HASH}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+HASH~(1U $<$$<$  4U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4d2ee94fbad75b263dd756cb4d52c167}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4d2ee94fbad75b263dd756cb4d52c167}} 
+\index{printf.c@{printf.c}!FLAGS\_INT@{FLAGS\_INT}}
+\index{FLAGS\_INT@{FLAGS\_INT}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_INT}{FLAGS\_INT}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+INT~(1U $<$$<$  8U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac6c26878acb903cb07de2b9552fec26b}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac6c26878acb903cb07de2b9552fec26b}} 
+\index{printf.c@{printf.c}!FLAGS\_LEFT@{FLAGS\_LEFT}}
+\index{FLAGS\_LEFT@{FLAGS\_LEFT}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_LEFT}{FLAGS\_LEFT}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+LEFT~(1U $<$$<$  1U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a15a50af941ea5ca0a9517faf2f90b524}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a15a50af941ea5ca0a9517faf2f90b524}} 
+\index{printf.c@{printf.c}!FLAGS\_LONG@{FLAGS\_LONG}}
+\index{FLAGS\_LONG@{FLAGS\_LONG}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_LONG}{FLAGS\_LONG}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+LONG~(1U $<$$<$  9U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4ac2d97fe74925064a50628a469403d3}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4ac2d97fe74925064a50628a469403d3}} 
+\index{printf.c@{printf.c}!FLAGS\_LONG\_LONG@{FLAGS\_LONG\_LONG}}
+\index{FLAGS\_LONG\_LONG@{FLAGS\_LONG\_LONG}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_LONG\_LONG}{FLAGS\_LONG\_LONG}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+LONG\+\_\+\+LONG~(1U $<$$<$ 10U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a3d8b1bd3dd657ac7856e8aa67b170fee}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a3d8b1bd3dd657ac7856e8aa67b170fee}} 
+\index{printf.c@{printf.c}!FLAGS\_PLUS@{FLAGS\_PLUS}}
+\index{FLAGS\_PLUS@{FLAGS\_PLUS}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_PLUS}{FLAGS\_PLUS}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+PLUS~(1U $<$$<$  2U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_abd39f2dd3c4a2fa9c72a3db97eda33bf}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_abd39f2dd3c4a2fa9c72a3db97eda33bf}} 
+\index{printf.c@{printf.c}!FLAGS\_POINTER@{FLAGS\_POINTER}}
+\index{FLAGS\_POINTER@{FLAGS\_POINTER}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_POINTER}{FLAGS\_POINTER}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+POINTER~(1U $<$$<$ 13U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a7ffc74d008f9e494649d270668555dd1}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a7ffc74d008f9e494649d270668555dd1}} 
+\index{printf.c@{printf.c}!FLAGS\_PRECISION@{FLAGS\_PRECISION}}
+\index{FLAGS\_PRECISION@{FLAGS\_PRECISION}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_PRECISION}{FLAGS\_PRECISION}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+PRECISION~(1U $<$$<$ 11U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e289a20e315f0a470da3f149d33c7a5}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e289a20e315f0a470da3f149d33c7a5}} 
+\index{printf.c@{printf.c}!FLAGS\_SHORT@{FLAGS\_SHORT}}
+\index{FLAGS\_SHORT@{FLAGS\_SHORT}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_SHORT}{FLAGS\_SHORT}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+SHORT~(1U $<$$<$  7U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac2d8918920a8b6bf644e9a7a075eb1bd}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac2d8918920a8b6bf644e9a7a075eb1bd}} 
+\index{printf.c@{printf.c}!FLAGS\_SIGNED@{FLAGS\_SIGNED}}
+\index{FLAGS\_SIGNED@{FLAGS\_SIGNED}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_SIGNED}{FLAGS\_SIGNED}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+SIGNED~(1U $<$$<$ 14U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a2c249ce13d36626995f96880028b3d0a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a2c249ce13d36626995f96880028b3d0a}} 
+\index{printf.c@{printf.c}!FLAGS\_SPACE@{FLAGS\_SPACE}}
+\index{FLAGS\_SPACE@{FLAGS\_SPACE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_SPACE}{FLAGS\_SPACE}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+SPACE~(1U $<$$<$  3U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a738a48de177a2e385f66995685334761}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a738a48de177a2e385f66995685334761}} 
+\index{printf.c@{printf.c}!FLAGS\_UPPERCASE@{FLAGS\_UPPERCASE}}
+\index{FLAGS\_UPPERCASE@{FLAGS\_UPPERCASE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_UPPERCASE}{FLAGS\_UPPERCASE}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+UPPERCASE~(1U $<$$<$  5U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7b04ce70e8c9e609f02c796be254062}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7b04ce70e8c9e609f02c796be254062}} 
+\index{printf.c@{printf.c}!FLAGS\_ZEROPAD@{FLAGS\_ZEROPAD}}
+\index{FLAGS\_ZEROPAD@{FLAGS\_ZEROPAD}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{FLAGS\_ZEROPAD}{FLAGS\_ZEROPAD}}
+{\footnotesize\ttfamily \#define FLAGS\+\_\+\+ZEROPAD~(1U $<$$<$  0U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}} 
+\index{printf.c@{printf.c}!NUM\_DECIMAL\_DIGITS\_IN\_INT64\_T@{NUM\_DECIMAL\_DIGITS\_IN\_INT64\_T}}
+\index{NUM\_DECIMAL\_DIGITS\_IN\_INT64\_T@{NUM\_DECIMAL\_DIGITS\_IN\_INT64\_T}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{NUM\_DECIMAL\_DIGITS\_IN\_INT64\_T}{NUM\_DECIMAL\_DIGITS\_IN\_INT64\_T}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+DECIMAL\+\_\+\+DIGITS\+\_\+\+IN\+\_\+\+INT64\+\_\+T~18}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad2a522d43ad53357ddd2ee3968d5c96b}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad2a522d43ad53357ddd2ee3968d5c96b}} 
+\index{printf.c@{printf.c}!PRINTF\_ABS@{PRINTF\_ABS}}
+\index{PRINTF\_ABS@{PRINTF\_ABS}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_ABS}{PRINTF\_ABS}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+ABS(\begin{DoxyParamCaption}\item[{}]{\+\_\+x }\end{DoxyParamCaption})~( (\+\_\+x) $>$ 0 ? (\+\_\+x) \+: -\/(\+\_\+x) )}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae30baef6c79d6259f11df587c427f28c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae30baef6c79d6259f11df587c427f28c}} 
+\index{printf.c@{printf.c}!PRINTF\_CHECK\_FOR\_NUL\_IN\_FORMAT\_SPECIFIER@{PRINTF\_CHECK\_FOR\_NUL\_IN\_FORMAT\_SPECIFIER}}
+\index{PRINTF\_CHECK\_FOR\_NUL\_IN\_FORMAT\_SPECIFIER@{PRINTF\_CHECK\_FOR\_NUL\_IN\_FORMAT\_SPECIFIER}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_CHECK\_FOR\_NUL\_IN\_FORMAT\_SPECIFIER}{PRINTF\_CHECK\_FOR\_NUL\_IN\_FORMAT\_SPECIFIER}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+CHECK\+\_\+\+FOR\+\_\+\+NUL\+\_\+\+IN\+\_\+\+FORMAT\+\_\+\+SPECIFIER~1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7bcde5ce2ee4bf99e403e74fe1aaa2e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7bcde5ce2ee4bf99e403e74fe1aaa2e}} 
+\index{printf.c@{printf.c}!PRINTF\_CONCATENATE@{PRINTF\_CONCATENATE}}
+\index{PRINTF\_CONCATENATE@{PRINTF\_CONCATENATE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_CONCATENATE}{PRINTF\_CONCATENATE}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+CONCATENATE(\begin{DoxyParamCaption}\item[{}]{s1,  }\item[{}]{s2 }\end{DoxyParamCaption})~s1\#\#s2}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a279e50dfa25839d4e6e4cafc5c73f459}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a279e50dfa25839d4e6e4cafc5c73f459}} 
+\index{printf.c@{printf.c}!PRINTF\_DECIMAL\_BUFFER\_SIZE@{PRINTF\_DECIMAL\_BUFFER\_SIZE}}
+\index{PRINTF\_DECIMAL\_BUFFER\_SIZE@{PRINTF\_DECIMAL\_BUFFER\_SIZE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_DECIMAL\_BUFFER\_SIZE}{PRINTF\_DECIMAL\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+DECIMAL\+\_\+\+BUFFER\+\_\+\+SIZE~32}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab6f8f053fe123435128cfcff1d407d75}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab6f8f053fe123435128cfcff1d407d75}} 
+\index{printf.c@{printf.c}!PRINTF\_DEFAULT\_FLOAT\_PRECISION@{PRINTF\_DEFAULT\_FLOAT\_PRECISION}}
+\index{PRINTF\_DEFAULT\_FLOAT\_PRECISION@{PRINTF\_DEFAULT\_FLOAT\_PRECISION}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_DEFAULT\_FLOAT\_PRECISION}{PRINTF\_DEFAULT\_FLOAT\_PRECISION}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+DEFAULT\+\_\+\+FLOAT\+\_\+\+PRECISION~6}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae064267e21e4d01ee506cc71aeb2efad}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae064267e21e4d01ee506cc71aeb2efad}} 
+\index{printf.c@{printf.c}!PRINTF\_EXPAND\_THEN\_CONCATENATE@{PRINTF\_EXPAND\_THEN\_CONCATENATE}}
+\index{PRINTF\_EXPAND\_THEN\_CONCATENATE@{PRINTF\_EXPAND\_THEN\_CONCATENATE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_EXPAND\_THEN\_CONCATENATE}{PRINTF\_EXPAND\_THEN\_CONCATENATE}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+EXPAND\+\_\+\+THEN\+\_\+\+CONCATENATE(\begin{DoxyParamCaption}\item[{}]{s1,  }\item[{}]{s2 }\end{DoxyParamCaption})~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ad7bcde5ce2ee4bf99e403e74fe1aaa2e}{PRINTF\+\_\+\+CONCATENATE}}(s1, s2)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a94334afb8b94c3d48b42d972925a9b4d}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a94334afb8b94c3d48b42d972925a9b4d}} 
+\index{printf.c@{printf.c}!PRINTF\_FLOAT\_NOTATION\_THRESHOLD@{PRINTF\_FLOAT\_NOTATION\_THRESHOLD}}
+\index{PRINTF\_FLOAT\_NOTATION\_THRESHOLD@{PRINTF\_FLOAT\_NOTATION\_THRESHOLD}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_FLOAT\_NOTATION\_THRESHOLD}{PRINTF\_FLOAT\_NOTATION\_THRESHOLD}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+FLOAT\+\_\+\+NOTATION\+\_\+\+THRESHOLD~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae064267e21e4d01ee506cc71aeb2efad}{PRINTF\+\_\+\+EXPAND\+\_\+\+THEN\+\_\+\+CONCATENATE}}(1e,\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab3e07dda1a24c543976dc69ea2c62f6c}{PRINTF\+\_\+\+MAX\+\_\+\+INTEGRAL\+\_\+\+DIGITS\+\_\+\+FOR\+\_\+\+DECIMAL}})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab5c8572f224163200924dc1db8e1d185}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab5c8572f224163200924dc1db8e1d185}} 
+\index{printf.c@{printf.c}!PRINTF\_INTEGER\_BUFFER\_SIZE@{PRINTF\_INTEGER\_BUFFER\_SIZE}}
+\index{PRINTF\_INTEGER\_BUFFER\_SIZE@{PRINTF\_INTEGER\_BUFFER\_SIZE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_INTEGER\_BUFFER\_SIZE}{PRINTF\_INTEGER\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+INTEGER\+\_\+\+BUFFER\+\_\+\+SIZE~32}
+
+
+
+Small stand-\/alone implementation of the printf family of functions ({\ttfamily (v)printf}, {\ttfamily (v)s(n)printf} etc., geared towards use on embedded systems with a very limited resources. 
+
+\begin{DoxyAuthor}{Author}
+(c) Eyal Rozenberg \href{mailto:eyalroz1@gmx.com}{\texttt{ eyalroz1@gmx.\+com}} 2021-\/2022, Haifa, Palestine/\+Israel 
+
+(c) Marco Paland (\href{mailto:info@paland.com}{\texttt{ info@paland.\+com}}) 2014-\/2019, PALANDesign Hannover, Germany
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+Others have made smaller contributions to this file\+: see the contributors page at \href{https://github.com/eyalroz/printf/graphs/contributors}{\texttt{ https\+://github.\+com/eyalroz/printf/graphs/contributors}} or ask one of the authors. The original code for exponential specifiers was contributed by Martijn Jasperse \href{mailto:m.jasperse@gmail.com}{\texttt{ m.\+jasperse@gmail.\+com}}.
+\end{DoxyNote}
+
+
+\begin{DoxyNote}{Note}
+the implementations are thread-\/safe; re-\/entrant; use no functions from the standard library; and do not dynamically allocate any memory.
+\end{DoxyNote}
+@license The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. \mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a009bc67e21c7542d964c1312163b9172}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a009bc67e21c7542d964c1312163b9172}} 
+\index{printf.c@{printf.c}!PRINTF\_LOG10\_TAYLOR\_TERMS@{PRINTF\_LOG10\_TAYLOR\_TERMS}}
+\index{PRINTF\_LOG10\_TAYLOR\_TERMS@{PRINTF\_LOG10\_TAYLOR\_TERMS}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_LOG10\_TAYLOR\_TERMS}{PRINTF\_LOG10\_TAYLOR\_TERMS}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+LOG10\+\_\+\+TAYLOR\+\_\+\+TERMS~4}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab3e07dda1a24c543976dc69ea2c62f6c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ab3e07dda1a24c543976dc69ea2c62f6c}} 
+\index{printf.c@{printf.c}!PRINTF\_MAX\_INTEGRAL\_DIGITS\_FOR\_DECIMAL@{PRINTF\_MAX\_INTEGRAL\_DIGITS\_FOR\_DECIMAL}}
+\index{PRINTF\_MAX\_INTEGRAL\_DIGITS\_FOR\_DECIMAL@{PRINTF\_MAX\_INTEGRAL\_DIGITS\_FOR\_DECIMAL}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_MAX\_INTEGRAL\_DIGITS\_FOR\_DECIMAL}{PRINTF\_MAX\_INTEGRAL\_DIGITS\_FOR\_DECIMAL}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+MAX\+\_\+\+INTEGRAL\+\_\+\+DIGITS\+\_\+\+FOR\+\_\+\+DECIMAL~9}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac9eb7ba8198d4ec2aa0be1ff0c205a01}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac9eb7ba8198d4ec2aa0be1ff0c205a01}} 
+\index{printf.c@{printf.c}!PRINTF\_MAX\_POSSIBLE\_BUFFER\_SIZE@{PRINTF\_MAX\_POSSIBLE\_BUFFER\_SIZE}}
+\index{PRINTF\_MAX\_POSSIBLE\_BUFFER\_SIZE@{PRINTF\_MAX\_POSSIBLE\_BUFFER\_SIZE}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_MAX\_POSSIBLE\_BUFFER\_SIZE}{PRINTF\_MAX\_POSSIBLE\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+MAX\+\_\+\+POSSIBLE\+\_\+\+BUFFER\+\_\+\+SIZE~INT\+\_\+\+MAX}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a30804263c8347c785606152ed327200c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a30804263c8347c785606152ed327200c}} 
+\index{printf.c@{printf.c}!PRINTF\_MAX\_PRECOMPUTED\_POWER\_OF\_10@{PRINTF\_MAX\_PRECOMPUTED\_POWER\_OF\_10}}
+\index{PRINTF\_MAX\_PRECOMPUTED\_POWER\_OF\_10@{PRINTF\_MAX\_PRECOMPUTED\_POWER\_OF\_10}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_MAX\_PRECOMPUTED\_POWER\_OF\_10}{PRINTF\_MAX\_PRECOMPUTED\_POWER\_OF\_10}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+MAX\+\_\+\+PRECOMPUTED\+\_\+\+POWER\+\_\+\+OF\+\_\+10~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}{NUM\+\_\+\+DECIMAL\+\_\+\+DIGITS\+\_\+\+IN\+\_\+\+INT64\+\_\+T}}}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4eb82366ae6e3d185078bb8f54e1e19e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4eb82366ae6e3d185078bb8f54e1e19e}} 
+\index{printf.c@{printf.c}!PRINTF\_MAX\_SUPPORTED\_PRECISION@{PRINTF\_MAX\_SUPPORTED\_PRECISION}}
+\index{PRINTF\_MAX\_SUPPORTED\_PRECISION@{PRINTF\_MAX\_SUPPORTED\_PRECISION}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_MAX\_SUPPORTED\_PRECISION}{PRINTF\_MAX\_SUPPORTED\_PRECISION}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+MAX\+\_\+\+SUPPORTED\+\_\+\+PRECISION~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a38df259cdf24350ce4d98a22cc2524b0}{NUM\+\_\+\+DECIMAL\+\_\+\+DIGITS\+\_\+\+IN\+\_\+\+INT64\+\_\+T}} -\/ 1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae705ec5d8f325983e9c04affb48d659f}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae705ec5d8f325983e9c04affb48d659f}} 
+\index{printf.c@{printf.c}!PRINTF\_PREFER\_DECIMAL@{PRINTF\_PREFER\_DECIMAL}}
+\index{PRINTF\_PREFER\_DECIMAL@{PRINTF\_PREFER\_DECIMAL}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_PREFER\_DECIMAL}{PRINTF\_PREFER\_DECIMAL}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+PREFER\+\_\+\+DECIMAL~false}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5795434162142e7ffc4d2d7af11d6e71}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5795434162142e7ffc4d2d7af11d6e71}} 
+\index{printf.c@{printf.c}!PRINTF\_PREFER\_EXPONENTIAL@{PRINTF\_PREFER\_EXPONENTIAL}}
+\index{PRINTF\_PREFER\_EXPONENTIAL@{PRINTF\_PREFER\_EXPONENTIAL}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_PREFER\_EXPONENTIAL}{PRINTF\_PREFER\_EXPONENTIAL}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+PREFER\+\_\+\+EXPONENTIAL~true}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4b15959b0aa84ab08b78a2139c0d06f7}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4b15959b0aa84ab08b78a2139c0d06f7}} 
+\index{printf.c@{printf.c}!PRINTF\_SUPPORT\_DECIMAL\_SPECIFIERS@{PRINTF\_SUPPORT\_DECIMAL\_SPECIFIERS}}
+\index{PRINTF\_SUPPORT\_DECIMAL\_SPECIFIERS@{PRINTF\_SUPPORT\_DECIMAL\_SPECIFIERS}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_SUPPORT\_DECIMAL\_SPECIFIERS}{PRINTF\_SUPPORT\_DECIMAL\_SPECIFIERS}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+SUPPORT\+\_\+\+DECIMAL\+\_\+\+SPECIFIERS~1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5d877442f54f1e97a5631877a31dbb8b}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a5d877442f54f1e97a5631877a31dbb8b}} 
+\index{printf.c@{printf.c}!PRINTF\_SUPPORT\_EXPONENTIAL\_SPECIFIERS@{PRINTF\_SUPPORT\_EXPONENTIAL\_SPECIFIERS}}
+\index{PRINTF\_SUPPORT\_EXPONENTIAL\_SPECIFIERS@{PRINTF\_SUPPORT\_EXPONENTIAL\_SPECIFIERS}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_SUPPORT\_EXPONENTIAL\_SPECIFIERS}{PRINTF\_SUPPORT\_EXPONENTIAL\_SPECIFIERS}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+SUPPORT\+\_\+\+EXPONENTIAL\+\_\+\+SPECIFIERS~1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a34aa02fd74c9f366b87312cf708dc9e1}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a34aa02fd74c9f366b87312cf708dc9e1}} 
+\index{printf.c@{printf.c}!PRINTF\_SUPPORT\_LONG\_LONG@{PRINTF\_SUPPORT\_LONG\_LONG}}
+\index{PRINTF\_SUPPORT\_LONG\_LONG@{PRINTF\_SUPPORT\_LONG\_LONG}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_SUPPORT\_LONG\_LONG}{PRINTF\_SUPPORT\_LONG\_LONG}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+SUPPORT\+\_\+\+LONG\+\_\+\+LONG~1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae4729b96ea7788c880e6fd201a2f1907}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae4729b96ea7788c880e6fd201a2f1907}} 
+\index{printf.c@{printf.c}!PRINTF\_SUPPORT\_WRITEBACK\_SPECIFIER@{PRINTF\_SUPPORT\_WRITEBACK\_SPECIFIER}}
+\index{PRINTF\_SUPPORT\_WRITEBACK\_SPECIFIER@{PRINTF\_SUPPORT\_WRITEBACK\_SPECIFIER}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_SUPPORT\_WRITEBACK\_SPECIFIER}{PRINTF\_SUPPORT\_WRITEBACK\_SPECIFIER}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+SUPPORT\+\_\+\+WRITEBACK\+\_\+\+SPECIFIER~1}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac78b37a9c20028d552e74454f76bfd51}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac78b37a9c20028d552e74454f76bfd51}} 
+\index{printf.c@{printf.c}!numeric\_base\_t@{numeric\_base\_t}}
+\index{numeric\_base\_t@{numeric\_base\_t}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{numeric\_base\_t}{numeric\_base\_t}}
+{\footnotesize\ttfamily typedef uint8\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ac78b37a9c20028d552e74454f76bfd51}{numeric\+\_\+base\+\_\+t}}}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a9d4a10dcdc829ae96fb79bb912da57e2}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a9d4a10dcdc829ae96fb79bb912da57e2}} 
+\index{printf.c@{printf.c}!printf\_flags\_t@{printf\_flags\_t}}
+\index{printf\_flags\_t@{printf\_flags\_t}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{printf\_flags\_t}{printf\_flags\_t}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a9d4a10dcdc829ae96fb79bb912da57e2}{printf\+\_\+flags\+\_\+t}}}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a087d874d932f510310412187369a6cf9}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a087d874d932f510310412187369a6cf9}} 
+\index{printf.c@{printf.c}!printf\_signed\_value\_t@{printf\_signed\_value\_t}}
+\index{printf\_signed\_value\_t@{printf\_signed\_value\_t}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{printf\_signed\_value\_t}{printf\_signed\_value\_t}}
+{\footnotesize\ttfamily typedef long long \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a087d874d932f510310412187369a6cf9}{printf\+\_\+signed\+\_\+value\+\_\+t}}}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a248c42df6acfe93973ab8ea2148820c7}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a248c42df6acfe93973ab8ea2148820c7}} 
+\index{printf.c@{printf.c}!printf\_size\_t@{printf\_size\_t}}
+\index{printf\_size\_t@{printf\_size\_t}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{printf\_size\_t}{printf\_size\_t}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a248c42df6acfe93973ab8ea2148820c7}{printf\+\_\+size\+\_\+t}}}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af43407109a0952f9ce5dee4160f21235}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af43407109a0952f9ce5dee4160f21235}} 
+\index{printf.c@{printf.c}!printf\_unsigned\_value\_t@{printf\_unsigned\_value\_t}}
+\index{printf\_unsigned\_value\_t@{printf\_unsigned\_value\_t}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{printf\_unsigned\_value\_t}{printf\_unsigned\_value\_t}}
+{\footnotesize\ttfamily typedef unsigned long long \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af43407109a0952f9ce5dee4160f21235}{printf\+\_\+unsigned\+\_\+value\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a568090fd375722092fc13aa54b253918}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a568090fd375722092fc13aa54b253918}} 
+\index{printf.c@{printf.c}!fctprintf@{fctprintf}}
+\index{fctprintf@{fctprintf}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{fctprintf()}{fctprintf()}}
+{\footnotesize\ttfamily int fctprintf (\begin{DoxyParamCaption}\item[{void($\ast$)(char c, void $\ast$extra\+\_\+arg)}]{out,  }\item[{void $\ast$}]{extra\+\_\+arg,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a770cb7c9f4a7b37dc5b49c4c68a8308e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a770cb7c9f4a7b37dc5b49c4c68a8308e}} 
+\index{printf.c@{printf.c}!printf\_@{printf\_}}
+\index{printf\_@{printf\_}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{printf\_()}{printf\_()}}
+{\footnotesize\ttfamily int printf\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae0630706877a20271a3156f74776a494}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_ae0630706877a20271a3156f74776a494}} 
+\index{printf.c@{printf.c}!snprintf\_@{snprintf\_}}
+\index{snprintf\_@{snprintf\_}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{snprintf\_()}{snprintf\_()}}
+{\footnotesize\ttfamily int snprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{size\+\_\+t}]{n,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af1c675fe9e14a82d1d38d7a51fd23616}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_af1c675fe9e14a82d1d38d7a51fd23616}} 
+\index{printf.c@{printf.c}!sprintf\_@{sprintf\_}}
+\index{sprintf\_@{sprintf\_}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{sprintf\_()}{sprintf\_()}}
+{\footnotesize\ttfamily int sprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a24c44087e6650233bdb2bd01b922a6e3}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a24c44087e6650233bdb2bd01b922a6e3}} 
+\index{printf.c@{printf.c}!vfctprintf@{vfctprintf}}
+\index{vfctprintf@{vfctprintf}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{vfctprintf()}{vfctprintf()}}
+{\footnotesize\ttfamily int vfctprintf (\begin{DoxyParamCaption}\item[{void($\ast$)(char c, void $\ast$extra\+\_\+arg)}]{out,  }\item[{void $\ast$}]{extra\+\_\+arg,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4d2b4bb68560a35998009ef8cb95971a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4d2b4bb68560a35998009ef8cb95971a}} 
+\index{printf.c@{printf.c}!vprintf\_@{vprintf\_}}
+\index{vprintf\_@{vprintf\_}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{vprintf\_()}{vprintf\_()}}
+{\footnotesize\ttfamily int vprintf\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e02341da161d0b6202df7f7a693f60c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a4e02341da161d0b6202df7f7a693f60c}} 
+\index{printf.c@{printf.c}!vsnprintf\_@{vsnprintf\_}}
+\index{vsnprintf\_@{vsnprintf\_}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{vsnprintf\_()}{vsnprintf\_()}}
+{\footnotesize\ttfamily int vsnprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{size\+\_\+t}]{n,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a28548a8b32597154c9e16b8d2a392830}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2printf_8c_a28548a8b32597154c9e16b8d2a392830}} 
+\index{printf.c@{printf.c}!vsprintf\_@{vsprintf\_}}
+\index{vsprintf\_@{vsprintf\_}!printf.c@{printf.c}}
+\doxysubsubsection{\texorpdfstring{vsprintf\_()}{vsprintf\_()}}
+{\footnotesize\ttfamily int vsprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+

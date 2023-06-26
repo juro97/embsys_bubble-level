@@ -1,0 +1,86 @@
+\hypertarget{clk__4x4__rgb_8c}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Core/\+Src/clk\+\_\+4x4\+\_\+rgb.c File Reference}
+\label{clk__4x4__rgb_8c}\index{nucleo-\/l432kc\_4x4rgb/Core/Src/clk\_4x4\_rgb.c@{nucleo-\/l432kc\_4x4rgb/Core/Src/clk\_4x4\_rgb.c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}patterns.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clk__4x4__rgb_8c_a50fe2f6ed5822564d796c6350cbdcf02}{VIRTUAL\+\_\+\+WIFI}}
+\item 
+\#define \mbox{\hyperlink{clk__4x4__rgb_8c_a7cf7351d01c0358803cdbc32b0a91a55}{PWM\+\_\+\+STREAM\+\_\+\+LENGTH\+\_\+\+FULL\+\_\+\+DISPLAY}}~384
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{clk__4x4__rgb_8c_af88f19ebd542240b0b461efbd2de3cc7}{print\+Data\+On\+Matrix}} (const char $\ast$const ch)
+\begin{DoxyCompactList}\small\item\em Prints the received Data from the Broker and prints it on the 4x4 Matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{clk__4x4__rgb_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} \mbox{\hyperlink{clk__4x4__rgb_8c_ad8fc2b382345588b280587c90ebfe548}{sem\+\_\+print\+Permission\+Handle}}
+\item 
+\mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} const  $\ast$ \mbox{\hyperlink{clk__4x4__rgb_8c_a7a67f266f4711a864629158a457643dd}{ptr\+\_\+\+Rgb4x4\+Click}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{clk__4x4__rgb_8c_a7cf7351d01c0358803cdbc32b0a91a55}\label{clk__4x4__rgb_8c_a7cf7351d01c0358803cdbc32b0a91a55}} 
+\index{clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}!PWM\_STREAM\_LENGTH\_FULL\_DISPLAY@{PWM\_STREAM\_LENGTH\_FULL\_DISPLAY}}
+\index{PWM\_STREAM\_LENGTH\_FULL\_DISPLAY@{PWM\_STREAM\_LENGTH\_FULL\_DISPLAY}!clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_STREAM\_LENGTH\_FULL\_DISPLAY}{PWM\_STREAM\_LENGTH\_FULL\_DISPLAY}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+STREAM\+\_\+\+LENGTH\+\_\+\+FULL\+\_\+\+DISPLAY~384}
+
+\mbox{\Hypertarget{clk__4x4__rgb_8c_a50fe2f6ed5822564d796c6350cbdcf02}\label{clk__4x4__rgb_8c_a50fe2f6ed5822564d796c6350cbdcf02}} 
+\index{clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}!VIRTUAL\_WIFI@{VIRTUAL\_WIFI}}
+\index{VIRTUAL\_WIFI@{VIRTUAL\_WIFI}!clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}}
+\doxysubsubsection{\texorpdfstring{VIRTUAL\_WIFI}{VIRTUAL\_WIFI}}
+{\footnotesize\ttfamily \#define VIRTUAL\+\_\+\+WIFI}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{clk__4x4__rgb_8c_af88f19ebd542240b0b461efbd2de3cc7}\label{clk__4x4__rgb_8c_af88f19ebd542240b0b461efbd2de3cc7}} 
+\index{clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}!printDataOnMatrix@{printDataOnMatrix}}
+\index{printDataOnMatrix@{printDataOnMatrix}!clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}}
+\doxysubsubsection{\texorpdfstring{printDataOnMatrix()}{printDataOnMatrix()}}
+{\footnotesize\ttfamily void print\+Data\+On\+Matrix (\begin{DoxyParamCaption}\item[{const char $\ast$const}]{ch }\end{DoxyParamCaption})}
+
+
+
+Prints the received Data from the Broker and prints it on the 4x4 Matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & -\/ Pointer to a Char holding the Information to print \\
+\hline
+\end{DoxyParams}
+Acquires a semaphore to wait until the previous DMA transfer is completed. This function waits until the semaphore \char`\"{}sem\+\_\+print\+Permission\+Handle\char`\"{} is acquired, indicating that the previous DMA transfer has been completed. It waits indefinitely until the semaphore is available.
+
+Starts DMA transfer for PWM output using TIM1. This function starts a DMA transfer for PWM output using TIM1 and the specified parameters. It utilizes a critical section to ensure exclusive access to the TIM1 and DMA resources. 
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+\+Rgb4x4\+Click} & Pointer to the data buffer for the DMA transfer.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{clk__4x4__rgb_8c_a25fc663547539bc49fecc0011bd76ab5}\label{clk__4x4__rgb_8c_a25fc663547539bc49fecc0011bd76ab5}} 
+\index{clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}!htim1@{htim1}}
+\index{htim1@{htim1}!clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{clk__4x4__rgb_8c_a7a67f266f4711a864629158a457643dd}\label{clk__4x4__rgb_8c_a7a67f266f4711a864629158a457643dd}} 
+\index{clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}!ptr\_Rgb4x4Click@{ptr\_Rgb4x4Click}}
+\index{ptr\_Rgb4x4Click@{ptr\_Rgb4x4Click}!clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}}
+\doxysubsubsection{\texorpdfstring{ptr\_Rgb4x4Click}{ptr\_Rgb4x4Click}}
+{\footnotesize\ttfamily \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} const$\ast$ ptr\+\_\+\+Rgb4x4\+Click = NULL}
+
+\mbox{\Hypertarget{clk__4x4__rgb_8c_ad8fc2b382345588b280587c90ebfe548}\label{clk__4x4__rgb_8c_ad8fc2b382345588b280587c90ebfe548}} 
+\index{clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}!sem\_printPermissionHandle@{sem\_printPermissionHandle}}
+\index{sem\_printPermissionHandle@{sem\_printPermissionHandle}!clk\_4x4\_rgb.c@{clk\_4x4\_rgb.c}}
+\doxysubsubsection{\texorpdfstring{sem\_printPermissionHandle}{sem\_printPermissionHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} sem\+\_\+print\+Permission\+Handle\hspace{0.3cm}{\ttfamily [extern]}}
+

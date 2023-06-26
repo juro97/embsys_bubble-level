@@ -1,0 +1,144 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Core/\+Src/wifi\+Click.c File Reference}
+\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c}\index{nucleo-\/l432kc\_4x4rgb/Core/Src/wifiClick.c@{nucleo-\/l432kc\_4x4rgb/Core/Src/wifiClick.c}}
+{\ttfamily \#include $<$wifi\+Click.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_aad65b35f61c407116a1beac47c78cda6}{Start\+Wifi\+Click}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Starts the Wi\+Fi click functionality. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a93cfad7861382a5bfeede6d158314a2d}{Uart\+Handler\+Task}} (char $\ast$ch)
+\begin{DoxyCompactList}\small\item\em Task function for handling UART events and processing data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_gae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} $\ast$huart)
+\begin{DoxyCompactList}\small\item\em UART receive complete callback. This function is called when UART data reception is complete. If the UART instance is USART2, it notifies the UART handler task about the event and resumes the task. It also restarts UART reception for USART2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_af17fde34992dd4f6724f4ef9c50adef0}{Send\+ATCommand}} (char $\ast$command, int length)
+\begin{DoxyCompactList}\small\item\em Sends an AT command over UART. This function transmits the specified AT command over UART1 with the given length. It uses a critical section to ensure exclusive access to the UART transmission. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a415a8d585bbe501c8515a798cd68ca0b}{x\+Uart\+Handler\+Task\+Name}} = \char`\"{}Uart\+Handler\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_ae356d357256ccfd104a8562b25f74bd0}{new\+Line}} = \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_aed06f7a82b2d568606e8c4bfdf971fc6}{uart1\+Buffer}} \mbox{[}\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_abd5a785225e6ffb3de3e3f87f6a7de6a}{uart2\+Buffer}} \mbox{[}\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a8163a104c58f66b6e1549f6d5ccd2530}{uart1\+Buffer\+Index}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a1f836af4267c734481fa243a8fb805b3}{uart2\+Buffer\+Index}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a4ae2a34e85362fe7f34328e3abf16f49}{uart2\+\_\+rx\+\_\+char}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a142ceb9eddc76207a8b5bde6ddee4820}{x\+Uart\+Task\+Handle}} = NULL
+\item 
+char \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_ae414d5833db080d53119fd4ca5d5abb9}{at\+\_\+cmd\+\_\+buffer}} \mbox{[}\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_ab9f43c5aca12ae54c5228681e93f232d}{AT\+\_\+\+CMD\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_af17fde34992dd4f6724f4ef9c50adef0}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_af17fde34992dd4f6724f4ef9c50adef0}} 
+\index{wifiClick.c@{wifiClick.c}!SendATCommand@{SendATCommand}}
+\index{SendATCommand@{SendATCommand}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{SendATCommand()}{SendATCommand()}}
+{\footnotesize\ttfamily void Send\+ATCommand (\begin{DoxyParamCaption}\item[{char $\ast$}]{command,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+Sends an AT command over UART. This function transmits the specified AT command over UART1 with the given length. It uses a critical section to ensure exclusive access to the UART transmission. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Pointer to the AT command string. \\
+\hline
+{\em length} & Length of the command string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_aad65b35f61c407116a1beac47c78cda6}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_aad65b35f61c407116a1beac47c78cda6}} 
+\index{wifiClick.c@{wifiClick.c}!StartWifiClick@{StartWifiClick}}
+\index{StartWifiClick@{StartWifiClick}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{StartWifiClick()}{StartWifiClick()}}
+{\footnotesize\ttfamily void Start\+Wifi\+Click (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Starts the Wi\+Fi click functionality. 
+
+This function creates tasks, activates UART interrupts and reception, configures the station mode, allows multiple connections, starts a TCP server on port 80, connects to Wi\+Fi, and initiates startup. 
+\begin{DoxyParams}{Parameters}
+{\em argument} & Pointer to the argument passed to the function (unused). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a93cfad7861382a5bfeede6d158314a2d}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a93cfad7861382a5bfeede6d158314a2d}} 
+\index{wifiClick.c@{wifiClick.c}!UartHandlerTask@{UartHandlerTask}}
+\index{UartHandlerTask@{UartHandlerTask}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{UartHandlerTask()}{UartHandlerTask()}}
+{\footnotesize\ttfamily void Uart\+Handler\+Task (\begin{DoxyParamCaption}\item[{char $\ast$}]{ch }\end{DoxyParamCaption})}
+
+
+
+Task function for handling UART events and processing data. 
+
+This task waits for task notifications indicating UART events and performs specific actions based on the received notifications. It handles both UART1 and UART2 events, such as receiving messages, processing data, and forwarding data to the appropriate UART.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ch} & Pointer to the character array used for UART2 communication. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_ae414d5833db080d53119fd4ca5d5abb9}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_ae414d5833db080d53119fd4ca5d5abb9}} 
+\index{wifiClick.c@{wifiClick.c}!at\_cmd\_buffer@{at\_cmd\_buffer}}
+\index{at\_cmd\_buffer@{at\_cmd\_buffer}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{at\_cmd\_buffer}{at\_cmd\_buffer}}
+{\footnotesize\ttfamily char at\+\_\+cmd\+\_\+buffer\mbox{[}\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_ab9f43c5aca12ae54c5228681e93f232d}{AT\+\_\+\+CMD\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_ae356d357256ccfd104a8562b25f74bd0}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_ae356d357256ccfd104a8562b25f74bd0}} 
+\index{wifiClick.c@{wifiClick.c}!newLine@{newLine}}
+\index{newLine@{newLine}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{newLine}{newLine}}
+{\footnotesize\ttfamily const char$\ast$ new\+Line = \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_aed06f7a82b2d568606e8c4bfdf971fc6}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_aed06f7a82b2d568606e8c4bfdf971fc6}} 
+\index{wifiClick.c@{wifiClick.c}!uart1Buffer@{uart1Buffer}}
+\index{uart1Buffer@{uart1Buffer}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{uart1Buffer}{uart1Buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t uart1\+Buffer\mbox{[}\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a8163a104c58f66b6e1549f6d5ccd2530}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a8163a104c58f66b6e1549f6d5ccd2530}} 
+\index{wifiClick.c@{wifiClick.c}!uart1BufferIndex@{uart1BufferIndex}}
+\index{uart1BufferIndex@{uart1BufferIndex}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{uart1BufferIndex}{uart1BufferIndex}}
+{\footnotesize\ttfamily uint16\+\_\+t uart1\+Buffer\+Index = 0}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a4ae2a34e85362fe7f34328e3abf16f49}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a4ae2a34e85362fe7f34328e3abf16f49}} 
+\index{wifiClick.c@{wifiClick.c}!uart2\_rx\_char@{uart2\_rx\_char}}
+\index{uart2\_rx\_char@{uart2\_rx\_char}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{uart2\_rx\_char}{uart2\_rx\_char}}
+{\footnotesize\ttfamily uint8\+\_\+t uart2\+\_\+rx\+\_\+char}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_abd5a785225e6ffb3de3e3f87f6a7de6a}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_abd5a785225e6ffb3de3e3f87f6a7de6a}} 
+\index{wifiClick.c@{wifiClick.c}!uart2Buffer@{uart2Buffer}}
+\index{uart2Buffer@{uart2Buffer}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{uart2Buffer}{uart2Buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t uart2\+Buffer\mbox{[}\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a1f836af4267c734481fa243a8fb805b3}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a1f836af4267c734481fa243a8fb805b3}} 
+\index{wifiClick.c@{wifiClick.c}!uart2BufferIndex@{uart2BufferIndex}}
+\index{uart2BufferIndex@{uart2BufferIndex}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{uart2BufferIndex}{uart2BufferIndex}}
+{\footnotesize\ttfamily uint16\+\_\+t uart2\+Buffer\+Index = 0}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a415a8d585bbe501c8515a798cd68ca0b}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a415a8d585bbe501c8515a798cd68ca0b}} 
+\index{wifiClick.c@{wifiClick.c}!xUartHandlerTaskName@{xUartHandlerTaskName}}
+\index{xUartHandlerTaskName@{xUartHandlerTaskName}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{xUartHandlerTaskName}{xUartHandlerTaskName}}
+{\footnotesize\ttfamily const char$\ast$ x\+Uart\+Handler\+Task\+Name = \char`\"{}Uart\+Handler\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a142ceb9eddc76207a8b5bde6ddee4820}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2wifi_click_8c_a142ceb9eddc76207a8b5bde6ddee4820}} 
+\index{wifiClick.c@{wifiClick.c}!xUartTaskHandle@{xUartTaskHandle}}
+\index{xUartTaskHandle@{xUartTaskHandle}!wifiClick.c@{wifiClick.c}}
+\doxysubsubsection{\texorpdfstring{xUartTaskHandle}{xUartTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Uart\+Task\+Handle = NULL}
+

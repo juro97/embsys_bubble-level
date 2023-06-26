@@ -1,0 +1,943 @@
+\hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36}{}\doxysection{nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/cmsis\+\_\+os2.c File Reference}
+\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36}\index{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/cmsis\_os2.c@{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/cmsis\_os2.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+compiler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}event\+\_\+groups.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos\+\_\+mpool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos\+\_\+os2.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_timer_callback__t}{Timer\+Callback\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8be4ebde5d4dd91b161d206545ce59aa}{\+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+6\+M\+\_\+\+\_\+}}~0
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a43e1af8bedda108dfc4f8584e6b278a2}{\+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+7\+M\+\_\+\+\_\+}}~0
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a43ab3e79ec5ecb615f1f2f6e83e7d48a}{\+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+7\+EM\+\_\+\+\_\+}}~0
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad424c7143edd08c982dddad0ff65f4cd}{\+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+8\+M\+\_\+\+MAIN\+\_\+\+\_\+}}~0
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aee91bdfb2b6986731af09835bc9c6e74}{\+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+7\+A\+\_\+\+\_\+}}~0
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a5ebf8cfb0698df19b01d6294912068b9}{IS\+\_\+\+IRQ\+\_\+\+MASKED}}()~(\mbox{\hyperlink{group___c_m_s_i_s___core___reg_acc_functions_ga4ff59fb9e280d19e79e6875863a65f0a}{\+\_\+\+\_\+get\+\_\+\+PRIMASK}}() != 0U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab95d37f29a083ecbae5500bdac7fb90c}{IS\+\_\+\+IRQ\+\_\+\+MODE}}()~(\mbox{\hyperlink{group___c_m_s_i_s___core___reg_acc_functions_gaf15a71855b9d731d11de92704c82bd18}{\+\_\+\+\_\+get\+\_\+\+IPSR}}() != 0U)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aba58771db835c12c494e779a33209f5f}{IS\+\_\+\+IRQ}}()~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab95d37f29a083ecbae5500bdac7fb90c}{IS\+\_\+\+IRQ\+\_\+\+MODE}}()
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a175bef38e15c35e3420559e9dd43b112}{SVCall\+\_\+\+IRQ\+\_\+\+NBR}}~(\mbox{\hyperlink{group___peripheral__interrupt__number__definition_ga7e1129cd8a196f4284d41db3e82ad5c8}{IRQn\+\_\+\+Type}}) -\/5 /$\ast$ SVCall\+\_\+\+IRQ\+\_\+\+NBR added as SV\+\_\+\+Call handler name is not the same for CM0 and for all other CMx $\ast$/
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a07e090e218afff7169b927a09f769add}{MAX\+\_\+\+BITS\+\_\+\+TASK\+\_\+\+NOTIFY}}~31U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a711fcb67d2b932018350e8b1479ef64a}{MAX\+\_\+\+BITS\+\_\+\+EVENT\+\_\+\+GROUPS}}~24U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab19214e61e9b81acb72c867a9598c77a}{THREAD\+\_\+\+FLAGS\+\_\+\+INVALID\+\_\+\+BITS}}~($\sim$((1UL $<$$<$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a07e090e218afff7169b927a09f769add}{MAX\+\_\+\+BITS\+\_\+\+TASK\+\_\+\+NOTIFY}})  -\/ 1U))
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a664044d244e86d89878ea3a77471a1}{EVENT\+\_\+\+FLAGS\+\_\+\+INVALID\+\_\+\+BITS}}~($\sim$((1UL $<$$<$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a711fcb67d2b932018350e8b1479ef64a}{MAX\+\_\+\+BITS\+\_\+\+EVENT\+\_\+\+GROUPS}}) -\/ 1U))
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a02a011ae232d9bd03776f3a57d95cf89}{KERNEL\+\_\+\+VERSION}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab53adb106bfbfc72bc0918855fccdb18}{KERNEL\+\_\+\+ID}}~(\char`\"{}Free\+RTOS \char`\"{} tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+NUMBER)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a03b7cb6ac11b161ce9e11f18a111d24c}{ux\+Semaphore\+Get\+Count\+From\+ISR}}(x\+Semaphore)~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2queue_8h_a3e89b6189166f9544f283435e2732f9a}{ux\+Queue\+Messages\+Waiting\+From\+ISR}}( ( \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} ) ( x\+Semaphore ) )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a359625bfe75dbe8149c2a86b8504639e}{SVC\+\_\+\+Setup}} (void)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae818f6611d25ba3140bede410a52d659}{os\+Kernel\+Initialize}} (void)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a6f7764e7250c5c5364c00c45a5d1d199}{os\+Kernel\+Get\+Info}} (\mbox{\hyperlink{structos_version__t}{os\+Version\+\_\+t}} $\ast$version, char $\ast$id\+\_\+buf, uint32\+\_\+t id\+\_\+size)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4}{os\+Kernel\+State\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48b69b81012fce051f639be288b243ba}{os\+Kernel\+Get\+State}} (void)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9ae2cc00f0d89d7b6a307bba942b5221}{os\+Kernel\+Start}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a948609ee930d9b38336b9e1c2a4dfe12}{os\+Kernel\+Lock}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af401728b4657456198c33fe75f8d6720}{os\+Kernel\+Unlock}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae7d0a71b9586cbbb49fcbdf6a04f0289}{os\+Kernel\+Restore\+Lock}} (int32\+\_\+t lock)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a84bcdbf2fb76b10c8df4e439f0c7e11b}{os\+Kernel\+Get\+Tick\+Count}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7a8d7bd927eaaa58999f91d7d6310cee}{os\+Kernel\+Get\+Tick\+Freq}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae0fcaff6cecfb4013bb556c87afcd7d2}{os\+Kernel\+Get\+Sys\+Timer\+Count}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a4d69215a93220f72be3684cad582f16a}{os\+Kernel\+Get\+Sys\+Timer\+Freq}} (void)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8ef2773ed8ef63ab8727e0d06ebec4d2}{os\+Thread\+Func\+\_\+t}} func, void $\ast$argument, const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} $\ast$attr)
+\item 
+const char $\ast$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac3230f3a55a297514b013ebf38f27e0a}{os\+Thread\+Get\+Name}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}} (void)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820d}{os\+Thread\+State\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_acc0a98b42f0a5928e12dc91dc76866b9}{os\+Thread\+Get\+State}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9c83bd5dd8de329701775d6ef7012720}{os\+Thread\+Get\+Stack\+Space}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a861a420fb2d643115b06622903fb3bfb}{os\+Thread\+Set\+Priority}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} priority)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a0aeaf349604f456e68e78f9d3b42e44b}{os\+Thread\+Get\+Priority}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad01c7ec26535b1de6b018bb9466720e2}{os\+Thread\+Yield}} (void)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aa9de419d0152bf77e9bbcd1f369fb990}{os\+Thread\+Suspend}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a3dbad90eff394b02de76a452c84c5d80}{os\+Thread\+Resume}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_a153a4a31b276a9758959580538720a51}{\+\_\+\+\_\+\+NO\+\_\+\+RETURN}} void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_addaa452dd7610e4096647a566d3556fc}{os\+Thread\+Exit}} (void)
+\begin{DoxyCompactList}\small\item\em Terminate execution of current running thread. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2f8ba6dba6e9c065a6e236ffd410d74a}{os\+Thread\+Terminate}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a495b3f812224e7301f23a691793765db}{os\+Thread\+Get\+Count}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a5606604d56e21ece1a654664be877439}{os\+Thread\+Enumerate}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} $\ast$thread\+\_\+array, uint32\+\_\+t array\+\_\+items)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af6055a51390ef65b6b6edc28bf47322e}{os\+Delay}} (uint32\+\_\+t ticks)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a3c807924c2d6d43bc2ffb49da3f7f3a1}{os\+Delay\+Until}} (uint32\+\_\+t ticks)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}} (const \mbox{\hyperlink{structos_event_flags_attr__t}{os\+Event\+Flags\+Attr\+\_\+t}} $\ast$attr)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a33b71d14cecf90b4e72639dd19f23a5e}{os\+Event\+Flags\+Set}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id, uint32\+\_\+t flags)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a93bf258ca0007c6641fbe8e4f2b8a1e5}{os\+Event\+Flags\+Clear}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id, uint32\+\_\+t flags)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8bda3185f46bfd278cea8a6cf357677d}{os\+Event\+Flags\+Get}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a52acb34a8322e58020227344fe662b4e}{os\+Event\+Flags\+Wait}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id, uint32\+\_\+t flags, uint32\+\_\+t options, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7c4acf2fb0d506ec82905dee53fb5435}{os\+Event\+Flags\+Delete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}} (uint32\+\_\+t max\+\_\+count, uint32\+\_\+t initial\+\_\+count, const \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}} $\ast$attr)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7e94c8b242a0c81f2cc79ec22895c87b}{os\+Semaphore\+Acquire}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a0abcee1b5449d7a6928fb9248c690bb6}{os\+Semaphore\+Release}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7559d4dff3cda9992fc5ab5de3e74c70}{os\+Semaphore\+Get\+Count}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a81258ce9c67fa89f07cc49d2e136cd88}{os\+Semaphore\+Delete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}} (uint32\+\_\+t msg\+\_\+count, uint32\+\_\+t msg\+\_\+size, const \mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}} $\ast$attr)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aa515fc8b956f721a8f72b2c505813bfc}{os\+Message\+Queue\+Put}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id, const void $\ast$msg\+\_\+ptr, uint8\+\_\+t msg\+\_\+prio, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad90d4959466a7a65105061da8256ab9e}{os\+Message\+Queue\+Get}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id, void $\ast$msg\+\_\+ptr, uint8\+\_\+t $\ast$msg\+\_\+prio, uint32\+\_\+t timeout)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac24f87d4f395e9e9c900c320e45ade8a}{os\+Message\+Queue\+Get\+Capacity}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a96d3d84069b20359de48109e28a1a89e}{os\+Message\+Queue\+Get\+Msg\+Size}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a6a32ac394fcff568b251c160cc3014b2}{os\+Message\+Queue\+Get\+Count}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_addf0904427436dd3880d46263c2dc9fa}{os\+Message\+Queue\+Get\+Space}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac6dce7f9ad132d266292c2e979d861b4}{os\+Message\+Queue\+Reset}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aba987f665444e0d83fa6a3a68bc72abe}{os\+Message\+Queue\+Delete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a97fd430f36f8b065226e2bff9bad1de5}{v\+Application\+Idle\+Hook}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9ca051aa77e17583aa5a85d5de5c199a}{v\+Application\+Tick\+Hook}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab7e5c95cf72a3f819bc4462a7fb62ca3}{v\+Application\+Malloc\+Failed\+Hook}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab9ec7b1bf1b922c22bca56c92e2d4c62}{v\+Application\+Daemon\+Task\+Startup\+Hook}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab87104b26fc04ce57c4717306fc97735}{v\+Application\+Stack\+Overflow\+Hook}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task, signed char $\ast$pc\+Task\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8be4ebde5d4dd91b161d206545ce59aa}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8be4ebde5d4dd91b161d206545ce59aa}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!\_\_ARM\_ARCH\_6M\_\_@{\_\_ARM\_ARCH\_6M\_\_}}
+\index{\_\_ARM\_ARCH\_6M\_\_@{\_\_ARM\_ARCH\_6M\_\_}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ARM\_ARCH\_6M\_\_}{\_\_ARM\_ARCH\_6M\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+6\+M\+\_\+\+\_\+~0}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aee91bdfb2b6986731af09835bc9c6e74}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aee91bdfb2b6986731af09835bc9c6e74}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!\_\_ARM\_ARCH\_7A\_\_@{\_\_ARM\_ARCH\_7A\_\_}}
+\index{\_\_ARM\_ARCH\_7A\_\_@{\_\_ARM\_ARCH\_7A\_\_}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ARM\_ARCH\_7A\_\_}{\_\_ARM\_ARCH\_7A\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+7\+A\+\_\+\+\_\+~0}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a43ab3e79ec5ecb615f1f2f6e83e7d48a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a43ab3e79ec5ecb615f1f2f6e83e7d48a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!\_\_ARM\_ARCH\_7EM\_\_@{\_\_ARM\_ARCH\_7EM\_\_}}
+\index{\_\_ARM\_ARCH\_7EM\_\_@{\_\_ARM\_ARCH\_7EM\_\_}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ARM\_ARCH\_7EM\_\_}{\_\_ARM\_ARCH\_7EM\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+7\+EM\+\_\+\+\_\+~0}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a43e1af8bedda108dfc4f8584e6b278a2}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a43e1af8bedda108dfc4f8584e6b278a2}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!\_\_ARM\_ARCH\_7M\_\_@{\_\_ARM\_ARCH\_7M\_\_}}
+\index{\_\_ARM\_ARCH\_7M\_\_@{\_\_ARM\_ARCH\_7M\_\_}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ARM\_ARCH\_7M\_\_}{\_\_ARM\_ARCH\_7M\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+7\+M\+\_\+\+\_\+~0}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad424c7143edd08c982dddad0ff65f4cd}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad424c7143edd08c982dddad0ff65f4cd}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!\_\_ARM\_ARCH\_8M\_MAIN\_\_@{\_\_ARM\_ARCH\_8M\_MAIN\_\_}}
+\index{\_\_ARM\_ARCH\_8M\_MAIN\_\_@{\_\_ARM\_ARCH\_8M\_MAIN\_\_}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ARM\_ARCH\_8M\_MAIN\_\_}{\_\_ARM\_ARCH\_8M\_MAIN\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+ARM\+\_\+\+ARCH\+\_\+8\+M\+\_\+\+MAIN\+\_\+\+\_\+~0}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a664044d244e86d89878ea3a77471a1}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a664044d244e86d89878ea3a77471a1}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!EVENT\_FLAGS\_INVALID\_BITS@{EVENT\_FLAGS\_INVALID\_BITS}}
+\index{EVENT\_FLAGS\_INVALID\_BITS@{EVENT\_FLAGS\_INVALID\_BITS}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{EVENT\_FLAGS\_INVALID\_BITS}{EVENT\_FLAGS\_INVALID\_BITS}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+FLAGS\+\_\+\+INVALID\+\_\+\+BITS~($\sim$((1UL $<$$<$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a711fcb67d2b932018350e8b1479ef64a}{MAX\+\_\+\+BITS\+\_\+\+EVENT\+\_\+\+GROUPS}}) -\/ 1U))}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aba58771db835c12c494e779a33209f5f}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aba58771db835c12c494e779a33209f5f}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!IS\_IRQ@{IS\_IRQ}}
+\index{IS\_IRQ@{IS\_IRQ}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{IS\_IRQ}{IS\_IRQ}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+IRQ(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab95d37f29a083ecbae5500bdac7fb90c}{IS\+\_\+\+IRQ\+\_\+\+MODE}}()}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a5ebf8cfb0698df19b01d6294912068b9}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a5ebf8cfb0698df19b01d6294912068b9}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!IS\_IRQ\_MASKED@{IS\_IRQ\_MASKED}}
+\index{IS\_IRQ\_MASKED@{IS\_IRQ\_MASKED}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{IS\_IRQ\_MASKED}{IS\_IRQ\_MASKED}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+IRQ\+\_\+\+MASKED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\mbox{\hyperlink{group___c_m_s_i_s___core___reg_acc_functions_ga4ff59fb9e280d19e79e6875863a65f0a}{\+\_\+\+\_\+get\+\_\+\+PRIMASK}}() != 0U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab95d37f29a083ecbae5500bdac7fb90c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab95d37f29a083ecbae5500bdac7fb90c}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!IS\_IRQ\_MODE@{IS\_IRQ\_MODE}}
+\index{IS\_IRQ\_MODE@{IS\_IRQ\_MODE}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{IS\_IRQ\_MODE}{IS\_IRQ\_MODE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+IRQ\+\_\+\+MODE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\mbox{\hyperlink{group___c_m_s_i_s___core___reg_acc_functions_gaf15a71855b9d731d11de92704c82bd18}{\+\_\+\+\_\+get\+\_\+\+IPSR}}() != 0U)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab53adb106bfbfc72bc0918855fccdb18}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab53adb106bfbfc72bc0918855fccdb18}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!KERNEL\_ID@{KERNEL\_ID}}
+\index{KERNEL\_ID@{KERNEL\_ID}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_ID}{KERNEL\_ID}}
+{\footnotesize\ttfamily \#define KERNEL\+\_\+\+ID~(\char`\"{}Free\+RTOS \char`\"{} tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+NUMBER)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a02a011ae232d9bd03776f3a57d95cf89}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a02a011ae232d9bd03776f3a57d95cf89}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!KERNEL\_VERSION@{KERNEL\_VERSION}}
+\index{KERNEL\_VERSION@{KERNEL\_VERSION}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_VERSION}{KERNEL\_VERSION}}
+{\footnotesize\ttfamily \#define KERNEL\+\_\+\+VERSION}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                   (((uint32\_t)\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a790e0e16f79e71d4791435a31d5b0fc7}{tskKERNEL\_VERSION\_MAJOR}} * 10000000UL) | \(\backslash\)}
+\DoxyCodeLine{                                   ((uint32\_t)\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_ab0b5ab04d8419227d0a5ac94af6b3639}{tskKERNEL\_VERSION\_MINOR}} *    10000UL) | \(\backslash\)}
+\DoxyCodeLine{                                   ((uint32\_t)\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a4cb001d5c86f4a8a5272f27227eb3247}{tskKERNEL\_VERSION\_BUILD}} *        1UL))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a711fcb67d2b932018350e8b1479ef64a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a711fcb67d2b932018350e8b1479ef64a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!MAX\_BITS\_EVENT\_GROUPS@{MAX\_BITS\_EVENT\_GROUPS}}
+\index{MAX\_BITS\_EVENT\_GROUPS@{MAX\_BITS\_EVENT\_GROUPS}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_BITS\_EVENT\_GROUPS}{MAX\_BITS\_EVENT\_GROUPS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+BITS\+\_\+\+EVENT\+\_\+\+GROUPS~24U}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a07e090e218afff7169b927a09f769add}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a07e090e218afff7169b927a09f769add}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!MAX\_BITS\_TASK\_NOTIFY@{MAX\_BITS\_TASK\_NOTIFY}}
+\index{MAX\_BITS\_TASK\_NOTIFY@{MAX\_BITS\_TASK\_NOTIFY}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_BITS\_TASK\_NOTIFY}{MAX\_BITS\_TASK\_NOTIFY}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+BITS\+\_\+\+TASK\+\_\+\+NOTIFY~31U}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a175bef38e15c35e3420559e9dd43b112}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a175bef38e15c35e3420559e9dd43b112}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!SVCall\_IRQ\_NBR@{SVCall\_IRQ\_NBR}}
+\index{SVCall\_IRQ\_NBR@{SVCall\_IRQ\_NBR}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{SVCall\_IRQ\_NBR}{SVCall\_IRQ\_NBR}}
+{\footnotesize\ttfamily \#define SVCall\+\_\+\+IRQ\+\_\+\+NBR~(\mbox{\hyperlink{group___peripheral__interrupt__number__definition_ga7e1129cd8a196f4284d41db3e82ad5c8}{IRQn\+\_\+\+Type}}) -\/5 /$\ast$ SVCall\+\_\+\+IRQ\+\_\+\+NBR added as SV\+\_\+\+Call handler name is not the same for CM0 and for all other CMx $\ast$/}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab19214e61e9b81acb72c867a9598c77a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab19214e61e9b81acb72c867a9598c77a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!THREAD\_FLAGS\_INVALID\_BITS@{THREAD\_FLAGS\_INVALID\_BITS}}
+\index{THREAD\_FLAGS\_INVALID\_BITS@{THREAD\_FLAGS\_INVALID\_BITS}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{THREAD\_FLAGS\_INVALID\_BITS}{THREAD\_FLAGS\_INVALID\_BITS}}
+{\footnotesize\ttfamily \#define THREAD\+\_\+\+FLAGS\+\_\+\+INVALID\+\_\+\+BITS~($\sim$((1UL $<$$<$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a07e090e218afff7169b927a09f769add}{MAX\+\_\+\+BITS\+\_\+\+TASK\+\_\+\+NOTIFY}})  -\/ 1U))}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a03b7cb6ac11b161ce9e11f18a111d24c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a03b7cb6ac11b161ce9e11f18a111d24c}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!uxSemaphoreGetCountFromISR@{uxSemaphoreGetCountFromISR}}
+\index{uxSemaphoreGetCountFromISR@{uxSemaphoreGetCountFromISR}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{uxSemaphoreGetCountFromISR}{uxSemaphoreGetCountFromISR}}
+{\footnotesize\ttfamily \#define ux\+Semaphore\+Get\+Count\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Semaphore }\end{DoxyParamCaption})~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2queue_8h_a3e89b6189166f9544f283435e2732f9a}{ux\+Queue\+Messages\+Waiting\+From\+ISR}}( ( \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} ) ( x\+Semaphore ) )}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af6055a51390ef65b6b6edc28bf47322e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af6055a51390ef65b6b6edc28bf47322e}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osDelay@{osDelay}}
+\index{osDelay@{osDelay}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osDelay()}{osDelay()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ticks }\end{DoxyParamCaption})}
+
+Wait for Timeout (Time Delay). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ticks} & time ticks value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a3c807924c2d6d43bc2ffb49da3f7f3a1}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a3c807924c2d6d43bc2ffb49da3f7f3a1}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osDelayUntil@{osDelayUntil}}
+\index{osDelayUntil@{osDelayUntil}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osDelayUntil()}{osDelayUntil()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Delay\+Until (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ticks }\end{DoxyParamCaption})}
+
+Wait until specified time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ticks} & absolute time in ticks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a93bf258ca0007c6641fbe8e4f2b8a1e5}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a93bf258ca0007c6641fbe8e4f2b8a1e5}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osEventFlagsClear@{osEventFlagsClear}}
+\index{osEventFlagsClear@{osEventFlagsClear}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsClear()}{osEventFlagsClear()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Event\+Flags\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id,  }\item[{uint32\+\_\+t}]{flags }\end{DoxyParamCaption})}
+
+Clear the specified Event Flags. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ef\+\_\+id} & event flags ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & specifies the flags that shall be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags before clearing or error code if highest bit set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7c4acf2fb0d506ec82905dee53fb5435}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7c4acf2fb0d506ec82905dee53fb5435}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osEventFlagsDelete@{osEventFlagsDelete}}
+\index{osEventFlagsDelete@{osEventFlagsDelete}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsDelete()}{osEventFlagsDelete()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Event\+Flags\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id }\end{DoxyParamCaption})}
+
+Delete an Event Flags object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ef\+\_\+id} & event flags ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8bda3185f46bfd278cea8a6cf357677d}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8bda3185f46bfd278cea8a6cf357677d}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osEventFlagsGet@{osEventFlagsGet}}
+\index{osEventFlagsGet@{osEventFlagsGet}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsGet()}{osEventFlagsGet()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Event\+Flags\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id }\end{DoxyParamCaption})}
+
+Get the current Event Flags. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ef\+\_\+id} & event flags ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current event flags. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osEventFlagsNew@{osEventFlagsNew}}
+\index{osEventFlagsNew@{osEventFlagsNew}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsNew()}{osEventFlagsNew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} os\+Event\+Flags\+New (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structos_event_flags_attr__t}{os\+Event\+Flags\+Attr\+\_\+t}} $\ast$}]{attr }\end{DoxyParamCaption})}
+
+Create and Initialize an Event Flags object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em attr} & event flags attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a33b71d14cecf90b4e72639dd19f23a5e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a33b71d14cecf90b4e72639dd19f23a5e}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osEventFlagsSet@{osEventFlagsSet}}
+\index{osEventFlagsSet@{osEventFlagsSet}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsSet()}{osEventFlagsSet()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Event\+Flags\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id,  }\item[{uint32\+\_\+t}]{flags }\end{DoxyParamCaption})}
+
+Set the specified Event Flags. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ef\+\_\+id} & event flags ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & specifies the flags that shall be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags after setting or error code if highest bit set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a52acb34a8322e58020227344fe662b4e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a52acb34a8322e58020227344fe662b4e}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osEventFlagsWait@{osEventFlagsWait}}
+\index{osEventFlagsWait@{osEventFlagsWait}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsWait()}{osEventFlagsWait()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Event\+Flags\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id,  }\item[{uint32\+\_\+t}]{flags,  }\item[{uint32\+\_\+t}]{options,  }\item[{uint32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Wait for one or more Event Flags to become signaled. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ef\+\_\+id} & event flags ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & specifies the flags to wait for. \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & specifies flags options (os\+Flags\+Xxxx). \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags before clearing or error code if highest bit set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a6f7764e7250c5c5364c00c45a5d1d199}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a6f7764e7250c5c5364c00c45a5d1d199}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelGetInfo@{osKernelGetInfo}}
+\index{osKernelGetInfo@{osKernelGetInfo}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelGetInfo()}{osKernelGetInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Kernel\+Get\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_version__t}{os\+Version\+\_\+t}} $\ast$}]{version,  }\item[{char $\ast$}]{id\+\_\+buf,  }\item[{uint32\+\_\+t}]{id\+\_\+size }\end{DoxyParamCaption})}
+
+Get RTOS Kernel Information. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em version} & pointer to buffer for retrieving version information. \\
+\hline
+\mbox{\texttt{ out}}  & {\em id\+\_\+buf} & pointer to buffer for retrieving kernel identification string. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+\_\+size} & size of buffer for kernel identification string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48b69b81012fce051f639be288b243ba}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48b69b81012fce051f639be288b243ba}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelGetState@{osKernelGetState}}
+\index{osKernelGetState@{osKernelGetState}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelGetState()}{osKernelGetState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4}{os\+Kernel\+State\+\_\+t}} os\+Kernel\+Get\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the current RTOS Kernel state. \begin{DoxyReturn}{Returns}
+current RTOS Kernel state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae0fcaff6cecfb4013bb556c87afcd7d2}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae0fcaff6cecfb4013bb556c87afcd7d2}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelGetSysTimerCount@{osKernelGetSysTimerCount}}
+\index{osKernelGetSysTimerCount@{osKernelGetSysTimerCount}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelGetSysTimerCount()}{osKernelGetSysTimerCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Kernel\+Get\+Sys\+Timer\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the RTOS kernel system timer count. \begin{DoxyReturn}{Returns}
+RTOS kernel current system timer count as 32-\/bit value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a4d69215a93220f72be3684cad582f16a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a4d69215a93220f72be3684cad582f16a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelGetSysTimerFreq@{osKernelGetSysTimerFreq}}
+\index{osKernelGetSysTimerFreq@{osKernelGetSysTimerFreq}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelGetSysTimerFreq()}{osKernelGetSysTimerFreq()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Kernel\+Get\+Sys\+Timer\+Freq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the RTOS kernel system timer frequency. \begin{DoxyReturn}{Returns}
+frequency of the system timer in hertz, i.\+e. timer ticks per second. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a84bcdbf2fb76b10c8df4e439f0c7e11b}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a84bcdbf2fb76b10c8df4e439f0c7e11b}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelGetTickCount@{osKernelGetTickCount}}
+\index{osKernelGetTickCount@{osKernelGetTickCount}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelGetTickCount()}{osKernelGetTickCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Kernel\+Get\+Tick\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the RTOS kernel tick count. \begin{DoxyReturn}{Returns}
+RTOS kernel current tick count. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7a8d7bd927eaaa58999f91d7d6310cee}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7a8d7bd927eaaa58999f91d7d6310cee}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelGetTickFreq@{osKernelGetTickFreq}}
+\index{osKernelGetTickFreq@{osKernelGetTickFreq}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelGetTickFreq()}{osKernelGetTickFreq()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Kernel\+Get\+Tick\+Freq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the RTOS kernel tick frequency. \begin{DoxyReturn}{Returns}
+frequency of the kernel tick in hertz, i.\+e. kernel ticks per second. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae818f6611d25ba3140bede410a52d659}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae818f6611d25ba3140bede410a52d659}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelInitialize@{osKernelInitialize}}
+\index{osKernelInitialize@{osKernelInitialize}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelInitialize()}{osKernelInitialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Kernel\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the RTOS Kernel. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a948609ee930d9b38336b9e1c2a4dfe12}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a948609ee930d9b38336b9e1c2a4dfe12}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelLock@{osKernelLock}}
+\index{osKernelLock@{osKernelLock}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelLock()}{osKernelLock()}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Kernel\+Lock (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Lock the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+previous lock state (1 -\/ locked, 0 -\/ not locked, error code if negative). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae7d0a71b9586cbbb49fcbdf6a04f0289}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae7d0a71b9586cbbb49fcbdf6a04f0289}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelRestoreLock@{osKernelRestoreLock}}
+\index{osKernelRestoreLock@{osKernelRestoreLock}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelRestoreLock()}{osKernelRestoreLock()}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Kernel\+Restore\+Lock (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{lock }\end{DoxyParamCaption})}
+
+Restore the RTOS Kernel scheduler lock state. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lock} & lock state obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a948609ee930d9b38336b9e1c2a4dfe12}{os\+Kernel\+Lock}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af401728b4657456198c33fe75f8d6720}{os\+Kernel\+Unlock}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new lock state (1 -\/ locked, 0 -\/ not locked, error code if negative). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9ae2cc00f0d89d7b6a307bba942b5221}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9ae2cc00f0d89d7b6a307bba942b5221}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelStart@{osKernelStart}}
+\index{osKernelStart@{osKernelStart}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelStart()}{osKernelStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Kernel\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Start the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af401728b4657456198c33fe75f8d6720}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_af401728b4657456198c33fe75f8d6720}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osKernelUnlock@{osKernelUnlock}}
+\index{osKernelUnlock@{osKernelUnlock}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osKernelUnlock()}{osKernelUnlock()}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Kernel\+Unlock (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Unlock the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+previous lock state (1 -\/ locked, 0 -\/ not locked, error code if negative). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aba987f665444e0d83fa6a3a68bc72abe}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aba987f665444e0d83fa6a3a68bc72abe}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueDelete@{osMessageQueueDelete}}
+\index{osMessageQueueDelete@{osMessageQueueDelete}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueDelete()}{osMessageQueueDelete()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id }\end{DoxyParamCaption})}
+
+Delete a Message Queue object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad90d4959466a7a65105061da8256ab9e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad90d4959466a7a65105061da8256ab9e}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueGet@{osMessageQueueGet}}
+\index{osMessageQueueGet@{osMessageQueueGet}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGet()}{osMessageQueueGet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id,  }\item[{void $\ast$}]{msg\+\_\+ptr,  }\item[{uint8\+\_\+t $\ast$}]{msg\+\_\+prio,  }\item[{uint32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Get a Message from a Queue or timeout if Queue is empty. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em msg\+\_\+ptr} & pointer to buffer for message to get from a queue. \\
+\hline
+\mbox{\texttt{ out}}  & {\em msg\+\_\+prio} & pointer to buffer for message priority or NULL. \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac24f87d4f395e9e9c900c320e45ade8a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac24f87d4f395e9e9c900c320e45ade8a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueGetCapacity@{osMessageQueueGetCapacity}}
+\index{osMessageQueueGetCapacity@{osMessageQueueGetCapacity}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetCapacity()}{osMessageQueueGetCapacity()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Message\+Queue\+Get\+Capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id }\end{DoxyParamCaption})}
+
+Get maximum number of messages in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum number of messages. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a6a32ac394fcff568b251c160cc3014b2}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a6a32ac394fcff568b251c160cc3014b2}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueGetCount@{osMessageQueueGetCount}}
+\index{osMessageQueueGetCount@{osMessageQueueGetCount}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetCount()}{osMessageQueueGetCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Message\+Queue\+Get\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id }\end{DoxyParamCaption})}
+
+Get number of queued messages in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of queued messages. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a96d3d84069b20359de48109e28a1a89e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a96d3d84069b20359de48109e28a1a89e}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueGetMsgSize@{osMessageQueueGetMsgSize}}
+\index{osMessageQueueGetMsgSize@{osMessageQueueGetMsgSize}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetMsgSize()}{osMessageQueueGetMsgSize()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Message\+Queue\+Get\+Msg\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id }\end{DoxyParamCaption})}
+
+Get maximum message size in a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum message size in bytes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_addf0904427436dd3880d46263c2dc9fa}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_addf0904427436dd3880d46263c2dc9fa}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueGetSpace@{osMessageQueueGetSpace}}
+\index{osMessageQueueGetSpace@{osMessageQueueGetSpace}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetSpace()}{osMessageQueueGetSpace()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Message\+Queue\+Get\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id }\end{DoxyParamCaption})}
+
+Get number of available slots for messages in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of available slots for messages. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueNew@{osMessageQueueNew}}
+\index{osMessageQueueNew@{osMessageQueueNew}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueNew()}{osMessageQueueNew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} os\+Message\+Queue\+New (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{msg\+\_\+count,  }\item[{uint32\+\_\+t}]{msg\+\_\+size,  }\item[{const \mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}} $\ast$}]{attr }\end{DoxyParamCaption})}
+
+Create and Initialize a Message Queue object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em msg\+\_\+count} & maximum number of messages in queue. \\
+\hline
+\mbox{\texttt{ in}}  & {\em msg\+\_\+size} & maximum message size in bytes. \\
+\hline
+\mbox{\texttt{ in}}  & {\em attr} & message queue attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+message queue ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aa515fc8b956f721a8f72b2c505813bfc}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aa515fc8b956f721a8f72b2c505813bfc}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueuePut@{osMessageQueuePut}}
+\index{osMessageQueuePut@{osMessageQueuePut}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueuePut()}{osMessageQueuePut()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Put (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id,  }\item[{const void $\ast$}]{msg\+\_\+ptr,  }\item[{uint8\+\_\+t}]{msg\+\_\+prio,  }\item[{uint32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Put a Message into a Queue or timeout if Queue is full. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em msg\+\_\+ptr} & pointer to buffer with message to put into a queue. \\
+\hline
+\mbox{\texttt{ in}}  & {\em msg\+\_\+prio} & message priority. \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac6dce7f9ad132d266292c2e979d861b4}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac6dce7f9ad132d266292c2e979d861b4}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osMessageQueueReset@{osMessageQueueReset}}
+\index{osMessageQueueReset@{osMessageQueueReset}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueReset()}{osMessageQueueReset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id }\end{DoxyParamCaption})}
+
+Reset a Message Queue to initial empty state. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mq\+\_\+id} & message queue ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7e94c8b242a0c81f2cc79ec22895c87b}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7e94c8b242a0c81f2cc79ec22895c87b}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osSemaphoreAcquire@{osSemaphoreAcquire}}
+\index{osSemaphoreAcquire@{osSemaphoreAcquire}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreAcquire()}{osSemaphoreAcquire()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Semaphore\+Acquire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id,  }\item[{uint32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Acquire a Semaphore token or timeout if no tokens are available. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a81258ce9c67fa89f07cc49d2e136cd88}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a81258ce9c67fa89f07cc49d2e136cd88}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osSemaphoreDelete@{osSemaphoreDelete}}
+\index{osSemaphoreDelete@{osSemaphoreDelete}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreDelete()}{osSemaphoreDelete()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Semaphore\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id }\end{DoxyParamCaption})}
+
+Delete a Semaphore object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7559d4dff3cda9992fc5ab5de3e74c70}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a7559d4dff3cda9992fc5ab5de3e74c70}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osSemaphoreGetCount@{osSemaphoreGetCount}}
+\index{osSemaphoreGetCount@{osSemaphoreGetCount}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreGetCount()}{osSemaphoreGetCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Semaphore\+Get\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id }\end{DoxyParamCaption})}
+
+Get current Semaphore token count. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of tokens available. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osSemaphoreNew@{osSemaphoreNew}}
+\index{osSemaphoreNew@{osSemaphoreNew}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreNew()}{osSemaphoreNew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} os\+Semaphore\+New (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+count,  }\item[{uint32\+\_\+t}]{initial\+\_\+count,  }\item[{const \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}} $\ast$}]{attr }\end{DoxyParamCaption})}
+
+Create and Initialize a Semaphore object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+count} & maximum number of available tokens. \\
+\hline
+\mbox{\texttt{ in}}  & {\em initial\+\_\+count} & initial number of available tokens. \\
+\hline
+\mbox{\texttt{ in}}  & {\em attr} & semaphore attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+semaphore ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a0abcee1b5449d7a6928fb9248c690bb6}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a0abcee1b5449d7a6928fb9248c690bb6}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osSemaphoreRelease@{osSemaphoreRelease}}
+\index{osSemaphoreRelease@{osSemaphoreRelease}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreRelease()}{osSemaphoreRelease()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Semaphore\+Release (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id }\end{DoxyParamCaption})}
+
+Release a Semaphore token up to the initial maximum count. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a5606604d56e21ece1a654664be877439}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a5606604d56e21ece1a654664be877439}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadEnumerate@{osThreadEnumerate}}
+\index{osThreadEnumerate@{osThreadEnumerate}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadEnumerate()}{osThreadEnumerate()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Thread\+Enumerate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} $\ast$}]{thread\+\_\+array,  }\item[{uint32\+\_\+t}]{array\+\_\+items }\end{DoxyParamCaption})}
+
+Enumerate active threads. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em thread\+\_\+array} & pointer to array for retrieving thread IDs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em array\+\_\+items} & maximum number of items in array for retrieving thread IDs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of enumerated threads. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_addaa452dd7610e4096647a566d3556fc}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_addaa452dd7610e4096647a566d3556fc}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadExit@{osThreadExit}}
+\index{osThreadExit@{osThreadExit}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadExit()}{osThreadExit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_a153a4a31b276a9758959580538720a51}{\+\_\+\+\_\+\+NO\+\_\+\+RETURN}} void os\+Thread\+Exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Terminate execution of current running thread. 
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a495b3f812224e7301f23a691793765db}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a495b3f812224e7301f23a691793765db}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadGetCount@{osThreadGetCount}}
+\index{osThreadGetCount@{osThreadGetCount}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadGetCount()}{osThreadGetCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Thread\+Get\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get number of active threads. \begin{DoxyReturn}{Returns}
+number of active threads. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadGetId@{osThreadGetId}}
+\index{osThreadGetId@{osThreadGetId}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadGetId()}{osThreadGetId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} os\+Thread\+Get\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return the thread ID of the current running thread. \begin{DoxyReturn}{Returns}
+thread ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac3230f3a55a297514b013ebf38f27e0a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ac3230f3a55a297514b013ebf38f27e0a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadGetName@{osThreadGetName}}
+\index{osThreadGetName@{osThreadGetName}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadGetName()}{osThreadGetName()}}
+{\footnotesize\ttfamily const char $\ast$ os\+Thread\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Get name of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as NULL terminated string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a0aeaf349604f456e68e78f9d3b42e44b}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a0aeaf349604f456e68e78f9d3b42e44b}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadGetPriority@{osThreadGetPriority}}
+\index{osThreadGetPriority@{osThreadGetPriority}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadGetPriority()}{osThreadGetPriority()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} os\+Thread\+Get\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Get current priority of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current priority value of the specified thread. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9c83bd5dd8de329701775d6ef7012720}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9c83bd5dd8de329701775d6ef7012720}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadGetStackSpace@{osThreadGetStackSpace}}
+\index{osThreadGetStackSpace@{osThreadGetStackSpace}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadGetStackSpace()}{osThreadGetStackSpace()}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Thread\+Get\+Stack\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Get available stack space of a thread based on stack watermark recording during execution. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+remaining stack space in bytes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_acc0a98b42f0a5928e12dc91dc76866b9}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_acc0a98b42f0a5928e12dc91dc76866b9}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadGetState@{osThreadGetState}}
+\index{osThreadGetState@{osThreadGetState}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadGetState()}{osThreadGetState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820d}{os\+Thread\+State\+\_\+t}} os\+Thread\+Get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Get current thread state of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current thread state of the specified thread. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadNew@{osThreadNew}}
+\index{osThreadNew@{osThreadNew}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadNew()}{osThreadNew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} os\+Thread\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8ef2773ed8ef63ab8727e0d06ebec4d2}{os\+Thread\+Func\+\_\+t}}}]{func,  }\item[{void $\ast$}]{argument,  }\item[{const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} $\ast$}]{attr }\end{DoxyParamCaption})}
+
+Create a thread and add it to Active Threads. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em func} & thread function. \\
+\hline
+\mbox{\texttt{ in}}  & {\em argument} & pointer that is passed to the thread function as start argument. \\
+\hline
+\mbox{\texttt{ in}}  & {\em attr} & thread attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a3dbad90eff394b02de76a452c84c5d80}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a3dbad90eff394b02de76a452c84c5d80}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadResume@{osThreadResume}}
+\index{osThreadResume@{osThreadResume}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadResume()}{osThreadResume()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Resume (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Resume execution of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a861a420fb2d643115b06622903fb3bfb}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a861a420fb2d643115b06622903fb3bfb}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadSetPriority@{osThreadSetPriority}}
+\index{osThreadSetPriority@{osThreadSetPriority}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadSetPriority()}{osThreadSetPriority()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Set\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}}}]{priority }\end{DoxyParamCaption})}
+
+Change priority of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em priority} & new priority value for the thread function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aa9de419d0152bf77e9bbcd1f369fb990}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_aa9de419d0152bf77e9bbcd1f369fb990}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadSuspend@{osThreadSuspend}}
+\index{osThreadSuspend@{osThreadSuspend}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadSuspend()}{osThreadSuspend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Suspend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Suspend execution of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2f8ba6dba6e9c065a6e236ffd410d74a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a2f8ba6dba6e9c065a6e236ffd410d74a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadTerminate@{osThreadTerminate}}
+\index{osThreadTerminate@{osThreadTerminate}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadTerminate()}{osThreadTerminate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Terminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Terminate execution of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad01c7ec26535b1de6b018bb9466720e2}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ad01c7ec26535b1de6b018bb9466720e2}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!osThreadYield@{osThreadYield}}
+\index{osThreadYield@{osThreadYield}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{osThreadYield()}{osThreadYield()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Yield (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Pass control to next thread that is in state {\bfseries{READY}}. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a359625bfe75dbe8149c2a86b8504639e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a359625bfe75dbe8149c2a86b8504639e}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!SVC\_Setup@{SVC\_Setup}}
+\index{SVC\_Setup@{SVC\_Setup}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{SVC\_Setup()}{SVC\_Setup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void SVC\+\_\+\+Setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab9ec7b1bf1b922c22bca56c92e2d4c62}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab9ec7b1bf1b922c22bca56c92e2d4c62}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!vApplicationDaemonTaskStartupHook@{vApplicationDaemonTaskStartupHook}}
+\index{vApplicationDaemonTaskStartupHook@{vApplicationDaemonTaskStartupHook}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{vApplicationDaemonTaskStartupHook()}{vApplicationDaemonTaskStartupHook()}}
+{\footnotesize\ttfamily void v\+Application\+Daemon\+Task\+Startup\+Hook (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a97fd430f36f8b065226e2bff9bad1de5}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a97fd430f36f8b065226e2bff9bad1de5}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!vApplicationIdleHook@{vApplicationIdleHook}}
+\index{vApplicationIdleHook@{vApplicationIdleHook}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{vApplicationIdleHook()}{vApplicationIdleHook()}}
+{\footnotesize\ttfamily void v\+Application\+Idle\+Hook (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab7e5c95cf72a3f819bc4462a7fb62ca3}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab7e5c95cf72a3f819bc4462a7fb62ca3}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!vApplicationMallocFailedHook@{vApplicationMallocFailedHook}}
+\index{vApplicationMallocFailedHook@{vApplicationMallocFailedHook}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{vApplicationMallocFailedHook()}{vApplicationMallocFailedHook()}}
+{\footnotesize\ttfamily void v\+Application\+Malloc\+Failed\+Hook (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab87104b26fc04ce57c4717306fc97735}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ab87104b26fc04ce57c4717306fc97735}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!vApplicationStackOverflowHook@{vApplicationStackOverflowHook}}
+\index{vApplicationStackOverflowHook@{vApplicationStackOverflowHook}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{vApplicationStackOverflowHook()}{vApplicationStackOverflowHook()}}
+{\footnotesize\ttfamily void v\+Application\+Stack\+Overflow\+Hook (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task,  }\item[{signed char $\ast$}]{pc\+Task\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9ca051aa77e17583aa5a85d5de5c199a}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a9ca051aa77e17583aa5a85d5de5c199a}} 
+\index{cmsis\_os2.c@{cmsis\_os2.c}!vApplicationTickHook@{vApplicationTickHook}}
+\index{vApplicationTickHook@{vApplicationTickHook}!cmsis\_os2.c@{cmsis\_os2.c}}
+\doxysubsubsection{\texorpdfstring{vApplicationTickHook()}{vApplicationTickHook()}}
+{\footnotesize\ttfamily void v\+Application\+Tick\+Hook (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

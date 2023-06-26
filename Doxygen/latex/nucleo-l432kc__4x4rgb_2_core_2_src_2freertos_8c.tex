@@ -1,0 +1,237 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Core/\+Src/freertos.c File Reference}
+\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c}\index{nucleo-\/l432kc\_4x4rgb/Core/Src/freertos.c@{nucleo-\/l432kc\_4x4rgb/Core/Src/freertos.c}}
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}wifi\+Click.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a8b8cd094534e37425d09d6570463c0e0}{Start\+Receiver\+Task}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the receiver\+Task thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a5c9f7bf3f841d0673e8f47fb7855afcb}{\+\_\+start\+Wifi\+Click\+Task}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the start\+Wifi\+ClickT thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a4dd17a337b1db9ac5ac0de01bdd7122c}{update\+Screen\+Timer\+Callback}} (void $\ast$argument)
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_abade755e13d07c10889ae83143656158}{MX\+\_\+\+FREERTOS\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Free\+RTOS initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a6848fb3182a5911f33d706750b6b6c70}{New\+Data\+Available\+Callback}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ae810c9e8984a14699d116cee1640a3b9}{update\+Led\+Matrix}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_af8d8d477abebec00af2c24e0af507c3c}{new\+Data\+Available}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ac484b5f4cb8c03b1a7221130f01e5787}{data\+To\+Print}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a6990904a55868e7f80efc8c2e7695c94}{receiver\+Task\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_aad497960961e6e201fbfc8a44ca0a7f2}{receiver\+Task\+\_\+attributes}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a0fe7a4da1ec3cce9365953c8432ec444}{start\+Wifi\+Click\+THandle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a9d25b86e97de1705afbf9659231f8561}{start\+Wifi\+Click\+T\+\_\+attributes}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_adf93c2978af3ca4220d42906b61cd6c3}{update\+Screen\+Timer\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_timer_attr__t}{os\+Timer\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a754a3521794180615a6c8a26e872635f}{update\+Screen\+Timer\+\_\+attributes}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ad8fc2b382345588b280587c90ebfe548}{sem\+\_\+print\+Permission\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a1c9b517de5927f557ecbb31a5059fe99}{sem\+\_\+print\+Permission\+\_\+attributes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a5c9f7bf3f841d0673e8f47fb7855afcb}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a5c9f7bf3f841d0673e8f47fb7855afcb}} 
+\index{freertos.c@{freertos.c}!\_startWifiClickTask@{\_startWifiClickTask}}
+\index{\_startWifiClickTask@{\_startWifiClickTask}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{\_startWifiClickTask()}{\_startWifiClickTask()}}
+{\footnotesize\ttfamily void \+\_\+start\+Wifi\+Click\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the start\+Wifi\+ClickT thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_abade755e13d07c10889ae83143656158}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_abade755e13d07c10889ae83143656158}} 
+\index{freertos.c@{freertos.c}!MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}}
+\index{MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{MX\_FREERTOS\_Init()}{MX\_FREERTOS\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+FREERTOS\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Free\+RTOS initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a6848fb3182a5911f33d706750b6b6c70}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a6848fb3182a5911f33d706750b6b6c70}} 
+\index{freertos.c@{freertos.c}!NewDataAvailableCallback@{NewDataAvailableCallback}}
+\index{NewDataAvailableCallback@{NewDataAvailableCallback}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{NewDataAvailableCallback()}{NewDataAvailableCallback()}}
+{\footnotesize\ttfamily void New\+Data\+Available\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a8b8cd094534e37425d09d6570463c0e0}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a8b8cd094534e37425d09d6570463c0e0}} 
+\index{freertos.c@{freertos.c}!StartReceiverTask@{StartReceiverTask}}
+\index{StartReceiverTask@{StartReceiverTask}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{StartReceiverTask()}{StartReceiverTask()}}
+{\footnotesize\ttfamily void Start\+Receiver\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the receiver\+Task thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Receiver task.
+
+This task continuously checks for new data and triggers the printing of the data on the LED matrix if both the update\+Led\+Matrix flag and new\+Data\+Available flag are set. Once the data is printed, it clears the update\+Led\+Matrix flag and sets the new\+Data\+Available flag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Pointer to the argument passed to the function (unused). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a4dd17a337b1db9ac5ac0de01bdd7122c}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a4dd17a337b1db9ac5ac0de01bdd7122c}} 
+\index{freertos.c@{freertos.c}!updateScreenTimerCallback@{updateScreenTimerCallback}}
+\index{updateScreenTimerCallback@{updateScreenTimerCallback}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{updateScreenTimerCallback()}{updateScreenTimerCallback()}}
+{\footnotesize\ttfamily void update\+Screen\+Timer\+Callback (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ac484b5f4cb8c03b1a7221130f01e5787}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ac484b5f4cb8c03b1a7221130f01e5787}} 
+\index{freertos.c@{freertos.c}!dataToPrint@{dataToPrint}}
+\index{dataToPrint@{dataToPrint}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{dataToPrint}{dataToPrint}}
+{\footnotesize\ttfamily uint8\+\_\+t data\+To\+Print}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_af8d8d477abebec00af2c24e0af507c3c}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_af8d8d477abebec00af2c24e0af507c3c}} 
+\index{freertos.c@{freertos.c}!newDataAvailable@{newDataAvailable}}
+\index{newDataAvailable@{newDataAvailable}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{newDataAvailable}{newDataAvailable}}
+{\footnotesize\ttfamily uint8\+\_\+t new\+Data\+Available = 0}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_aad497960961e6e201fbfc8a44ca0a7f2}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_aad497960961e6e201fbfc8a44ca0a7f2}} 
+\index{freertos.c@{freertos.c}!receiverTask\_attributes@{receiverTask\_attributes}}
+\index{receiverTask\_attributes@{receiverTask\_attributes}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{receiverTask\_attributes}{receiverTask\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} receiver\+Task\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}receiverTask"{}},}
+\DoxyCodeLine{  .stack\_size = 256 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca914433934143a9ba767e59577c56e6c2}{osPriorityHigh}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a6990904a55868e7f80efc8c2e7695c94}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a6990904a55868e7f80efc8c2e7695c94}} 
+\index{freertos.c@{freertos.c}!receiverTaskHandle@{receiverTaskHandle}}
+\index{receiverTaskHandle@{receiverTaskHandle}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{receiverTaskHandle}{receiverTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} receiver\+Task\+Handle}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a1c9b517de5927f557ecbb31a5059fe99}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a1c9b517de5927f557ecbb31a5059fe99}} 
+\index{freertos.c@{freertos.c}!sem\_printPermission\_attributes@{sem\_printPermission\_attributes}}
+\index{sem\_printPermission\_attributes@{sem\_printPermission\_attributes}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{sem\_printPermission\_attributes}{sem\_printPermission\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}} sem\+\_\+print\+Permission\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}sem\_printPermission"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ad8fc2b382345588b280587c90ebfe548}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ad8fc2b382345588b280587c90ebfe548}} 
+\index{freertos.c@{freertos.c}!sem\_printPermissionHandle@{sem\_printPermissionHandle}}
+\index{sem\_printPermissionHandle@{sem\_printPermissionHandle}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{sem\_printPermissionHandle}{sem\_printPermissionHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} sem\+\_\+print\+Permission\+Handle}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a9d25b86e97de1705afbf9659231f8561}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a9d25b86e97de1705afbf9659231f8561}} 
+\index{freertos.c@{freertos.c}!startWifiClickT\_attributes@{startWifiClickT\_attributes}}
+\index{startWifiClickT\_attributes@{startWifiClickT\_attributes}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{startWifiClickT\_attributes}{startWifiClickT\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} start\+Wifi\+Click\+T\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}startWifiClickT"{}},}
+\DoxyCodeLine{  .stack\_size = 256 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}{osPriorityLow}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a0fe7a4da1ec3cce9365953c8432ec444}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a0fe7a4da1ec3cce9365953c8432ec444}} 
+\index{freertos.c@{freertos.c}!startWifiClickTHandle@{startWifiClickTHandle}}
+\index{startWifiClickTHandle@{startWifiClickTHandle}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{startWifiClickTHandle}{startWifiClickTHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} start\+Wifi\+Click\+THandle}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ae810c9e8984a14699d116cee1640a3b9}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_ae810c9e8984a14699d116cee1640a3b9}} 
+\index{freertos.c@{freertos.c}!updateLedMatrix@{updateLedMatrix}}
+\index{updateLedMatrix@{updateLedMatrix}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{updateLedMatrix}{updateLedMatrix}}
+{\footnotesize\ttfamily uint8\+\_\+t update\+Led\+Matrix = 0}
+
+File Name \+: freertos.\+c Description \+: Code for freertos applications
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. \mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a754a3521794180615a6c8a26e872635f}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_a754a3521794180615a6c8a26e872635f}} 
+\index{freertos.c@{freertos.c}!updateScreenTimer\_attributes@{updateScreenTimer\_attributes}}
+\index{updateScreenTimer\_attributes@{updateScreenTimer\_attributes}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{updateScreenTimer\_attributes}{updateScreenTimer\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_timer_attr__t}{os\+Timer\+Attr\+\_\+t}} update\+Screen\+Timer\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}updateScreenTimer"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_adf93c2978af3ca4220d42906b61cd6c3}\label{nucleo-l432kc__4x4rgb_2_core_2_src_2freertos_8c_adf93c2978af3ca4220d42906b61cd6c3}} 
+\index{freertos.c@{freertos.c}!updateScreenTimerHandle@{updateScreenTimerHandle}}
+\index{updateScreenTimerHandle@{updateScreenTimerHandle}!freertos.c@{freertos.c}}
+\doxysubsubsection{\texorpdfstring{updateScreenTimerHandle}{updateScreenTimerHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} update\+Screen\+Timer\+Handle}
+

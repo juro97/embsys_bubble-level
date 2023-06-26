@@ -1,0 +1,92 @@
+\hypertarget{struct_mem_pool_def__t}{}\doxysection{Mem\+Pool\+Def\+\_\+t Struct Reference}
+\label{struct_mem_pool_def__t}\index{MemPoolDef\_t@{MemPoolDef\_t}}
+
+
+{\ttfamily \#include $<$freertos\+\_\+mpool.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_mem_pool_block__t}{Mem\+Pool\+Block\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_mem_pool_def__t_aec047e87dd125f4f7831eee3ace558a7}{head}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}} \mbox{\hyperlink{struct_mem_pool_def__t_a618ae1b51ee3f3f8e85cb7835d0ac485}{sem}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_mem_pool_def__t_af3ec753d8acf9fbcdbd5050a120c0784}{mem\+\_\+arr}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_mem_pool_def__t_a4c47851f734d76f2288be17e53971919}{mem\+\_\+sz}}
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_mem_pool_def__t_afcd1706c9144e6d6eee6127661ae3be2}{name}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_mem_pool_def__t_a8165d81a5073988a6122e933ae7e8d52}{bl\+\_\+sz}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_mem_pool_def__t_a0bbed3f53fcc7793fa714ecc8f17c4cc}{bl\+\_\+cnt}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_mem_pool_def__t_a3d8a9527a2ee4a7ebf59175650142e75}{n}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{struct_mem_pool_def__t_a9d5ec73a70e8d3f1e4e13411f24f4135}{status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_mem_pool_def__t_a0bbed3f53fcc7793fa714ecc8f17c4cc}\label{struct_mem_pool_def__t_a0bbed3f53fcc7793fa714ecc8f17c4cc}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!bl\_cnt@{bl\_cnt}}
+\index{bl\_cnt@{bl\_cnt}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{bl\_cnt}{bl\_cnt}}
+{\footnotesize\ttfamily uint32\+\_\+t bl\+\_\+cnt}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_a8165d81a5073988a6122e933ae7e8d52}\label{struct_mem_pool_def__t_a8165d81a5073988a6122e933ae7e8d52}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!bl\_sz@{bl\_sz}}
+\index{bl\_sz@{bl\_sz}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{bl\_sz}{bl\_sz}}
+{\footnotesize\ttfamily uint32\+\_\+t bl\+\_\+sz}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_aec047e87dd125f4f7831eee3ace558a7}\label{struct_mem_pool_def__t_aec047e87dd125f4f7831eee3ace558a7}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!head@{head}}
+\index{head@{head}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_mem_pool_block__t}{Mem\+Pool\+Block\+\_\+t}} $\ast$ head}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_af3ec753d8acf9fbcdbd5050a120c0784}\label{struct_mem_pool_def__t_af3ec753d8acf9fbcdbd5050a120c0784}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!mem\_arr@{mem\_arr}}
+\index{mem\_arr@{mem\_arr}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{mem\_arr}{mem\_arr}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ mem\+\_\+arr}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_a4c47851f734d76f2288be17e53971919}\label{struct_mem_pool_def__t_a4c47851f734d76f2288be17e53971919}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!mem\_sz@{mem\_sz}}
+\index{mem\_sz@{mem\_sz}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{mem\_sz}{mem\_sz}}
+{\footnotesize\ttfamily uint32\+\_\+t mem\+\_\+sz}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_a3d8a9527a2ee4a7ebf59175650142e75}\label{struct_mem_pool_def__t_a3d8a9527a2ee4a7ebf59175650142e75}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!n@{n}}
+\index{n@{n}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily uint32\+\_\+t n}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_afcd1706c9144e6d6eee6127661ae3be2}\label{struct_mem_pool_def__t_afcd1706c9144e6d6eee6127661ae3be2}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!name@{name}}
+\index{name@{name}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily const char $\ast$ name}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_a618ae1b51ee3f3f8e85cb7835d0ac485}\label{struct_mem_pool_def__t_a618ae1b51ee3f3f8e85cb7835d0ac485}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!sem@{sem}}
+\index{sem@{sem}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{sem}{sem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}} sem}
+
+\mbox{\Hypertarget{struct_mem_pool_def__t_a9d5ec73a70e8d3f1e4e13411f24f4135}\label{struct_mem_pool_def__t_a9d5ec73a70e8d3f1e4e13411f24f4135}} 
+\index{MemPoolDef\_t@{MemPoolDef\_t}!status@{status}}
+\index{status@{status}!MemPoolDef\_t@{MemPoolDef\_t}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t status}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b}{freertos\+\_\+mpool.\+h}}\item 
+nucleo-\/l432kc\+\_\+4x4rgb/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2freertos__mpool_8h}{freertos\+\_\+mpool.\+h}}\item 
+nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10}{freertos\+\_\+mpool.\+h}}\item 
+nucleo-\/l432kc\+\_\+wifi/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2freertos__mpool_8h}{freertos\+\_\+mpool.\+h}}\end{DoxyCompactItemize}

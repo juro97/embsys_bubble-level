@@ -1,0 +1,1053 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/cmsis\+\_\+os.h File Reference}
+\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h}\index{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/cmsis\_os.h@{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/cmsis\_os.h}}
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os2.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structos__thread__def}{os\+\_\+thread\+\_\+def}}
+\begin{DoxyCompactList}\small\item\em Thread Definition structure contains startup information of a thread. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos__timer__def}{os\+\_\+timer\+\_\+def}}
+\begin{DoxyCompactList}\small\item\em Timer Definition structure contains timer parameters. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos__pool__def}{os\+\_\+pool\+\_\+def}}
+\begin{DoxyCompactList}\small\item\em Definition structure for memory block allocation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos__message_q__def}{os\+\_\+message\+Q\+\_\+def}}
+\begin{DoxyCompactList}\small\item\em Definition structure for message queue. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos__mail_q__def}{os\+\_\+mail\+Q\+\_\+def}}
+\begin{DoxyCompactList}\small\item\em Definition structure for mail queue. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_event}{os\+Event}}
+\begin{DoxyCompactList}\small\item\em Event structure contains detailed information about an event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a59617d260e364a9db59176ceeb3adabc}{RTOS\+\_\+\+ID\+\_\+n}}~((\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a790e0e16f79e71d4791435a31d5b0fc7}{tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+MAJOR}} $<$$<$ 16) $\vert$ (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_ab0b5ab04d8419227d0a5ac94af6b3639}{tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+MINOR}}))
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6fc38d5198457402ea806dcb517ec7d1}{RTOS\+\_\+\+ID\+\_\+s}}~(\char`\"{}Free\+RTOS \char`\"{} tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+NUMBER)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a702196bacccbb978620c736b209387f1}{os\+CMSIS}}~0x20001U
+\begin{DoxyCompactList}\small\item\em API version (main\mbox{[}31\+:16\mbox{]}.sub\mbox{[}15\+:0\mbox{]}) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ad4ce4980430ced32037b984329914180}{os\+CMSIS\+\_\+\+Free\+RTOS}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a59617d260e364a9db59176ceeb3adabc}{RTOS\+\_\+\+ID\+\_\+n}}
+\begin{DoxyCompactList}\small\item\em RTOS identification and version (main\mbox{[}31\+:16\mbox{]}.sub\mbox{[}15\+:0\mbox{]}) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a47cf03658f01cdffca688e9096b58289}{os\+Kernel\+System\+Id}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a6fc38d5198457402ea806dcb517ec7d1}{RTOS\+\_\+\+ID\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em RTOS identification string. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a22f7d235bc9f783933bd5a981fd79696}{os\+Feature\+\_\+\+Main\+Thread}}~0
+\begin{DoxyCompactList}\small\item\em main thread 1=main can be thread, 0=not available \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a01edde265710d883b6e237d34a6ef4a6}{os\+Feature\+\_\+\+Signals}}~24U
+\begin{DoxyCompactList}\small\item\em maximum number of Signal Flags available per thread \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a7da4c7bfb340779c9fc7b321f5ab3e3a}{os\+Feature\+\_\+\+Semaphore}}~65535U
+\begin{DoxyCompactList}\small\item\em maximum count for \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a97381e8e55cd47cec390bf57c96d6edb}{os\+Semaphore\+Create}} function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c97d38879ae86491628f6e647639bad}{os\+Feature\+\_\+\+Wait}}~0
+\begin{DoxyCompactList}\small\item\em os\+Wait function\+: 1=available, 0=not available \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ae554ec16c23c5b7d65affade2a351891}{os\+Feature\+\_\+\+Sys\+Tick}}~1
+\begin{DoxyCompactList}\small\item\em os\+Kernel\+Sys\+Tick functions\+: 1=available, 0=not available \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_add84b683001de327894851b428587caa}{os\+Feature\+\_\+\+Pool}}~0
+\begin{DoxyCompactList}\small\item\em Memory Pools\+: 1=available, 0=not available. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a479a6561f859e3d4818e25708593d203}{os\+Feature\+\_\+\+MessageQ}}~1
+\begin{DoxyCompactList}\small\item\em Message Queues\+: 1=available, 0=not available. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aceb2e0071ce160d153047f2eac1aca8e}{os\+Feature\+\_\+\+MailQ}}~0
+\begin{DoxyCompactList}\small\item\em Mail Queues\+: 1=available, 0=not available. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac6b67612d20f480bef2d76bb64e95be8}{os\+\_\+\+In\+Regs}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1a343b9b44a38b11f5e14288c8cc8cd3}{os\+Priority}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Priority values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a032f509cc61005b0eb240091ee318372}{os\+\_\+timer\+\_\+type}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7dc24a4c2b90334427081c3da7a71915}{os\+Timer\+Type\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer type. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9eb9a7a797a42e4b55eb171ecc609ddb}{os\+Wait\+Forever}}~0x\+FFFFFFFFU
+\begin{DoxyCompactList}\small\item\em Timeout value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a8adf16980778f552b6c21a5cce611d72}{os\+Event\+Signal}}~(0x08)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1a5d5ac30921ab3c6ed6226e0b8cd987}{os\+Event\+Message}}~(0x10)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a927d3b7ffeeb6ab178fdaf5e321e9783}{os\+Event\+Mail}}~(0x20)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aad4ff463bfe1a2d634d7bc1dffae3d14}{os\+Event\+Timeout}}~(0x40)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1134c64a46f0ce60857316a2696a4c8e}{os\+Error\+OS}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813eabb7b2d2c4efa66df42f1c10635467b09}{os\+Error}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a56c977c0ffa7d1ef4cfa0a83e2bd1e1c}{os\+Error\+Timeout\+Resource}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{os\+Error\+Timeout}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aa421fea84f032b726c87ffd5bdbb0e85}{os\+Error\+ISRRecursive}}~(-\/126)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a94ec934afba04b0ac9d6ae45467d115b}{os\+Error\+Value}}~(-\/127)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a93f6ca47ef0bc51b0d238c079b37e4d7}{os\+Error\+Priority}}~(-\/128)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Thread ID identifies the thread. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a105f3f5e8567b6ea5608c0919e91af8c}{os\+Timer\+Id}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer ID identifies the timer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a98af3993be29b753a3ddcb49cdb26fcf}{os\+Mutex\+Id}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Mutex ID identifies the mutex. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ad85dd5f61d6f0462f66d6c72cefd7853}{os\+Semaphore\+Id}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Semaphore ID identifies the semaphore. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a8d4133e7fb3d4323fbea93ce4339fb30}{os\+Mutex\+Def\+\_\+t}}~\mbox{\hyperlink{structos_mutex_attr__t}{os\+Mutex\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Mutex Definition structure contains setup information for a mutex. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ab35d358e8e79f16c658bb2e2cc50d117}{os\+Semaphore\+Def\+\_\+t}}~\mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Semaphore Definition structure contains setup information for a semaphore. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a36ba7668db28066df251b49d95ef6738}{os\+Kernel\+Sys\+Tick}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae0fcaff6cecfb4013bb556c87afcd7d2}{os\+Kernel\+Get\+Sys\+Timer\+Count}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ae12c190af42d7310d8006d64f4ed5a88}{os\+Kernel\+Sys\+Tick\+Micro\+Sec}}(microsec)~(((uint64\+\_\+t)microsec $\ast$  \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a4d69215a93220f72be3684cad582f16a}{os\+Kernel\+Get\+Sys\+Timer\+Freq}}()) / 1000000)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aee93d929beb350f16e5cc7fa602e229f}{os\+Thread\+Def}}(name,  priority,  instances,  stacksz)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af0c7c6b5e09f8be198312144b5c9e453}{os\+Thread}}(name)~\&os\+\_\+thread\+\_\+def\+\_\+\#\#name
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1c720627e08d1cc1afcad44e799ed492}{os\+Timer\+Def}}(name,  function)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1b8d670eaf964b2910fa06885e650678}{os\+Timer}}(name)~\&os\+\_\+timer\+\_\+def\+\_\+\#\#name
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9b522438489d7c402c95332b58bc94f3}{os\+Mutex\+Def}}(name)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1122a86faa64b4a0880c76cf68d0c934}{os\+Mutex}}(name)~\&os\+\_\+mutex\+\_\+def\+\_\+\#\#name
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a39f770e26b85e1bd4ad62e0d81fc0e15}{os\+Mutex\+Wait}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abc54686ea0fc281823b1763422d2a924}{os\+Mutex\+Acquire}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9e66fe361749071e5ab87826c43c2f1b}{os\+Semaphore\+Def}}(name)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a03761ee8d2c3cd4544e18364ab301dac}{os\+Semaphore}}(name)~\&os\+\_\+semaphore\+\_\+def\+\_\+\#\#name
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac9a6a6276c12609793e7701afcc82326}{os\+Message\+QDef}}(name,  queue\+\_\+sz,  type)
+\begin{DoxyCompactList}\small\item\em Create a Message Queue Definition. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a2d446a0b4bb90bf05d6f92eedeaabc97}{os\+MessageQ}}(name)~\&os\+\_\+message\+Q\+\_\+def\+\_\+\#\#name
+\begin{DoxyCompactList}\small\item\em Access a Message Queue Definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a3a96994ab8318050b476d72d890ce765}{os\+\_\+pthread}}) (void const $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Entry point of a thread. \end{DoxyCompactList}\item 
+typedef void($\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a7904cad2180c6b3a0ac112fe8ff273e7}{os\+\_\+ptimer}}) (void const $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Entry point of a timer call back function. \end{DoxyCompactList}\item 
+typedef int32\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_afa03187386e2e754164f181be8d80019}{os\+Status}}
+\begin{DoxyCompactList}\small\item\em Status code values returned by CMSIS-\/\+RTOS functions. \end{DoxyCompactList}\item 
+typedef void $\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a20c705232a75d14ade7e269d52bbc501}{os\+Pool\+Id}}
+\begin{DoxyCompactList}\small\item\em Pool ID identifies the memory pool. \end{DoxyCompactList}\item 
+typedef void $\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}}
+\begin{DoxyCompactList}\small\item\em Message ID identifies the message queue. \end{DoxyCompactList}\item 
+typedef void $\ast$ \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}{os\+Mail\+QId}}
+\begin{DoxyCompactList}\small\item\em Mail ID identifies the mail queue. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structos__thread__def}{os\+\_\+thread\+\_\+def}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a92f46bd508dcc685135882e2cf37ac8c}{os\+Thread\+Def\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Thread Definition structure contains startup information of a thread. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structos__timer__def}{os\+\_\+timer\+\_\+def}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a2144eb7d94a485f516bf0b09078f883a}{os\+Timer\+Def\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer Definition structure contains timer parameters. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structos__pool__def}{os\+\_\+pool\+\_\+def}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac47b811c41974c0bb74521a50c7983b7}{os\+Pool\+Def\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Definition structure for memory block allocation. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structos__message_q__def}{os\+\_\+message\+Q\+\_\+def}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a552ffc97e37e403acff6a59793ad26eb}{os\+Message\+QDef\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Definition structure for message queue. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structos__mail_q__def}{os\+\_\+mail\+Q\+\_\+def}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ab6d3ddc7d8cea9901544118bed1a3d1c}{os\+Mail\+QDef\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Definition structure for mail queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} (const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a92f46bd508dcc685135882e2cf37ac8c}{os\+Thread\+Def\+\_\+t}} $\ast$thread\+\_\+def, void $\ast$argument)
+\item 
+int32\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a3de2730654589d6c3559c4b9e2825553}{os\+Signal\+Set}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}} thread\+\_\+id, int32\+\_\+t signals)
+\item 
+int32\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a87283a6ebc31ce9ed42baf3ea7e4eab6}{os\+Signal\+Clear}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}} thread\+\_\+id, int32\+\_\+t signals)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac6b67612d20f480bef2d76bb64e95be8}{os\+\_\+\+In\+Regs}} \mbox{\hyperlink{structos_event}{os\+Event}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a74b9d7a26279c8ac4cc246e66cbbad40}{os\+Signal\+Wait}} (int32\+\_\+t signals, uint32\+\_\+t millisec)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a105f3f5e8567b6ea5608c0919e91af8c}{os\+Timer\+Id}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aedd312bfdca04e0b8162b666e09a1ae6}{os\+Timer\+Create}} (const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a2144eb7d94a485f516bf0b09078f883a}{os\+Timer\+Def\+\_\+t}} $\ast$timer\+\_\+def, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a032f509cc61005b0eb240091ee318372}{os\+\_\+timer\+\_\+type}} type, void $\ast$argument)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a98af3993be29b753a3ddcb49cdb26fcf}{os\+Mutex\+Id}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a5c9de56e717016e39e788064e9a291cc}{os\+Mutex\+Create}} (const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a8d4133e7fb3d4323fbea93ce4339fb30}{os\+Mutex\+Def\+\_\+t}} $\ast$mutex\+\_\+def)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ad85dd5f61d6f0462f66d6c72cefd7853}{os\+Semaphore\+Id}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a97381e8e55cd47cec390bf57c96d6edb}{os\+Semaphore\+Create}} (const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ab35d358e8e79f16c658bb2e2cc50d117}{os\+Semaphore\+Def\+\_\+t}} $\ast$semaphore\+\_\+def, int32\+\_\+t count)
+\item 
+int32\+\_\+t \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_acc15b0fc8ce1167fe43da33042e62098}{os\+Semaphore\+Wait}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ad85dd5f61d6f0462f66d6c72cefd7853}{os\+Semaphore\+Id}} semaphore\+\_\+id, uint32\+\_\+t millisec)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{os\+Message\+Create}} (const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a552ffc97e37e403acff6a59793ad26eb}{os\+Message\+QDef\+\_\+t}} $\ast$queue\+\_\+def, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_afa03187386e2e754164f181be8d80019}{os\+Status}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac0dcf462fc92de8ffaba6cc004514a6d}{os\+Message\+Put}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}} queue\+\_\+id, uint32\+\_\+t info, uint32\+\_\+t millisec)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac6b67612d20f480bef2d76bb64e95be8}{os\+\_\+\+In\+Regs}} \mbox{\hyperlink{structos_event}{os\+Event}} \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_adb01ec653d1086f99ba00b4148114ba9}{os\+Message\+Get}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}} queue\+\_\+id, uint32\+\_\+t millisec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac6b67612d20f480bef2d76bb64e95be8}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac6b67612d20f480bef2d76bb64e95be8}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!os\_InRegs@{os\_InRegs}}
+\index{os\_InRegs@{os\_InRegs}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{os\_InRegs}{os\_InRegs}}
+{\footnotesize\ttfamily \#define os\+\_\+\+In\+Regs}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a032f509cc61005b0eb240091ee318372}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a032f509cc61005b0eb240091ee318372}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!os\_timer\_type@{os\_timer\_type}}
+\index{os\_timer\_type@{os\_timer\_type}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{os\_timer\_type}{os\_timer\_type}}
+{\footnotesize\ttfamily \#define os\+\_\+timer\+\_\+type~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7dc24a4c2b90334427081c3da7a71915}{os\+Timer\+Type\+\_\+t}}}
+
+
+
+Timer type. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a702196bacccbb978620c736b209387f1}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a702196bacccbb978620c736b209387f1}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osCMSIS@{osCMSIS}}
+\index{osCMSIS@{osCMSIS}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osCMSIS}{osCMSIS}}
+{\footnotesize\ttfamily \#define os\+CMSIS~0x20001U}
+
+
+
+API version (main\mbox{[}31\+:16\mbox{]}.sub\mbox{[}15\+:0\mbox{]}) 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ad4ce4980430ced32037b984329914180}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ad4ce4980430ced32037b984329914180}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osCMSIS\_FreeRTOS@{osCMSIS\_FreeRTOS}}
+\index{osCMSIS\_FreeRTOS@{osCMSIS\_FreeRTOS}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osCMSIS\_FreeRTOS}{osCMSIS\_FreeRTOS}}
+{\footnotesize\ttfamily \#define os\+CMSIS\+\_\+\+Free\+RTOS~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a59617d260e364a9db59176ceeb3adabc}{RTOS\+\_\+\+ID\+\_\+n}}}
+
+
+
+RTOS identification and version (main\mbox{[}31\+:16\mbox{]}.sub\mbox{[}15\+:0\mbox{]}) 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aa421fea84f032b726c87ffd5bdbb0e85}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aa421fea84f032b726c87ffd5bdbb0e85}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osErrorISRRecursive@{osErrorISRRecursive}}
+\index{osErrorISRRecursive@{osErrorISRRecursive}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osErrorISRRecursive}{osErrorISRRecursive}}
+{\footnotesize\ttfamily \#define os\+Error\+ISRRecursive~(-\/126)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1134c64a46f0ce60857316a2696a4c8e}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1134c64a46f0ce60857316a2696a4c8e}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osErrorOS@{osErrorOS}}
+\index{osErrorOS@{osErrorOS}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osErrorOS}{osErrorOS}}
+{\footnotesize\ttfamily \#define os\+Error\+OS~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813eabb7b2d2c4efa66df42f1c10635467b09}{os\+Error}}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a93f6ca47ef0bc51b0d238c079b37e4d7}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a93f6ca47ef0bc51b0d238c079b37e4d7}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osErrorPriority@{osErrorPriority}}
+\index{osErrorPriority@{osErrorPriority}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osErrorPriority}{osErrorPriority}}
+{\footnotesize\ttfamily \#define os\+Error\+Priority~(-\/128)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a56c977c0ffa7d1ef4cfa0a83e2bd1e1c}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a56c977c0ffa7d1ef4cfa0a83e2bd1e1c}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osErrorTimeoutResource@{osErrorTimeoutResource}}
+\index{osErrorTimeoutResource@{osErrorTimeoutResource}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osErrorTimeoutResource}{osErrorTimeoutResource}}
+{\footnotesize\ttfamily \#define os\+Error\+Timeout\+Resource~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{os\+Error\+Timeout}}}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a94ec934afba04b0ac9d6ae45467d115b}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a94ec934afba04b0ac9d6ae45467d115b}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osErrorValue@{osErrorValue}}
+\index{osErrorValue@{osErrorValue}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osErrorValue}{osErrorValue}}
+{\footnotesize\ttfamily \#define os\+Error\+Value~(-\/127)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a927d3b7ffeeb6ab178fdaf5e321e9783}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a927d3b7ffeeb6ab178fdaf5e321e9783}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osEventMail@{osEventMail}}
+\index{osEventMail@{osEventMail}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osEventMail}{osEventMail}}
+{\footnotesize\ttfamily \#define os\+Event\+Mail~(0x20)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1a5d5ac30921ab3c6ed6226e0b8cd987}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1a5d5ac30921ab3c6ed6226e0b8cd987}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osEventMessage@{osEventMessage}}
+\index{osEventMessage@{osEventMessage}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osEventMessage}{osEventMessage}}
+{\footnotesize\ttfamily \#define os\+Event\+Message~(0x10)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a8adf16980778f552b6c21a5cce611d72}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a8adf16980778f552b6c21a5cce611d72}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osEventSignal@{osEventSignal}}
+\index{osEventSignal@{osEventSignal}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osEventSignal}{osEventSignal}}
+{\footnotesize\ttfamily \#define os\+Event\+Signal~(0x08)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aad4ff463bfe1a2d634d7bc1dffae3d14}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aad4ff463bfe1a2d634d7bc1dffae3d14}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osEventTimeout@{osEventTimeout}}
+\index{osEventTimeout@{osEventTimeout}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osEventTimeout}{osEventTimeout}}
+{\footnotesize\ttfamily \#define os\+Event\+Timeout~(0x40)}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aceb2e0071ce160d153047f2eac1aca8e}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aceb2e0071ce160d153047f2eac1aca8e}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_MailQ@{osFeature\_MailQ}}
+\index{osFeature\_MailQ@{osFeature\_MailQ}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_MailQ}{osFeature\_MailQ}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+MailQ~0}
+
+
+
+Mail Queues\+: 1=available, 0=not available. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a22f7d235bc9f783933bd5a981fd79696}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a22f7d235bc9f783933bd5a981fd79696}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_MainThread@{osFeature\_MainThread}}
+\index{osFeature\_MainThread@{osFeature\_MainThread}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_MainThread}{osFeature\_MainThread}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+Main\+Thread~0}
+
+
+
+main thread 1=main can be thread, 0=not available 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a479a6561f859e3d4818e25708593d203}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a479a6561f859e3d4818e25708593d203}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_MessageQ@{osFeature\_MessageQ}}
+\index{osFeature\_MessageQ@{osFeature\_MessageQ}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_MessageQ}{osFeature\_MessageQ}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+MessageQ~1}
+
+
+
+Message Queues\+: 1=available, 0=not available. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_add84b683001de327894851b428587caa}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_add84b683001de327894851b428587caa}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_Pool@{osFeature\_Pool}}
+\index{osFeature\_Pool@{osFeature\_Pool}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_Pool}{osFeature\_Pool}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+Pool~0}
+
+
+
+Memory Pools\+: 1=available, 0=not available. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a7da4c7bfb340779c9fc7b321f5ab3e3a}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a7da4c7bfb340779c9fc7b321f5ab3e3a}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_Semaphore@{osFeature\_Semaphore}}
+\index{osFeature\_Semaphore@{osFeature\_Semaphore}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_Semaphore}{osFeature\_Semaphore}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+Semaphore~65535U}
+
+
+
+maximum count for \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a97381e8e55cd47cec390bf57c96d6edb}{os\+Semaphore\+Create}} function 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a01edde265710d883b6e237d34a6ef4a6}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a01edde265710d883b6e237d34a6ef4a6}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_Signals@{osFeature\_Signals}}
+\index{osFeature\_Signals@{osFeature\_Signals}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_Signals}{osFeature\_Signals}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+Signals~24U}
+
+
+
+maximum number of Signal Flags available per thread 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ae554ec16c23c5b7d65affade2a351891}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ae554ec16c23c5b7d65affade2a351891}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_SysTick@{osFeature\_SysTick}}
+\index{osFeature\_SysTick@{osFeature\_SysTick}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_SysTick}{osFeature\_SysTick}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+Sys\+Tick~1}
+
+
+
+os\+Kernel\+Sys\+Tick functions\+: 1=available, 0=not available 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c97d38879ae86491628f6e647639bad}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c97d38879ae86491628f6e647639bad}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osFeature\_Wait@{osFeature\_Wait}}
+\index{osFeature\_Wait@{osFeature\_Wait}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osFeature\_Wait}{osFeature\_Wait}}
+{\footnotesize\ttfamily \#define os\+Feature\+\_\+\+Wait~0}
+
+
+
+os\+Wait function\+: 1=available, 0=not available 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a47cf03658f01cdffca688e9096b58289}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a47cf03658f01cdffca688e9096b58289}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osKernelSystemId@{osKernelSystemId}}
+\index{osKernelSystemId@{osKernelSystemId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osKernelSystemId}{osKernelSystemId}}
+{\footnotesize\ttfamily \#define os\+Kernel\+System\+Id~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a6fc38d5198457402ea806dcb517ec7d1}{RTOS\+\_\+\+ID\+\_\+s}}}
+
+
+
+RTOS identification string. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a36ba7668db28066df251b49d95ef6738}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a36ba7668db28066df251b49d95ef6738}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osKernelSysTick@{osKernelSysTick}}
+\index{osKernelSysTick@{osKernelSysTick}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osKernelSysTick}{osKernelSysTick}}
+{\footnotesize\ttfamily \#define os\+Kernel\+Sys\+Tick~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_ae0fcaff6cecfb4013bb556c87afcd7d2}{os\+Kernel\+Get\+Sys\+Timer\+Count}}}
+
+Initialize the RTOS Kernel for creating objects. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Start the RTOS Kernel scheduler. 
+
+status code that indicates the execution status of the function. Check if the RTOS kernel is already started. 
+
+0 RTOS is not started, 1 RTOS is started. Get the RTOS kernel system timer counter. 
+
+RTOS kernel system timer as 32-\/bit value ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ae12c190af42d7310d8006d64f4ed5a88}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ae12c190af42d7310d8006d64f4ed5a88}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osKernelSysTickMicroSec@{osKernelSysTickMicroSec}}
+\index{osKernelSysTickMicroSec@{osKernelSysTickMicroSec}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osKernelSysTickMicroSec}{osKernelSysTickMicroSec}}
+{\footnotesize\ttfamily \#define os\+Kernel\+Sys\+Tick\+Micro\+Sec(\begin{DoxyParamCaption}\item[{}]{microsec }\end{DoxyParamCaption})~(((uint64\+\_\+t)microsec $\ast$  \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a4d69215a93220f72be3684cad582f16a}{os\+Kernel\+Get\+Sys\+Timer\+Freq}}()) / 1000000)}
+
+The RTOS kernel system timer frequency in Hz. \begin{DoxyNote}{Note}
+Reflects the system timer setting and is typically defined in a configuration file. Convert a microseconds value to a RTOS kernel system timer value. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em microsec} & time value in microseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time value normalized to the os\+Kernel\+Sys\+Tick\+Frequency 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a2d446a0b4bb90bf05d6f92eedeaabc97}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a2d446a0b4bb90bf05d6f92eedeaabc97}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessageQ@{osMessageQ}}
+\index{osMessageQ@{osMessageQ}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQ}{osMessageQ}}
+{\footnotesize\ttfamily \#define os\+MessageQ(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\&os\+\_\+message\+Q\+\_\+def\+\_\+\#\#name}
+
+
+
+Access a Message Queue Definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac9a6a6276c12609793e7701afcc82326}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac9a6a6276c12609793e7701afcc82326}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessageQDef@{osMessageQDef}}
+\index{osMessageQDef@{osMessageQDef}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQDef}{osMessageQDef}}
+{\footnotesize\ttfamily \#define os\+Message\+QDef(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{queue\+\_\+sz,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} os\_mq\_cb\_\#\#name; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{static} uint32\_t os\_mq\_data\_\#\#name[(queue\_sz) * \textcolor{keyword}{sizeof}(type)]; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{const} \mbox{\hyperlink{structos__message_q__def}{osMessageQDef\_t}} os\_messageQ\_def\_\#\#name = \(\backslash\)}
+\DoxyCodeLine{\{ (queue\_sz), \(\backslash\)}
+\DoxyCodeLine{  \{ NULL, 0U, (\&os\_mq\_cb\_\#\#name), \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}}), \(\backslash\)}
+\DoxyCodeLine{              (\&os\_mq\_data\_\#\#name), \textcolor{keyword}{sizeof}(os\_mq\_data\_\#\#name) \} \}}
+
+\end{DoxyCode}
+
+
+Create a Message Queue Definition. 
+
+Release a Semaphore token. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore object referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a97381e8e55cd47cec390bf57c96d6edb}{os\+Semaphore\+Create}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Delete a Semaphore object. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore object referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a97381e8e55cd47cec390bf57c96d6edb}{os\+Semaphore\+Create}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the queue. \\
+\hline
+{\em queue\+\_\+sz} & maximum number of messages in the queue. \\
+\hline
+{\em type} & data type of a single message element (for debugger). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1122a86faa64b4a0880c76cf68d0c934}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1122a86faa64b4a0880c76cf68d0c934}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMutex@{osMutex}}
+\index{osMutex@{osMutex}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMutex}{osMutex}}
+{\footnotesize\ttfamily \#define os\+Mutex(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\&os\+\_\+mutex\+\_\+def\+\_\+\#\#name}
+
+Access a Mutex definition. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the mutex object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9b522438489d7c402c95332b58bc94f3}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9b522438489d7c402c95332b58bc94f3}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMutexDef@{osMutexDef}}
+\index{osMutexDef@{osMutexDef}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMutexDef}{osMutexDef}}
+{\footnotesize\ttfamily \#define os\+Mutex\+Def(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticSemaphore\_t}} os\_mutex\_cb\_\#\#name; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{const} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a8d4133e7fb3d4323fbea93ce4339fb30}{osMutexDef\_t}} os\_mutex\_def\_\#\#name = \(\backslash\)}
+\DoxyCodeLine{\{ NULL, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a65c2482cc64a35d03871f3180f305926}{osMutexRecursive}} | \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a40fba270cb31a977b3bd551d41eb9599}{osMutexPrioInherit}}, (\&os\_mutex\_cb\_\#\#name), \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticSemaphore\_t}}) \}}
+
+\end{DoxyCode}
+Start or restart a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+\_\+id} & timer ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_aedd312bfdca04e0b8162b666e09a1ae6}{os\+Timer\+Create}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em millisec} & time delay value of the timer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Stop a timer. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+\_\+id} & timer ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_aedd312bfdca04e0b8162b666e09a1ae6}{os\+Timer\+Create}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Delete a timer. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+\_\+id} & timer ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_aedd312bfdca04e0b8162b666e09a1ae6}{os\+Timer\+Create}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Define a Mutex. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the mutex object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a8d4133e7fb3d4323fbea93ce4339fb30}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a8d4133e7fb3d4323fbea93ce4339fb30}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMutexDef\_t@{osMutexDef\_t}}
+\index{osMutexDef\_t@{osMutexDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMutexDef\_t}{osMutexDef\_t}}
+{\footnotesize\ttfamily \#define os\+Mutex\+Def\+\_\+t~\mbox{\hyperlink{structos_mutex_attr__t}{os\+Mutex\+Attr\+\_\+t}}}
+
+
+
+Mutex Definition structure contains setup information for a mutex. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a98af3993be29b753a3ddcb49cdb26fcf}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a98af3993be29b753a3ddcb49cdb26fcf}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMutexId@{osMutexId}}
+\index{osMutexId@{osMutexId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMutexId}{osMutexId}}
+{\footnotesize\ttfamily \#define os\+Mutex\+Id~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}
+
+
+
+Mutex ID identifies the mutex. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a39f770e26b85e1bd4ad62e0d81fc0e15}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a39f770e26b85e1bd4ad62e0d81fc0e15}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMutexWait@{osMutexWait}}
+\index{osMutexWait@{osMutexWait}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMutexWait}{osMutexWait}}
+{\footnotesize\ttfamily \#define os\+Mutex\+Wait~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abc54686ea0fc281823b1763422d2a924}{os\+Mutex\+Acquire}}}
+
+Wait until a Mutex becomes available. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a5c9de56e717016e39e788064e9a291cc}{os\+Mutex\+Create}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em millisec} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1a343b9b44a38b11f5e14288c8cc8cd3}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1a343b9b44a38b11f5e14288c8cc8cd3}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osPriority@{osPriority}}
+\index{osPriority@{osPriority}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osPriority}{osPriority}}
+{\footnotesize\ttfamily \#define os\+Priority~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}}}
+
+
+
+Priority values. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a03761ee8d2c3cd4544e18364ab301dac}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a03761ee8d2c3cd4544e18364ab301dac}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSemaphore@{osSemaphore}}
+\index{osSemaphore@{osSemaphore}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphore}{osSemaphore}}
+{\footnotesize\ttfamily \#define os\+Semaphore(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\&os\+\_\+semaphore\+\_\+def\+\_\+\#\#name}
+
+Access a Semaphore definition. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the semaphore object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9e66fe361749071e5ab87826c43c2f1b}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9e66fe361749071e5ab87826c43c2f1b}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSemaphoreDef@{osSemaphoreDef}}
+\index{osSemaphoreDef@{osSemaphoreDef}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreDef}{osSemaphoreDef}}
+{\footnotesize\ttfamily \#define os\+Semaphore\+Def(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticSemaphore\_t}} os\_semaphore\_cb\_\#\#name; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{const} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ab35d358e8e79f16c658bb2e2cc50d117}{osSemaphoreDef\_t}} os\_semaphore\_def\_\#\#name = \(\backslash\)}
+\DoxyCodeLine{\{ NULL, 0U, (\&os\_semaphore\_cb\_\#\#name), \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticSemaphore\_t}}) \}}
+
+\end{DoxyCode}
+Release a Mutex that was obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a39f770e26b85e1bd4ad62e0d81fc0e15}{os\+Mutex\+Wait}}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a5c9de56e717016e39e788064e9a291cc}{os\+Mutex\+Create}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Delete a Mutex object. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a5c9de56e717016e39e788064e9a291cc}{os\+Mutex\+Create}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Define a Semaphore object. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the semaphore object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ab35d358e8e79f16c658bb2e2cc50d117}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ab35d358e8e79f16c658bb2e2cc50d117}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSemaphoreDef\_t@{osSemaphoreDef\_t}}
+\index{osSemaphoreDef\_t@{osSemaphoreDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreDef\_t}{osSemaphoreDef\_t}}
+{\footnotesize\ttfamily \#define os\+Semaphore\+Def\+\_\+t~\mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}}}
+
+
+
+Semaphore Definition structure contains setup information for a semaphore. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ad85dd5f61d6f0462f66d6c72cefd7853}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ad85dd5f61d6f0462f66d6c72cefd7853}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSemaphoreId@{osSemaphoreId}}
+\index{osSemaphoreId@{osSemaphoreId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreId}{osSemaphoreId}}
+{\footnotesize\ttfamily \#define os\+Semaphore\+Id~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}
+
+
+
+Semaphore ID identifies the semaphore. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af0c7c6b5e09f8be198312144b5c9e453}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af0c7c6b5e09f8be198312144b5c9e453}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osThread@{osThread}}
+\index{osThread@{osThread}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osThread}{osThread}}
+{\footnotesize\ttfamily \#define os\+Thread(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\&os\+\_\+thread\+\_\+def\+\_\+\#\#name}
+
+Access a Thread definition. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the thread definition object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aee93d929beb350f16e5cc7fa602e229f}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aee93d929beb350f16e5cc7fa602e229f}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osThreadDef@{osThreadDef}}
+\index{osThreadDef@{osThreadDef}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osThreadDef}{osThreadDef}}
+{\footnotesize\ttfamily \#define os\+Thread\+Def(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{priority,  }\item[{}]{instances,  }\item[{}]{stacksz }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} uint64\_t os\_thread\_stack\#\#name[(stacksz)?(((stacksz+7)/8)):1]; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{static} \mbox{\hyperlink{structx_s_t_a_t_i_c___t_c_b}{StaticTask\_t}} os\_thread\_cb\_\#\#name; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{const} \mbox{\hyperlink{structos__thread__def}{osThreadDef\_t}} os\_thread\_def\_\#\#name = \(\backslash\)}
+\DoxyCodeLine{\{ (name), \(\backslash\)}
+\DoxyCodeLine{  \{ NULL, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_aa9336c1073858d6b118e2e011636246f}{osThreadDetached}}, \(\backslash\)}
+\DoxyCodeLine{    (instances == 1) ? (\&os\_thread\_cb\_\#\#name) : NULL,\(\backslash\)}
+\DoxyCodeLine{    (instances == 1) ? \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structx_s_t_a_t_i_c___t_c_b}{StaticTask\_t}}) : 0U, \(\backslash\)}
+\DoxyCodeLine{    ((stacksz) \&\& (instances == 1)) ? (\&os\_thread\_stack\#\#name) : NULL, \(\backslash\)}
+\DoxyCodeLine{    8*((stacksz+7)/8), \(\backslash\)}
+\DoxyCodeLine{    (priority), 0U, 0U \} \}}
+
+\end{DoxyCode}
+Create a Thread Definition with function, priority, and stack requirements. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the thread function. \\
+\hline
+{\em priority} & initial priority of the thread function. \\
+\hline
+{\em instances} & number of possible thread instances. \\
+\hline
+{\em stacksz} & stack size (in bytes) requirements for the thread function. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osThreadId@{osThreadId}}
+\index{osThreadId@{osThreadId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osThreadId}{osThreadId}}
+{\footnotesize\ttfamily \#define os\+Thread\+Id~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}
+
+
+
+Thread ID identifies the thread. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1b8d670eaf964b2910fa06885e650678}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1b8d670eaf964b2910fa06885e650678}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osTimer@{osTimer}}
+\index{osTimer@{osTimer}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osTimer}{osTimer}}
+{\footnotesize\ttfamily \#define os\+Timer(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\&os\+\_\+timer\+\_\+def\+\_\+\#\#name}
+
+Access a Timer definition. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the timer object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1c720627e08d1cc1afcad44e799ed492}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a1c720627e08d1cc1afcad44e799ed492}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osTimerDef@{osTimerDef}}
+\index{osTimerDef@{osTimerDef}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osTimerDef}{osTimerDef}}
+{\footnotesize\ttfamily \#define os\+Timer\+Def(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{function }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \mbox{\hyperlink{structx_s_t_a_t_i_c___t_i_m_e_r}{StaticTimer\_t}} os\_timer\_cb\_\#\#name; \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{const} \mbox{\hyperlink{structos__timer__def}{osTimerDef\_t}} os\_timer\_def\_\#\#name = \(\backslash\)}
+\DoxyCodeLine{\{ (function), \{ NULL, 0U, (\&os\_timer\_cb\_\#\#name), \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structx_s_t_a_t_i_c___t_i_m_e_r}{StaticTimer\_t}}) \} \}}
+
+\end{DoxyCode}
+Wait for Timeout (Time Delay). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em millisec} & time delay value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Define a Timer object. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the timer object. \\
+\hline
+{\em function} & name of the timer call back function. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a105f3f5e8567b6ea5608c0919e91af8c}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a105f3f5e8567b6ea5608c0919e91af8c}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osTimerId@{osTimerId}}
+\index{osTimerId@{osTimerId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osTimerId}{osTimerId}}
+{\footnotesize\ttfamily \#define os\+Timer\+Id~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}
+
+
+
+Timer ID identifies the timer. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9eb9a7a797a42e4b55eb171ecc609ddb}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a9eb9a7a797a42e4b55eb171ecc609ddb}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osWaitForever@{osWaitForever}}
+\index{osWaitForever@{osWaitForever}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osWaitForever}{osWaitForever}}
+{\footnotesize\ttfamily \#define os\+Wait\+Forever~0x\+FFFFFFFFU}
+
+
+
+Timeout value. 
+
+Wait forever timeout value. \mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a59617d260e364a9db59176ceeb3adabc}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a59617d260e364a9db59176ceeb3adabc}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!RTOS\_ID\_n@{RTOS\_ID\_n}}
+\index{RTOS\_ID\_n@{RTOS\_ID\_n}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{RTOS\_ID\_n}{RTOS\_ID\_n}}
+{\footnotesize\ttfamily \#define RTOS\+\_\+\+ID\+\_\+n~((\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_a790e0e16f79e71d4791435a31d5b0fc7}{tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+MAJOR}} $<$$<$ 16) $\vert$ (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2task_8h_ab0b5ab04d8419227d0a5ac94af6b3639}{tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+MINOR}}))}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6fc38d5198457402ea806dcb517ec7d1}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6fc38d5198457402ea806dcb517ec7d1}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!RTOS\_ID\_s@{RTOS\_ID\_s}}
+\index{RTOS\_ID\_s@{RTOS\_ID\_s}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{RTOS\_ID\_s}{RTOS\_ID\_s}}
+{\footnotesize\ttfamily \#define RTOS\+\_\+\+ID\+\_\+s~(\char`\"{}Free\+RTOS \char`\"{} tsk\+KERNEL\+\_\+\+VERSION\+\_\+\+NUMBER)}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a3a96994ab8318050b476d72d890ce765}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a3a96994ab8318050b476d72d890ce765}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!os\_pthread@{os\_pthread}}
+\index{os\_pthread@{os\_pthread}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{os\_pthread}{os\_pthread}}
+{\footnotesize\ttfamily typedef void($\ast$ os\+\_\+pthread) (void const $\ast$argument)}
+
+
+
+Entry point of a thread. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a7904cad2180c6b3a0ac112fe8ff273e7}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a7904cad2180c6b3a0ac112fe8ff273e7}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!os\_ptimer@{os\_ptimer}}
+\index{os\_ptimer@{os\_ptimer}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{os\_ptimer}{os\_ptimer}}
+{\footnotesize\ttfamily typedef void($\ast$ os\+\_\+ptimer) (void const $\ast$argument)}
+
+
+
+Entry point of a timer call back function. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ab6d3ddc7d8cea9901544118bed1a3d1c}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ab6d3ddc7d8cea9901544118bed1a3d1c}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMailQDef\_t@{osMailQDef\_t}}
+\index{osMailQDef\_t@{osMailQDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMailQDef\_t}{osMailQDef\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structos__mail_q__def}{os\+\_\+mail\+Q\+\_\+def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ab6d3ddc7d8cea9901544118bed1a3d1c}{os\+Mail\+QDef\+\_\+t}}}
+
+
+
+Definition structure for mail queue. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMailQId@{osMailQId}}
+\index{osMailQId@{osMailQId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMailQId}{osMailQId}}
+{\footnotesize\ttfamily typedef void$\ast$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a6c62ad14ecde583acb77345636a4aa8c}{os\+Mail\+QId}}}
+
+
+
+Mail ID identifies the mail queue. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a552ffc97e37e403acff6a59793ad26eb}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a552ffc97e37e403acff6a59793ad26eb}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessageQDef\_t@{osMessageQDef\_t}}
+\index{osMessageQDef\_t@{osMessageQDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQDef\_t}{osMessageQDef\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structos__message_q__def}{os\+\_\+message\+Q\+\_\+def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a552ffc97e37e403acff6a59793ad26eb}{os\+Message\+QDef\+\_\+t}}}
+
+
+
+Definition structure for message queue. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessageQId@{osMessageQId}}
+\index{osMessageQId@{osMessageQId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQId}{osMessageQId}}
+{\footnotesize\ttfamily typedef void$\ast$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}}}
+
+
+
+Message ID identifies the message queue. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac47b811c41974c0bb74521a50c7983b7}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac47b811c41974c0bb74521a50c7983b7}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osPoolDef\_t@{osPoolDef\_t}}
+\index{osPoolDef\_t@{osPoolDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osPoolDef\_t}{osPoolDef\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structos__pool__def}{os\+\_\+pool\+\_\+def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac47b811c41974c0bb74521a50c7983b7}{os\+Pool\+Def\+\_\+t}}}
+
+
+
+Definition structure for memory block allocation. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a20c705232a75d14ade7e269d52bbc501}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a20c705232a75d14ade7e269d52bbc501}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osPoolId@{osPoolId}}
+\index{osPoolId@{osPoolId}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osPoolId}{osPoolId}}
+{\footnotesize\ttfamily typedef void$\ast$ \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a20c705232a75d14ade7e269d52bbc501}{os\+Pool\+Id}}}
+
+
+
+Pool ID identifies the memory pool. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_afa03187386e2e754164f181be8d80019}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_afa03187386e2e754164f181be8d80019}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osStatus@{osStatus}}
+\index{osStatus@{osStatus}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osStatus}{osStatus}}
+{\footnotesize\ttfamily typedef int32\+\_\+t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_afa03187386e2e754164f181be8d80019}{os\+Status}}}
+
+
+
+Status code values returned by CMSIS-\/\+RTOS functions. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a92f46bd508dcc685135882e2cf37ac8c}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a92f46bd508dcc685135882e2cf37ac8c}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osThreadDef\_t@{osThreadDef\_t}}
+\index{osThreadDef\_t@{osThreadDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osThreadDef\_t}{osThreadDef\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structos__thread__def}{os\+\_\+thread\+\_\+def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a92f46bd508dcc685135882e2cf37ac8c}{os\+Thread\+Def\+\_\+t}}}
+
+
+
+Thread Definition structure contains startup information of a thread. 
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a2144eb7d94a485f516bf0b09078f883a}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a2144eb7d94a485f516bf0b09078f883a}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osTimerDef\_t@{osTimerDef\_t}}
+\index{osTimerDef\_t@{osTimerDef\_t}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osTimerDef\_t}{osTimerDef\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structos__timer__def}{os\+\_\+timer\+\_\+def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a2144eb7d94a485f516bf0b09078f883a}{os\+Timer\+Def\+\_\+t}}}
+
+
+
+Timer Definition structure contains timer parameters. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessageCreate@{osMessageCreate}}
+\index{osMessageCreate@{osMessageCreate}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessageCreate()}{osMessageCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}} os\+Message\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a552ffc97e37e403acff6a59793ad26eb}{os\+Message\+QDef\+\_\+t}} $\ast$}]{queue\+\_\+def,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}}}]{thread\+\_\+id }\end{DoxyParamCaption})}
+
+Create and Initialize a Message Queue object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em queue\+\_\+def} & message queue definition referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a2d446a0b4bb90bf05d6f92eedeaabc97}{os\+MessageQ}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID (obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}) or NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+message queue ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_adb01ec653d1086f99ba00b4148114ba9}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_adb01ec653d1086f99ba00b4148114ba9}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessageGet@{osMessageGet}}
+\index{osMessageGet@{osMessageGet}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessageGet()}{osMessageGet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac6b67612d20f480bef2d76bb64e95be8}{os\+\_\+\+In\+Regs}} \mbox{\hyperlink{structos_event}{os\+Event}} os\+Message\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}}}]{queue\+\_\+id,  }\item[{uint32\+\_\+t}]{millisec }\end{DoxyParamCaption})}
+
+Get a Message from a Queue or timeout if Queue is empty. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em queue\+\_\+id} & message queue ID obtained with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_af3b9345cf426304d46565152bc26fb78}{os\+Message\+Create}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em millisec} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event information that includes status code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac0dcf462fc92de8ffaba6cc004514a6d}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac0dcf462fc92de8ffaba6cc004514a6d}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMessagePut@{osMessagePut}}
+\index{osMessagePut@{osMessagePut}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMessagePut()}{osMessagePut()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_afa03187386e2e754164f181be8d80019}{os\+Status}} os\+Message\+Put (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}}}]{queue\+\_\+id,  }\item[{uint32\+\_\+t}]{info,  }\item[{uint32\+\_\+t}]{millisec }\end{DoxyParamCaption})}
+
+Put a Message to a Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em queue\+\_\+id} & message queue ID obtained with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_af3b9345cf426304d46565152bc26fb78}{os\+Message\+Create}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em info} & message information. \\
+\hline
+\mbox{\texttt{ in}}  & {\em millisec} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a5c9de56e717016e39e788064e9a291cc}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a5c9de56e717016e39e788064e9a291cc}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osMutexCreate@{osMutexCreate}}
+\index{osMutexCreate@{osMutexCreate}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osMutexCreate()}{osMutexCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a98af3993be29b753a3ddcb49cdb26fcf}{os\+Mutex\+Id}} os\+Mutex\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a8d4133e7fb3d4323fbea93ce4339fb30}{os\+Mutex\+Def\+\_\+t}} $\ast$}]{mutex\+\_\+def }\end{DoxyParamCaption})}
+
+Create and Initialize a Mutex object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mutex\+\_\+def} & mutex definition referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a1122a86faa64b4a0880c76cf68d0c934}{os\+Mutex}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mutex ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a97381e8e55cd47cec390bf57c96d6edb}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a97381e8e55cd47cec390bf57c96d6edb}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSemaphoreCreate@{osSemaphoreCreate}}
+\index{osSemaphoreCreate@{osSemaphoreCreate}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreCreate()}{osSemaphoreCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ad85dd5f61d6f0462f66d6c72cefd7853}{os\+Semaphore\+Id}} os\+Semaphore\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ab35d358e8e79f16c658bb2e2cc50d117}{os\+Semaphore\+Def\+\_\+t}} $\ast$}]{semaphore\+\_\+def,  }\item[{int32\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+Create and Initialize a Semaphore object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+def} & semaphore definition referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a03761ee8d2c3cd4544e18364ab301dac}{os\+Semaphore}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em count} & maximum and initial number of available tokens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+semaphore ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_acc15b0fc8ce1167fe43da33042e62098}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_acc15b0fc8ce1167fe43da33042e62098}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSemaphoreWait@{osSemaphoreWait}}
+\index{osSemaphoreWait@{osSemaphoreWait}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreWait()}{osSemaphoreWait()}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Semaphore\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ad85dd5f61d6f0462f66d6c72cefd7853}{os\+Semaphore\+Id}}}]{semaphore\+\_\+id,  }\item[{uint32\+\_\+t}]{millisec }\end{DoxyParamCaption})}
+
+Wait until a Semaphore token becomes available. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em semaphore\+\_\+id} & semaphore object referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a97381e8e55cd47cec390bf57c96d6edb}{os\+Semaphore\+Create}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em millisec} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of available tokens, or -\/1 in case of incorrect parameters. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a87283a6ebc31ce9ed42baf3ea7e4eab6}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a87283a6ebc31ce9ed42baf3ea7e4eab6}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSignalClear@{osSignalClear}}
+\index{osSignalClear@{osSignalClear}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSignalClear()}{osSignalClear()}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Signal\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}}}]{thread\+\_\+id,  }\item[{int32\+\_\+t}]{signals }\end{DoxyParamCaption})}
+
+Clear the specified Signal Flags of an active thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em signals} & specifies the signal flags of the thread that shall be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+previous signal flags of the specified thread or 0x80000000 in case of incorrect parameters or call from ISR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a3de2730654589d6c3559c4b9e2825553}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a3de2730654589d6c3559c4b9e2825553}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSignalSet@{osSignalSet}}
+\index{osSignalSet@{osSignalSet}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSignalSet()}{osSignalSet()}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Signal\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}}}]{thread\+\_\+id,  }\item[{int32\+\_\+t}]{signals }\end{DoxyParamCaption})}
+
+Return the thread ID of the current running thread. \begin{DoxyReturn}{Returns}
+thread ID for reference by other functions or NULL in case of error. Change priority of a thread. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em priority} & new priority value for the thread function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Get current priority of a thread. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current priority value of the specified thread. Pass control to next thread that is in state {\bfseries{READY}}. 
+
+status code that indicates the execution status of the function. Terminate execution of a thread. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. Set the specified Signal Flags of an active thread. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+id} & thread ID obtained by \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac59b5713cb083702dce759c73fd90dff}{os\+Thread\+Create}} or \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2de01c4fdf6bbef8a7e90c135f48fba36_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em signals} & specifies the signal flags of the thread that should be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+previous signal flags of the specified thread or 0x80000000 in case of incorrect parameters. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a74b9d7a26279c8ac4cc246e66cbbad40}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a74b9d7a26279c8ac4cc246e66cbbad40}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osSignalWait@{osSignalWait}}
+\index{osSignalWait@{osSignalWait}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osSignalWait()}{osSignalWait()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_ac6b67612d20f480bef2d76bb64e95be8}{os\+\_\+\+In\+Regs}} \mbox{\hyperlink{structos_event}{os\+Event}} os\+Signal\+Wait (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{signals,  }\item[{uint32\+\_\+t}]{millisec }\end{DoxyParamCaption})}
+
+Wait for one or more Signal Flags to become signaled for the current {\bfseries{RUNNING}} thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em signals} & wait until all specified signal flags set or 0 for any single signal flag. \\
+\hline
+\mbox{\texttt{ in}}  & {\em millisec} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flag information or error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac59b5713cb083702dce759c73fd90dff}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_ac59b5713cb083702dce759c73fd90dff}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osThreadCreate@{osThreadCreate}}
+\index{osThreadCreate@{osThreadCreate}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osThreadCreate()}{osThreadCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a124cf72c12a6f6329028151039a8d2ec}{os\+Thread\+Id}} os\+Thread\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a92f46bd508dcc685135882e2cf37ac8c}{os\+Thread\+Def\+\_\+t}} $\ast$}]{thread\+\_\+def,  }\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+Create a thread and add it to Active Threads and set it to state READY. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+\_\+def} & thread definition referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_af0c7c6b5e09f8be198312144b5c9e453}{os\+Thread}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em argument} & pointer that is passed to the thread function as start argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aedd312bfdca04e0b8162b666e09a1ae6}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_aedd312bfdca04e0b8162b666e09a1ae6}} 
+\index{cmsis\_os.h@{cmsis\_os.h}!osTimerCreate@{osTimerCreate}}
+\index{osTimerCreate@{osTimerCreate}!cmsis\_os.h@{cmsis\_os.h}}
+\doxysubsubsection{\texorpdfstring{osTimerCreate()}{osTimerCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a105f3f5e8567b6ea5608c0919e91af8c}{os\+Timer\+Id}} os\+Timer\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a2144eb7d94a485f516bf0b09078f883a}{os\+Timer\+Def\+\_\+t}} $\ast$}]{timer\+\_\+def,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a032f509cc61005b0eb240091ee318372}{os\+\_\+timer\+\_\+type}}}]{type,  }\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+Create and Initialize a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+\_\+def} & timer object referenced with \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4_a1b8d670eaf964b2910fa06885e650678}{os\+Timer}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & os\+Timer\+Once for one-\/shot or os\+Timer\+Periodic for periodic behavior. \\
+\hline
+\mbox{\texttt{ in}}  & {\em argument} & argument to the timer call back function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+timer ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}

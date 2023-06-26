@@ -1,0 +1,627 @@
+\hypertarget{mpu9dof_8c}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Core/\+Src/mpu9dof.c File Reference}
+\label{mpu9dof_8c}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Src/mpu9dof.c@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Src/mpu9dof.c}}
+{\ttfamily \#include \char`\"{}mpu9dof.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_raw_data}{Raw\+Data}}
+\item 
+struct \mbox{\hyperlink{struct_offset_values}{Offset\+Values}}
+\begin{DoxyCompactList}\small\item\em Structure representing offset values for gyroscope and accelerometer. The \mbox{\hyperlink{struct_offset_values}{Offset\+Values}} struct is used to store the offset values for the gyro and accelerometer. It contains two arrays, gyro\+\_\+offset and acc\+\_\+offset, which hold the offset values for the gyro and accelerometer. Each array has three elements of type int16\+\_\+t, representing the offset values along the x, y, and z axes. These offset values are typically determined during a calibration process and are used to compensate for any biases or errors in the sensor readings. By applying the offset values, more accurate and reliable measurements can be obtained. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_calibrated_data}{Calibrated\+Data}}
+\begin{DoxyCompactList}\small\item\em used to store the calibrated data for the accelerometer and gyroscope It contains two arrays, acc\+\_\+calib and gyro\+\_\+calib, which hold the calibrated values for the accelerometer and gyroscope, respectively. Each array has three elements of type int16\+\_\+t, representing the calibrated values along the x, y, and z axes. These calibrated values have been adjusted to remove any biases or errors present in the raw sensor readings. By using the calibrated data, more accurate and reliable measurements can be obtained from the accelerometer and gyroscope. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_processed_data}{Processed\+Data}}
+\begin{DoxyCompactList}\small\item\em Structure representing processed data including bubble level and shake detection. The \mbox{\hyperlink{struct_processed_data}{Processed\+Data}} structure is used to store the processed data, which includes the bubble level readings and shake detection result. The roll and pitch variables are of type int16\+\_\+t and represent the angles of the bubble level along the horizontal (roll) and vertical (pitch) axes. These values indicate the orientation or tilt of the object being measured. The shake variable is of type uint8\+\_\+t and represents the shake detection result. It is used to indicate whether a shake or vibration event has been detected. A value of 1 indicates a shake or vibration is detected, while a value of 0 indicates no shake or vibration is detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_raw_data}{Raw\+Data}} \mbox{\hyperlink{mpu9dof_8c_a1c1a027426b35b6c5326bff15581e0b6}{Raw\+Data}}
+\item 
+typedef struct \mbox{\hyperlink{struct_offset_values}{Offset\+Values}} \mbox{\hyperlink{mpu9dof_8c_aa17b9a90befa6219ed31247a27bd3ec2}{Offset\+Values}}
+\begin{DoxyCompactList}\small\item\em Structure representing offset values for gyroscope and accelerometer. The \mbox{\hyperlink{struct_offset_values}{Offset\+Values}} struct is used to store the offset values for the gyro and accelerometer. It contains two arrays, gyro\+\_\+offset and acc\+\_\+offset, which hold the offset values for the gyro and accelerometer. Each array has three elements of type int16\+\_\+t, representing the offset values along the x, y, and z axes. These offset values are typically determined during a calibration process and are used to compensate for any biases or errors in the sensor readings. By applying the offset values, more accurate and reliable measurements can be obtained. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_calibrated_data}{Calibrated\+Data}} \mbox{\hyperlink{mpu9dof_8c_a8eb89d28854cbbf9e7f47c5aafb2cbad}{Calibrated\+Data}}
+\begin{DoxyCompactList}\small\item\em used to store the calibrated data for the accelerometer and gyroscope It contains two arrays, acc\+\_\+calib and gyro\+\_\+calib, which hold the calibrated values for the accelerometer and gyroscope, respectively. Each array has three elements of type int16\+\_\+t, representing the calibrated values along the x, y, and z axes. These calibrated values have been adjusted to remove any biases or errors present in the raw sensor readings. By using the calibrated data, more accurate and reliable measurements can be obtained from the accelerometer and gyroscope. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_processed_data}{Processed\+Data}} \mbox{\hyperlink{mpu9dof_8c_a2f0f68ad9a4803efbb1f05c96551872b}{Processed\+Data}}
+\begin{DoxyCompactList}\small\item\em Structure representing processed data including bubble level and shake detection. The \mbox{\hyperlink{struct_processed_data}{Processed\+Data}} structure is used to store the processed data, which includes the bubble level readings and shake detection result. The roll and pitch variables are of type int16\+\_\+t and represent the angles of the bubble level along the horizontal (roll) and vertical (pitch) axes. These values indicate the orientation or tilt of the object being measured. The shake variable is of type uint8\+\_\+t and represents the shake detection result. It is used to indicate whether a shake or vibration event has been detected. A value of 1 indicates a shake or vibration is detected, while a value of 0 indicates no shake or vibration is detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mpu9dof_8c_a949f4308c28a7a773584c8e6c281e3cb}{mpu9dof\+\_\+default\+\_\+cfg}} ()
+\begin{DoxyCompactList}\small\item\em \+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read}} (const uint8\+\_\+t $\ast$sensor)
+\begin{DoxyCompactList}\small\item\em Read sensor data from MPU9\+DOF module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8c_af7d279570f140f310e675e91b1d73b1a}{mpu9dof\+\_\+calibrate\+\_\+module}} ()
+\begin{DoxyCompactList}\small\item\em Calibrates the 9DOF MPU module by calculating the value of the sample data. This function performs calibration for the 9DOF MPU module. The calibration process is performed by reading gyro data using the \mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read()}} function with the sensor type set to GYRO. The sample data is accumulated in the gyro\+\_\+sum array. After collecting the required number of samples defined by CALIBRATION\+\_\+\+SAMPLES, the mean value is calculated for each gyro axis. The gyro offset values are stored in the offset\+Values.\+gyro\+\_\+offset array, and the calibrated gyro data is stored in the calibrated\+Data.\+gyro\+\_\+calib array. Additionally, a normal 1G offset of the accelerometer in the Z-\/axis is accounted for by subtracting 16384 from the offset\+Values.\+acc\+\_\+offset\mbox{[}2\mbox{]} value. The calibrated accelerometer data is stored in the calibrated\+Data.\+acc\+\_\+calib\mbox{[}2\mbox{]} variable. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{mpu9dof_8c_a62e71fb6014f5c2527ce9ba6928cec83}{mpu9dof\+\_\+process}} ()
+\begin{DoxyCompactList}\small\item\em Process sensor data and calculate roll, pitch, and shake detection. This function processes the sensor data and performs calculations to determine the roll, pitch, and shake detection values. It takes the raw gyro and accelerometer data from raw\+Data and applies necessary conversions to obtain the values in appropriate units. The function converts the raw gyro values to degrees per second by subtracting the gyro offset values and dividing by 131.\+0. Similarly, the raw accelerometer values are converted to G\textquotesingle{}s by dividing them by 4096.\+0. The roll and pitch angles are calculated from the accelerometer data using the atan2f function and then converted to degrees by multiplying with the RAD\+\_\+\+TO\+\_\+\+DEG constant. The complementary filter is applied to combine the gyro and accelerometer data for the roll and pitch angles. The filtered roll and pitch values are updated in processed\+Data using the COMPLEMENTARY\+\_\+\+RATIO and DELTA\+\_\+\+TIME constants. The shake detection is performed by calculating the magnitude of the accelerometer readings and comparing it to the SHAKE\+\_\+\+THRESHOLD. If the magnitude exceeds the threshold, shake is considered to be detected, and the processed\+Data.\+shake value is set to 0; otherwise, it is set to 1. The function returns a pointer to the processed\+Data structure containing the calculated roll, pitch, and shake values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8c_a5433079579490b97f6094c3659af0089}{mpu9dof\+\_\+log\+\_\+data}} (const uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Log data based on the specified type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8c_a19362190b7708f09cf198ac33319d513}{mpu9dof\+\_\+generic\+\_\+write}} (const uint8\+\_\+t $\ast$reg, const uint8\+\_\+t $\ast$data\+\_\+buf, const uint8\+\_\+t $\ast$len)
+\begin{DoxyCompactList}\small\item\em Generic write function for MPU9\+DOF module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8c_a01269a22d6a6e761803b82be318f568e}{mpu9dof\+\_\+generic\+\_\+read}} (const uint8\+\_\+t $\ast$reg, uint8\+\_\+t $\ast$data\+\_\+buf, const uint8\+\_\+t $\ast$len)
+\begin{DoxyCompactList}\small\item\em Generic read function for MPU9\+DOF module. This function is used to read data from the MPU9\+DOF module. It accepts a register address specified by the reg parameter, a data buffer specified by the data\+\_\+buf parameter, and the length of the data buffer specified by the len parameter. The function begins by acquiring a critical section to ensure exclusive access to shared resources. It then calls the HAL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read function to read data from the MPU9\+DOF module. The function specifies the I2C interface (hi2c1), the I2C device address obtained by left-\/shifting MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 by 1, the register address ($\ast$reg), the size of the register address (I2\+C\+\_\+\+MEMADD\+\_\+\+SIZE\+\_\+8\+BIT), the data buffer to store the read data (data\+\_\+buf), the length of the data to be read ($\ast$len), and the maximum delay for the operation (HAL\+\_\+\+MAX\+\_\+\+DELAY). Finally, the function releases the critical section and returns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2\+C\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{mpu9dof_8c_af7b2c26e44dadaaa798a5c3d82914ba7}{hi2c1}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_ace92afad010308cb88a74c110408833a}{MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1}} = 0x69
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a4b750fec54c6406d16a2c0238dcf56af}{MPU9\+DOF\+\_\+\+BIT\+\_\+\+H\+\_\+\+RESET}} = 0x80
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a49e0846dacaf6675bc6466a4d70ca723}{MPU9\+DOF\+\_\+\+DEFAULT}} = 0x00
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a3aade376745f1e7a469a10b26ebd551b}{MPU9\+DOF\+\_\+\+BITS\+\_\+\+DLPF\+\_\+\+CFG\+\_\+42\+HZ}} = 0x03
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a4bc769bbe277a45f1c29e1e7a18ccb2d}{MPU9\+DOF\+\_\+\+BIT\+\_\+\+FIFO\+\_\+\+DIS}} = 0x00
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a5912f4f5b0d9e8556f28b98925153ac1}{MPU9\+DOF\+\_\+\+BIT\+\_\+\+INT\+\_\+\+PIN\+\_\+\+CFG}} = 0x02
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_aa373db1d9e00d5d106cca10baa96ea84}{MPU9\+DOF\+\_\+\+SMPLRT\+\_\+\+DIV}} = 0x19
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_ad6b2f8caba4e8478afe874b05b753580}{MPU9\+DOF\+\_\+\+CONFIG}} = 0x1A
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_aa68dd2a28e55296623b64ccf23981bae}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+CONFIG}} = 0x1B
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a7b219909a48ba3d698653a9848002115}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+CONFIG}} = 0x1C
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_ab0c83376e098321319e0c103239aeae3}{MPU9\+DOF\+\_\+\+FIFO\+\_\+\+EN}} = 0x23
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a18c9eeb5dfe6896666902cb99a13d527}{MPU9\+DOF\+\_\+\+INT\+\_\+\+PIN\+\_\+\+CFG}} = 0x37
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a0196791086d75eab99490549ff150ad6}{MPU9\+DOF\+\_\+\+INT\+\_\+\+ENABLE}} = 0x38
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_afbcc92b4f26c722f378422726a6f0d72}{MPU9\+DOF\+\_\+\+USER\+\_\+\+CTRL}} = 0x6A
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a90aa4fe3af751fa4f17406a9c98f67e2}{MPU9\+DOF\+\_\+\+PWR\+\_\+\+MGMT\+\_\+1}} = 0x6B
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_aedc1c865f06de7a6fab00a6084fb86fe}{MPU9\+DOF\+\_\+\+PWR\+\_\+\+MGMT\+\_\+2}} = 0x6C
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_abd230107adbbce5cf82791ef10e9dd23}{MPU9\+DOF\+\_\+\+BITS\+\_\+\+FS\+\_\+250\+DPS}} = 0x00
+\begin{DoxyCompactList}\small\item\em Sensitivity settings for accelerometer and gyroscope. These constants define the sensitivity settings for the accelerometer and gyroscope of the MPU-\/9\+DOF sensor. MPU9\+DOF\+\_\+\+BITS\+\_\+\+FS\+\_\+250\+DPS\+: Sensitivity setting for the gyroscope at 250 degrees per second. MPU9\+DOF\+\_\+\+BITS\+\_\+\+AFSL\+\_\+\+SEL\+\_\+8G\+: Sensitivity setting for the accelerometer at 8g. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a9f45263b150c5a7926b58ae1fefd3806}{MPU9\+DOF\+\_\+\+BITS\+\_\+\+AFSL\+\_\+\+SEL\+\_\+8G}} = 0x10
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_aa003a2decca0e11c619289f80f9d33ff}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H}} = 0x43
+\begin{DoxyCompactList}\small\item\em High registers of the gyroscope and accelerometer. These constants define the addresses of the high registers of the gyroscope and accelerometer in the MPU-\/9\+DOF sensor. MPU9\+DOF\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H\+: Address of the high register for the X-\/axis gyroscope output. MPU9\+DOF\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H\+: Address of the high register for the Y-\/axis gyroscope output. MPU9\+DOF\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H\+: Address of the high register for the Z-\/axis gyroscope output. MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H\+: Address of the high register for the X-\/axis accelerometer output. MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H\+: Address of the high register for the Y-\/axis accelerometer output. MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H\+: Address of the high register for the Z-\/axis accelerometer output. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_aa0f9f5d494a3ccc3c87c8fb88ae287dd}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H}} = 0x45
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a05da3d1b8555e6647aa4bcb108cd47f1}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H}} = 0x47
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a5ee7c56be6f5ccd8c9fc46bd8f64fe1d}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H}} = 0x3B
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_af3ab19293e1923b48e195a2cba1bdb0e}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H}} = 0x3D
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a323047f22c2674ae3ea96f2c4f8d331d}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H}} = 0x3F
+\item 
+const float \mbox{\hyperlink{mpu9dof_8c_a3e92e8253a6240e36fc8ed496aec2a03}{SHAKE\+\_\+\+THRESHOLD}} = 2.\+5
+\begin{DoxyCompactList}\small\item\em Constants for motion sensing. These constants define various parameters used in motion sensing calculations. SHAKE\+\_\+\+THRESHOLD\+: Threshold for detecting shaking motion, specified in units of G\textquotesingle{}s (acceleration due to gravity). DELTA\+\_\+\+TIME\+: Time interval between sensor readings, expressed as the reciprocal of the sampling rate (30 times per second). RAD\+\_\+\+TO\+\_\+\+DEG\+: Conversion constant for converting radians to degrees. COMPLEMENTARY\+\_\+\+RATIO\+: Complementary filter ratio used in sensor fusion algorithms, obtained from external knowledge sources. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{mpu9dof_8c_ad41d7e66c90529c1f3d8e8be9df8ed95}{DELTA\+\_\+\+TIME}} = 1.\+0/30.\+0
+\item 
+const float \mbox{\hyperlink{mpu9dof_8c_a374e8373687339ac309e4f02b305fb0f}{RAD\+\_\+\+TO\+\_\+\+DEG}} = 57.\+2957795131
+\item 
+const float \mbox{\hyperlink{mpu9dof_8c_aa13aa37077c3b71dfcadf38e1bc7bfe4}{COMPLEMENTARY\+\_\+\+RATIO}} = 0.\+98
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{mpu9dof_8c_a1159e4f53de21839e7731629ab36c2d6}{CALIBRATION\+\_\+\+SAMPLES}} = 50
+\begin{DoxyCompactList}\small\item\em Specifies the number of example values to be recorded for calibration. This constant variable determines the number of example values that should be recorded for the calibration process. It is of type uint8\+\_\+t, which represents an unsigned 8-\/bit integer. The calibration process is used to establish reference values or parameters for calculations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_raw_data}{Raw\+Data}} \mbox{\hyperlink{mpu9dof_8c_a6a58ed8cae092f222d56fb8b32a99080}{raw\+Data}}
+\item 
+\mbox{\hyperlink{struct_processed_data}{Processed\+Data}} \mbox{\hyperlink{mpu9dof_8c_a10cb247ad8a7279a9d4e6b505496bc4b}{processed\+Data}}
+\item 
+\mbox{\hyperlink{struct_offset_values}{Offset\+Values}} \mbox{\hyperlink{mpu9dof_8c_a98f219b8466fd2ccc99d8f7546f9e739}{offset\+Values}}
+\item 
+\mbox{\hyperlink{struct_calibrated_data}{Calibrated\+Data}} \mbox{\hyperlink{mpu9dof_8c_a7930346cc386f4dd9d626edcc6bdc716}{calibrated\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mpu9dof_8c_a8eb89d28854cbbf9e7f47c5aafb2cbad}\label{mpu9dof_8c_a8eb89d28854cbbf9e7f47c5aafb2cbad}} 
+\index{mpu9dof.c@{mpu9dof.c}!CalibratedData@{CalibratedData}}
+\index{CalibratedData@{CalibratedData}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{CalibratedData}{CalibratedData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_calibrated_data}{Calibrated\+Data}} \mbox{\hyperlink{struct_calibrated_data}{Calibrated\+Data}}}
+
+
+
+used to store the calibrated data for the accelerometer and gyroscope It contains two arrays, acc\+\_\+calib and gyro\+\_\+calib, which hold the calibrated values for the accelerometer and gyroscope, respectively. Each array has three elements of type int16\+\_\+t, representing the calibrated values along the x, y, and z axes. These calibrated values have been adjusted to remove any biases or errors present in the raw sensor readings. By using the calibrated data, more accurate and reliable measurements can be obtained from the accelerometer and gyroscope. 
+
+\begin{DoxySeeAlso}{See also}
+acc\+\_\+calib 
+
+gyro\+\_\+calib 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_aa17b9a90befa6219ed31247a27bd3ec2}\label{mpu9dof_8c_aa17b9a90befa6219ed31247a27bd3ec2}} 
+\index{mpu9dof.c@{mpu9dof.c}!OffsetValues@{OffsetValues}}
+\index{OffsetValues@{OffsetValues}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{OffsetValues}{OffsetValues}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_offset_values}{Offset\+Values}} \mbox{\hyperlink{struct_offset_values}{Offset\+Values}}}
+
+
+
+Structure representing offset values for gyroscope and accelerometer. The \mbox{\hyperlink{struct_offset_values}{Offset\+Values}} struct is used to store the offset values for the gyro and accelerometer. It contains two arrays, gyro\+\_\+offset and acc\+\_\+offset, which hold the offset values for the gyro and accelerometer. Each array has three elements of type int16\+\_\+t, representing the offset values along the x, y, and z axes. These offset values are typically determined during a calibration process and are used to compensate for any biases or errors in the sensor readings. By applying the offset values, more accurate and reliable measurements can be obtained. 
+
+\begin{DoxySeeAlso}{See also}
+gyro\+\_\+offset 
+
+acc\+\_\+offset 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_a2f0f68ad9a4803efbb1f05c96551872b}\label{mpu9dof_8c_a2f0f68ad9a4803efbb1f05c96551872b}} 
+\index{mpu9dof.c@{mpu9dof.c}!ProcessedData@{ProcessedData}}
+\index{ProcessedData@{ProcessedData}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{ProcessedData}{ProcessedData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_processed_data}{Processed\+Data}} \mbox{\hyperlink{struct_processed_data}{Processed\+Data}}}
+
+
+
+Structure representing processed data including bubble level and shake detection. The \mbox{\hyperlink{struct_processed_data}{Processed\+Data}} structure is used to store the processed data, which includes the bubble level readings and shake detection result. The roll and pitch variables are of type int16\+\_\+t and represent the angles of the bubble level along the horizontal (roll) and vertical (pitch) axes. These values indicate the orientation or tilt of the object being measured. The shake variable is of type uint8\+\_\+t and represents the shake detection result. It is used to indicate whether a shake or vibration event has been detected. A value of 1 indicates a shake or vibration is detected, while a value of 0 indicates no shake or vibration is detected. 
+
+\begin{DoxySeeAlso}{See also}
+roll 
+
+pitch 
+
+shake 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_a1c1a027426b35b6c5326bff15581e0b6}\label{mpu9dof_8c_a1c1a027426b35b6c5326bff15581e0b6}} 
+\index{mpu9dof.c@{mpu9dof.c}!RawData@{RawData}}
+\index{RawData@{RawData}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{RawData}{RawData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_raw_data}{Raw\+Data}} \mbox{\hyperlink{struct_raw_data}{Raw\+Data}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpu9dof_8c_af7d279570f140f310e675e91b1d73b1a}\label{mpu9dof_8c_af7d279570f140f310e675e91b1d73b1a}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_calibrate\_module@{mpu9dof\_calibrate\_module}}
+\index{mpu9dof\_calibrate\_module@{mpu9dof\_calibrate\_module}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_calibrate\_module()}{mpu9dof\_calibrate\_module()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+calibrate\+\_\+module (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Calibrates the 9DOF MPU module by calculating the value of the sample data. This function performs calibration for the 9DOF MPU module. The calibration process is performed by reading gyro data using the \mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read()}} function with the sensor type set to GYRO. The sample data is accumulated in the gyro\+\_\+sum array. After collecting the required number of samples defined by CALIBRATION\+\_\+\+SAMPLES, the mean value is calculated for each gyro axis. The gyro offset values are stored in the offset\+Values.\+gyro\+\_\+offset array, and the calibrated gyro data is stored in the calibrated\+Data.\+gyro\+\_\+calib array. Additionally, a normal 1G offset of the accelerometer in the Z-\/axis is accounted for by subtracting 16384 from the offset\+Values.\+acc\+\_\+offset\mbox{[}2\mbox{]} value. The calibrated accelerometer data is stored in the calibrated\+Data.\+acc\+\_\+calib\mbox{[}2\mbox{]} variable. 
+
+\begin{DoxyNote}{Note}
+The calibration process assumes that the sensor is at a stable and neutral position during calibration. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read()}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a1159e4f53de21839e7731629ab36c2d6}{CALIBRATION\+\_\+\+SAMPLES}} 
+
+\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2freertos_8c_ac2203bf8f6dd5851eca6112dea4f7b1b}{GYRO}} 
+
+gyro\+\_\+sum 
+
+offset\+Values.\+gyro\+\_\+offset 
+
+calibrated\+Data.\+gyro\+\_\+calib 
+
+offset\+Values.\+acc\+\_\+offset 
+
+calibrated\+Data.\+acc\+\_\+calib 
+\end{DoxySeeAlso}
+Apply a normal 1G offset correction to the Z-\/axis accelerometer data.\mbox{\Hypertarget{mpu9dof_8c_a949f4308c28a7a773584c8e6c281e3cb}\label{mpu9dof_8c_a949f4308c28a7a773584c8e6c281e3cb}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_default\_cfg@{mpu9dof\_default\_cfg}}
+\index{mpu9dof\_default\_cfg@{mpu9dof\_default\_cfg}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_default\_cfg()}{mpu9dof\_default\_cfg()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+default\+\_\+cfg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\+: 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: 
+\end{DoxyReturn}
+Chip reset\+: Resets the chip and adds a 10ms delay.
+
+Initialize accel \& gyro\+: Sets the sample rate divider to default value and adds a 10ms delay.
+
+Disable FIFOs\+: Disables the FIFO feature and adds a 10ms delay.
+
+Bypass mode enabled\+: Enables the bypass mode by setting the appropriate configuration in the INT\+\_\+\+PIN\+\_\+\+CFG register. Adds a 10ms delay.
+
+Disable all interrupts\+: Disables all interrupts by writing the default value to the INT\+\_\+\+ENABLE register. Adds a 10ms delay.
+
+No FIFO and no I2C slaves\+: Disables the FIFO and I2C slave features by setting the default value in the USER\+\_\+\+CTRL register. Adds a 10ms delay.
+
+No power management, internal clock source\+: Disables power management and sets the internal clock source by writing the default value to the PWR\+\_\+\+MGMT\+\_\+1 register. Adds a 10ms delay.\mbox{\Hypertarget{mpu9dof_8c_a01269a22d6a6e761803b82be318f568e}\label{mpu9dof_8c_a01269a22d6a6e761803b82be318f568e}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_generic\_read@{mpu9dof\_generic\_read}}
+\index{mpu9dof\_generic\_read@{mpu9dof\_generic\_read}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_generic\_read()}{mpu9dof\_generic\_read()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+generic\+\_\+read (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{reg,  }\item[{uint8\+\_\+t $\ast$}]{data\+\_\+buf,  }\item[{const uint8\+\_\+t $\ast$}]{len }\end{DoxyParamCaption})}
+
+
+
+Generic read function for MPU9\+DOF module. This function is used to read data from the MPU9\+DOF module. It accepts a register address specified by the reg parameter, a data buffer specified by the data\+\_\+buf parameter, and the length of the data buffer specified by the len parameter. The function begins by acquiring a critical section to ensure exclusive access to shared resources. It then calls the HAL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read function to read data from the MPU9\+DOF module. The function specifies the I2C interface (hi2c1), the I2C device address obtained by left-\/shifting MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 by 1, the register address ($\ast$reg), the size of the register address (I2\+C\+\_\+\+MEMADD\+\_\+\+SIZE\+\_\+8\+BIT), the data buffer to store the read data (data\+\_\+buf), the length of the data to be read ($\ast$len), and the maximum delay for the operation (HAL\+\_\+\+MAX\+\_\+\+DELAY). Finally, the function releases the critical section and returns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & Pointer to the register address. \\
+\hline
+{\em data\+\_\+buf} & Pointer to the data buffer to store the read data. \\
+\hline
+{\em len} & Pointer to the length of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___i2_c___exported___functions___group2_ga7b593a1b85bd989dd002ee209eae4ad2}{HAL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read}} 
+
+\mbox{\hyperlink{mpu9dof_8c_ace92afad010308cb88a74c110408833a}{MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_a19362190b7708f09cf198ac33319d513}\label{mpu9dof_8c_a19362190b7708f09cf198ac33319d513}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_generic\_write@{mpu9dof\_generic\_write}}
+\index{mpu9dof\_generic\_write@{mpu9dof\_generic\_write}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_generic\_write()}{mpu9dof\_generic\_write()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+generic\+\_\+write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{reg,  }\item[{const uint8\+\_\+t $\ast$}]{data\+\_\+buf,  }\item[{const uint8\+\_\+t $\ast$}]{len }\end{DoxyParamCaption})}
+
+
+
+Generic write function for MPU9\+DOF module. 
+
+This function is used to write data to the MPU9\+DOF module. It accepts a register address specified by the reg parameter, a data buffer specified by the data\+\_\+buf parameter and the length of the data buffer specified by the len parameter. The function begins by acquiring a critical section to ensure exclusive access to shared resources. It then constructs a data array with the register address as the first element and copies the data from the data buffer into the remaining elements using the memcpy function. The function then calls the HAL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Transmit function to transmit the data array over the I2C interface to the MPU9\+DOF module. The I2C address used for transmission is obtained by left-\/shifting the constant MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 by 1.
+
+Finally, the function releases the critical section and returns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & Pointer to the register address. \\
+\hline
+{\em data\+\_\+buf} & Pointer to the data buffer. \\
+\hline
+{\em len} & Pointer to the length of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___i2_c___exported___functions___group2_ga9440a306e25c7bd038cfa8619ec9a830}{HAL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Transmit}} 
+
+memcpy 
+
+\mbox{\hyperlink{mpu9dof_8c_ace92afad010308cb88a74c110408833a}{MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_a5433079579490b97f6094c3659af0089}\label{mpu9dof_8c_a5433079579490b97f6094c3659af0089}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_log\_data@{mpu9dof\_log\_data}}
+\index{mpu9dof\_log\_data@{mpu9dof\_log\_data}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_log\_data()}{mpu9dof\_log\_data()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+log\+\_\+data (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Log data based on the specified type. 
+
+This function logs different types of data based on the value of $\ast$data. The function accepts a pointer to the data variable, which is used in a switch statement to determine the type of data to log. If $\ast$data is 1, the function logs the raw accelerometer and gyroscope data by printing the values of raw\+Data.\+acc and raw\+Data.\+gyro using the printf function. If $\ast$data is 2, the function logs the calibration offset for the gyroscope by printing the values of offset\+Values.\+gyro\+\_\+offset using the printf function. If $\ast$data is 3, the function logs the calibrated data. (TODO\+: Add details if available.) If $\ast$data is 4, the function logs the processed final data, including the roll, pitch, and shake values from processed\+Data, using the printf function.
+
+If none of the above cases match, indicating an invalid value for $\ast$data, an error message is printed using the printf function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the data type specifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+raw\+Data.\+acc 
+
+raw\+Data.\+gyro 
+
+offset\+Values.\+gyro\+\_\+offset 
+
+processed\+Data.\+roll 
+
+processed\+Data.\+pitch 
+
+processed\+Data.\+shake 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_a62e71fb6014f5c2527ce9ba6928cec83}\label{mpu9dof_8c_a62e71fb6014f5c2527ce9ba6928cec83}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_process@{mpu9dof\_process}}
+\index{mpu9dof\_process@{mpu9dof\_process}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_process()}{mpu9dof\_process()}}
+{\footnotesize\ttfamily void $\ast$ mpu9dof\+\_\+process (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process sensor data and calculate roll, pitch, and shake detection. This function processes the sensor data and performs calculations to determine the roll, pitch, and shake detection values. It takes the raw gyro and accelerometer data from raw\+Data and applies necessary conversions to obtain the values in appropriate units. The function converts the raw gyro values to degrees per second by subtracting the gyro offset values and dividing by 131.\+0. Similarly, the raw accelerometer values are converted to G\textquotesingle{}s by dividing them by 4096.\+0. The roll and pitch angles are calculated from the accelerometer data using the atan2f function and then converted to degrees by multiplying with the RAD\+\_\+\+TO\+\_\+\+DEG constant. The complementary filter is applied to combine the gyro and accelerometer data for the roll and pitch angles. The filtered roll and pitch values are updated in processed\+Data using the COMPLEMENTARY\+\_\+\+RATIO and DELTA\+\_\+\+TIME constants. The shake detection is performed by calculating the magnitude of the accelerometer readings and comparing it to the SHAKE\+\_\+\+THRESHOLD. If the magnitude exceeds the threshold, shake is considered to be detected, and the processed\+Data.\+shake value is set to 0; otherwise, it is set to 1. The function returns a pointer to the processed\+Data structure containing the calculated roll, pitch, and shake values. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the processed\+Data structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+raw\+Data.\+gyro 
+
+offset\+Values.\+gyro\+\_\+offset 
+
+raw\+Data.\+acc 
+
+\mbox{\hyperlink{mpu9dof_8c_aa13aa37077c3b71dfcadf38e1bc7bfe4}{COMPLEMENTARY\+\_\+\+RATIO}} 
+
+\mbox{\hyperlink{mpu9dof_8c_ad41d7e66c90529c1f3d8e8be9df8ed95}{DELTA\+\_\+\+TIME}} 
+
+processed\+Data.\+roll 
+
+processed\+Data.\+pitch 
+
+\mbox{\hyperlink{mpu9dof_8c_a3e92e8253a6240e36fc8ed496aec2a03}{SHAKE\+\_\+\+THRESHOLD}} 
+
+processed\+Data.\+shake 
+
+\mbox{\hyperlink{mpu9dof_8c_a374e8373687339ac309e4f02b305fb0f}{RAD\+\_\+\+TO\+\_\+\+DEG}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}\label{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}} 
+\index{mpu9dof.c@{mpu9dof.c}!mpu9dof\_read@{mpu9dof\_read}}
+\index{mpu9dof\_read@{mpu9dof\_read}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_read()}{mpu9dof\_read()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+read (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+
+
+Read sensor data from MPU9\+DOF module. 
+
+This function reads sensor data from the MPU9\+DOF module based on the provided sensor type. The sensor type is specified using the parameter sensor. If sensor is equal to 1, the function reads gyro data from the module\textquotesingle{}s registers, including X, Y, and Z-\/axis gyro values, and stores them in the raw\+Data.\+gyro array. If sensor is equal to 2, the function reads accelerometer data from the module\textquotesingle{}s registers, including X, Y, and Z-\/axis accelerometer values, and stores them in the raw\+Data.\+acc array. If sensor is neither 1 nor 2, an error message is printed. 
+\begin{DoxyParams}{Parameters}
+{\em sensor} & Sensor type to read data from. Valid values are 1 (gyro) and 2 (accelerometer).\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{mpu9dof_8c_a01269a22d6a6e761803b82be318f568e}{mpu9dof\+\_\+generic\+\_\+read()}} 
+
+\mbox{\hyperlink{mpu9dof_8c_aa003a2decca0e11c619289f80f9d33ff}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_aa0f9f5d494a3ccc3c87c8fb88ae287dd}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a05da3d1b8555e6647aa4bcb108cd47f1}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a5ee7c56be6f5ccd8c9fc46bd8f64fe1d}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_af3ab19293e1923b48e195a2cba1bdb0e}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a323047f22c2674ae3ea96f2c4f8d331d}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H}} 
+
+raw\+Data.\+gyro 
+
+raw\+Data.\+acc 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mpu9dof_8c_a7930346cc386f4dd9d626edcc6bdc716}\label{mpu9dof_8c_a7930346cc386f4dd9d626edcc6bdc716}} 
+\index{mpu9dof.c@{mpu9dof.c}!calibratedData@{calibratedData}}
+\index{calibratedData@{calibratedData}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{calibratedData}{calibratedData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_calibrated_data}{Calibrated\+Data}} calibrated\+Data}
+
+\mbox{\Hypertarget{mpu9dof_8c_a1159e4f53de21839e7731629ab36c2d6}\label{mpu9dof_8c_a1159e4f53de21839e7731629ab36c2d6}} 
+\index{mpu9dof.c@{mpu9dof.c}!CALIBRATION\_SAMPLES@{CALIBRATION\_SAMPLES}}
+\index{CALIBRATION\_SAMPLES@{CALIBRATION\_SAMPLES}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{CALIBRATION\_SAMPLES}{CALIBRATION\_SAMPLES}}
+{\footnotesize\ttfamily const uint8\+\_\+t CALIBRATION\+\_\+\+SAMPLES = 50}
+
+
+
+Specifies the number of example values to be recorded for calibration. This constant variable determines the number of example values that should be recorded for the calibration process. It is of type uint8\+\_\+t, which represents an unsigned 8-\/bit integer. The calibration process is used to establish reference values or parameters for calculations. 
+
+\begin{DoxyNote}{Note}
+Adjusting this value may impact the accuracy and reliability of the calibration process. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{mpu9dof_8c_a1159e4f53de21839e7731629ab36c2d6}{CALIBRATION\+\_\+\+SAMPLES}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8c_aa13aa37077c3b71dfcadf38e1bc7bfe4}\label{mpu9dof_8c_aa13aa37077c3b71dfcadf38e1bc7bfe4}} 
+\index{mpu9dof.c@{mpu9dof.c}!COMPLEMENTARY\_RATIO@{COMPLEMENTARY\_RATIO}}
+\index{COMPLEMENTARY\_RATIO@{COMPLEMENTARY\_RATIO}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{COMPLEMENTARY\_RATIO}{COMPLEMENTARY\_RATIO}}
+{\footnotesize\ttfamily const float COMPLEMENTARY\+\_\+\+RATIO = 0.\+98}
+
+\mbox{\Hypertarget{mpu9dof_8c_ad41d7e66c90529c1f3d8e8be9df8ed95}\label{mpu9dof_8c_ad41d7e66c90529c1f3d8e8be9df8ed95}} 
+\index{mpu9dof.c@{mpu9dof.c}!DELTA\_TIME@{DELTA\_TIME}}
+\index{DELTA\_TIME@{DELTA\_TIME}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{DELTA\_TIME}{DELTA\_TIME}}
+{\footnotesize\ttfamily const float DELTA\+\_\+\+TIME = 1.\+0/30.\+0}
+
+\mbox{\Hypertarget{mpu9dof_8c_af7b2c26e44dadaaa798a5c3d82914ba7}\label{mpu9dof_8c_af7b2c26e44dadaaa798a5c3d82914ba7}} 
+\index{mpu9dof.c@{mpu9dof.c}!hi2c1@{hi2c1}}
+\index{hi2c1@{hi2c1}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{hi2c1}{hi2c1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2\+C\+\_\+\+Handle\+Type\+Def}} hi2c1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{mpu9dof_8c_a7b219909a48ba3d698653a9848002115}\label{mpu9dof_8c_a7b219909a48ba3d698653a9848002115}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_ACCEL\_CONFIG@{MPU9DOF\_ACCEL\_CONFIG}}
+\index{MPU9DOF\_ACCEL\_CONFIG@{MPU9DOF\_ACCEL\_CONFIG}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_ACCEL\_CONFIG}{MPU9DOF\_ACCEL\_CONFIG}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+CONFIG = 0x1C}
+
+\mbox{\Hypertarget{mpu9dof_8c_a5ee7c56be6f5ccd8c9fc46bd8f64fe1d}\label{mpu9dof_8c_a5ee7c56be6f5ccd8c9fc46bd8f64fe1d}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_ACCEL\_XOUT\_H@{MPU9DOF\_ACCEL\_XOUT\_H}}
+\index{MPU9DOF\_ACCEL\_XOUT\_H@{MPU9DOF\_ACCEL\_XOUT\_H}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_ACCEL\_XOUT\_H}{MPU9DOF\_ACCEL\_XOUT\_H}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H = 0x3B}
+
+\mbox{\Hypertarget{mpu9dof_8c_af3ab19293e1923b48e195a2cba1bdb0e}\label{mpu9dof_8c_af3ab19293e1923b48e195a2cba1bdb0e}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_ACCEL\_YOUT\_H@{MPU9DOF\_ACCEL\_YOUT\_H}}
+\index{MPU9DOF\_ACCEL\_YOUT\_H@{MPU9DOF\_ACCEL\_YOUT\_H}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_ACCEL\_YOUT\_H}{MPU9DOF\_ACCEL\_YOUT\_H}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H = 0x3D}
+
+\mbox{\Hypertarget{mpu9dof_8c_a323047f22c2674ae3ea96f2c4f8d331d}\label{mpu9dof_8c_a323047f22c2674ae3ea96f2c4f8d331d}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_ACCEL\_ZOUT\_H@{MPU9DOF\_ACCEL\_ZOUT\_H}}
+\index{MPU9DOF\_ACCEL\_ZOUT\_H@{MPU9DOF\_ACCEL\_ZOUT\_H}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_ACCEL\_ZOUT\_H}{MPU9DOF\_ACCEL\_ZOUT\_H}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H = 0x3F}
+
+\mbox{\Hypertarget{mpu9dof_8c_a4bc769bbe277a45f1c29e1e7a18ccb2d}\label{mpu9dof_8c_a4bc769bbe277a45f1c29e1e7a18ccb2d}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_BIT\_FIFO\_DIS@{MPU9DOF\_BIT\_FIFO\_DIS}}
+\index{MPU9DOF\_BIT\_FIFO\_DIS@{MPU9DOF\_BIT\_FIFO\_DIS}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_BIT\_FIFO\_DIS}{MPU9DOF\_BIT\_FIFO\_DIS}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+BIT\+\_\+\+FIFO\+\_\+\+DIS = 0x00}
+
+\mbox{\Hypertarget{mpu9dof_8c_a4b750fec54c6406d16a2c0238dcf56af}\label{mpu9dof_8c_a4b750fec54c6406d16a2c0238dcf56af}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_BIT\_H\_RESET@{MPU9DOF\_BIT\_H\_RESET}}
+\index{MPU9DOF\_BIT\_H\_RESET@{MPU9DOF\_BIT\_H\_RESET}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_BIT\_H\_RESET}{MPU9DOF\_BIT\_H\_RESET}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+BIT\+\_\+\+H\+\_\+\+RESET = 0x80}
+
+\mbox{\Hypertarget{mpu9dof_8c_a5912f4f5b0d9e8556f28b98925153ac1}\label{mpu9dof_8c_a5912f4f5b0d9e8556f28b98925153ac1}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_BIT\_INT\_PIN\_CFG@{MPU9DOF\_BIT\_INT\_PIN\_CFG}}
+\index{MPU9DOF\_BIT\_INT\_PIN\_CFG@{MPU9DOF\_BIT\_INT\_PIN\_CFG}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_BIT\_INT\_PIN\_CFG}{MPU9DOF\_BIT\_INT\_PIN\_CFG}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+BIT\+\_\+\+INT\+\_\+\+PIN\+\_\+\+CFG = 0x02}
+
+\mbox{\Hypertarget{mpu9dof_8c_a9f45263b150c5a7926b58ae1fefd3806}\label{mpu9dof_8c_a9f45263b150c5a7926b58ae1fefd3806}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_BITS\_AFSL\_SEL\_8G@{MPU9DOF\_BITS\_AFSL\_SEL\_8G}}
+\index{MPU9DOF\_BITS\_AFSL\_SEL\_8G@{MPU9DOF\_BITS\_AFSL\_SEL\_8G}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_BITS\_AFSL\_SEL\_8G}{MPU9DOF\_BITS\_AFSL\_SEL\_8G}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+BITS\+\_\+\+AFSL\+\_\+\+SEL\+\_\+8G = 0x10}
+
+\mbox{\Hypertarget{mpu9dof_8c_a3aade376745f1e7a469a10b26ebd551b}\label{mpu9dof_8c_a3aade376745f1e7a469a10b26ebd551b}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_BITS\_DLPF\_CFG\_42HZ@{MPU9DOF\_BITS\_DLPF\_CFG\_42HZ}}
+\index{MPU9DOF\_BITS\_DLPF\_CFG\_42HZ@{MPU9DOF\_BITS\_DLPF\_CFG\_42HZ}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_BITS\_DLPF\_CFG\_42HZ}{MPU9DOF\_BITS\_DLPF\_CFG\_42HZ}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+BITS\+\_\+\+DLPF\+\_\+\+CFG\+\_\+42\+HZ = 0x03}
+
+\mbox{\Hypertarget{mpu9dof_8c_abd230107adbbce5cf82791ef10e9dd23}\label{mpu9dof_8c_abd230107adbbce5cf82791ef10e9dd23}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_BITS\_FS\_250DPS@{MPU9DOF\_BITS\_FS\_250DPS}}
+\index{MPU9DOF\_BITS\_FS\_250DPS@{MPU9DOF\_BITS\_FS\_250DPS}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_BITS\_FS\_250DPS}{MPU9DOF\_BITS\_FS\_250DPS}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+BITS\+\_\+\+FS\+\_\+250\+DPS = 0x00}
+
+
+
+Sensitivity settings for accelerometer and gyroscope. These constants define the sensitivity settings for the accelerometer and gyroscope of the MPU-\/9\+DOF sensor. MPU9\+DOF\+\_\+\+BITS\+\_\+\+FS\+\_\+250\+DPS\+: Sensitivity setting for the gyroscope at 250 degrees per second. MPU9\+DOF\+\_\+\+BITS\+\_\+\+AFSL\+\_\+\+SEL\+\_\+8G\+: Sensitivity setting for the accelerometer at 8g. 
+
+\mbox{\Hypertarget{mpu9dof_8c_ad6b2f8caba4e8478afe874b05b753580}\label{mpu9dof_8c_ad6b2f8caba4e8478afe874b05b753580}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_CONFIG@{MPU9DOF\_CONFIG}}
+\index{MPU9DOF\_CONFIG@{MPU9DOF\_CONFIG}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_CONFIG}{MPU9DOF\_CONFIG}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+CONFIG = 0x1A}
+
+\mbox{\Hypertarget{mpu9dof_8c_a49e0846dacaf6675bc6466a4d70ca723}\label{mpu9dof_8c_a49e0846dacaf6675bc6466a4d70ca723}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_DEFAULT@{MPU9DOF\_DEFAULT}}
+\index{MPU9DOF\_DEFAULT@{MPU9DOF\_DEFAULT}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_DEFAULT}{MPU9DOF\_DEFAULT}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+DEFAULT = 0x00}
+
+\mbox{\Hypertarget{mpu9dof_8c_ab0c83376e098321319e0c103239aeae3}\label{mpu9dof_8c_ab0c83376e098321319e0c103239aeae3}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_FIFO\_EN@{MPU9DOF\_FIFO\_EN}}
+\index{MPU9DOF\_FIFO\_EN@{MPU9DOF\_FIFO\_EN}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_FIFO\_EN}{MPU9DOF\_FIFO\_EN}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+FIFO\+\_\+\+EN = 0x23}
+
+\mbox{\Hypertarget{mpu9dof_8c_aa68dd2a28e55296623b64ccf23981bae}\label{mpu9dof_8c_aa68dd2a28e55296623b64ccf23981bae}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_GYRO\_CONFIG@{MPU9DOF\_GYRO\_CONFIG}}
+\index{MPU9DOF\_GYRO\_CONFIG@{MPU9DOF\_GYRO\_CONFIG}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_GYRO\_CONFIG}{MPU9DOF\_GYRO\_CONFIG}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+GYRO\+\_\+\+CONFIG = 0x1B}
+
+\mbox{\Hypertarget{mpu9dof_8c_aa003a2decca0e11c619289f80f9d33ff}\label{mpu9dof_8c_aa003a2decca0e11c619289f80f9d33ff}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_GYRO\_XOUT\_H@{MPU9DOF\_GYRO\_XOUT\_H}}
+\index{MPU9DOF\_GYRO\_XOUT\_H@{MPU9DOF\_GYRO\_XOUT\_H}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_GYRO\_XOUT\_H}{MPU9DOF\_GYRO\_XOUT\_H}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H = 0x43}
+
+
+
+High registers of the gyroscope and accelerometer. These constants define the addresses of the high registers of the gyroscope and accelerometer in the MPU-\/9\+DOF sensor. MPU9\+DOF\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H\+: Address of the high register for the X-\/axis gyroscope output. MPU9\+DOF\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H\+: Address of the high register for the Y-\/axis gyroscope output. MPU9\+DOF\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H\+: Address of the high register for the Z-\/axis gyroscope output. MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H\+: Address of the high register for the X-\/axis accelerometer output. MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H\+: Address of the high register for the Y-\/axis accelerometer output. MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H\+: Address of the high register for the Z-\/axis accelerometer output. 
+
+\mbox{\Hypertarget{mpu9dof_8c_aa0f9f5d494a3ccc3c87c8fb88ae287dd}\label{mpu9dof_8c_aa0f9f5d494a3ccc3c87c8fb88ae287dd}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_GYRO\_YOUT\_H@{MPU9DOF\_GYRO\_YOUT\_H}}
+\index{MPU9DOF\_GYRO\_YOUT\_H@{MPU9DOF\_GYRO\_YOUT\_H}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_GYRO\_YOUT\_H}{MPU9DOF\_GYRO\_YOUT\_H}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H = 0x45}
+
+\mbox{\Hypertarget{mpu9dof_8c_a05da3d1b8555e6647aa4bcb108cd47f1}\label{mpu9dof_8c_a05da3d1b8555e6647aa4bcb108cd47f1}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_GYRO\_ZOUT\_H@{MPU9DOF\_GYRO\_ZOUT\_H}}
+\index{MPU9DOF\_GYRO\_ZOUT\_H@{MPU9DOF\_GYRO\_ZOUT\_H}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_GYRO\_ZOUT\_H}{MPU9DOF\_GYRO\_ZOUT\_H}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H = 0x47}
+
+\mbox{\Hypertarget{mpu9dof_8c_a0196791086d75eab99490549ff150ad6}\label{mpu9dof_8c_a0196791086d75eab99490549ff150ad6}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_INT\_ENABLE@{MPU9DOF\_INT\_ENABLE}}
+\index{MPU9DOF\_INT\_ENABLE@{MPU9DOF\_INT\_ENABLE}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_INT\_ENABLE}{MPU9DOF\_INT\_ENABLE}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+INT\+\_\+\+ENABLE = 0x38}
+
+\mbox{\Hypertarget{mpu9dof_8c_a18c9eeb5dfe6896666902cb99a13d527}\label{mpu9dof_8c_a18c9eeb5dfe6896666902cb99a13d527}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_INT\_PIN\_CFG@{MPU9DOF\_INT\_PIN\_CFG}}
+\index{MPU9DOF\_INT\_PIN\_CFG@{MPU9DOF\_INT\_PIN\_CFG}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_INT\_PIN\_CFG}{MPU9DOF\_INT\_PIN\_CFG}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+INT\+\_\+\+PIN\+\_\+\+CFG = 0x37}
+
+\mbox{\Hypertarget{mpu9dof_8c_a90aa4fe3af751fa4f17406a9c98f67e2}\label{mpu9dof_8c_a90aa4fe3af751fa4f17406a9c98f67e2}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_PWR\_MGMT\_1@{MPU9DOF\_PWR\_MGMT\_1}}
+\index{MPU9DOF\_PWR\_MGMT\_1@{MPU9DOF\_PWR\_MGMT\_1}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_PWR\_MGMT\_1}{MPU9DOF\_PWR\_MGMT\_1}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+PWR\+\_\+\+MGMT\+\_\+1 = 0x6B}
+
+\mbox{\Hypertarget{mpu9dof_8c_aedc1c865f06de7a6fab00a6084fb86fe}\label{mpu9dof_8c_aedc1c865f06de7a6fab00a6084fb86fe}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_PWR\_MGMT\_2@{MPU9DOF\_PWR\_MGMT\_2}}
+\index{MPU9DOF\_PWR\_MGMT\_2@{MPU9DOF\_PWR\_MGMT\_2}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_PWR\_MGMT\_2}{MPU9DOF\_PWR\_MGMT\_2}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+PWR\+\_\+\+MGMT\+\_\+2 = 0x6C}
+
+\mbox{\Hypertarget{mpu9dof_8c_aa373db1d9e00d5d106cca10baa96ea84}\label{mpu9dof_8c_aa373db1d9e00d5d106cca10baa96ea84}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_SMPLRT\_DIV@{MPU9DOF\_SMPLRT\_DIV}}
+\index{MPU9DOF\_SMPLRT\_DIV@{MPU9DOF\_SMPLRT\_DIV}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_SMPLRT\_DIV}{MPU9DOF\_SMPLRT\_DIV}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+SMPLRT\+\_\+\+DIV = 0x19}
+
+\mbox{\Hypertarget{mpu9dof_8c_afbcc92b4f26c722f378422726a6f0d72}\label{mpu9dof_8c_afbcc92b4f26c722f378422726a6f0d72}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_USER\_CTRL@{MPU9DOF\_USER\_CTRL}}
+\index{MPU9DOF\_USER\_CTRL@{MPU9DOF\_USER\_CTRL}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_USER\_CTRL}{MPU9DOF\_USER\_CTRL}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+USER\+\_\+\+CTRL = 0x6A}
+
+\mbox{\Hypertarget{mpu9dof_8c_ace92afad010308cb88a74c110408833a}\label{mpu9dof_8c_ace92afad010308cb88a74c110408833a}} 
+\index{mpu9dof.c@{mpu9dof.c}!MPU9DOF\_XLG\_I2C\_ADDR\_1@{MPU9DOF\_XLG\_I2C\_ADDR\_1}}
+\index{MPU9DOF\_XLG\_I2C\_ADDR\_1@{MPU9DOF\_XLG\_I2C\_ADDR\_1}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{MPU9DOF\_XLG\_I2C\_ADDR\_1}{MPU9DOF\_XLG\_I2C\_ADDR\_1}}
+{\footnotesize\ttfamily const uint8\+\_\+t MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 = 0x69}
+
+\mbox{\Hypertarget{mpu9dof_8c_a98f219b8466fd2ccc99d8f7546f9e739}\label{mpu9dof_8c_a98f219b8466fd2ccc99d8f7546f9e739}} 
+\index{mpu9dof.c@{mpu9dof.c}!offsetValues@{offsetValues}}
+\index{offsetValues@{offsetValues}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{offsetValues}{offsetValues}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_offset_values}{Offset\+Values}} offset\+Values}
+
+\mbox{\Hypertarget{mpu9dof_8c_a10cb247ad8a7279a9d4e6b505496bc4b}\label{mpu9dof_8c_a10cb247ad8a7279a9d4e6b505496bc4b}} 
+\index{mpu9dof.c@{mpu9dof.c}!processedData@{processedData}}
+\index{processedData@{processedData}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{processedData}{processedData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processed_data}{Processed\+Data}} processed\+Data}
+
+\mbox{\Hypertarget{mpu9dof_8c_a374e8373687339ac309e4f02b305fb0f}\label{mpu9dof_8c_a374e8373687339ac309e4f02b305fb0f}} 
+\index{mpu9dof.c@{mpu9dof.c}!RAD\_TO\_DEG@{RAD\_TO\_DEG}}
+\index{RAD\_TO\_DEG@{RAD\_TO\_DEG}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{RAD\_TO\_DEG}{RAD\_TO\_DEG}}
+{\footnotesize\ttfamily const float RAD\+\_\+\+TO\+\_\+\+DEG = 57.\+2957795131}
+
+\mbox{\Hypertarget{mpu9dof_8c_a6a58ed8cae092f222d56fb8b32a99080}\label{mpu9dof_8c_a6a58ed8cae092f222d56fb8b32a99080}} 
+\index{mpu9dof.c@{mpu9dof.c}!rawData@{rawData}}
+\index{rawData@{rawData}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{rawData}{rawData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_raw_data}{Raw\+Data}} raw\+Data}
+
+\mbox{\Hypertarget{mpu9dof_8c_a3e92e8253a6240e36fc8ed496aec2a03}\label{mpu9dof_8c_a3e92e8253a6240e36fc8ed496aec2a03}} 
+\index{mpu9dof.c@{mpu9dof.c}!SHAKE\_THRESHOLD@{SHAKE\_THRESHOLD}}
+\index{SHAKE\_THRESHOLD@{SHAKE\_THRESHOLD}!mpu9dof.c@{mpu9dof.c}}
+\doxysubsubsection{\texorpdfstring{SHAKE\_THRESHOLD}{SHAKE\_THRESHOLD}}
+{\footnotesize\ttfamily const float SHAKE\+\_\+\+THRESHOLD = 2.\+5}
+
+
+
+Constants for motion sensing. These constants define various parameters used in motion sensing calculations. SHAKE\+\_\+\+THRESHOLD\+: Threshold for detecting shaking motion, specified in units of G\textquotesingle{}s (acceleration due to gravity). DELTA\+\_\+\+TIME\+: Time interval between sensor readings, expressed as the reciprocal of the sampling rate (30 times per second). RAD\+\_\+\+TO\+\_\+\+DEG\+: Conversion constant for converting radians to degrees. COMPLEMENTARY\+\_\+\+RATIO\+: Complementary filter ratio used in sensor fusion algorithms, obtained from external knowledge sources. 
+

@@ -1,0 +1,41 @@
+\hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_source}{}\doxysection{wifi\+Click.\+h}
+\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_source}\index{nucleo-\/l432kc\_wifi/Core/Inc/wifiClick.h@{nucleo-\/l432kc\_wifi/Core/Inc/wifiClick.h}}
+\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * myTasks.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 2, 2023}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: rini}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef INC\_WIFICLICK\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define INC\_WIFICLICK\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}cmsis\_os2.h"{}}          \textcolor{comment}{// For CMSIS API functions}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}FreeRTOS.h"{}}           \textcolor{comment}{// For FreeRTOS API functions}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2usart_8h}{usart.h}}"{}}               \textcolor{comment}{// For UART handles}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}task.h"{}}               \textcolor{comment}{// for FreeRTOS task control functions}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}string.h"{}}             \textcolor{comment}{// for string functions}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}stdbool.h"{}}            \textcolor{comment}{// for boolean values}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}stm32l4xx\_ll\_usart.h"{}} \textcolor{comment}{// For lowlevel usart abstraction access}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2printf_8h}{printf.h}}"{}}             \textcolor{comment}{// For 3rd-\/party printf library specifically for embedded systems}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2_a_tcommands_8h}{ATcommands.h}}"{}}         \textcolor{comment}{// For AT-\/command-\/list and functions}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// Define bit masks for the two types of events}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define UART1\_IDLE\_EVENT (1 << 0)}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define UART2\_EVENT (1 << 1)}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{// Increase this if your output is cutoff}}
+\DoxyCodeLine{26 \textcolor{comment}{// Be aware that this will take up space in the stack, not the heap}}
+\DoxyCodeLine{27 \textcolor{comment}{// This number is also the maximum number of characters which can be received in the TCP server}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define BUFFER\_SIZE 4096}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a8f0e950ccf7eea660fadc168eb8a1022}{StartDefaultTask}}(\textcolor{keywordtype}{void} *argument); \textcolor{comment}{// Default \& initial configuration task}}
+\DoxyCodeLine{31 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_a93cfad7861382a5bfeede6d158314a2d}{UartHandlerTask}}(\textcolor{keywordtype}{void} *argument); \textcolor{comment}{// Task which handles the intermediate communication between UART interfaces}}
+\DoxyCodeLine{32 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_af17fde34992dd4f6724f4ef9c50adef0}{SendATCommand}}(\textcolor{keywordtype}{char} *command, \textcolor{keywordtype}{int} length); \textcolor{comment}{// Function which transmits a provided string to UART1}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* INC\_WIFICLICK\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

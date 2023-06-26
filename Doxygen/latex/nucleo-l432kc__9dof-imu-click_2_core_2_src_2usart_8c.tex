@@ -1,0 +1,74 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Core/\+Src/usart.c File Reference}
+\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Src/usart.c@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Src/usart.c}}
+
+
+This file provides code for the configuration of the USART instances.  
+
+
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a57d1167735baafab8e3288526c424929}{MX\+\_\+\+USART1\+\_\+\+UART\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a052088fe5bb3f807a4b2502e664fd4fd}{MX\+\_\+\+USART2\+\_\+\+UART\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{group___u_a_r_t___exported___functions___group1_ga0e553b32211877322f949b14801bbfa7}{HAL\+\_\+\+UART\+\_\+\+Msp\+Init}} (\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} $\ast$uart\+Handle)
+\begin{DoxyCompactList}\small\item\em UART MSP Initialization This function configures the hardware resources used in this example. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t___exported___functions___group1_ga718f39804e3b910d738a0e1e46151188}{HAL\+\_\+\+UART\+\_\+\+Msp\+De\+Init}} (\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} $\ast$uart\+Handle)
+\begin{DoxyCompactList}\small\item\em UART MSP De-\/\+Initialization This function freeze the hardware resources used in this example. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a2cf715bef37f7e8ef385a30974a5f0d5}{huart1}}
+\item 
+\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a34251392f0d5e2461e3aef615918c235}{hdma\+\_\+usart1\+\_\+rx}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the configuration of the USART instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a57d1167735baafab8e3288526c424929}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a57d1167735baafab8e3288526c424929}} 
+\index{usart.c@{usart.c}!MX\_USART1\_UART\_Init@{MX\_USART1\_UART\_Init}}
+\index{MX\_USART1\_UART\_Init@{MX\_USART1\_UART\_Init}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{MX\_USART1\_UART\_Init()}{MX\_USART1\_UART\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+USART1\+\_\+\+UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a052088fe5bb3f807a4b2502e664fd4fd}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a052088fe5bb3f807a4b2502e664fd4fd}} 
+\index{usart.c@{usart.c}!MX\_USART2\_UART\_Init@{MX\_USART2\_UART\_Init}}
+\index{MX\_USART2\_UART\_Init@{MX\_USART2\_UART\_Init}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{MX\_USART2\_UART\_Init()}{MX\_USART2\_UART\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+USART2\+\_\+\+UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a34251392f0d5e2461e3aef615918c235}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a34251392f0d5e2461e3aef615918c235}} 
+\index{usart.c@{usart.c}!hdma\_usart1\_rx@{hdma\_usart1\_rx}}
+\index{hdma\_usart1\_rx@{hdma\_usart1\_rx}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_usart1\_rx}{hdma\_usart1\_rx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} hdma\+\_\+usart1\+\_\+rx}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a2cf715bef37f7e8ef385a30974a5f0d5}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_a2cf715bef37f7e8ef385a30974a5f0d5}} 
+\index{usart.c@{usart.c}!huart1@{huart1}}
+\index{huart1@{huart1}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{huart1}{huart1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} huart1}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_aa9479c261d65eecedd3d9582f7f0f89c}\label{nucleo-l432kc__9dof-imu-click_2_core_2_src_2usart_8c_aa9479c261d65eecedd3d9582f7f0f89c}} 
+\index{usart.c@{usart.c}!huart2@{huart2}}
+\index{huart2@{huart2}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{huart2}{huart2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} huart2}
+

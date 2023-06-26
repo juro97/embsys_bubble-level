@@ -1,0 +1,230 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Core/\+Inc/printf.h File Reference}
+\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h}\index{nucleo-\/l432kc\_4x4rgb/Core/Inc/printf.h@{nucleo-\/l432kc\_4x4rgb/Core/Inc/printf.h}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\+\_\+\+PRINTF}}(one\+\_\+based\+\_\+format\+\_\+index,  first\+\_\+arg)
+\begin{DoxyCompactList}\small\item\em Small stand-\/alone implementation of the printf family of functions ({\ttfamily (v)printf}, {\ttfamily (v)s(n)printf} etc., geared towards use on embedded systems with a very limited resources. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\+\_\+\+VPRINTF}}(one\+\_\+based\+\_\+format\+\_\+index)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a78b25e31912e285c08aae4d74e00e89c}{PRINTF\+\_\+\+ALIAS\+\_\+\+STANDARD\+\_\+\+FUNCTION\+\_\+\+NAMES}}~0
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} void \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}{putchar\+\_\+}} (char c)
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a735494c5e2525e1ce372b86891b6e6e6}{fctprintf}} (void($\ast$out)(char c, void $\ast$extra\+\_\+arg), void $\ast$extra\+\_\+arg, const char $\ast$format,...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\+\_\+\+PRINTF}}(3
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a47c8d7b7f2120352c780f49b0212a13d}{vfctprintf}} (void($\ast$out)(char c, void $\ast$extra\+\_\+arg), void $\ast$extra\+\_\+arg, const char $\ast$format, va\+\_\+list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\+\_\+\+VPRINTF}}(3)
+\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a2c62cacbfb172bbdfab5597d22a8b342}{printf\+\_\+}} (const char $\ast$format,...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\+\_\+\+PRINTF}}(1
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a37d423a6b4d321147399b63eea93bb29}{vprintf\+\_\+}} (const char $\ast$format, va\+\_\+list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\+\_\+\+VPRINTF}}(1)
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_aa0320d28406c4c8399830583177fdc77}{sprintf\+\_\+}} (char $\ast$s, const char $\ast$format,...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\+\_\+\+PRINTF}}(2
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_ae12ecc9fd035416b6e7cddae9804f121}{vsprintf\+\_\+}} (char $\ast$s, const char $\ast$format, va\+\_\+list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\+\_\+\+VPRINTF}}(2)
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_abbaf9363f36b73a13dfa6b0a792a60c5}{snprintf\+\_\+}} (char $\ast$s, size\+\_\+t count, const char $\ast$format,...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\+\_\+\+PRINTF}}(3
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a25006737444a8712899101e9e89387c3}{vsnprintf\+\_\+}} (char $\ast$s, size\+\_\+t count, const char $\ast$format, va\+\_\+list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\+\_\+\+VPRINTF}}(3)
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}} 
+\index{printf.h@{printf.h}!ATTR\_PRINTF@{ATTR\_PRINTF}}
+\index{ATTR\_PRINTF@{ATTR\_PRINTF}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{ATTR\_PRINTF}{ATTR\_PRINTF}}
+{\footnotesize\ttfamily \#define ATTR\+\_\+\+PRINTF(\begin{DoxyParamCaption}\item[{}]{one\+\_\+based\+\_\+format\+\_\+index,  }\item[{}]{first\+\_\+arg }\end{DoxyParamCaption})}
+
+
+
+Small stand-\/alone implementation of the printf family of functions ({\ttfamily (v)printf}, {\ttfamily (v)s(n)printf} etc., geared towards use on embedded systems with a very limited resources. 
+
+\begin{DoxyAuthor}{Author}
+(c) Eyal Rozenberg \href{mailto:eyalroz1@gmx.com}{\texttt{ eyalroz1@gmx.\+com}} 2021-\/2022, Haifa, Palestine/\+Israel 
+
+(c) Marco Paland (\href{mailto:info@paland.com}{\texttt{ info@paland.\+com}}) 2014-\/2019, PALANDesign Hannover, Germany
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+Others have made smaller contributions to this file\+: see the contributors page at \href{https://github.com/eyalroz/printf/graphs/contributors}{\texttt{ https\+://github.\+com/eyalroz/printf/graphs/contributors}} or ask one of the authors.
+\end{DoxyNote}
+
+
+\begin{DoxyNote}{Note}
+the implementations are thread-\/safe; re-\/entrant; use no functions from the standard library; and do not dynamically allocate any memory.
+\end{DoxyNote}
+@license The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. \mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}} 
+\index{printf.h@{printf.h}!ATTR\_VPRINTF@{ATTR\_VPRINTF}}
+\index{ATTR\_VPRINTF@{ATTR\_VPRINTF}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{ATTR\_VPRINTF}{ATTR\_VPRINTF}}
+{\footnotesize\ttfamily \#define ATTR\+\_\+\+VPRINTF(\begin{DoxyParamCaption}\item[{}]{one\+\_\+based\+\_\+format\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a78b25e31912e285c08aae4d74e00e89c}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a78b25e31912e285c08aae4d74e00e89c}} 
+\index{printf.h@{printf.h}!PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES@{PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES}}
+\index{PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES@{PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES}{PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+ALIAS\+\_\+\+STANDARD\+\_\+\+FUNCTION\+\_\+\+NAMES~0}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}} 
+\index{printf.h@{printf.h}!PRINTF\_VISIBILITY@{PRINTF\_VISIBILITY}}
+\index{PRINTF\_VISIBILITY@{PRINTF\_VISIBILITY}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{PRINTF\_VISIBILITY}{PRINTF\_VISIBILITY}}
+{\footnotesize\ttfamily \#define PRINTF\+\_\+\+VISIBILITY}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a735494c5e2525e1ce372b86891b6e6e6}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a735494c5e2525e1ce372b86891b6e6e6}} 
+\index{printf.h@{printf.h}!fctprintf@{fctprintf}}
+\index{fctprintf@{fctprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{fctprintf()}{fctprintf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int fctprintf (\begin{DoxyParamCaption}\item[{void($\ast$)(char c, void $\ast$extra\+\_\+arg)}]{out,  }\item[{void $\ast$}]{extra\+\_\+arg,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+printf/vprintf with user-\/specified output function
+
+An alternative to \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a2c62cacbfb172bbdfab5597d22a8b342}{printf\+\_\+}}, in which the output function is specified dynamically (rather than \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}{putchar\+\_\+}} being used)
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & An output function which takes one character and a type-\/erased additional parameters \\
+\hline
+{\em extra\+\_\+arg} & The type-\/erased argument to pass to the output function {\ttfamily out} with each call \\
+\hline
+{\em format} & A string specifying the format of the output, with \%-\/marked specifiers of how to interpret additional arguments. \\
+\hline
+{\em arg} & Additional arguments to the function, one for each specifier in {\ttfamily format} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters for which the output f unction was invoked, not counting the terminating null character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a2c62cacbfb172bbdfab5597d22a8b342}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a2c62cacbfb172bbdfab5597d22a8b342}} 
+\index{printf.h@{printf.h}!printf\_@{printf\_}}
+\index{printf\_@{printf\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{printf\_()}{printf\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int printf\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+An implementation of the C standard\textquotesingle{}s printf/vprintf
+
+\begin{DoxyNote}{Note}
+you must implement a \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}{putchar\+\_\+}} function for using this function -\/ it invokes \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}{putchar\+\_\+}} rather than directly performing any I/O (which insulates it from any dependence on the operating system and external libraries).
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & A string specifying the format of the output, with \%-\/marked specifiers of how to interpret additional arguments. \\
+\hline
+{\em arg} & Additional arguments to the function, one for each \%-\/specifier in {\ttfamily format} string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters written into {\ttfamily s}, not counting the terminating null character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}} 
+\index{printf.h@{printf.h}!putchar\_@{putchar\_}}
+\index{putchar\_@{putchar\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{putchar\_()}{putchar\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} void putchar\+\_\+ (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+Prints/send a single character to some opaque output entity
+
+\begin{DoxyNote}{Note}
+This function is not implemented by the library, only declared; you must provide an implementation if you wish to use the printf / vprintf function (and possibly for linking against the library, if your toolchain does not support discarding unused functions)
+
+The output could be as simple as a wrapper for the {\ttfamily write()} system call on a Unix-\/like system, or even libc\textquotesingle{}s putchar , for replicating actual functionality of libc\textquotesingle{}s printf function; but on an embedded system it may involve interaction with a special output device, like a UART, etc.
+
+in libc\textquotesingle{}s putchar, the parameter type is an int; this was intended to support the representation of either a proper character or EOF in a variable -\/ but this is really not meaningful to pass into putchar and is discouraged today. See further discussion in\+: \mbox{\hyperlink{}{c the single character to print }}
+\end{DoxyNote}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_abbaf9363f36b73a13dfa6b0a792a60c5}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_abbaf9363f36b73a13dfa6b0a792a60c5}} 
+\index{printf.h@{printf.h}!snprintf\_@{snprintf\_}}
+\index{snprintf\_@{snprintf\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{snprintf\_()}{snprintf\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int snprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{size\+\_\+t}]{count,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+An implementation of the C standard\textquotesingle{}s snprintf/vsnprintf
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & An array in which to store the formatted string. It must be large enough to fit either the entire formatted output, or at least {\ttfamily n} characters. Alternatively, it can be NULL, in which case nothing will be printed, and only the number of characters which {\itshape could} have been printed is tallied and returned. \\
+\hline
+{\em n} & The maximum number of characters to write to the array, including a terminating null character \\
+\hline
+{\em format} & A string specifying the format of the output, with \%-\/marked specifiers of how to interpret additional arguments. \\
+\hline
+{\em arg} & Additional arguments to the function, one for each specifier in {\ttfamily format} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters that COULD have been written into {\ttfamily s}, not counting the terminating null character. A value equal or larger than {\ttfamily n} indicates truncation. Only when the returned value is non-\/negative and less than {\ttfamily n}, the null-\/terminated string has been fully and successfully printed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_aa0320d28406c4c8399830583177fdc77}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_aa0320d28406c4c8399830583177fdc77}} 
+\index{printf.h@{printf.h}!sprintf\_@{sprintf\_}}
+\index{sprintf\_@{sprintf\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{sprintf\_()}{sprintf\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int sprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+An implementation of the C standard\textquotesingle{}s sprintf/vsprintf
+
+\begin{DoxyNote}{Note}
+For security considerations (the potential for exceeding the buffer bounds), please consider using the size-\/constrained variant, snprintf / vsnprintf , instead.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & An array in which to store the formatted string. It must be large enough to fit the formatted output! \\
+\hline
+{\em format} & A string specifying the format of the output, with \%-\/marked specifiers of how to interpret additional arguments. \\
+\hline
+{\em arg} & Additional arguments to the function, one for each specifier in {\ttfamily format} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters written into {\ttfamily s}, not counting the terminating null character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a47c8d7b7f2120352c780f49b0212a13d}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a47c8d7b7f2120352c780f49b0212a13d}} 
+\index{printf.h@{printf.h}!vfctprintf@{vfctprintf}}
+\index{vfctprintf@{vfctprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{vfctprintf()}{vfctprintf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int vfctprintf (\begin{DoxyParamCaption}\item[{void($\ast$)(char c, void $\ast$extra\+\_\+arg)}]{out,  }\item[{void $\ast$}]{extra\+\_\+arg,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a37d423a6b4d321147399b63eea93bb29}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a37d423a6b4d321147399b63eea93bb29}} 
+\index{printf.h@{printf.h}!vprintf\_@{vprintf\_}}
+\index{vprintf\_@{vprintf\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{vprintf\_()}{vprintf\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int vprintf\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a25006737444a8712899101e9e89387c3}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_a25006737444a8712899101e9e89387c3}} 
+\index{printf.h@{printf.h}!vsnprintf\_@{vsnprintf\_}}
+\index{vsnprintf\_@{vsnprintf\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{vsnprintf\_()}{vsnprintf\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int vsnprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{size\+\_\+t}]{count,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_ae12ecc9fd035416b6e7cddae9804f121}\label{nucleo-l432kc__4x4rgb_2_core_2_inc_2printf_8h_ae12ecc9fd035416b6e7cddae9804f121}} 
+\index{printf.h@{printf.h}!vsprintf\_@{vsprintf\_}}
+\index{vsprintf\_@{vsprintf\_}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{vsprintf\_()}{vsprintf\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\+\_\+\+VISIBILITY}} int vsprintf\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{arg }\end{DoxyParamCaption})}
+

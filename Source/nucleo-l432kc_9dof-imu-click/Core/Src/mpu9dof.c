@@ -433,7 +433,6 @@ void mpu9dof_log_data(const uint8_t *data )
 			break;
 
 		case 3:
-			/* TODO */
 			break;
 
 		case 4:

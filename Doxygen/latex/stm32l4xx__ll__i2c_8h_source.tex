@@ -1,0 +1,842 @@
+\hypertarget{stm32l4xx__ll__i2c_8h_source}{}\doxysection{stm32l4xx\+\_\+ll\+\_\+i2c.\+h}
+\label{stm32l4xx__ll__i2c_8h_source}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Drivers/STM32L4xx\_HAL\_Driver/Inc/stm32l4xx\_ll\_i2c.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Drivers/STM32L4xx\_HAL\_Driver/Inc/stm32l4xx\_ll\_i2c.h}}
+\mbox{\hyperlink{stm32l4xx__ll__i2c_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32L4xx\_LL\_I2C\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32L4xx\_LL\_I2C\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}stm32l4xx.h"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#if defined (I2C1) || defined (I2C2) || defined (I2C3) || defined (I2C4)}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40 \textcolor{comment}{/* Private types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{41 \textcolor{comment}{/* Private variables -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{/* Private constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{51 \textcolor{comment}{/* Private macros -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{66 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68   uint32\_t PeripheralMode;      }
+\DoxyCodeLine{74   uint32\_t Timing;              }
+\DoxyCodeLine{81   uint32\_t AnalogFilter;        }
+\DoxyCodeLine{87   uint32\_t DigitalFilter;       }
+\DoxyCodeLine{93   uint32\_t OwnAddress1;         }
+\DoxyCodeLine{99   uint32\_t TypeAcknowledge;     }
+\DoxyCodeLine{106   uint32\_t OwnAddrSize;         }
+\DoxyCodeLine{111 \} LL\_I2C\_InitTypeDef;}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_ADDRCF                   I2C\_ICR\_ADDRCF          }}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_NACKCF                   I2C\_ICR\_NACKCF          }}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_STOPCF                   I2C\_ICR\_STOPCF          }}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_BERRCF                   I2C\_ICR\_BERRCF          }}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_ARLOCF                   I2C\_ICR\_ARLOCF          }}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_OVRCF                    I2C\_ICR\_OVRCF           }}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_PECCF                    I2C\_ICR\_PECCF           }}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_TIMOUTCF                 I2C\_ICR\_TIMOUTCF        }}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define LL\_I2C\_ICR\_ALERTCF                  I2C\_ICR\_ALERTCF         }}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_TXE                      I2C\_ISR\_TXE             }}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_TXIS                     I2C\_ISR\_TXIS            }}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_RXNE                     I2C\_ISR\_RXNE            }}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_ADDR                     I2C\_ISR\_ADDR            }}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_NACKF                    I2C\_ISR\_NACKF           }}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_STOPF                    I2C\_ISR\_STOPF           }}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_TC                       I2C\_ISR\_TC              }}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_TCR                      I2C\_ISR\_TCR             }}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_BERR                     I2C\_ISR\_BERR            }}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_ARLO                     I2C\_ISR\_ARLO            }}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_OVR                      I2C\_ISR\_OVR             }}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_PECERR                   I2C\_ISR\_PECERR          }}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_TIMEOUT                  I2C\_ISR\_TIMEOUT         }}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_ALERT                    I2C\_ISR\_ALERT           }}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define LL\_I2C\_ISR\_BUSY                     I2C\_ISR\_BUSY            }}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_TXIE                     I2C\_CR1\_TXIE            }}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_RXIE                     I2C\_CR1\_RXIE            }}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_ADDRIE                   I2C\_CR1\_ADDRIE          }}
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_NACKIE                   I2C\_CR1\_NACKIE          }}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_STOPIE                   I2C\_CR1\_STOPIE          }}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_TCIE                     I2C\_CR1\_TCIE            }}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define LL\_I2C\_CR1\_ERRIE                    I2C\_CR1\_ERRIE           }}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_I2C                    0x00000000U              }}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_HOST             I2C\_CR1\_SMBHEN           }}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_DEVICE           0x00000000U              }}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_DEVICE\_ARP       I2C\_CR1\_SMBDEN           }}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define LL\_I2C\_ANALOGFILTER\_ENABLE          0x00000000U             }}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#define LL\_I2C\_ANALOGFILTER\_DISABLE         I2C\_CR1\_ANFOFF          }}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define LL\_I2C\_ADDRESSING\_MODE\_7BIT         0x00000000U              }}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define LL\_I2C\_ADDRESSING\_MODE\_10BIT        I2C\_CR2\_ADD10            }}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS1\_7BIT             0x00000000U             }}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS1\_10BIT            I2C\_OAR1\_OA1MODE        }}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_NOMASK           I2C\_OAR2\_OA2NOMASK      }}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK01           I2C\_OAR2\_OA2MASK01      }}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK02           I2C\_OAR2\_OA2MASK02      }}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK03           I2C\_OAR2\_OA2MASK03      }}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK04           I2C\_OAR2\_OA2MASK04      }}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK05           I2C\_OAR2\_OA2MASK05      }}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK06           I2C\_OAR2\_OA2MASK06      }}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define LL\_I2C\_OWNADDRESS2\_MASK07           I2C\_OAR2\_OA2MASK07      }}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define LL\_I2C\_ACK                          0x00000000U              }}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define LL\_I2C\_NACK                         I2C\_CR2\_NACK             }}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define LL\_I2C\_ADDRSLAVE\_7BIT               0x00000000U              }}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define LL\_I2C\_ADDRSLAVE\_10BIT              I2C\_CR2\_ADD10            }}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define LL\_I2C\_REQUEST\_WRITE                0x00000000U              }}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define LL\_I2C\_REQUEST\_READ                 I2C\_CR2\_RD\_WRN           }}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_RELOAD                  I2C\_CR2\_RELOAD           }}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_AUTOEND                 I2C\_CR2\_AUTOEND          }}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SOFTEND                 0x00000000U              }}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_RELOAD            LL\_I2C\_MODE\_RELOAD       }}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_AUTOEND\_NO\_PEC    LL\_I2C\_MODE\_AUTOEND      }}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_SOFTEND\_NO\_PEC    LL\_I2C\_MODE\_SOFTEND      }}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_AUTOEND\_WITH\_PEC  (uint32\_t)(LL\_I2C\_MODE\_AUTOEND | I2C\_CR2\_PECBYTE)}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define LL\_I2C\_MODE\_SMBUS\_SOFTEND\_WITH\_PEC  (uint32\_t)(LL\_I2C\_MODE\_SOFTEND | I2C\_CR2\_PECBYTE)}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_NOSTARTSTOP         0x00000000U}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_STOP                (uint32\_t)(0x80000000U | I2C\_CR2\_STOP)}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_START\_READ          (uint32\_t)(0x80000000U | I2C\_CR2\_START | I2C\_CR2\_RD\_WRN)}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_START\_WRITE         (uint32\_t)(0x80000000U | I2C\_CR2\_START)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_RESTART\_7BIT\_READ   (uint32\_t)(0x80000000U | I2C\_CR2\_START | I2C\_CR2\_RD\_WRN)}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_RESTART\_7BIT\_WRITE  (uint32\_t)(0x80000000U | I2C\_CR2\_START)}}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_RESTART\_10BIT\_READ  (uint32\_t)(0x80000000U | I2C\_CR2\_START | \(\backslash\)}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{                                                       I2C\_CR2\_RD\_WRN | I2C\_CR2\_HEAD10R)}}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define LL\_I2C\_GENERATE\_RESTART\_10BIT\_WRITE (uint32\_t)(0x80000000U | I2C\_CR2\_START)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#define LL\_I2C\_DIRECTION\_WRITE              0x00000000U              }}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define LL\_I2C\_DIRECTION\_READ               I2C\_ISR\_DIR              }}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#define LL\_I2C\_DMA\_REG\_DATA\_TRANSMIT        0x00000000U              }}
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#define LL\_I2C\_DMA\_REG\_DATA\_RECEIVE         0x00000001U              }}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#define LL\_I2C\_SMBUS\_TIMEOUTA\_MODE\_SCL\_LOW      0x00000000U          }}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#define LL\_I2C\_SMBUS\_TIMEOUTA\_MODE\_SDA\_SCL\_HIGH I2C\_TIMEOUTR\_TIDLE   }}
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#define LL\_I2C\_SMBUS\_TIMEOUTA               I2C\_TIMEOUTR\_TIMOUTEN                 }}
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#define LL\_I2C\_SMBUS\_TIMEOUTB               I2C\_TIMEOUTR\_TEXTEN                   }}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define LL\_I2C\_SMBUS\_ALL\_TIMEOUT            (uint32\_t)(I2C\_TIMEOUTR\_TIMOUTEN | \(\backslash\)}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{                                                       I2C\_TIMEOUTR\_TEXTEN)       }}
+\DoxyCodeLine{355 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{371 \textcolor{preprocessor}{\#define LL\_I2C\_WriteReg(\_\_INSTANCE\_\_, \_\_REG\_\_, \_\_VALUE\_\_) WRITE\_REG(\_\_INSTANCE\_\_-\/>\_\_REG\_\_, (\_\_VALUE\_\_))}}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{379 \textcolor{preprocessor}{\#define LL\_I2C\_ReadReg(\_\_INSTANCE\_\_, \_\_REG\_\_) READ\_REG(\_\_INSTANCE\_\_-\/>\_\_REG\_\_)}}
+\DoxyCodeLine{400 \textcolor{preprocessor}{\#define \_\_LL\_I2C\_CONVERT\_TIMINGS(\_\_PRESCALER\_\_, \_\_SETUP\_TIME\_\_, \_\_HOLD\_TIME\_\_, \_\_SCLH\_PERIOD\_\_, \_\_SCLL\_PERIOD\_\_) \(\backslash\)}}
+\DoxyCodeLine{401 \textcolor{preprocessor}{  ((((uint32\_t)(\_\_PRESCALER\_\_)    << I2C\_TIMINGR\_PRESC\_Pos)  \& I2C\_TIMINGR\_PRESC)   | \(\backslash\)}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{   (((uint32\_t)(\_\_SETUP\_TIME\_\_)   << I2C\_TIMINGR\_SCLDEL\_Pos) \& I2C\_TIMINGR\_SCLDEL)  | \(\backslash\)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{   (((uint32\_t)(\_\_HOLD\_TIME\_\_)    << I2C\_TIMINGR\_SDADEL\_Pos) \& I2C\_TIMINGR\_SDADEL)  | \(\backslash\)}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{   (((uint32\_t)(\_\_SCLH\_PERIOD\_\_)  << I2C\_TIMINGR\_SCLH\_Pos)   \& I2C\_TIMINGR\_SCLH)    | \(\backslash\)}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{   (((uint32\_t)(\_\_SCLL\_PERIOD\_\_)  << I2C\_TIMINGR\_SCLL\_Pos)   \& I2C\_TIMINGR\_SCLL))}}
+\DoxyCodeLine{414 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{429 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_Enable(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{430 \{}
+\DoxyCodeLine{431   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga953b0d38414808db79da116842ed3262}{I2C\_CR1\_PE}});}
+\DoxyCodeLine{432 \}}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{443 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_Disable(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{444 \{}
+\DoxyCodeLine{445   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga953b0d38414808db79da116842ed3262}{I2C\_CR1\_PE}});}
+\DoxyCodeLine{446 \}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{454 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabled(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{455 \{}
+\DoxyCodeLine{456   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga953b0d38414808db79da116842ed3262}{I2C\_CR1\_PE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga953b0d38414808db79da116842ed3262}{I2C\_CR1\_PE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{457 \}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{475 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ConfigFilters(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t AnalogFilter, uint32\_t DigitalFilter)}
+\DoxyCodeLine{476 \{}
+\DoxyCodeLine{477   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b33b8e33fa18fd49d6d1d8a69777289}{I2C\_CR1\_ANFOFF}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae2ee714428013b4a48aba608f6922bd6}{I2C\_CR1\_DNF}}, AnalogFilter | (DigitalFilter << \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad6e1d618bee79c5c11437517409ce1ab}{I2C\_CR1\_DNF\_Pos}}));}
+\DoxyCodeLine{478 \}}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{492 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetDigitalFilter(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t DigitalFilter)}
+\DoxyCodeLine{493 \{}
+\DoxyCodeLine{494   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae2ee714428013b4a48aba608f6922bd6}{I2C\_CR1\_DNF}}, DigitalFilter << \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad6e1d618bee79c5c11437517409ce1ab}{I2C\_CR1\_DNF\_Pos}});}
+\DoxyCodeLine{495 \}}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{503 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetDigitalFilter(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{504 \{}
+\DoxyCodeLine{505   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae2ee714428013b4a48aba608f6922bd6}{I2C\_CR1\_DNF}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad6e1d618bee79c5c11437517409ce1ab}{I2C\_CR1\_DNF\_Pos}});}
+\DoxyCodeLine{506 \}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{515 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableAnalogFilter(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{516 \{}
+\DoxyCodeLine{517   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b33b8e33fa18fd49d6d1d8a69777289}{I2C\_CR1\_ANFOFF}});}
+\DoxyCodeLine{518 \}}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{527 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableAnalogFilter(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{528 \{}
+\DoxyCodeLine{529   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b33b8e33fa18fd49d6d1d8a69777289}{I2C\_CR1\_ANFOFF}});}
+\DoxyCodeLine{530 \}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{538 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledAnalogFilter(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{539 \{}
+\DoxyCodeLine{540   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b33b8e33fa18fd49d6d1d8a69777289}{I2C\_CR1\_ANFOFF}}) != (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b33b8e33fa18fd49d6d1d8a69777289}{I2C\_CR1\_ANFOFF}})) ? 1UL : 0UL);}
+\DoxyCodeLine{541 \}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{549 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableDMAReq\_TX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{550 \{}
+\DoxyCodeLine{551   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1da363db8ccde4108cf707cf86170650}{I2C\_CR1\_TXDMAEN}});}
+\DoxyCodeLine{552 \}}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{560 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableDMAReq\_TX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{561 \{}
+\DoxyCodeLine{562   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1da363db8ccde4108cf707cf86170650}{I2C\_CR1\_TXDMAEN}});}
+\DoxyCodeLine{563 \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{571 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledDMAReq\_TX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{572 \{}
+\DoxyCodeLine{573   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1da363db8ccde4108cf707cf86170650}{I2C\_CR1\_TXDMAEN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1da363db8ccde4108cf707cf86170650}{I2C\_CR1\_TXDMAEN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{574 \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{582 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableDMAReq\_RX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{583 \{}
+\DoxyCodeLine{584   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga85a60efaeebfb879bec280f46beb30ea}{I2C\_CR1\_RXDMAEN}});}
+\DoxyCodeLine{585 \}}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{593 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableDMAReq\_RX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{594 \{}
+\DoxyCodeLine{595   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga85a60efaeebfb879bec280f46beb30ea}{I2C\_CR1\_RXDMAEN}});}
+\DoxyCodeLine{596 \}}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{604 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledDMAReq\_RX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{605 \{}
+\DoxyCodeLine{606   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga85a60efaeebfb879bec280f46beb30ea}{I2C\_CR1\_RXDMAEN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga85a60efaeebfb879bec280f46beb30ea}{I2C\_CR1\_RXDMAEN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{607 \}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{619 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_DMA\_GetRegAddr(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t Direction)}
+\DoxyCodeLine{620 \{}
+\DoxyCodeLine{621   uint32\_t data\_reg\_addr;}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623   \textcolor{keywordflow}{if} (Direction == LL\_I2C\_DMA\_REG\_DATA\_TRANSMIT)}
+\DoxyCodeLine{624   \{}
+\DoxyCodeLine{625     \textcolor{comment}{/* return address of TXDR register */}}
+\DoxyCodeLine{626     data\_reg\_addr = (uint32\_t) \&(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ad7e8d785fff2acfeb8814e43bda8dd72}{TXDR}});}
+\DoxyCodeLine{627   \}}
+\DoxyCodeLine{628   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{629   \{}
+\DoxyCodeLine{630     \textcolor{comment}{/* return address of RXDR register */}}
+\DoxyCodeLine{631     data\_reg\_addr = (uint32\_t) \&(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a9bf29a9104cb5569823ab892174f9c8c}{RXDR}});}
+\DoxyCodeLine{632   \}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{634   \textcolor{keywordflow}{return} data\_reg\_addr;}
+\DoxyCodeLine{635 \}}
+\DoxyCodeLine{636 }
+\DoxyCodeLine{644 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableClockStretching(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{645 \{}
+\DoxyCodeLine{646   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga197aaca79f64e832af3a0a0864c2a08c}{I2C\_CR1\_NOSTRETCH}});}
+\DoxyCodeLine{647 \}}
+\DoxyCodeLine{648 }
+\DoxyCodeLine{656 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableClockStretching(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{657 \{}
+\DoxyCodeLine{658   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga197aaca79f64e832af3a0a0864c2a08c}{I2C\_CR1\_NOSTRETCH}});}
+\DoxyCodeLine{659 \}}
+\DoxyCodeLine{660 }
+\DoxyCodeLine{667 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledClockStretching(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{668 \{}
+\DoxyCodeLine{669   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga197aaca79f64e832af3a0a0864c2a08c}{I2C\_CR1\_NOSTRETCH}}) != (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga197aaca79f64e832af3a0a0864c2a08c}{I2C\_CR1\_NOSTRETCH}})) ? 1UL : 0UL);}
+\DoxyCodeLine{670 \}}
+\DoxyCodeLine{671 }
+\DoxyCodeLine{678 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableSlaveByteControl(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{679 \{}
+\DoxyCodeLine{680   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga973b09b232a3f758409353fd6ed765a2}{I2C\_CR1\_SBC}});}
+\DoxyCodeLine{681 \}}
+\DoxyCodeLine{682 }
+\DoxyCodeLine{689 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableSlaveByteControl(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{690 \{}
+\DoxyCodeLine{691   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga973b09b232a3f758409353fd6ed765a2}{I2C\_CR1\_SBC}});}
+\DoxyCodeLine{692 \}}
+\DoxyCodeLine{693 }
+\DoxyCodeLine{700 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledSlaveByteControl(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{701 \{}
+\DoxyCodeLine{702   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga973b09b232a3f758409353fd6ed765a2}{I2C\_CR1\_SBC}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga973b09b232a3f758409353fd6ed765a2}{I2C\_CR1\_SBC}})) ? 1UL : 0UL);}
+\DoxyCodeLine{703 \}}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{714 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableWakeUpFromStop(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{715 \{}
+\DoxyCodeLine{716   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75a226d059143573fab07f866853ce75}{I2C\_CR1\_WUPEN}});}
+\DoxyCodeLine{717 \}}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{727 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableWakeUpFromStop(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{728 \{}
+\DoxyCodeLine{729   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75a226d059143573fab07f866853ce75}{I2C\_CR1\_WUPEN}});}
+\DoxyCodeLine{730 \}}
+\DoxyCodeLine{731 }
+\DoxyCodeLine{740 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledWakeUpFromStop(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{741 \{}
+\DoxyCodeLine{742   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75a226d059143573fab07f866853ce75}{I2C\_CR1\_WUPEN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75a226d059143573fab07f866853ce75}{I2C\_CR1\_WUPEN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{743 \}}
+\DoxyCodeLine{744 }
+\DoxyCodeLine{752 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableGeneralCall(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{753 \{}
+\DoxyCodeLine{754   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac28d4f433e501e727c91097dccc4616c}{I2C\_CR1\_GCEN}});}
+\DoxyCodeLine{755 \}}
+\DoxyCodeLine{756 }
+\DoxyCodeLine{764 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableGeneralCall(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{765 \{}
+\DoxyCodeLine{766   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac28d4f433e501e727c91097dccc4616c}{I2C\_CR1\_GCEN}});}
+\DoxyCodeLine{767 \}}
+\DoxyCodeLine{768 }
+\DoxyCodeLine{775 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledGeneralCall(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{776 \{}
+\DoxyCodeLine{777   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac28d4f433e501e727c91097dccc4616c}{I2C\_CR1\_GCEN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac28d4f433e501e727c91097dccc4616c}{I2C\_CR1\_GCEN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{778 \}}
+\DoxyCodeLine{779 }
+\DoxyCodeLine{790 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetMasterAddressingMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t AddressingMode)}
+\DoxyCodeLine{791 \{}
+\DoxyCodeLine{792   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5454de5709c0e68a0068f9f5d39e5674}{I2C\_CR2\_ADD10}}, AddressingMode);}
+\DoxyCodeLine{793 \}}
+\DoxyCodeLine{794 }
+\DoxyCodeLine{803 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetMasterAddressingMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{804 \{}
+\DoxyCodeLine{805   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5454de5709c0e68a0068f9f5d39e5674}{I2C\_CR2\_ADD10}}));}
+\DoxyCodeLine{806 \}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{819 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetOwnAddress1(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t OwnAddress1, uint32\_t OwnAddrSize)}
+\DoxyCodeLine{820 \{}
+\DoxyCodeLine{821   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a08b4be0d626a00f26bc295b379b3bba6}{OAR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabb954a9a0e3e3898574643b6d725a70f}{I2C\_OAR1\_OA1}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5edd56eaa7593073d586caef6f90ef09}{I2C\_OAR1\_OA1MODE}}, OwnAddress1 | OwnAddrSize);}
+\DoxyCodeLine{822 \}}
+\DoxyCodeLine{823 }
+\DoxyCodeLine{830 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableOwnAddress1(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{831 \{}
+\DoxyCodeLine{832   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a08b4be0d626a00f26bc295b379b3bba6}{OAR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab3bb2ec380e9f35b474eaf148cefc552}{I2C\_OAR1\_OA1EN}});}
+\DoxyCodeLine{833 \}}
+\DoxyCodeLine{834 }
+\DoxyCodeLine{841 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableOwnAddress1(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{842 \{}
+\DoxyCodeLine{843   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a08b4be0d626a00f26bc295b379b3bba6}{OAR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab3bb2ec380e9f35b474eaf148cefc552}{I2C\_OAR1\_OA1EN}});}
+\DoxyCodeLine{844 \}}
+\DoxyCodeLine{845 }
+\DoxyCodeLine{852 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledOwnAddress1(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{853 \{}
+\DoxyCodeLine{854   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a08b4be0d626a00f26bc295b379b3bba6}{OAR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab3bb2ec380e9f35b474eaf148cefc552}{I2C\_OAR1\_OA1EN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gab3bb2ec380e9f35b474eaf148cefc552}{I2C\_OAR1\_OA1EN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{855 \}}
+\DoxyCodeLine{856 }
+\DoxyCodeLine{875 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetOwnAddress2(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t OwnAddress2, uint32\_t OwnAddrMask)}
+\DoxyCodeLine{876 \{}
+\DoxyCodeLine{877   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab5c57ffed0351fa064038939a6c0bbf6}{OAR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4627c5a89a3cbe9546321418f8cb9da2}{I2C\_OAR2\_OA2}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2d9fa47c0b7a4b893e1a1d8ab891b0e5}{I2C\_OAR2\_OA2MSK}}, OwnAddress2 | OwnAddrMask);}
+\DoxyCodeLine{878 \}}
+\DoxyCodeLine{879 }
+\DoxyCodeLine{886 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableOwnAddress2(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{887 \{}
+\DoxyCodeLine{888   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab5c57ffed0351fa064038939a6c0bbf6}{OAR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa6ec62ffdf8a682e5e0983add8fdfa26}{I2C\_OAR2\_OA2EN}});}
+\DoxyCodeLine{889 \}}
+\DoxyCodeLine{890 }
+\DoxyCodeLine{897 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableOwnAddress2(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{898 \{}
+\DoxyCodeLine{899   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab5c57ffed0351fa064038939a6c0bbf6}{OAR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa6ec62ffdf8a682e5e0983add8fdfa26}{I2C\_OAR2\_OA2EN}});}
+\DoxyCodeLine{900 \}}
+\DoxyCodeLine{901 }
+\DoxyCodeLine{908 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledOwnAddress2(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{909 \{}
+\DoxyCodeLine{910   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab5c57ffed0351fa064038939a6c0bbf6}{OAR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa6ec62ffdf8a682e5e0983add8fdfa26}{I2C\_OAR2\_OA2EN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa6ec62ffdf8a682e5e0983add8fdfa26}{I2C\_OAR2\_OA2EN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{911 \}}
+\DoxyCodeLine{912 }
+\DoxyCodeLine{922 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetTiming(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t Timing)}
+\DoxyCodeLine{923 \{}
+\DoxyCodeLine{924   \mbox{\hyperlink{group___exported__macros_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a5576a30ffbe0a0800ce7788610327677}{TIMINGR}}, Timing);}
+\DoxyCodeLine{925 \}}
+\DoxyCodeLine{926 }
+\DoxyCodeLine{933 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetTimingPrescaler(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{934 \{}
+\DoxyCodeLine{935   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a5576a30ffbe0a0800ce7788610327677}{TIMINGR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae5cfdc434959893555b392e7f07bfff7}{I2C\_TIMINGR\_PRESC}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1331841a70ef826b762e9d96df38703b}{I2C\_TIMINGR\_PRESC\_Pos}});}
+\DoxyCodeLine{936 \}}
+\DoxyCodeLine{937 }
+\DoxyCodeLine{944 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetClockLowPeriod(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{945 \{}
+\DoxyCodeLine{946   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a5576a30ffbe0a0800ce7788610327677}{TIMINGR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad2d52eba6adbdaa16094d8241aeb2b20}{I2C\_TIMINGR\_SCLL}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga30e63a7bc531a8a74283dd0db04d82f8}{I2C\_TIMINGR\_SCLL\_Pos}});}
+\DoxyCodeLine{947 \}}
+\DoxyCodeLine{948 }
+\DoxyCodeLine{955 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetClockHighPeriod(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{956 \{}
+\DoxyCodeLine{957   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a5576a30ffbe0a0800ce7788610327677}{TIMINGR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1eb185e660b02392b3faac65bae0c8df}{I2C\_TIMINGR\_SCLH}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga76876f2b0ee371ae51c7edaf49b7908e}{I2C\_TIMINGR\_SCLH\_Pos}});}
+\DoxyCodeLine{958 \}}
+\DoxyCodeLine{959 }
+\DoxyCodeLine{966 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetDataHoldTime(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{967 \{}
+\DoxyCodeLine{968   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a5576a30ffbe0a0800ce7788610327677}{TIMINGR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga40f8fd2508d3b30a732c759443b306e6}{I2C\_TIMINGR\_SDADEL}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6bb99d8fff5aaa5694f8f73dd80ca911}{I2C\_TIMINGR\_SDADEL\_Pos}});}
+\DoxyCodeLine{969 \}}
+\DoxyCodeLine{970 }
+\DoxyCodeLine{977 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetDataSetupTime(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{978 \{}
+\DoxyCodeLine{979   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a5576a30ffbe0a0800ce7788610327677}{TIMINGR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga952e8751cb0c5f6be6c14cf97d9530d0}{I2C\_TIMINGR\_SCLDEL}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga161f0eb0b81cabc49a410634c104269e}{I2C\_TIMINGR\_SCLDEL\_Pos}});}
+\DoxyCodeLine{980 \}}
+\DoxyCodeLine{981 }
+\DoxyCodeLine{996 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t PeripheralMode)}
+\DoxyCodeLine{997 \{}
+\DoxyCodeLine{998   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaca44767df3368d7f0a9a17c20c55d27b}{I2C\_CR1\_SMBHEN}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga656e66b079528ed6d5c282010e51a263}{I2C\_CR1\_SMBDEN}}, PeripheralMode);}
+\DoxyCodeLine{999 \}}
+\DoxyCodeLine{1000 }
+\DoxyCodeLine{1014 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1015 \{}
+\DoxyCodeLine{1016   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaca44767df3368d7f0a9a17c20c55d27b}{I2C\_CR1\_SMBHEN}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga656e66b079528ed6d5c282010e51a263}{I2C\_CR1\_SMBDEN}}));}
+\DoxyCodeLine{1017 \}}
+\DoxyCodeLine{1018 }
+\DoxyCodeLine{1032 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableSMBusAlert(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1033 \{}
+\DoxyCodeLine{1034   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2062e827a9d1d14c8c1b58ad6dbbf762}{I2C\_CR1\_ALERTEN}});}
+\DoxyCodeLine{1035 \}}
+\DoxyCodeLine{1036 }
+\DoxyCodeLine{1050 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableSMBusAlert(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1051 \{}
+\DoxyCodeLine{1052   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2062e827a9d1d14c8c1b58ad6dbbf762}{I2C\_CR1\_ALERTEN}});}
+\DoxyCodeLine{1053 \}}
+\DoxyCodeLine{1054 }
+\DoxyCodeLine{1063 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledSMBusAlert(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1064 \{}
+\DoxyCodeLine{1065   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2062e827a9d1d14c8c1b58ad6dbbf762}{I2C\_CR1\_ALERTEN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2062e827a9d1d14c8c1b58ad6dbbf762}{I2C\_CR1\_ALERTEN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1066 \}}
+\DoxyCodeLine{1067 }
+\DoxyCodeLine{1076 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableSMBusPEC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1077 \{}
+\DoxyCodeLine{1078   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga393649f17391feae45fa0db955b3fdf5}{I2C\_CR1\_PECEN}});}
+\DoxyCodeLine{1079 \}}
+\DoxyCodeLine{1080 }
+\DoxyCodeLine{1089 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableSMBusPEC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1090 \{}
+\DoxyCodeLine{1091   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga393649f17391feae45fa0db955b3fdf5}{I2C\_CR1\_PECEN}});}
+\DoxyCodeLine{1092 \}}
+\DoxyCodeLine{1093 }
+\DoxyCodeLine{1102 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledSMBusPEC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1103 \{}
+\DoxyCodeLine{1104   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga393649f17391feae45fa0db955b3fdf5}{I2C\_CR1\_PECEN}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga393649f17391feae45fa0db955b3fdf5}{I2C\_CR1\_PECEN}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1105 \}}
+\DoxyCodeLine{1106 }
+\DoxyCodeLine{1123 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ConfigSMBusTimeout(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TimeoutA, uint32\_t TimeoutAMode,}
+\DoxyCodeLine{1124                                                uint32\_t TimeoutB)}
+\DoxyCodeLine{1125 \{}
+\DoxyCodeLine{1126   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac5a924e7fc2b71c82158224870f9d453}{I2C\_TIMEOUTR\_TIMEOUTA}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab0f7b6650f592e9ddc482648a1ea91f2}{I2C\_TIMEOUTR\_TIDLE}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5defcd355ce513e94e5f040b2dad75a6}{I2C\_TIMEOUTR\_TIMEOUTB}},}
+\DoxyCodeLine{1127              TimeoutA | TimeoutAMode | (TimeoutB << \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2b7f58db7b232337697e4eb77a6c3506}{I2C\_TIMEOUTR\_TIMEOUTB\_Pos}}));}
+\DoxyCodeLine{1128 \}}
+\DoxyCodeLine{1129 }
+\DoxyCodeLine{1140 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetSMBusTimeoutA(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TimeoutA)}
+\DoxyCodeLine{1141 \{}
+\DoxyCodeLine{1142   \mbox{\hyperlink{group___exported__macros_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, TimeoutA);}
+\DoxyCodeLine{1143 \}}
+\DoxyCodeLine{1144 }
+\DoxyCodeLine{1153 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetSMBusTimeoutA(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1154 \{}
+\DoxyCodeLine{1155   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac5a924e7fc2b71c82158224870f9d453}{I2C\_TIMEOUTR\_TIMEOUTA}}));}
+\DoxyCodeLine{1156 \}}
+\DoxyCodeLine{1157 }
+\DoxyCodeLine{1170 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetSMBusTimeoutAMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TimeoutAMode)}
+\DoxyCodeLine{1171 \{}
+\DoxyCodeLine{1172   \mbox{\hyperlink{group___exported__macros_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, TimeoutAMode);}
+\DoxyCodeLine{1173 \}}
+\DoxyCodeLine{1174 }
+\DoxyCodeLine{1185 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetSMBusTimeoutAMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1186 \{}
+\DoxyCodeLine{1187   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab0f7b6650f592e9ddc482648a1ea91f2}{I2C\_TIMEOUTR\_TIDLE}}));}
+\DoxyCodeLine{1188 \}}
+\DoxyCodeLine{1189 }
+\DoxyCodeLine{1200 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetSMBusTimeoutB(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TimeoutB)}
+\DoxyCodeLine{1201 \{}
+\DoxyCodeLine{1202   \mbox{\hyperlink{group___exported__macros_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, TimeoutB << \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2b7f58db7b232337697e4eb77a6c3506}{I2C\_TIMEOUTR\_TIMEOUTB\_Pos}});}
+\DoxyCodeLine{1203 \}}
+\DoxyCodeLine{1204 }
+\DoxyCodeLine{1213 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetSMBusTimeoutB(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1214 \{}
+\DoxyCodeLine{1215   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5defcd355ce513e94e5f040b2dad75a6}{I2C\_TIMEOUTR\_TIMEOUTB}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2b7f58db7b232337697e4eb77a6c3506}{I2C\_TIMEOUTR\_TIMEOUTB\_Pos}});}
+\DoxyCodeLine{1216 \}}
+\DoxyCodeLine{1217 }
+\DoxyCodeLine{1231 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableSMBusTimeout(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t ClockTimeout)}
+\DoxyCodeLine{1232 \{}
+\DoxyCodeLine{1233   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, ClockTimeout);}
+\DoxyCodeLine{1234 \}}
+\DoxyCodeLine{1235 }
+\DoxyCodeLine{1249 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableSMBusTimeout(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t ClockTimeout)}
+\DoxyCodeLine{1250 \{}
+\DoxyCodeLine{1251   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, ClockTimeout);}
+\DoxyCodeLine{1252 \}}
+\DoxyCodeLine{1253 }
+\DoxyCodeLine{1267 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledSMBusTimeout(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t ClockTimeout)}
+\DoxyCodeLine{1268 \{}
+\DoxyCodeLine{1269   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a95187d83f061ebbddd8668d0db3fbaa5}{TIMEOUTR}}, (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga48d81bce8d2faf7acbef9a38510a8542}{I2C\_TIMEOUTR\_TIMOUTEN}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga95aa3d29b8e59de06a45d15d03f721af}{I2C\_TIMEOUTR\_TEXTEN}})) == \(\backslash\)}
+\DoxyCodeLine{1270            (ClockTimeout)) ? 1UL : 0UL);}
+\DoxyCodeLine{1271 \}}
+\DoxyCodeLine{1272 }
+\DoxyCodeLine{1287 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_TX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1288 \{}
+\DoxyCodeLine{1289   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8bd36da8f72bc91040e63af07dd6b5a4}{I2C\_CR1\_TXIE}});}
+\DoxyCodeLine{1290 \}}
+\DoxyCodeLine{1291 }
+\DoxyCodeLine{1298 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_TX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1299 \{}
+\DoxyCodeLine{1300   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8bd36da8f72bc91040e63af07dd6b5a4}{I2C\_CR1\_TXIE}});}
+\DoxyCodeLine{1301 \}}
+\DoxyCodeLine{1302 }
+\DoxyCodeLine{1309 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_TX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1310 \{}
+\DoxyCodeLine{1311   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8bd36da8f72bc91040e63af07dd6b5a4}{I2C\_CR1\_TXIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8bd36da8f72bc91040e63af07dd6b5a4}{I2C\_CR1\_TXIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1312 \}}
+\DoxyCodeLine{1313 }
+\DoxyCodeLine{1320 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_RX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1321 \{}
+\DoxyCodeLine{1322   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf1fc89bf142bfc08ee78763e6e27cd80}{I2C\_CR1\_RXIE}});}
+\DoxyCodeLine{1323 \}}
+\DoxyCodeLine{1324 }
+\DoxyCodeLine{1331 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_RX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1332 \{}
+\DoxyCodeLine{1333   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf1fc89bf142bfc08ee78763e6e27cd80}{I2C\_CR1\_RXIE}});}
+\DoxyCodeLine{1334 \}}
+\DoxyCodeLine{1335 }
+\DoxyCodeLine{1342 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_RX(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1343 \{}
+\DoxyCodeLine{1344   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf1fc89bf142bfc08ee78763e6e27cd80}{I2C\_CR1\_RXIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf1fc89bf142bfc08ee78763e6e27cd80}{I2C\_CR1\_RXIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1345 \}}
+\DoxyCodeLine{1346 }
+\DoxyCodeLine{1353 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_ADDR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1354 \{}
+\DoxyCodeLine{1355   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga275e85befdb3d7ea7b5eb402cec574ec}{I2C\_CR1\_ADDRIE}});}
+\DoxyCodeLine{1356 \}}
+\DoxyCodeLine{1357 }
+\DoxyCodeLine{1364 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_ADDR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1365 \{}
+\DoxyCodeLine{1366   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga275e85befdb3d7ea7b5eb402cec574ec}{I2C\_CR1\_ADDRIE}});}
+\DoxyCodeLine{1367 \}}
+\DoxyCodeLine{1368 }
+\DoxyCodeLine{1375 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_ADDR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1376 \{}
+\DoxyCodeLine{1377   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga275e85befdb3d7ea7b5eb402cec574ec}{I2C\_CR1\_ADDRIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga275e85befdb3d7ea7b5eb402cec574ec}{I2C\_CR1\_ADDRIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1378 \}}
+\DoxyCodeLine{1379 }
+\DoxyCodeLine{1386 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_NACK(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1387 \{}
+\DoxyCodeLine{1388   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae3f71f7a55e13a467b2a5ed639e0fe18}{I2C\_CR1\_NACKIE}});}
+\DoxyCodeLine{1389 \}}
+\DoxyCodeLine{1390 }
+\DoxyCodeLine{1397 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_NACK(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1398 \{}
+\DoxyCodeLine{1399   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae3f71f7a55e13a467b2a5ed639e0fe18}{I2C\_CR1\_NACKIE}});}
+\DoxyCodeLine{1400 \}}
+\DoxyCodeLine{1401 }
+\DoxyCodeLine{1408 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_NACK(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1409 \{}
+\DoxyCodeLine{1410   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae3f71f7a55e13a467b2a5ed639e0fe18}{I2C\_CR1\_NACKIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae3f71f7a55e13a467b2a5ed639e0fe18}{I2C\_CR1\_NACKIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1411 \}}
+\DoxyCodeLine{1412 }
+\DoxyCodeLine{1419 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_STOP(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1420 \{}
+\DoxyCodeLine{1421   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1f1576cb1a2cd847f55fe2a0820bb166}{I2C\_CR1\_STOPIE}});}
+\DoxyCodeLine{1422 \}}
+\DoxyCodeLine{1423 }
+\DoxyCodeLine{1430 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_STOP(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1431 \{}
+\DoxyCodeLine{1432   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1f1576cb1a2cd847f55fe2a0820bb166}{I2C\_CR1\_STOPIE}});}
+\DoxyCodeLine{1433 \}}
+\DoxyCodeLine{1434 }
+\DoxyCodeLine{1441 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_STOP(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1442 \{}
+\DoxyCodeLine{1443   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1f1576cb1a2cd847f55fe2a0820bb166}{I2C\_CR1\_STOPIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1f1576cb1a2cd847f55fe2a0820bb166}{I2C\_CR1\_STOPIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1444 \}}
+\DoxyCodeLine{1445 }
+\DoxyCodeLine{1455 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_TC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1456 \{}
+\DoxyCodeLine{1457   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6b37e64bdf6399ef12c3df77bcb1634f}{I2C\_CR1\_TCIE}});}
+\DoxyCodeLine{1458 \}}
+\DoxyCodeLine{1459 }
+\DoxyCodeLine{1469 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_TC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1470 \{}
+\DoxyCodeLine{1471   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6b37e64bdf6399ef12c3df77bcb1634f}{I2C\_CR1\_TCIE}});}
+\DoxyCodeLine{1472 \}}
+\DoxyCodeLine{1473 }
+\DoxyCodeLine{1480 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_TC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1481 \{}
+\DoxyCodeLine{1482   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6b37e64bdf6399ef12c3df77bcb1634f}{I2C\_CR1\_TCIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6b37e64bdf6399ef12c3df77bcb1634f}{I2C\_CR1\_TCIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1483 \}}
+\DoxyCodeLine{1484 }
+\DoxyCodeLine{1500 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableIT\_ERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1501 \{}
+\DoxyCodeLine{1502   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75e971012a02f9dad47a1629c6f5d956}{I2C\_CR1\_ERRIE}});}
+\DoxyCodeLine{1503 \}}
+\DoxyCodeLine{1504 }
+\DoxyCodeLine{1520 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableIT\_ERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1521 \{}
+\DoxyCodeLine{1522   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75e971012a02f9dad47a1629c6f5d956}{I2C\_CR1\_ERRIE}});}
+\DoxyCodeLine{1523 \}}
+\DoxyCodeLine{1524 }
+\DoxyCodeLine{1531 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledIT\_ERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1532 \{}
+\DoxyCodeLine{1533   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75e971012a02f9dad47a1629c6f5d956}{I2C\_CR1\_ERRIE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga75e971012a02f9dad47a1629c6f5d956}{I2C\_CR1\_ERRIE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1534 \}}
+\DoxyCodeLine{1535 }
+\DoxyCodeLine{1552 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_TXE(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1553 \{}
+\DoxyCodeLine{1554   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1dfec198395c0f88454a86bacff60351}{I2C\_ISR\_TXE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1dfec198395c0f88454a86bacff60351}{I2C\_ISR\_TXE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1555 \}}
+\DoxyCodeLine{1556 }
+\DoxyCodeLine{1565 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_TXIS(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1566 \{}
+\DoxyCodeLine{1567   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa848ab3d120a27401203329941c9dcb5}{I2C\_ISR\_TXIS}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa848ab3d120a27401203329941c9dcb5}{I2C\_ISR\_TXIS}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1568 \}}
+\DoxyCodeLine{1569 }
+\DoxyCodeLine{1578 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_RXNE(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1579 \{}
+\DoxyCodeLine{1580   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0afd4e99e26dcec57a0f3be4dae2c022}{I2C\_ISR\_RXNE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0afd4e99e26dcec57a0f3be4dae2c022}{I2C\_ISR\_RXNE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1581 \}}
+\DoxyCodeLine{1582 }
+\DoxyCodeLine{1591 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_ADDR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1592 \{}
+\DoxyCodeLine{1593   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0c1a844fb3e55ca9db318d0bc2db4a07}{I2C\_ISR\_ADDR}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0c1a844fb3e55ca9db318d0bc2db4a07}{I2C\_ISR\_ADDR}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1594 \}}
+\DoxyCodeLine{1595 }
+\DoxyCodeLine{1604 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_NACK(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1605 \{}
+\DoxyCodeLine{1606   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad2fb99c13292fc510cfe85bf45ac6b77}{I2C\_ISR\_NACKF}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad2fb99c13292fc510cfe85bf45ac6b77}{I2C\_ISR\_NACKF}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1607 \}}
+\DoxyCodeLine{1608 }
+\DoxyCodeLine{1617 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_STOP(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1618 \{}
+\DoxyCodeLine{1619   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga24dee623aba3059485449f8ce7d061b7}{I2C\_ISR\_STOPF}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga24dee623aba3059485449f8ce7d061b7}{I2C\_ISR\_STOPF}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1620 \}}
+\DoxyCodeLine{1621 }
+\DoxyCodeLine{1630 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_TC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1631 \{}
+\DoxyCodeLine{1632   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac47bed557caa744aa763e1a8d0eba04d}{I2C\_ISR\_TC}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac47bed557caa744aa763e1a8d0eba04d}{I2C\_ISR\_TC}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1633 \}}
+\DoxyCodeLine{1634 }
+\DoxyCodeLine{1643 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_TCR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1644 \{}
+\DoxyCodeLine{1645   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga76008be670a9a4829aaf3753c79b3bbd}{I2C\_ISR\_TCR}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga76008be670a9a4829aaf3753c79b3bbd}{I2C\_ISR\_TCR}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1646 \}}
+\DoxyCodeLine{1647 }
+\DoxyCodeLine{1656 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_BERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1657 \{}
+\DoxyCodeLine{1658   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0dd0d8fdc41303a1c31fc7466301be07}{I2C\_ISR\_BERR}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0dd0d8fdc41303a1c31fc7466301be07}{I2C\_ISR\_BERR}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1659 \}}
+\DoxyCodeLine{1660 }
+\DoxyCodeLine{1669 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_ARLO(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1670 \{}
+\DoxyCodeLine{1671   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga54ae33fec99aa351621ba6b483fbead3}{I2C\_ISR\_ARLO}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga54ae33fec99aa351621ba6b483fbead3}{I2C\_ISR\_ARLO}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1672 \}}
+\DoxyCodeLine{1673 }
+\DoxyCodeLine{1682 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_OVR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1683 \{}
+\DoxyCodeLine{1684   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf5976110d93d2f36f50c4c6467510914}{I2C\_ISR\_OVR}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf5976110d93d2f36f50c4c6467510914}{I2C\_ISR\_OVR}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1685 \}}
+\DoxyCodeLine{1686 }
+\DoxyCodeLine{1697 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveSMBusFlag\_PECERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1698 \{}
+\DoxyCodeLine{1699   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8b1d42968194fb42f9cc9bb2c2806281}{I2C\_ISR\_PECERR}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8b1d42968194fb42f9cc9bb2c2806281}{I2C\_ISR\_PECERR}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1700 \}}
+\DoxyCodeLine{1701 }
+\DoxyCodeLine{1712 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveSMBusFlag\_TIMEOUT(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1713 \{}
+\DoxyCodeLine{1714   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga63fc8ce165c42d0d719c45e58a82f574}{I2C\_ISR\_TIMEOUT}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga63fc8ce165c42d0d719c45e58a82f574}{I2C\_ISR\_TIMEOUT}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1715 \}}
+\DoxyCodeLine{1716 }
+\DoxyCodeLine{1728 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveSMBusFlag\_ALERT(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1729 \{}
+\DoxyCodeLine{1730   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4c6c779bca999450c595fc797a1fdeec}{I2C\_ISR\_ALERT}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4c6c779bca999450c595fc797a1fdeec}{I2C\_ISR\_ALERT}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1731 \}}
+\DoxyCodeLine{1732 }
+\DoxyCodeLine{1741 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsActiveFlag\_BUSY(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1742 \{}
+\DoxyCodeLine{1743   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga12ba21dc10ca08a2063a1c4672ffb886}{I2C\_ISR\_BUSY}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga12ba21dc10ca08a2063a1c4672ffb886}{I2C\_ISR\_BUSY}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1744 \}}
+\DoxyCodeLine{1745 }
+\DoxyCodeLine{1752 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_ADDR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1753 \{}
+\DoxyCodeLine{1754   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac46e27edee02106eec30ede46a143e92}{I2C\_ICR\_ADDRCF}});}
+\DoxyCodeLine{1755 \}}
+\DoxyCodeLine{1756 }
+\DoxyCodeLine{1763 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_NACK(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1764 \{}
+\DoxyCodeLine{1765   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab68515e7c5c0796da616c92943a17472}{I2C\_ICR\_NACKCF}});}
+\DoxyCodeLine{1766 \}}
+\DoxyCodeLine{1767 }
+\DoxyCodeLine{1774 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_STOP(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1775 \{}
+\DoxyCodeLine{1776   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe59e51ed40569ab397e2cf9da3a347f}{I2C\_ICR\_STOPCF}});}
+\DoxyCodeLine{1777 \}}
+\DoxyCodeLine{1778 }
+\DoxyCodeLine{1786 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_TXE(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1787 \{}
+\DoxyCodeLine{1788   \mbox{\hyperlink{group___exported__macros_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1dfec198395c0f88454a86bacff60351}{I2C\_ISR\_TXE}});}
+\DoxyCodeLine{1789 \}}
+\DoxyCodeLine{1790 }
+\DoxyCodeLine{1797 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_BERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1798 \{}
+\DoxyCodeLine{1799   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9a64f0841ce0f5d234a72b968705c416}{I2C\_ICR\_BERRCF}});}
+\DoxyCodeLine{1800 \}}
+\DoxyCodeLine{1801 }
+\DoxyCodeLine{1808 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_ARLO(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1809 \{}
+\DoxyCodeLine{1810   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1bc8765152bfd75d343a06e3b696805d}{I2C\_ICR\_ARLOCF}});}
+\DoxyCodeLine{1811 \}}
+\DoxyCodeLine{1812 }
+\DoxyCodeLine{1819 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearFlag\_OVR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1820 \{}
+\DoxyCodeLine{1821   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5d46a31811a8b9489ca63f1c8e4c1021}{I2C\_ICR\_OVRCF}});}
+\DoxyCodeLine{1822 \}}
+\DoxyCodeLine{1823 }
+\DoxyCodeLine{1832 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearSMBusFlag\_PECERR(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1833 \{}
+\DoxyCodeLine{1834   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7b8f2f138f5a1dea3c54801a2750ef9d}{I2C\_ICR\_PECCF}});}
+\DoxyCodeLine{1835 \}}
+\DoxyCodeLine{1836 }
+\DoxyCodeLine{1845 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearSMBusFlag\_TIMEOUT(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1846 \{}
+\DoxyCodeLine{1847   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9a76993c176007a7353a33b53e7d3136}{I2C\_ICR\_TIMOUTCF}});}
+\DoxyCodeLine{1848 \}}
+\DoxyCodeLine{1849 }
+\DoxyCodeLine{1858 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_ClearSMBusFlag\_ALERT(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1859 \{}
+\DoxyCodeLine{1860   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a0a8c8230846fd8ff154b9fde8dfa0399}{ICR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaed440bb0bdb9b1134d7a21ebdf7d3ac3}{I2C\_ICR\_ALERTCF}});}
+\DoxyCodeLine{1861 \}}
+\DoxyCodeLine{1862 }
+\DoxyCodeLine{1879 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableAutoEndMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1880 \{}
+\DoxyCodeLine{1881   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabcf789c74e217ec8967bcabc156a6c54}{I2C\_CR2\_AUTOEND}});}
+\DoxyCodeLine{1882 \}}
+\DoxyCodeLine{1883 }
+\DoxyCodeLine{1891 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableAutoEndMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1892 \{}
+\DoxyCodeLine{1893   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabcf789c74e217ec8967bcabc156a6c54}{I2C\_CR2\_AUTOEND}});}
+\DoxyCodeLine{1894 \}}
+\DoxyCodeLine{1895 }
+\DoxyCodeLine{1902 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledAutoEndMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1903 \{}
+\DoxyCodeLine{1904   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabcf789c74e217ec8967bcabc156a6c54}{I2C\_CR2\_AUTOEND}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabcf789c74e217ec8967bcabc156a6c54}{I2C\_CR2\_AUTOEND}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1905 \}}
+\DoxyCodeLine{1906 }
+\DoxyCodeLine{1914 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableReloadMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1915 \{}
+\DoxyCodeLine{1916   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga21a796045451013c964ef8b12ca6c9bb}{I2C\_CR2\_RELOAD}});}
+\DoxyCodeLine{1917 \}}
+\DoxyCodeLine{1918 }
+\DoxyCodeLine{1926 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableReloadMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1927 \{}
+\DoxyCodeLine{1928   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga21a796045451013c964ef8b12ca6c9bb}{I2C\_CR2\_RELOAD}});}
+\DoxyCodeLine{1929 \}}
+\DoxyCodeLine{1930 }
+\DoxyCodeLine{1937 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledReloadMode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1938 \{}
+\DoxyCodeLine{1939   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga21a796045451013c964ef8b12ca6c9bb}{I2C\_CR2\_RELOAD}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga21a796045451013c964ef8b12ca6c9bb}{I2C\_CR2\_RELOAD}})) ? 1UL : 0UL);}
+\DoxyCodeLine{1940 \}}
+\DoxyCodeLine{1941 }
+\DoxyCodeLine{1950 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetTransferSize(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TransferSize)}
+\DoxyCodeLine{1951 \{}
+\DoxyCodeLine{1952   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga23a58895a897ccc34a8cbbe36b412b69}{I2C\_CR2\_NBYTES}}, TransferSize << \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga543bf3506a45a9d3bd2f07a7381a27d0}{I2C\_CR2\_NBYTES\_Pos}});}
+\DoxyCodeLine{1953 \}}
+\DoxyCodeLine{1954 }
+\DoxyCodeLine{1961 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetTransferSize(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1962 \{}
+\DoxyCodeLine{1963   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga23a58895a897ccc34a8cbbe36b412b69}{I2C\_CR2\_NBYTES}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga543bf3506a45a9d3bd2f07a7381a27d0}{I2C\_CR2\_NBYTES\_Pos}});}
+\DoxyCodeLine{1964 \}}
+\DoxyCodeLine{1965 }
+\DoxyCodeLine{1977 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_AcknowledgeNextData(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TypeAcknowledge)}
+\DoxyCodeLine{1978 \{}
+\DoxyCodeLine{1979   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8bcbbaf564cb68e3afed79c3cd34aa1f}{I2C\_CR2\_NACK}}, TypeAcknowledge);}
+\DoxyCodeLine{1980 \}}
+\DoxyCodeLine{1981 }
+\DoxyCodeLine{1990 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_GenerateStartCondition(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{1991 \{}
+\DoxyCodeLine{1992   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5ac78b87a12a9eaf564f5a3f99928478}{I2C\_CR2\_START}});}
+\DoxyCodeLine{1993 \}}
+\DoxyCodeLine{1994 }
+\DoxyCodeLine{2001 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_GenerateStopCondition(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2002 \{}
+\DoxyCodeLine{2003   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga37007be453dd8a637be2d793d3b5f2a2}{I2C\_CR2\_STOP}});}
+\DoxyCodeLine{2004 \}}
+\DoxyCodeLine{2005 }
+\DoxyCodeLine{2015 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableAuto10BitRead(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2016 \{}
+\DoxyCodeLine{2017   \mbox{\hyperlink{group___exported__macros_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2de0f12e6fb297c2c29bee5504e54377}{I2C\_CR2\_HEAD10R}});}
+\DoxyCodeLine{2018 \}}
+\DoxyCodeLine{2019 }
+\DoxyCodeLine{2027 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_DisableAuto10BitRead(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2028 \{}
+\DoxyCodeLine{2029   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2de0f12e6fb297c2c29bee5504e54377}{I2C\_CR2\_HEAD10R}});}
+\DoxyCodeLine{2030 \}}
+\DoxyCodeLine{2031 }
+\DoxyCodeLine{2038 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledAuto10BitRead(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2039 \{}
+\DoxyCodeLine{2040   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2de0f12e6fb297c2c29bee5504e54377}{I2C\_CR2\_HEAD10R}}) != (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2de0f12e6fb297c2c29bee5504e54377}{I2C\_CR2\_HEAD10R}})) ? 1UL : 0UL);}
+\DoxyCodeLine{2041 \}}
+\DoxyCodeLine{2042 }
+\DoxyCodeLine{2053 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetTransferRequest(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t TransferRequest)}
+\DoxyCodeLine{2054 \{}
+\DoxyCodeLine{2055   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga268ec714bbe4a75ea098c0e230a87697}{I2C\_CR2\_RD\_WRN}}, TransferRequest);}
+\DoxyCodeLine{2056 \}}
+\DoxyCodeLine{2057 }
+\DoxyCodeLine{2066 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetTransferRequest(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2067 \{}
+\DoxyCodeLine{2068   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga268ec714bbe4a75ea098c0e230a87697}{I2C\_CR2\_RD\_WRN}}));}
+\DoxyCodeLine{2069 \}}
+\DoxyCodeLine{2070 }
+\DoxyCodeLine{2079 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_SetSlaveAddr(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t SlaveAddr)}
+\DoxyCodeLine{2080 \{}
+\DoxyCodeLine{2081   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1a0478d3d85fc6aba608390ee2ea2d1c}{I2C\_CR2\_SADD}}, SlaveAddr);}
+\DoxyCodeLine{2082 \}}
+\DoxyCodeLine{2083 }
+\DoxyCodeLine{2090 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetSlaveAddr(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2091 \{}
+\DoxyCodeLine{2092   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1a0478d3d85fc6aba608390ee2ea2d1c}{I2C\_CR2\_SADD}}));}
+\DoxyCodeLine{2093 \}}
+\DoxyCodeLine{2094 }
+\DoxyCodeLine{2133 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_HandleTransfer(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint32\_t SlaveAddr, uint32\_t SlaveAddrSize,}
+\DoxyCodeLine{2134                                            uint32\_t TransferSize, uint32\_t EndMode, uint32\_t Request)}
+\DoxyCodeLine{2135 \{}
+\DoxyCodeLine{2136   \mbox{\hyperlink{group___exported__macros_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1a0478d3d85fc6aba608390ee2ea2d1c}{I2C\_CR2\_SADD}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5454de5709c0e68a0068f9f5d39e5674}{I2C\_CR2\_ADD10}} |}
+\DoxyCodeLine{2137              (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga268ec714bbe4a75ea098c0e230a87697}{I2C\_CR2\_RD\_WRN}} \& (uint32\_t)(Request >> (31U -\/ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga163b3a97f88712d6315c82a9bf90bb9a}{I2C\_CR2\_RD\_WRN\_Pos}}))) |}
+\DoxyCodeLine{2138              \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5ac78b87a12a9eaf564f5a3f99928478}{I2C\_CR2\_START}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga37007be453dd8a637be2d793d3b5f2a2}{I2C\_CR2\_STOP}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga21a796045451013c964ef8b12ca6c9bb}{I2C\_CR2\_RELOAD}} |}
+\DoxyCodeLine{2139              \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga23a58895a897ccc34a8cbbe36b412b69}{I2C\_CR2\_NBYTES}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabcf789c74e217ec8967bcabc156a6c54}{I2C\_CR2\_AUTOEND}} | \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2de0f12e6fb297c2c29bee5504e54377}{I2C\_CR2\_HEAD10R}},}
+\DoxyCodeLine{2140              SlaveAddr | SlaveAddrSize | (TransferSize << \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga543bf3506a45a9d3bd2f07a7381a27d0}{I2C\_CR2\_NBYTES\_Pos}}) | EndMode | Request);}
+\DoxyCodeLine{2141 \}}
+\DoxyCodeLine{2142 }
+\DoxyCodeLine{2153 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetTransferDirection(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2154 \{}
+\DoxyCodeLine{2155   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa4890d7deb94106f946b28a7309e22aa}{I2C\_ISR\_DIR}}));}
+\DoxyCodeLine{2156 \}}
+\DoxyCodeLine{2157 }
+\DoxyCodeLine{2164 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetAddressMatchCode(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2165 \{}
+\DoxyCodeLine{2166   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ab3c49a96815fcbee63d95e1e74f20e75}{ISR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9050a7e2c1d8777251352f51197e4c80}{I2C\_ISR\_ADDCODE}}) >> \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga276e6692440e4c8afeafc013e56fa2bb}{I2C\_ISR\_ADDCODE\_Pos}} << 1);}
+\DoxyCodeLine{2167 \}}
+\DoxyCodeLine{2168 }
+\DoxyCodeLine{2181 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_EnableSMBusPECCompare(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2182 \{}
+\DoxyCodeLine{2183   \mbox{\hyperlink{group___exported__macros_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6989be2db6f3df41bf5cdb856b1a64c7}{I2C\_CR2\_PECBYTE}});}
+\DoxyCodeLine{2184 \}}
+\DoxyCodeLine{2185 }
+\DoxyCodeLine{2194 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_IsEnabledSMBusPECCompare(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2195 \{}
+\DoxyCodeLine{2196   \textcolor{keywordflow}{return} ((\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_afdfa307571967afb1d97943e982b6586}{CR2}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6989be2db6f3df41bf5cdb856b1a64c7}{I2C\_CR2\_PECBYTE}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6989be2db6f3df41bf5cdb856b1a64c7}{I2C\_CR2\_PECBYTE}})) ? 1UL : 0UL);}
+\DoxyCodeLine{2197 \}}
+\DoxyCodeLine{2198 }
+\DoxyCodeLine{2207 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint32\_t LL\_I2C\_GetSMBusPEC(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2208 \{}
+\DoxyCodeLine{2209   \textcolor{keywordflow}{return} (uint32\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_af427631ab4515bb1f16bf5869682c18b}{PECR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac30a300f7bcd680b82263f4059f67a89}{I2C\_PECR\_PEC}}));}
+\DoxyCodeLine{2210 \}}
+\DoxyCodeLine{2211 }
+\DoxyCodeLine{2218 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} uint8\_t LL\_I2C\_ReceiveData8(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx)}
+\DoxyCodeLine{2219 \{}
+\DoxyCodeLine{2220   \textcolor{keywordflow}{return} (uint8\_t)(\mbox{\hyperlink{group___exported__macros_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_a9bf29a9104cb5569823ab892174f9c8c}{RXDR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga54a8527f0da080debfb9cb25c02deaff}{I2C\_RXDR\_RXDATA}}));}
+\DoxyCodeLine{2221 \}}
+\DoxyCodeLine{2222 }
+\DoxyCodeLine{2230 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}} \textcolor{keywordtype}{void} LL\_I2C\_TransmitData8(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, uint8\_t Data)}
+\DoxyCodeLine{2231 \{}
+\DoxyCodeLine{2232   \mbox{\hyperlink{group___exported__macros_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(I2Cx-\/>\mbox{\hyperlink{struct_i2_c___type_def_ad7e8d785fff2acfeb8814e43bda8dd72}{TXDR}}, Data);}
+\DoxyCodeLine{2233 \}}
+\DoxyCodeLine{2234 }
+\DoxyCodeLine{2239 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{2244 \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}} LL\_I2C\_Init(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx, LL\_I2C\_InitTypeDef *I2C\_InitStruct);}
+\DoxyCodeLine{2245 \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}} LL\_I2C\_DeInit(\mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}} *I2Cx);}
+\DoxyCodeLine{2246 \textcolor{keywordtype}{void} LL\_I2C\_StructInit(LL\_I2C\_InitTypeDef *I2C\_InitStruct);}
+\DoxyCodeLine{2247 }
+\DoxyCodeLine{2248 }
+\DoxyCodeLine{2252 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USE\_FULL\_LL\_DRIVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{2253 }
+\DoxyCodeLine{2262 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* I2C1 || I2C2 || I2C3 || I2C4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{2263 }
+\DoxyCodeLine{2268 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{2269 \}}
+\DoxyCodeLine{2270 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2271 }
+\DoxyCodeLine{2272 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32L4xx\_LL\_I2C\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
