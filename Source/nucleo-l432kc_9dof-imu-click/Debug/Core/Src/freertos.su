@@ -1,4 +1,4 @@
-../Core/Src/freertos.c:103:6:MX_FREERTOS_Init	8	static
-../Core/Src/freertos.c:155:6:StartReadDataTask	24	static
-../Core/Src/freertos.c:198:6:startSendDataTask	192	static
-../Core/Src/freertos.c:251:6:_startWifiClickTask	16	static
+../Core/Src/freertos.c:104:6:MX_FREERTOS_Init	8	static
+../Core/Src/freertos.c:157:6:StartReadDataTask	24	static
+../Core/Src/freertos.c:200:6:startSendDataTask	192	static
+../Core/Src/freertos.c:253:6:_startWifiClickTask	16	static

@@ -1,7 +1,7 @@
-../Core/Src/mpu9dof.c:112:6:mpu9dof_default_cfg	16	static
-../Core/Src/mpu9dof.c:164:6:mpu9dof_read	24	static
-../Core/Src/mpu9dof.c:205:6:mpu9dof_calibrate_module	32	static
-../Core/Src/mpu9dof.c:238:7:mpu9dof_process	40	static
-../Core/Src/mpu9dof.c:278:6:mpu9dof_log_data	16	static
-../Core/Src/mpu9dof.c:314:6:mpu9dof_generic_write	288	static
-../Core/Src/mpu9dof.c:332:6:mpu9dof_generic_read	40	static
+../Core/Src/mpu9dof.c:173:6:mpu9dof_default_cfg	16	static
+../Core/Src/mpu9dof.c:244:6:mpu9dof_read	24	static
+../Core/Src/mpu9dof.c:304:6:mpu9dof_calibrate_module	32	static
+../Core/Src/mpu9dof.c:363:7:mpu9dof_process	40	static
+../Core/Src/mpu9dof.c:415:6:mpu9dof_log_data	16	static
+../Core/Src/mpu9dof.c:463:6:mpu9dof_generic_write	288	static
+../Core/Src/mpu9dof.c:495:6:mpu9dof_generic_read	40	static
