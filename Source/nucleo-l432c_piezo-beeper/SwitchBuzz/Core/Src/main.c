@@ -521,7 +521,7 @@ static void MX_GPIO_Init(void)
  */
 void f4_set_TIM_Register(int x)
 {
-	if(x =!NULL)
+	if(x != NULL)
 	{
 		if(x == 0){
 			TIM1 -> ARR = 0;
@@ -529,7 +529,7 @@ void f4_set_TIM_Register(int x)
 		} else
 		{
 			TIM1 -> ARR = x;
-			TIM1 -> CCR1 = (x/2);
+			TIM1 -> CCR3 = (x/2);
 		}
 	}
 
@@ -559,6 +559,7 @@ void START_Buzzer(void *argument)
 	if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK){
 		printf("PWM didn't start. Try to refresh the project")
 	}
+	printf("Enter Value a-s\nIf X is entered the task will end.\n");
   /* Infinite loop */
   for(;;)
   {
