@@ -521,13 +521,16 @@ static void MX_GPIO_Init(void)
  */
 void f4_set_TIM_Register(int x)
 {
-	if(x == 0){
-		TIM1 -> ARR = 0;
-		TIM1 -> CCR1 = 0;
-	} else
+	if(x =!NULL)
 	{
-		TIM1 -> ARR = x;
-		TIM1 -> CCR1 = (x/2);
+		if(x == 0){
+			TIM1 -> ARR = 0;
+			TIM1 -> CCR1 = 0;
+		} else
+		{
+			TIM1 -> ARR = x;
+			TIM1 -> CCR1 = (x/2);
+		}
 	}
 
 }
@@ -545,6 +548,7 @@ void f4_send_UART()
 /**
   * @brief  Function implementing the t1_Buzzer thread. Starts the PWM and calls the f4_set_TIM_Register() function to set the sound of the Buzz-Click.
   * If any other values than defined by the switch-case are written into rx_uart, the Buzz-Click will be silenced
+  * If the user enters 'X', the t1_Buzzer task will kill itself, in order not to interfere with the t3_Wifi_Listener task
   * @param  argument: Not used
   * @retval None
   */
@@ -579,6 +583,7 @@ void START_Buzzer(void *argument)
     case 'q': f4_set_TIM_Register(rx_q); continue;
     case 'r': f4_set_TIM_Register(rx_r); continue;
     case 's': f4_set_TIM_Register(rx_s); continue;
+    case 'X': osThreadExit();
     default: f4_set_TIM_Register(0); osDelay(1000);
     }
 

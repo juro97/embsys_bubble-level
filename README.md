@@ -30,7 +30,7 @@ The STM32 with this implementation uses 4 Tasks of FreeRTOS to fetch values via 
 * rx_x - where x stands for a-s are constant values to set the Timer Registers
 
 #### Tasks
-* t1_Buzzer - starts the PWM and calls f4_set_TIM_Register()
+* t1_Buzzer - starts the PWM and calls f4_set_TIM_Register(). If the user enters 'X', the t1_Buzzer task will kill itself, in order not to interfere with the t3_Wifi_Listener task
 * t2_Listener - checks for received values from the User-Monitor and writes the value into rx_uart
 * t3_Wifi_Listener - calls the f4_set_TIM_Register() 
 * t4_Wifi_Starter - starts the Wifi-Click
