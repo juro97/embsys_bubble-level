@@ -1,0 +1,529 @@
+\hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c}{}\doxysection{nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Core/\+Src/main.c File Reference}
+\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c}\index{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Core/Src/main.c@{nucleo-\/l432c\_piezo-\/beeper/SwitchBuzz/Core/Src/main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}wifi\+Click.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}printf.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_acb05ec29d35248327f916639d6b775cd}{START\+\_\+\+Buzzer}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the t1\+\_\+\+Buzzer thread. Starts the PWM and calls the \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}{f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register()}} function to set the sound of the Buzz-\/\+Click. If any other values than defined by the switch-\/case are written into rx\+\_\+uart, the Buzz-\/\+Click will be silenced. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_af54135f344ed2c00d6da0ec37d6a1e00}{START\+\_\+\+Listener}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the t2\+\_\+\+Listener thread. Receives (hopefully) character values from the UART-\/\+Monitor and writes it into the rx\+\_\+uart variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac0f9e209715bdba54add0f1ae0e88cde}{START\+\_\+\+Wifi\+\_\+\+Listener}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the t3\+\_\+\+Wifi\+\_\+\+Listene thread. Calls the \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}{f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register()}} function according to the received values in rx\+\_\+wifi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a949f901ff236e1f24a6a7af802162c2c}{START\+\_\+\+Wifi\+\_\+\+Starter}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the t4\+\_\+\+Wifi\+\_\+\+Starter thread. Starts the Wifi-\/\+Click that writes values into the rx\+\_\+wifi variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}{f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register}} (int x)
+\begin{DoxyCompactList}\small\item\em Sets the sound of the Buzz-\/\+Click by writing into the Auto-\/\+Reload-\/\+Register and the Captcher-\/\+Compare-\/\+Register of TIM1. if the parameter value x = 0, the Buzz-\/\+Click will be silenced. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_addd2a8c48bf0dac06eecc1ea89dfc458}{f4\+\_\+send\+\_\+\+UART}} ()
+\begin{DoxyCompactList}\small\item\em Sends back the typed in value from the UART-\/\+Monitor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_i_m___exported___functions___group9_ga8a3b0ad512a6e6c6157440b68d395eac}{HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\begin{DoxyCompactList}\small\item\em Period elapsed callback in non blocking mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2cf715bef37f7e8ef385a30974a5f0d5}{huart1}}
+\item 
+\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a34251392f0d5e2461e3aef615918c235}{hdma\+\_\+usart1\+\_\+rx}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa84920db3bdef36278e75b912400ff5e}{t1\+\_\+\+Buzzer\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9f53ccb15cb0d5e8fbf22d7fbec7a4c3}{t1\+\_\+\+Buzzer\+\_\+attributes}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0fc7ca411a5267e4cc7fd1521cc5aa38}{t2\+\_\+\+Listener\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a3323d4a5f8543fedf8d56f80c6e7cb72}{t2\+\_\+\+Listener\+\_\+attributes}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_af455c8be3fd59ba5d72267c6bc94d158}{t3\+\_\+\+Wifi\+\_\+\+Listene\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2633d6b17a3c93e190d6baa59bf1481c}{t3\+\_\+\+Wifi\+\_\+\+Listene\+\_\+attributes}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a42d9d87da128fe466ae9a3667e2279fd}{t4\+\_\+\+Wifi\+\_\+\+Starter\+Handle}}
+\item 
+const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0aeae1fb315ce880caecafb4c5453dd4}{t4\+\_\+\+Wifi\+\_\+\+Starter\+\_\+attributes}}
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a407d27f9d73cd15c0a87551574d91880}{rx\+\_\+a}} = 500
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a4e6da37eda157624e6a706f7f9fde927}{rx\+\_\+b}} = 5000
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aef94fca16f3a282233de4937d29387af}{rx\+\_\+c}} = 10000
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a668af7466a5e091e94411e6a91bee5ae}{rx\+\_\+d}} = 1000
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac2f22c203b4550c5f93c419f0fa51827}{rx\+\_\+e}} = 1000 -\/ (42$\ast$1)
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a1f9da2628fe8e8c9e9740331a84a6098}{rx\+\_\+f}} = 1000
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9ad3456740fc63c0e7a6cba5092bfd78}{rx\+\_\+g}} = 1000 -\/ (42$\ast$1)
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ab2190f34b301dec064188b0133a0d7cd}{rx\+\_\+h}} = 2000
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0c122ae70ba67f4c2d85ada38ddbded8}{rx\+\_\+i}} = 2000 -\/ 84$\ast$1
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2b1e3599fa11068f3f29454faac5258f}{rx\+\_\+j}} = 2000 -\/ 84$\ast$2
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9ab637f50b560e3ea44c065f02f0ed8f}{rx\+\_\+k}} = 2000 -\/ 84$\ast$3
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a89e56b6dc5c06adfb5afafe2d7cb6c6c}{rx\+\_\+l}} = 2000 -\/ 84$\ast$4
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aec69e5bac95e34e8a84ac8a3a3759606}{rx\+\_\+m}} = 2000 -\/ 84$\ast$5
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac9160fa528a3cd56f7124932c4999588}{rx\+\_\+n}} = 2000 -\/ 84$\ast$4
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a5743f6da833b657c6d366ed69f9825e4}{rx\+\_\+o}} = 2000 -\/ 84$\ast$5
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ae502254dc8ab05802406597d96acd09c}{rx\+\_\+p}} = 2000
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aec15e56fa15f96410f141c4fe8a9abf0}{rx\+\_\+q}} = 2000 -\/ 84$\ast$1
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aae6c22d768095ac8ada15832dea4be0e}{rx\+\_\+r}} = 2000 -\/ 84$\ast$2
+\item 
+const int \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a04b806aa67538630d5b9728930e05ddc}{rx\+\_\+s}} = 2000 -\/ 84$\ast$3
+\item 
+volatile char \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a7a2522bf4fa49cf3fe53852ee61569a9}{rx\+\_\+wifi}} = 0
+\item 
+volatile char \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa604cef4c3617be90a8648a6aae39ac0}{rx\+\_\+uart}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a1730ffe1e560465665eb47d9264826f9}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a1730ffe1e560465665eb47d9264826f9}} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_addd2a8c48bf0dac06eecc1ea89dfc458}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_addd2a8c48bf0dac06eecc1ea89dfc458}} 
+\index{main.c@{main.c}!f4\_send\_UART@{f4\_send\_UART}}
+\index{f4\_send\_UART@{f4\_send\_UART}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{f4\_send\_UART()}{f4\_send\_UART()}}
+{\footnotesize\ttfamily void f4\+\_\+send\+\_\+\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends back the typed in value from the UART-\/\+Monitor. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}} 
+\index{main.c@{main.c}!f4\_set\_TIM\_Register@{f4\_set\_TIM\_Register}}
+\index{f4\_set\_TIM\_Register@{f4\_set\_TIM\_Register}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{f4\_set\_TIM\_Register()}{f4\_set\_TIM\_Register()}}
+{\footnotesize\ttfamily void f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Sets the sound of the Buzz-\/\+Click by writing into the Auto-\/\+Reload-\/\+Register and the Captcher-\/\+Compare-\/\+Register of TIM1. if the parameter value x = 0, the Buzz-\/\+Click will be silenced. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & is one of the rx\+\_\+x values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_acb05ec29d35248327f916639d6b775cd}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_acb05ec29d35248327f916639d6b775cd}} 
+\index{main.c@{main.c}!START\_Buzzer@{START\_Buzzer}}
+\index{START\_Buzzer@{START\_Buzzer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{START\_Buzzer()}{START\_Buzzer()}}
+{\footnotesize\ttfamily void START\+\_\+\+Buzzer (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the t1\+\_\+\+Buzzer thread. Starts the PWM and calls the \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}{f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register()}} function to set the sound of the Buzz-\/\+Click. If any other values than defined by the switch-\/case are written into rx\+\_\+uart, the Buzz-\/\+Click will be silenced. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_af54135f344ed2c00d6da0ec37d6a1e00}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_af54135f344ed2c00d6da0ec37d6a1e00}} 
+\index{main.c@{main.c}!START\_Listener@{START\_Listener}}
+\index{START\_Listener@{START\_Listener}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{START\_Listener()}{START\_Listener()}}
+{\footnotesize\ttfamily void START\+\_\+\+Listener (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the t2\+\_\+\+Listener thread. Receives (hopefully) character values from the UART-\/\+Monitor and writes it into the rx\+\_\+uart variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac0f9e209715bdba54add0f1ae0e88cde}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac0f9e209715bdba54add0f1ae0e88cde}} 
+\index{main.c@{main.c}!START\_Wifi\_Listener@{START\_Wifi\_Listener}}
+\index{START\_Wifi\_Listener@{START\_Wifi\_Listener}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{START\_Wifi\_Listener()}{START\_Wifi\_Listener()}}
+{\footnotesize\ttfamily void START\+\_\+\+Wifi\+\_\+\+Listener (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the t3\+\_\+\+Wifi\+\_\+\+Listene thread. Calls the \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}{f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register()}} function according to the received values in rx\+\_\+wifi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a949f901ff236e1f24a6a7af802162c2c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a949f901ff236e1f24a6a7af802162c2c}} 
+\index{main.c@{main.c}!START\_Wifi\_Starter@{START\_Wifi\_Starter}}
+\index{START\_Wifi\_Starter@{START\_Wifi\_Starter}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{START\_Wifi\_Starter()}{START\_Wifi\_Starter()}}
+{\footnotesize\ttfamily void START\+\_\+\+Wifi\+\_\+\+Starter (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the t4\+\_\+\+Wifi\+\_\+\+Starter thread. Starts the Wifi-\/\+Click that writes values into the rx\+\_\+wifi variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a70af21c671abfcc773614a9a4f63d920}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a70af21c671abfcc773614a9a4f63d920}} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+Configures the system clock. This function configures the main internal regulator output voltage and sets up the RCC oscillator and clock structure. It utilizes the \mbox{\hyperlink{struct_r_c_c___osc_init_type_def}{RCC\+\_\+\+Osc\+Init\+Type\+Def}} and RCC\+\_\+\+Clk\+Init\+Struct structures to configure the system clock. If the voltage scaling configuration fails, it calls the \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler()}} function.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Configure LSE Drive Capability
+
+Initializes the RCC Oscillators according to the specified parameters in the \mbox{\hyperlink{struct_r_c_c___osc_init_type_def}{RCC\+\_\+\+Osc\+Init\+Type\+Def}} structure.
+
+Initializes the CPU, AHB and APB buses clocks
+
+Enable MSI Auto calibration
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a34251392f0d5e2461e3aef615918c235}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a34251392f0d5e2461e3aef615918c235}} 
+\index{main.c@{main.c}!hdma\_usart1\_rx@{hdma\_usart1\_rx}}
+\index{hdma\_usart1\_rx@{hdma\_usart1\_rx}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_usart1\_rx}{hdma\_usart1\_rx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} hdma\+\_\+usart1\+\_\+rx}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a25fc663547539bc49fecc0011bd76ab5}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a25fc663547539bc49fecc0011bd76ab5}} 
+\index{main.c@{main.c}!htim1@{htim1}}
+\index{htim1@{htim1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2cf715bef37f7e8ef385a30974a5f0d5}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2cf715bef37f7e8ef385a30974a5f0d5}} 
+\index{main.c@{main.c}!huart1@{huart1}}
+\index{huart1@{huart1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{huart1}{huart1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} huart1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa9479c261d65eecedd3d9582f7f0f89c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa9479c261d65eecedd3d9582f7f0f89c}} 
+\index{main.c@{main.c}!huart2@{huart2}}
+\index{huart2@{huart2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{huart2}{huart2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} huart2}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a407d27f9d73cd15c0a87551574d91880}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a407d27f9d73cd15c0a87551574d91880}} 
+\index{main.c@{main.c}!rx\_a@{rx\_a}}
+\index{rx\_a@{rx\_a}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_a}{rx\_a}}
+{\footnotesize\ttfamily const int rx\+\_\+a = 500}
+
+rx\+\_\+x variables are used in the \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aabdf1c4034bd0a033b8e333c25e078b4}{f4\+\_\+set\+\_\+\+TIM\+\_\+\+Register()}} function, which is called in the START\+\_\+\+Buzzer task based on the fields of the 4x4 RGB-\/\+Click, the rx\+\_\+x variables are used to set an according sound by changing the ARR-\/value of TIM the sounds between the levels \char`\"{}middle -\/ light shift -\/ strong shift\char`\"{} are one octave apart. The sounds within a level vary by half-\/tone steps \mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a4e6da37eda157624e6a706f7f9fde927}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a4e6da37eda157624e6a706f7f9fde927}} 
+\index{main.c@{main.c}!rx\_b@{rx\_b}}
+\index{rx\_b@{rx\_b}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_b}{rx\_b}}
+{\footnotesize\ttfamily const int rx\+\_\+b = 5000}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aef94fca16f3a282233de4937d29387af}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aef94fca16f3a282233de4937d29387af}} 
+\index{main.c@{main.c}!rx\_c@{rx\_c}}
+\index{rx\_c@{rx\_c}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_c}{rx\_c}}
+{\footnotesize\ttfamily const int rx\+\_\+c = 10000}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a668af7466a5e091e94411e6a91bee5ae}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a668af7466a5e091e94411e6a91bee5ae}} 
+\index{main.c@{main.c}!rx\_d@{rx\_d}}
+\index{rx\_d@{rx\_d}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_d}{rx\_d}}
+{\footnotesize\ttfamily const int rx\+\_\+d = 1000}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac2f22c203b4550c5f93c419f0fa51827}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac2f22c203b4550c5f93c419f0fa51827}} 
+\index{main.c@{main.c}!rx\_e@{rx\_e}}
+\index{rx\_e@{rx\_e}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_e}{rx\_e}}
+{\footnotesize\ttfamily const int rx\+\_\+e = 1000 -\/ (42$\ast$1)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a1f9da2628fe8e8c9e9740331a84a6098}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a1f9da2628fe8e8c9e9740331a84a6098}} 
+\index{main.c@{main.c}!rx\_f@{rx\_f}}
+\index{rx\_f@{rx\_f}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_f}{rx\_f}}
+{\footnotesize\ttfamily const int rx\+\_\+f = 1000}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9ad3456740fc63c0e7a6cba5092bfd78}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9ad3456740fc63c0e7a6cba5092bfd78}} 
+\index{main.c@{main.c}!rx\_g@{rx\_g}}
+\index{rx\_g@{rx\_g}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_g}{rx\_g}}
+{\footnotesize\ttfamily const int rx\+\_\+g = 1000 -\/ (42$\ast$1)}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ab2190f34b301dec064188b0133a0d7cd}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ab2190f34b301dec064188b0133a0d7cd}} 
+\index{main.c@{main.c}!rx\_h@{rx\_h}}
+\index{rx\_h@{rx\_h}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_h}{rx\_h}}
+{\footnotesize\ttfamily const int rx\+\_\+h = 2000}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0c122ae70ba67f4c2d85ada38ddbded8}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0c122ae70ba67f4c2d85ada38ddbded8}} 
+\index{main.c@{main.c}!rx\_i@{rx\_i}}
+\index{rx\_i@{rx\_i}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_i}{rx\_i}}
+{\footnotesize\ttfamily const int rx\+\_\+i = 2000 -\/ 84$\ast$1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2b1e3599fa11068f3f29454faac5258f}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2b1e3599fa11068f3f29454faac5258f}} 
+\index{main.c@{main.c}!rx\_j@{rx\_j}}
+\index{rx\_j@{rx\_j}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_j}{rx\_j}}
+{\footnotesize\ttfamily const int rx\+\_\+j = 2000 -\/ 84$\ast$2}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9ab637f50b560e3ea44c065f02f0ed8f}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9ab637f50b560e3ea44c065f02f0ed8f}} 
+\index{main.c@{main.c}!rx\_k@{rx\_k}}
+\index{rx\_k@{rx\_k}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_k}{rx\_k}}
+{\footnotesize\ttfamily const int rx\+\_\+k = 2000 -\/ 84$\ast$3}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a89e56b6dc5c06adfb5afafe2d7cb6c6c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a89e56b6dc5c06adfb5afafe2d7cb6c6c}} 
+\index{main.c@{main.c}!rx\_l@{rx\_l}}
+\index{rx\_l@{rx\_l}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_l}{rx\_l}}
+{\footnotesize\ttfamily const int rx\+\_\+l = 2000 -\/ 84$\ast$4}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aec69e5bac95e34e8a84ac8a3a3759606}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aec69e5bac95e34e8a84ac8a3a3759606}} 
+\index{main.c@{main.c}!rx\_m@{rx\_m}}
+\index{rx\_m@{rx\_m}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_m}{rx\_m}}
+{\footnotesize\ttfamily const int rx\+\_\+m = 2000 -\/ 84$\ast$5}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac9160fa528a3cd56f7124932c4999588}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ac9160fa528a3cd56f7124932c4999588}} 
+\index{main.c@{main.c}!rx\_n@{rx\_n}}
+\index{rx\_n@{rx\_n}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_n}{rx\_n}}
+{\footnotesize\ttfamily const int rx\+\_\+n = 2000 -\/ 84$\ast$4}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a5743f6da833b657c6d366ed69f9825e4}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a5743f6da833b657c6d366ed69f9825e4}} 
+\index{main.c@{main.c}!rx\_o@{rx\_o}}
+\index{rx\_o@{rx\_o}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_o}{rx\_o}}
+{\footnotesize\ttfamily const int rx\+\_\+o = 2000 -\/ 84$\ast$5}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ae502254dc8ab05802406597d96acd09c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_ae502254dc8ab05802406597d96acd09c}} 
+\index{main.c@{main.c}!rx\_p@{rx\_p}}
+\index{rx\_p@{rx\_p}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_p}{rx\_p}}
+{\footnotesize\ttfamily const int rx\+\_\+p = 2000}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aec15e56fa15f96410f141c4fe8a9abf0}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aec15e56fa15f96410f141c4fe8a9abf0}} 
+\index{main.c@{main.c}!rx\_q@{rx\_q}}
+\index{rx\_q@{rx\_q}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_q}{rx\_q}}
+{\footnotesize\ttfamily const int rx\+\_\+q = 2000 -\/ 84$\ast$1}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aae6c22d768095ac8ada15832dea4be0e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aae6c22d768095ac8ada15832dea4be0e}} 
+\index{main.c@{main.c}!rx\_r@{rx\_r}}
+\index{rx\_r@{rx\_r}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_r}{rx\_r}}
+{\footnotesize\ttfamily const int rx\+\_\+r = 2000 -\/ 84$\ast$2}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a04b806aa67538630d5b9728930e05ddc}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a04b806aa67538630d5b9728930e05ddc}} 
+\index{main.c@{main.c}!rx\_s@{rx\_s}}
+\index{rx\_s@{rx\_s}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_s}{rx\_s}}
+{\footnotesize\ttfamily const int rx\+\_\+s = 2000 -\/ 84$\ast$3}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa604cef4c3617be90a8648a6aae39ac0}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa604cef4c3617be90a8648a6aae39ac0}} 
+\index{main.c@{main.c}!rx\_uart@{rx\_uart}}
+\index{rx\_uart@{rx\_uart}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_uart}{rx\_uart}}
+{\footnotesize\ttfamily volatile char rx\+\_\+uart = 0}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rx\+\_\+uart} & will receive values via UART during runtime. It is the comparison variable used in the switch-\/case block of the t1\+\_\+\+Buzzer task \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a7a2522bf4fa49cf3fe53852ee61569a9}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a7a2522bf4fa49cf3fe53852ee61569a9}} 
+\index{main.c@{main.c}!rx\_wifi@{rx\_wifi}}
+\index{rx\_wifi@{rx\_wifi}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rx\_wifi}{rx\_wifi}}
+{\footnotesize\ttfamily volatile char rx\+\_\+wifi = 0}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rx\+\_\+wifi} & will be written during runtime by the Wifi\+\_\+\+Click. It is the comparison variable used in the switch-\/case block of the t3\+\_\+\+Wifi\+\_\+\+Listener task \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9f53ccb15cb0d5e8fbf22d7fbec7a4c3}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a9f53ccb15cb0d5e8fbf22d7fbec7a4c3}} 
+\index{main.c@{main.c}!t1\_Buzzer\_attributes@{t1\_Buzzer\_attributes}}
+\index{t1\_Buzzer\_attributes@{t1\_Buzzer\_attributes}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t1\_Buzzer\_attributes}{t1\_Buzzer\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} t1\+\_\+\+Buzzer\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}t1\_Buzzer"{}},}
+\DoxyCodeLine{  .stack\_size = 128 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca45a2895ad30c79fb97de18cac7cc19f1}{osPriorityNormal}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa84920db3bdef36278e75b912400ff5e}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_aa84920db3bdef36278e75b912400ff5e}} 
+\index{main.c@{main.c}!t1\_BuzzerHandle@{t1\_BuzzerHandle}}
+\index{t1\_BuzzerHandle@{t1\_BuzzerHandle}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t1\_BuzzerHandle}{t1\_BuzzerHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} t1\+\_\+\+Buzzer\+Handle}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a3323d4a5f8543fedf8d56f80c6e7cb72}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a3323d4a5f8543fedf8d56f80c6e7cb72}} 
+\index{main.c@{main.c}!t2\_Listener\_attributes@{t2\_Listener\_attributes}}
+\index{t2\_Listener\_attributes@{t2\_Listener\_attributes}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t2\_Listener\_attributes}{t2\_Listener\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} t2\+\_\+\+Listener\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}t2\_Listener"{}},}
+\DoxyCodeLine{  .stack\_size = 128 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}{osPriorityLow}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0fc7ca411a5267e4cc7fd1521cc5aa38}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0fc7ca411a5267e4cc7fd1521cc5aa38}} 
+\index{main.c@{main.c}!t2\_ListenerHandle@{t2\_ListenerHandle}}
+\index{t2\_ListenerHandle@{t2\_ListenerHandle}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t2\_ListenerHandle}{t2\_ListenerHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} t2\+\_\+\+Listener\+Handle}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2633d6b17a3c93e190d6baa59bf1481c}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a2633d6b17a3c93e190d6baa59bf1481c}} 
+\index{main.c@{main.c}!t3\_Wifi\_Listene\_attributes@{t3\_Wifi\_Listene\_attributes}}
+\index{t3\_Wifi\_Listene\_attributes@{t3\_Wifi\_Listene\_attributes}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t3\_Wifi\_Listene\_attributes}{t3\_Wifi\_Listene\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} t3\+\_\+\+Wifi\+\_\+\+Listene\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}t3\_Wifi\_Listene"{}},}
+\DoxyCodeLine{  .stack\_size = 128 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}{osPriorityLow}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_af455c8be3fd59ba5d72267c6bc94d158}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_af455c8be3fd59ba5d72267c6bc94d158}} 
+\index{main.c@{main.c}!t3\_Wifi\_ListeneHandle@{t3\_Wifi\_ListeneHandle}}
+\index{t3\_Wifi\_ListeneHandle@{t3\_Wifi\_ListeneHandle}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t3\_Wifi\_ListeneHandle}{t3\_Wifi\_ListeneHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} t3\+\_\+\+Wifi\+\_\+\+Listene\+Handle}
+
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0aeae1fb315ce880caecafb4c5453dd4}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a0aeae1fb315ce880caecafb4c5453dd4}} 
+\index{main.c@{main.c}!t4\_Wifi\_Starter\_attributes@{t4\_Wifi\_Starter\_attributes}}
+\index{t4\_Wifi\_Starter\_attributes@{t4\_Wifi\_Starter\_attributes}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t4\_Wifi\_Starter\_attributes}{t4\_Wifi\_Starter\_attributes}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} t4\+\_\+\+Wifi\+\_\+\+Starter\+\_\+attributes}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  .name = \textcolor{stringliteral}{"{}t4\_Wifi\_Starter"{}},}
+\DoxyCodeLine{  .stack\_size = 128 * 4,}
+\DoxyCodeLine{  .priority = (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}{osPriorityLow}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a42d9d87da128fe466ae9a3667e2279fd}\label{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_src_2main_8c_a42d9d87da128fe466ae9a3667e2279fd}} 
+\index{main.c@{main.c}!t4\_Wifi\_StarterHandle@{t4\_Wifi\_StarterHandle}}
+\index{t4\_Wifi\_StarterHandle@{t4\_Wifi\_StarterHandle}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t4\_Wifi\_StarterHandle}{t4\_Wifi\_StarterHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} t4\+\_\+\+Wifi\+\_\+\+Starter\+Handle}
+

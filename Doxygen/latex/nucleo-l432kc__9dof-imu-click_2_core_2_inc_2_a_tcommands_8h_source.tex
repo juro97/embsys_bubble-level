@@ -1,0 +1,200 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_source}{}\doxysection{ATcommands.\+h}
+\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_source}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/ATcommands.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/ATcommands.h}}
+\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef INC\_ATCOMMANDS\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define INC\_ATCOMMANDS\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2printf_8h}{printf.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}stdarg.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{// It is assumed that there is no AT command longer than this}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define AT\_CMD\_BUFFER\_SIZE          128}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define AT\_CMD\_ERROR                -\/1}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ EspressIf AT-\/Command-\/Macros}}
+\DoxyCodeLine{13 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Basic AT Commands (Page 10)}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define AT\_Startup                          "{}AT"{}}                    \textcolor{comment}{// Tests AT startup.}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define AT\_Reset                            "{}AT+RST"{}}                \textcolor{comment}{// Restarts a module.}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define AT\_Version                          "{}AT+GMR"{}}                \textcolor{comment}{// Checks version information.}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define AT\_DeepSleepMode                    "{}AT+GSLP"{}}               \textcolor{comment}{// Enters Deep-\/sleep mode.}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define AT\_Echo                             "{}ATE"{}}                   \textcolor{comment}{// Configures echoing of AT commands.}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define AT\_FactoryReset                     "{}AT+RESTORE"{}}            \textcolor{comment}{// Restores the factory default settings of the module.}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define AT\_UARTConfig                       "{}AT+UART\_CUR"{}}           \textcolor{comment}{// Current UART configuration.}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define AT\_UARTDefault                      "{}AT+UART\_DEF"{}}           \textcolor{comment}{// Default UART configuration, saved in flash.}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define AT\_SleepMode                        "{}AT+SLEEP"{}}              \textcolor{comment}{// Sets the sleep mode.}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define AT\_RAMSpace                         "{}AT+SYSRAM"{}}             \textcolor{comment}{// Checks the remaining space of RAM.}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define AT\_UserFlash                        "{}AT+SYSFLASH"{}}           \textcolor{comment}{// Sets user partitions in flash}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define AT\_FileSystemOperation              "{}AT+SYSFS"{}}              \textcolor{comment}{// File systems operations}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define AT\_RFPower                          "{}AT+RFPOWER"{}}            \textcolor{comment}{// Sets RF TX power}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ General parameters}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define AT\_Enable                           1U}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define AT\_Disable                          0U}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Wi-\/Fi AT Commands (Page 18)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define AT\_WIFI\_Set\_Mode                    "{}AT+CWMODE"{}}             \textcolor{comment}{// Sets the Wi-\/Fi mode (STA/AP/STA+AP).}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define AT\_WIFI\_Connect                     "{}AT+CWJAP"{}}              \textcolor{comment}{// Connects to an AP.}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define AT\_WIFI\_Set\_ListAP\_Config           "{}AT+CWLAPOPT"{}}           \textcolor{comment}{// Sets the configuration of command AT+CWLAP.}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define AT\_WIFI\_ListAP                      "{}AT+CWLAP"{}}              \textcolor{comment}{// Lists available APs.}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define AT\_WIFI\_Disconnect                  "{}AT+CWQAP"{}}              \textcolor{comment}{// Disconnects from the AP.}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define AT\_WIFI\_Set\_SoftAP\_Config           "{}AT+CWSAP"{}}              \textcolor{comment}{// Sets the configuration of the ESP32 SoftAP.}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define AT\_WIFI\_Get\_Station\_IP              "{}AT+CWLIF"{}}              \textcolor{comment}{// Gets the Station IP to which the ESP32 SoftAP is connected.}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define AT\_WIFI\_Enable\_DHCP                 "{}AT+CWDHCP"{}}             \textcolor{comment}{// Enables/disables DHCP.}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define AT\_WIFI\_Set\_DHCP\_Range              "{}AT+CWDHCPS"{}}            \textcolor{comment}{// Sets the IP range of the ESP32 SoftAP DHCP server. Saves the setting in flash.}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define AT\_WIFI\_SoftAP\_Autoconnect          "{}AT+CWAUTOCONN"{}}         \textcolor{comment}{// Connects to the AP automatically on power-\/up.}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define AT\_WIFI\_SmartConfig\_Start           "{}AT+CWSTARTSMART"{}}       \textcolor{comment}{// Starts SmartConfig.}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define AT\_WIFI\_SmartConfig\_Stop            "{}AT+CWSTOPSMART"{}}        \textcolor{comment}{// Stops SmartConfig.}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define AT\_WIFI\_Enable\_WPS                  "{}AT+WPS"{}}                \textcolor{comment}{// Enables the WPS function.}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define AT\_WIFI\_Set\_Hostname                "{}AT+CWHOSTNAME"{}}         \textcolor{comment}{// Configure the host name of ESP32 station.}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define AT\_WIFI\_MDNS                        "{}AT+MDNS"{}}               \textcolor{comment}{// MDNS function}}
+\DoxyCodeLine{48 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ WIFI Mode Parameter (AT+CWMODE)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define AT\_WIFI\_Null\_Mode                   0U}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define AT\_WIFI\_Station\_Mode                1U}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define AT\_WIFI\_SoftAP\_Mode                 2U}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define AT\_WIFI\_Mixed\_Mode                  3U}}
+\DoxyCodeLine{53 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Access Point connection error codes (AT+CWJAP)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define AT\_WIFI\_AP\_Timeout                  1U}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define AT\_WIFI\_AP\_InvalidPassword          2U}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define AT\_WIFI\_AP\_UnavailableTarget        3U}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define AT\_WIFI\_AP\_ConnectionFailed         4U}}
+\DoxyCodeLine{58 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ ListAP Configuration parameters (AT+CWLAPOPT)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define AT\_WIFI\_ListAP\_Ordered\_RSSI         0U}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define AT\_WIFI\_ListAP\_Unordered\_RSSI       1U}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_ListAP\_ECN             (1 << 0)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_ListAP\_SSID            (1 << 1)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_ListAP\_RSSI            (1 << 2)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_ListAP\_MAC             (1 << 3)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_ListAP\_CHANNEL         (1 << 4)}}
+\DoxyCodeLine{66 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ WiFi Encryption method parameters (AT+CWLAP,AT+CWSAP)}}
+\DoxyCodeLine{67 \textcolor{comment}{// (Warning: Not all are applicable for every command!)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define AT\_WIFI\_Encryption\_OPEN             0U}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define AT\_WIFI\_Encryption\_WEP              1U}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define AT\_WIFI\_Encryption\_WPA\_PSK          2U}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define AT\_WIFI\_Encryption\_WPA2\_PSK         3U}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK     4U}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define AT\_WIFI\_Encryption\_WPA2\_Enterprise  5U}}
+\DoxyCodeLine{74 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ DHCP Enable parameters (AT+CWDHCP)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_Enable\_DHCP            (1 << 0)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_Enable\_Station\_DHCP    (1 << 0)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP     (1 << 1)}}
+\DoxyCodeLine{78 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ SmartConfig parameters (AT+CWSTARTSMART)}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH  1U}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define AT\_WIFI\_SmartConfig\_Type\_AirKiss    2U}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define AT\_WIFI\_SmartConfig\_Type\_Mixed      3U}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ TCP/IP-\/Related AT Commands (Page 29)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define AT\_IP\_ConnectionStatus              "{}AT+CIPSTATUS"{}}          \textcolor{comment}{// Gets the connection status.}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define AT\_IP\_Domain                        "{}AT+CIPDOMAIN"{}}          \textcolor{comment}{// DNS function.}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define AT\_IP\_Set\_DNS\_Config                "{}AT+CIPDNS"{}}             \textcolor{comment}{// Sets user-\/defined DNS server.}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define AT\_IP\_Set\_Station\_MAC               "{}AT+CIPSTAMAC"{}}          \textcolor{comment}{// Sets the MAC address of ESP32 Station.}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define AT\_IP\_Set\_SoftAP\_MAC                "{}AT+CIPAPMAC"{}}           \textcolor{comment}{// Sets the MAC address of ESP32 SoftAP.}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define AT\_IP\_Set\_Station\_IP                "{}AT+CIPSTA"{}}             \textcolor{comment}{// Sets the IP address of ESP32 Station.}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define AT\_IP\_Set\_SoftAP\_IP                 "{}AT+CIPAP"{}}              \textcolor{comment}{// Sets the IP address of ESP32 SoftAP.}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define AT\_IP\_OpenConnection                "{}AT+CIPSTART"{}}           \textcolor{comment}{// Establishes TCP connection, UDP transmission or SSL connection.}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define AT\_IP\_Set\_SSL\_Config                "{}AT+CIPSSLCCONF"{}}        \textcolor{comment}{// Sets configuration of SSL client}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define AT\_IP\_Send                          "{}AT+CIPSEND"{}}            \textcolor{comment}{// Sends data.}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define AT\_IP\_Send\_Length                   "{}AT+CIPSENDEX"{}}          \textcolor{comment}{// Sends data when length of data is <length>, or when \(\backslash\)0 appears in the data.}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define AT\_IP\_CloseConnection               "{}AT+CIPCLOSE"{}}           \textcolor{comment}{// Closes TCP/UDP/SSL connection.}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define AT\_IP\_Get\_Local\_Address             "{}AT+CIFSR"{}}              \textcolor{comment}{// Gets the local IP address.}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define AT\_IP\_Set\_MultiConnectionMode       "{}AT+CIPMUX"{}}             \textcolor{comment}{// Configures the multiple connections mode.}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define AT\_IP\_Server                        "{}AT+CIPSERVER"{}}          \textcolor{comment}{// Deletes/Creates TCP or SSL server.}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define AT\_IP\_Set\_Server\_Max\_Connections    "{}AT+CIPSERVERMAXCONN"{}}   \textcolor{comment}{// Set the maximum connections that server allows}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define AT\_IP\_Set\_TransmissionMode          "{}AT+CIPMODE"{}}            \textcolor{comment}{// Configures the transmission mode.}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define AT\_IP\_SaveTransmissionLink          "{}AT+SAVETRANSLINK"{}}      \textcolor{comment}{// Saves the transparent transmission link in flash.}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define AT\_IP\_Set\_TCP\_Timeout               "{}AT+CIPSTO"{}}             \textcolor{comment}{// Sets timeout when ESP32 runs as a TCP server.}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define AT\_IP\_SoftwareUpdate                "{}AT+CIUPDATE"{}}           \textcolor{comment}{// Updates the software through Wi-\/Fi.}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define AT\_IP\_Get\_Remote\_Information        "{}AT+CIPDINFO"{}}           \textcolor{comment}{// Shows remote IP and remote port with +IPD.}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define AT\_IP\_Set\_SNTP\_Config               "{}AT+CIPSNTPCFG"{}}         \textcolor{comment}{// Configures the time domain and SNTP server.}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define AT\_IP\_Get\_SNTP\_Time                 "{}AT+CIPSNTPTIME"{}}        \textcolor{comment}{// Queries the SNTP time.}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define AT\_IP\_Ping                          "{}AT+PING"{}}               \textcolor{comment}{// Ping packets}}
+\DoxyCodeLine{108 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Connection Status responses (AT+CIPSTATUS)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define AT\_IP\_Connected                     2U}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define AT\_IP\_Transmission\_Created          3U}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define AT\_IP\_Transmission\_Disconnected     4U}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define AT\_IP\_Disconnected                  5U}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define AT\_IP\_Connection\_Type\_Client        0U}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define AT\_IP\_Connection\_Type\_Server        1U}}
+\DoxyCodeLine{115 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ SSL Client authentication types (AT+CIPSSLCCONF)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define AT\_IP\_SSL\_Type\_NoAuthentication     0U}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define AT\_IP\_SSL\_Type\_LoadingCert          1U}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define AT\_IP\_SSL\_Type\_LoadingCA            2U}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define AT\_IP\_SSL\_Type\_BiDirectional        3U}}
+\DoxyCodeLine{120 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Multiple connections mode parameter (AT+CIPMUX)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define AT\_IP\_ConnectionMode\_Single         0U}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define AT\_IP\_ConnectionMode\_Multiple       1U}}
+\DoxyCodeLine{123 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Server mode parameter (AT+CIPSERVER)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define AT\_IP\_Server\_Delete                 0U}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define AT\_IP\_Server\_Create                 1U}}
+\DoxyCodeLine{126 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Transmission mode parameter (AT+CIPMODE,AT+SAVETRANSLINK)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define AT\_IP\_Normal\_Transmission           0U}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define AT\_IP\_UART\_Passthrough              1U}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ BLE-\/Related AT Commands (Page 46)}}
+\DoxyCodeLine{131 \textcolor{comment}{/* NOTE: (in the context of the following macros)}}
+\DoxyCodeLine{132 \textcolor{comment}{ * Char == Characteristics}}
+\DoxyCodeLine{133 \textcolor{comment}{ * GATTS == Generic Attributes Server}}
+\DoxyCodeLine{134 \textcolor{comment}{ * GATTC == Generic Attributes Client}}
+\DoxyCodeLine{135 \textcolor{comment}{ * SPP == Serial Port Profile}}
+\DoxyCodeLine{136 \textcolor{comment}{ * SMP == Security Manager Specification}}
+\DoxyCodeLine{137 \textcolor{comment}{ */}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define AT\_BLE\_Initialization               "{}AT+BLEINIT"{}}            \textcolor{comment}{// Bluetooth Low Energy (BLE) initialization}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_Address                  "{}AT+BLEADDR"{}}            \textcolor{comment}{// Sets BLE device's address}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_DeviceName               "{}AT+BLENAME"{}}            \textcolor{comment}{// Sets BLE device's name}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_ScanParameters           "{}AT+BLESCANPARAM"{}}       \textcolor{comment}{// Sets parameters of BLE scanning}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define AT\_BLE\_EnableScanning               "{}AT+BLESCAN"{}}            \textcolor{comment}{// Enables BLE scanning}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_ScanResponse             "{}AT+BLESCANRSPDATA"{}}     \textcolor{comment}{// Sets BLE scan response}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define AT\_BLE\_Advertising\_Config           "{}AT+BLEADVPARAM"{}}        \textcolor{comment}{// Sets parameters of BLE advertising}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define AT\_BLE\_Advertising\_Data             "{}AT+BLEADVDATA"{}}         \textcolor{comment}{// Sets BLE advertising data}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define AT\_BLE\_Advertising\_Start            "{}AT+BLEADVSTART"{}}        \textcolor{comment}{// Starts BLE advertising}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define AT\_BLE\_Advertising\_Stop             "{}AT+BLEADVSTOP"{}}         \textcolor{comment}{// Stops BLE advertising}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define AT\_BLE\_Connect                      "{}AT+BLECONN"{}}            \textcolor{comment}{// Establishes BLE connection}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define AT\_BLE\_Connection\_Config            "{}AT+BLECONNPARAM"{}}       \textcolor{comment}{// Updates parameters of BLE connection}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define AT\_BLE\_Disconnect                   "{}AT+BLEDISCONN"{}}         \textcolor{comment}{// Ends BLE connection}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_DataLength               "{}AT+BLEDATALEN"{}}         \textcolor{comment}{// Sets BLE data length}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_MTULength                "{}AT+BLECFGMTU"{}}          \textcolor{comment}{// Sets BLE MTU length}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_Services               "{}AT+BLEGATTSSRVCRE"{}}     \textcolor{comment}{// Generic Attributes Server (GATTS) creates services}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_StartServices          "{}AT+BLEGATTSSRVSTART"{}}   \textcolor{comment}{// GATTS starts services}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_StopServices           "{}AT+BLEGATTSSRVSTOP"{}}    \textcolor{comment}{// GATTS stops services}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_DiscoverServices       "{}AT+BLEGATTSSRV"{}}        \textcolor{comment}{// GATTS discovers services}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_DiscoverChar           "{}AT+BLEGATTSCHAR"{}}       \textcolor{comment}{// GATTS discovers characteristics}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_NotifyChar             "{}AT+BLEGATTSNTFY"{}}       \textcolor{comment}{// GATTS notifies of characteristics}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_IndicateChar           "{}AT+BLEGATTSIND"{}}        \textcolor{comment}{// GATTS indicates characteristics}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define AT\_BLE\_GATTS\_Set\_Attributes         "{}AT+BLEGATTSSETATTR"{}}    \textcolor{comment}{// GATTS sets attributes}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define AT\_BLE\_GATTC\_DiscoverPrimary        "{}AT+BLEGATTCPRIMSRV"{}}    \textcolor{comment}{// Generic Attributes Client (GATTC) discovers primary services}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define AT\_BLE\_GATTC\_DiscoverIncluded       "{}AT+BLEGATTCINCLSRV"{}}    \textcolor{comment}{// GATTC discovers included services}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define AT\_BLE\_GATTC\_DiscoverChar           "{}AT+BLEGATTCCHAR"{}}       \textcolor{comment}{// GATTC discovers characteristics}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define AT\_BLE\_GATTC\_ReadChar               "{}AT+BLEGATTCRD"{}}         \textcolor{comment}{// GATTC reads characteristics}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define AT\_BLE\_GATTC\_WriteChar              "{}AT+BLEGATTCWR"{}}         \textcolor{comment}{// GATTC writes characteristics}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_SPP\_Config               "{}AT+BLESPPCFG"{}}          \textcolor{comment}{// Configures BLE SPP (Serial Port Profile)}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define AT\_BLE\_Enable\_SPP                   "{}AT+BLESPP"{}}             \textcolor{comment}{// Enables BLE SPP}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define AT\_BLE\_Set\_SMP\_Parameters           "{}AT+BLESECPARAM"{}}        \textcolor{comment}{// Sets Parameters of BLE SMP (Security Manager Specification)}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define AT\_BLE\_StartPairing                 "{}AT+BLEENC"{}}             \textcolor{comment}{// Starts a Pairing Request}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#define AT\_BLE\_SetPairingResponse           "{}AT+BLEENCRSP"{}}          \textcolor{comment}{// Sets a Pairing Response}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define AT\_BLE\_ReplyToPairingKey            "{}AT+BLEKEYREPLY"{}}        \textcolor{comment}{// Reply to a Pairing Key}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define AT\_BLE\_ReplyToPairingResult         "{}AT+BLECONFREPLY"{}}       \textcolor{comment}{// Reply to a Pairing Result}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define AT\_BLE\_ListBondedDevices            "{}AT+BLEENCDEV"{}}          \textcolor{comment}{// Lists All Devices that Bonded}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define AT\_BLE\_UnbindDevice                 "{}AT+BLEENCCLEAR"{}}        \textcolor{comment}{// Unbinds Device}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Command functions}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\_t}})(\textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{comment}{/* NOTE: These functions construct a finalized command string according to the AT-\/command-\/specification}}
+\DoxyCodeLine{181 \textcolor{comment}{ * They all return the number of characters written into the global buffer.}}
+\DoxyCodeLine{182 \textcolor{comment}{ * On failure, the value of AT\_CMD\_ERROR is returned.}}
+\DoxyCodeLine{183 \textcolor{comment}{ * Internally, those functions make use of sprintf() and vsprintf()}}
+\DoxyCodeLine{184 \textcolor{comment}{ * If a transmit function is provided, then it will be called instead.}}
+\DoxyCodeLine{185 \textcolor{comment}{ * The function must conform to this prototype:}}
+\DoxyCodeLine{186 \textcolor{comment}{ * void transmit\_callback(char* buffer, int len) \{\}}}
+\DoxyCodeLine{187 \textcolor{comment}{ */}}
+\DoxyCodeLine{188 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a5229c4c78666597686e083bc969df116}{at\_test\_command}}(\textcolor{keywordtype}{char} *buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\_t}} tx, \textcolor{keywordtype}{char} *cmd);}
+\DoxyCodeLine{189 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a3132c3123bbf85085996f919ad0b3c34}{at\_query\_command}}(\textcolor{keywordtype}{char} *buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\_t}} tx, \textcolor{keywordtype}{char} *cmd);}
+\DoxyCodeLine{190 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_aa891b4a937c8dbb81e282c795dc4deda}{at\_set\_command}}(\textcolor{keywordtype}{char} *buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\_t}} tx, \textcolor{keywordtype}{char} *cmd, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* param\_format, ...);}
+\DoxyCodeLine{191 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a193e9e80d1572d1dff1ac1642b024138}{at\_setn\_command}}(\textcolor{keywordtype}{char} *buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\_t}} tx, \textcolor{keywordtype}{size\_t} limit, \textcolor{keywordtype}{char} *cmd, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* param\_format, ...);}
+\DoxyCodeLine{192 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a3e057756c54e4e762389b4ff69b579de}{at\_execute\_command}}(\textcolor{keywordtype}{char} *buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\_t}} tx, \textcolor{keywordtype}{char} *cmd);}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* INC\_ATCOMMANDS\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

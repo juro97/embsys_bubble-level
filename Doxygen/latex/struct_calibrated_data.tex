@@ -1,0 +1,44 @@
+\hypertarget{struct_calibrated_data}{}\doxysection{Calibrated\+Data Struct Reference}
+\label{struct_calibrated_data}\index{CalibratedData@{CalibratedData}}
+
+
+used to store the calibrated data for the accelerometer and gyroscope It contains two arrays, acc\+\_\+calib and gyro\+\_\+calib, which hold the calibrated values for the accelerometer and gyroscope, respectively. Each array has three elements of type int16\+\_\+t, representing the calibrated values along the x, y, and z axes. These calibrated values have been adjusted to remove any biases or errors present in the raw sensor readings. By using the calibrated data, more accurate and reliable measurements can be obtained from the accelerometer and gyroscope.  
+
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{struct_calibrated_data_a16e9be5a9a477e5047aae466b2bd1bee}{acc\+\_\+calib}} \mbox{[}3\mbox{]}
+\item 
+int16\+\_\+t \mbox{\hyperlink{struct_calibrated_data_aedc971cb87524840aea2db577b7906bf}{gyro\+\_\+calib}} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+used to store the calibrated data for the accelerometer and gyroscope It contains two arrays, acc\+\_\+calib and gyro\+\_\+calib, which hold the calibrated values for the accelerometer and gyroscope, respectively. Each array has three elements of type int16\+\_\+t, representing the calibrated values along the x, y, and z axes. These calibrated values have been adjusted to remove any biases or errors present in the raw sensor readings. By using the calibrated data, more accurate and reliable measurements can be obtained from the accelerometer and gyroscope. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_calibrated_data_a16e9be5a9a477e5047aae466b2bd1bee}{acc\+\_\+calib}} 
+
+\mbox{\hyperlink{struct_calibrated_data_aedc971cb87524840aea2db577b7906bf}{gyro\+\_\+calib}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_calibrated_data_a16e9be5a9a477e5047aae466b2bd1bee}\label{struct_calibrated_data_a16e9be5a9a477e5047aae466b2bd1bee}} 
+\index{CalibratedData@{CalibratedData}!acc\_calib@{acc\_calib}}
+\index{acc\_calib@{acc\_calib}!CalibratedData@{CalibratedData}}
+\doxysubsubsection{\texorpdfstring{acc\_calib}{acc\_calib}}
+{\footnotesize\ttfamily int16\+\_\+t acc\+\_\+calib\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{struct_calibrated_data_aedc971cb87524840aea2db577b7906bf}\label{struct_calibrated_data_aedc971cb87524840aea2db577b7906bf}} 
+\index{CalibratedData@{CalibratedData}!gyro\_calib@{gyro\_calib}}
+\index{gyro\_calib@{gyro\_calib}!CalibratedData@{CalibratedData}}
+\doxysubsubsection{\texorpdfstring{gyro\_calib}{gyro\_calib}}
+{\footnotesize\ttfamily int16\+\_\+t gyro\+\_\+calib\mbox{[}3\mbox{]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Core/\+Src/\mbox{\hyperlink{mpu9dof_8c}{mpu9dof.\+c}}\end{DoxyCompactItemize}

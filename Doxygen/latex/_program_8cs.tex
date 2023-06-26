@@ -1,0 +1,110 @@
+\hypertarget{_program_8cs}{}\doxysection{levelserver/\+Program.cs File Reference}
+\label{_program_8cs}\index{levelserver/Program.cs@{levelserver/Program.cs}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+builder.\+Services. \mbox{\hyperlink{_program_8cs_a50ac3cc59e3f8d9e5c1a2734bd14b7f5}{Add\+Razor\+Pages}} ()
+\item 
+builder.\+Services. \mbox{\hyperlink{_program_8cs_abda56024f5b832bc28b5198cc50fbf0f}{Add\+Server\+Side\+Blazor}} ()
+\item 
+builder.\+Services. \mbox{\hyperlink{_program_8cs_a2a6b00c6a7aa2691408958c40f460c07}{Add\+Singleton$<$ Weather\+Forecast\+Service $>$}} ()
+\item 
+\mbox{\hyperlink{_program_8cs_af2d0c02efe3fbc2d94e5b6e316777c4d}{if}} (!app.\+Environment.\+Is\+Development())
+\item 
+app. \mbox{\hyperlink{_program_8cs_aa4d447fc3129a3aa301d736b8bd04ae9}{Use\+Https\+Redirection}} ()
+\item 
+app. \mbox{\hyperlink{_program_8cs_a906a3ce545279a7a73941f1d7b64d7cf}{Use\+Static\+Files}} ()
+\item 
+app. \mbox{\hyperlink{_program_8cs_a94c810d266751293a2d511a720a5625f}{Use\+Routing}} ()
+\item 
+app. \mbox{\hyperlink{_program_8cs_aca87b3198658808e3036d7020473bd72}{Map\+Blazor\+Hub}} ()
+\item 
+app. \mbox{\hyperlink{_program_8cs_a1f15df377aa44cd5787b1691a857bce7}{Map\+Fallback\+To\+Page}} (\char`\"{}/\+\_\+\+Host\char`\"{})
+\item 
+app. \mbox{\hyperlink{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd}{Run}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \mbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}} = Web\+Application.\+Create\+Builder(args)
+\item 
+var \mbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}} = builder.\+Build()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_program_8cs_a50ac3cc59e3f8d9e5c1a2734bd14b7f5}\label{_program_8cs_a50ac3cc59e3f8d9e5c1a2734bd14b7f5}} 
+\index{Program.cs@{Program.cs}!AddRazorPages@{AddRazorPages}}
+\index{AddRazorPages@{AddRazorPages}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddRazorPages()}{AddRazorPages()}}
+{\footnotesize\ttfamily builder.\+Services. Add\+Razor\+Pages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_abda56024f5b832bc28b5198cc50fbf0f}\label{_program_8cs_abda56024f5b832bc28b5198cc50fbf0f}} 
+\index{Program.cs@{Program.cs}!AddServerSideBlazor@{AddServerSideBlazor}}
+\index{AddServerSideBlazor@{AddServerSideBlazor}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddServerSideBlazor()}{AddServerSideBlazor()}}
+{\footnotesize\ttfamily builder.\+Services. Add\+Server\+Side\+Blazor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_a2a6b00c6a7aa2691408958c40f460c07}\label{_program_8cs_a2a6b00c6a7aa2691408958c40f460c07}} 
+\index{Program.cs@{Program.cs}!AddSingleton$<$ WeatherForecastService $>$@{AddSingleton$<$ WeatherForecastService $>$}}
+\index{AddSingleton$<$ WeatherForecastService $>$@{AddSingleton$<$ WeatherForecastService $>$}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddSingleton$<$ WeatherForecastService $>$()}{AddSingleton< WeatherForecastService >()}}
+{\footnotesize\ttfamily builder.\+Services. Add\+Singleton$<$ \mbox{\hyperlink{classlevelserver_1_1_data_1_1_weather_forecast_service}{Weather\+Forecast\+Service}} $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_af2d0c02efe3fbc2d94e5b6e316777c4d}\label{_program_8cs_af2d0c02efe3fbc2d94e5b6e316777c4d}} 
+\index{Program.cs@{Program.cs}!if@{if}}
+\index{if@{if}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{!app.\+Environment.}]{Is\+Development() }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_aca87b3198658808e3036d7020473bd72}\label{_program_8cs_aca87b3198658808e3036d7020473bd72}} 
+\index{Program.cs@{Program.cs}!MapBlazorHub@{MapBlazorHub}}
+\index{MapBlazorHub@{MapBlazorHub}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{MapBlazorHub()}{MapBlazorHub()}}
+{\footnotesize\ttfamily app. Map\+Blazor\+Hub (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_a1f15df377aa44cd5787b1691a857bce7}\label{_program_8cs_a1f15df377aa44cd5787b1691a857bce7}} 
+\index{Program.cs@{Program.cs}!MapFallbackToPage@{MapFallbackToPage}}
+\index{MapFallbackToPage@{MapFallbackToPage}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{MapFallbackToPage()}{MapFallbackToPage()}}
+{\footnotesize\ttfamily app. Map\+Fallback\+To\+Page (\begin{DoxyParamCaption}\item[{\char`\"{}/\+\_\+\+Host\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd}\label{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd}} 
+\index{Program.cs@{Program.cs}!Run@{Run}}
+\index{Run@{Run}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily app. Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_aa4d447fc3129a3aa301d736b8bd04ae9}\label{_program_8cs_aa4d447fc3129a3aa301d736b8bd04ae9}} 
+\index{Program.cs@{Program.cs}!UseHttpsRedirection@{UseHttpsRedirection}}
+\index{UseHttpsRedirection@{UseHttpsRedirection}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseHttpsRedirection()}{UseHttpsRedirection()}}
+{\footnotesize\ttfamily app. Use\+Https\+Redirection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_a94c810d266751293a2d511a720a5625f}\label{_program_8cs_a94c810d266751293a2d511a720a5625f}} 
+\index{Program.cs@{Program.cs}!UseRouting@{UseRouting}}
+\index{UseRouting@{UseRouting}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseRouting()}{UseRouting()}}
+{\footnotesize\ttfamily app. Use\+Routing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_program_8cs_a906a3ce545279a7a73941f1d7b64d7cf}\label{_program_8cs_a906a3ce545279a7a73941f1d7b64d7cf}} 
+\index{Program.cs@{Program.cs}!UseStaticFiles@{UseStaticFiles}}
+\index{UseStaticFiles@{UseStaticFiles}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{UseStaticFiles()}{UseStaticFiles()}}
+{\footnotesize\ttfamily app. Use\+Static\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}\label{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}} 
+\index{Program.cs@{Program.cs}!app@{app}}
+\index{app@{app}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily var app = builder.\+Build()}
+
+\mbox{\Hypertarget{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}\label{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}} 
+\index{Program.cs@{Program.cs}!builder@{builder}}
+\index{builder@{builder}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{builder}{builder}}
+{\footnotesize\ttfamily var builder = Web\+Application.\+Create\+Builder(args)}
+

@@ -1,0 +1,258 @@
+\hypertarget{structos_event}{}\doxysection{os\+Event Struct Reference}
+\label{structos_event}\index{osEvent@{osEvent}}
+
+
+Event structure contains detailed information about an event.  
+
+
+
+
+{\ttfamily \#include $<$cmsis\+\_\+os.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_afa03187386e2e754164f181be8d80019}{os\+Status}} \mbox{\hyperlink{structos_event_ad477a289f1f03ac45407b64268d707d3}{status}}
+\begin{DoxyCompactList}\small\item\em status code\+: event or error information \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{structos_event_a9e0a00edabf3b8a5dafff624fff7bbfc}{v}}\\
+\>\>{\em message as 32-\/bit value }\\
+\>void $\ast$ \mbox{\hyperlink{structos_event_a117104b82864d3b23ec174af6d392709}{p}}\\
+\>\>{\em message or mail as void pointer }\\
+\>int32\_t \mbox{\hyperlink{structos_event_ad0dda1bf7e74f1576261d493fba232b6}{signals}}\\
+\>\>{\em signal flags }\\
+\} \mbox{\hyperlink{structos_event_a3a3b2e272210dfc1b4cfde9b388354af}{value}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event value \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}{osMailQId}} \mbox{\hyperlink{structos_event_ac86175a4b1706bee596f3018322df26e}{mail\_id}}\\
+\>\>{\em mail id obtained by osMailCreate }\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}{osMessageQId}} \mbox{\hyperlink{structos_event_af394cbe21dde7377974e63af38cd87b0}{message\_id}}\\
+\>\>{\em message id obtained by \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{osMessageCreate}} }\\
+\} \mbox{\hyperlink{structos_event_aa5c3ff06a2dd43f0c6f9561d4512b732}{def}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event definition \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{structos_event_a9e0a00edabf3b8a5dafff624fff7bbfc}{v}}\\
+\>\>{\em message as 32-\/bit value }\\
+\>void $\ast$ \mbox{\hyperlink{structos_event_a117104b82864d3b23ec174af6d392709}{p}}\\
+\>\>{\em message or mail as void pointer }\\
+\>int32\_t \mbox{\hyperlink{structos_event_ad0dda1bf7e74f1576261d493fba232b6}{signals}}\\
+\>\>{\em signal flags }\\
+\} \mbox{\hyperlink{structos_event_a047aaed578586fe8d74a8ba9e3df63c1}{value}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event value \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}{osMailQId}} \mbox{\hyperlink{structos_event_ac86175a4b1706bee596f3018322df26e}{mail\_id}}\\
+\>\>{\em mail id obtained by osMailCreate }\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}{osMessageQId}} \mbox{\hyperlink{structos_event_af394cbe21dde7377974e63af38cd87b0}{message\_id}}\\
+\>\>{\em message id obtained by \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{osMessageCreate}} }\\
+\} \mbox{\hyperlink{structos_event_a99e282a9ce6639bb6752a8b528ac4bcf}{def}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event definition \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{structos_event_a9e0a00edabf3b8a5dafff624fff7bbfc}{v}}\\
+\>\>{\em message as 32-\/bit value }\\
+\>void $\ast$ \mbox{\hyperlink{structos_event_a117104b82864d3b23ec174af6d392709}{p}}\\
+\>\>{\em message or mail as void pointer }\\
+\>int32\_t \mbox{\hyperlink{structos_event_ad0dda1bf7e74f1576261d493fba232b6}{signals}}\\
+\>\>{\em signal flags }\\
+\} \mbox{\hyperlink{structos_event_a9cfb8fea1978e372111f6d0d784cbdc9}{value}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event value \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}{osMailQId}} \mbox{\hyperlink{structos_event_ac86175a4b1706bee596f3018322df26e}{mail\_id}}\\
+\>\>{\em mail id obtained by osMailCreate }\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}{osMessageQId}} \mbox{\hyperlink{structos_event_af394cbe21dde7377974e63af38cd87b0}{message\_id}}\\
+\>\>{\em message id obtained by \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{osMessageCreate}} }\\
+\} \mbox{\hyperlink{structos_event_afa8ec475358797ea42189247bdcea7e7}{def}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event definition \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{structos_event_a9e0a00edabf3b8a5dafff624fff7bbfc}{v}}\\
+\>\>{\em message as 32-\/bit value }\\
+\>void $\ast$ \mbox{\hyperlink{structos_event_a117104b82864d3b23ec174af6d392709}{p}}\\
+\>\>{\em message or mail as void pointer }\\
+\>int32\_t \mbox{\hyperlink{structos_event_ad0dda1bf7e74f1576261d493fba232b6}{signals}}\\
+\>\>{\em signal flags }\\
+\} \mbox{\hyperlink{structos_event_a7f3b27ac9cf30eabd006d3054769eb7c}{value}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event value \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}{osMailQId}} \mbox{\hyperlink{structos_event_ac86175a4b1706bee596f3018322df26e}{mail\_id}}\\
+\>\>{\em mail id obtained by osMailCreate }\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}{osMessageQId}} \mbox{\hyperlink{structos_event_af394cbe21dde7377974e63af38cd87b0}{message\_id}}\\
+\>\>{\em message id obtained by \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{osMessageCreate}} }\\
+\} \mbox{\hyperlink{structos_event_a2a06ed9378223e47781cf236202ff2fe}{def}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Event structure contains detailed information about an event. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structos_event_aa5c3ff06a2dd43f0c6f9561d4512b732}\label{structos_event_aa5c3ff06a2dd43f0c6f9561d4512b732}} 
+\index{osEvent@{osEvent}!def@{def}}
+\index{def@{def}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  def}
+
+
+
+event definition 
+
+\mbox{\Hypertarget{structos_event_a99e282a9ce6639bb6752a8b528ac4bcf}\label{structos_event_a99e282a9ce6639bb6752a8b528ac4bcf}} 
+\index{osEvent@{osEvent}!def@{def}}
+\index{def@{def}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  def}
+
+
+
+event definition 
+
+\mbox{\Hypertarget{structos_event_afa8ec475358797ea42189247bdcea7e7}\label{structos_event_afa8ec475358797ea42189247bdcea7e7}} 
+\index{osEvent@{osEvent}!def@{def}}
+\index{def@{def}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  def}
+
+
+
+event definition 
+
+\mbox{\Hypertarget{structos_event_a2a06ed9378223e47781cf236202ff2fe}\label{structos_event_a2a06ed9378223e47781cf236202ff2fe}} 
+\index{osEvent@{osEvent}!def@{def}}
+\index{def@{def}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  def}
+
+
+
+event definition 
+
+\mbox{\Hypertarget{structos_event_ac86175a4b1706bee596f3018322df26e}\label{structos_event_ac86175a4b1706bee596f3018322df26e}} 
+\index{osEvent@{osEvent}!mail\_id@{mail\_id}}
+\index{mail\_id@{mail\_id}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{mail\_id}{mail\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a6c62ad14ecde583acb77345636a4aa8c}{os\+Mail\+QId}} mail\+\_\+id}
+
+
+
+mail id obtained by os\+Mail\+Create 
+
+\mbox{\Hypertarget{structos_event_af394cbe21dde7377974e63af38cd87b0}\label{structos_event_af394cbe21dde7377974e63af38cd87b0}} 
+\index{osEvent@{osEvent}!message\_id@{message\_id}}
+\index{message\_id@{message\_id}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{message\_id}{message\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_a60cc1d910be85c56c22d4ba127abba5c}{os\+Message\+QId}} message\+\_\+id}
+
+
+
+message id obtained by \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{os\+Message\+Create}} 
+
+\mbox{\Hypertarget{structos_event_a117104b82864d3b23ec174af6d392709}\label{structos_event_a117104b82864d3b23ec174af6d392709}} 
+\index{osEvent@{osEvent}!p@{p}}
+\index{p@{p}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily void$\ast$ p}
+
+
+
+message or mail as void pointer 
+
+\mbox{\Hypertarget{structos_event_ad0dda1bf7e74f1576261d493fba232b6}\label{structos_event_ad0dda1bf7e74f1576261d493fba232b6}} 
+\index{osEvent@{osEvent}!signals@{signals}}
+\index{signals@{signals}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{signals}{signals}}
+{\footnotesize\ttfamily int32\+\_\+t signals}
+
+
+
+signal flags 
+
+\mbox{\Hypertarget{structos_event_ad477a289f1f03ac45407b64268d707d3}\label{structos_event_ad477a289f1f03ac45407b64268d707d3}} 
+\index{osEvent@{osEvent}!status@{status}}
+\index{status@{status}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h_afa03187386e2e754164f181be8d80019}{os\+Status}} status}
+
+
+
+status code\+: event or error information 
+
+\mbox{\Hypertarget{structos_event_a9e0a00edabf3b8a5dafff624fff7bbfc}\label{structos_event_a9e0a00edabf3b8a5dafff624fff7bbfc}} 
+\index{osEvent@{osEvent}!v@{v}}
+\index{v@{v}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily uint32\+\_\+t v}
+
+
+
+message as 32-\/bit value 
+
+\mbox{\Hypertarget{structos_event_a3a3b2e272210dfc1b4cfde9b388354af}\label{structos_event_a3a3b2e272210dfc1b4cfde9b388354af}} 
+\index{osEvent@{osEvent}!value@{value}}
+\index{value@{value}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  value}
+
+
+
+event value 
+
+\mbox{\Hypertarget{structos_event_a047aaed578586fe8d74a8ba9e3df63c1}\label{structos_event_a047aaed578586fe8d74a8ba9e3df63c1}} 
+\index{osEvent@{osEvent}!value@{value}}
+\index{value@{value}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  value}
+
+
+
+event value 
+
+\mbox{\Hypertarget{structos_event_a9cfb8fea1978e372111f6d0d784cbdc9}\label{structos_event_a9cfb8fea1978e372111f6d0d784cbdc9}} 
+\index{osEvent@{osEvent}!value@{value}}
+\index{value@{value}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  value}
+
+
+
+event value 
+
+\mbox{\Hypertarget{structos_event_a7f3b27ac9cf30eabd006d3054769eb7c}\label{structos_event_a7f3b27ac9cf30eabd006d3054769eb7c}} 
+\index{osEvent@{osEvent}!value@{value}}
+\index{value@{value}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  value}
+
+
+
+event value 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2796e89f1635186c1673a8e57e23568e4}{cmsis\+\_\+os.\+h}}\item 
+nucleo-\/l432kc\+\_\+4x4rgb/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h}{cmsis\+\_\+os.\+h}}\item 
+nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h}{cmsis\+\_\+os.\+h}}\item 
+nucleo-\/l432kc\+\_\+wifi/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os_8h}{cmsis\+\_\+os.\+h}}\end{DoxyCompactItemize}

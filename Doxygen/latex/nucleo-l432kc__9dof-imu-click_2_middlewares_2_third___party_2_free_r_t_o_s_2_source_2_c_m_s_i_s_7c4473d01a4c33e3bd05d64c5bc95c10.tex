@@ -1,0 +1,64 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS\+\_\+\+V2/freertos\+\_\+mpool.h File Reference}
+\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/freertos\_mpool.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/freertos\_mpool.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_mem_pool_block__t}{Mem\+Pool\+Block\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_mem_pool_def__t}{Mem\+Pool\+Def\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a8c2537ba17a49647cef36d14c3b28dc2}{MPOOL\+\_\+\+STATUS}}~0x5\+EED0000U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_ae5af460c49022acb8519d9a1a5fda576}{Static\+Mem\+Pool\+\_\+t}}~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b_a5527322a832173b5ca1a3b0e8b40ffc1}{Mem\+Pool\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a1678789289048421372f041a3a5c8063}{MEMPOOL\+\_\+\+CB\+\_\+\+SIZE}}~(sizeof(\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b_ae5af460c49022acb8519d9a1a5fda576}{Static\+Mem\+Pool\+\_\+t}}))
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a16be8a5c9af53c61c83f7920074522b8}{MEMPOOL\+\_\+\+ARR\+\_\+\+SIZE}}(bl\+\_\+count,  bl\+\_\+size)~(((((bl\+\_\+size) + (4 -\/ 1)) / 4) $\ast$ 4)$\ast$(bl\+\_\+count))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_mem_pool_def__t}{Mem\+Pool\+Def\+\_\+t}} \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a5527322a832173b5ca1a3b0e8b40ffc1}{Mem\+Pool\+\_\+t}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a16be8a5c9af53c61c83f7920074522b8}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a16be8a5c9af53c61c83f7920074522b8}} 
+\index{freertos\_mpool.h@{freertos\_mpool.h}!MEMPOOL\_ARR\_SIZE@{MEMPOOL\_ARR\_SIZE}}
+\index{MEMPOOL\_ARR\_SIZE@{MEMPOOL\_ARR\_SIZE}!freertos\_mpool.h@{freertos\_mpool.h}}
+\doxysubsubsection{\texorpdfstring{MEMPOOL\_ARR\_SIZE}{MEMPOOL\_ARR\_SIZE}}
+{\footnotesize\ttfamily \#define MEMPOOL\+\_\+\+ARR\+\_\+\+SIZE(\begin{DoxyParamCaption}\item[{}]{bl\+\_\+count,  }\item[{}]{bl\+\_\+size }\end{DoxyParamCaption})~(((((bl\+\_\+size) + (4 -\/ 1)) / 4) $\ast$ 4)$\ast$(bl\+\_\+count))}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a1678789289048421372f041a3a5c8063}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a1678789289048421372f041a3a5c8063}} 
+\index{freertos\_mpool.h@{freertos\_mpool.h}!MEMPOOL\_CB\_SIZE@{MEMPOOL\_CB\_SIZE}}
+\index{MEMPOOL\_CB\_SIZE@{MEMPOOL\_CB\_SIZE}!freertos\_mpool.h@{freertos\_mpool.h}}
+\doxysubsubsection{\texorpdfstring{MEMPOOL\_CB\_SIZE}{MEMPOOL\_CB\_SIZE}}
+{\footnotesize\ttfamily \#define MEMPOOL\+\_\+\+CB\+\_\+\+SIZE~(sizeof(\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b_ae5af460c49022acb8519d9a1a5fda576}{Static\+Mem\+Pool\+\_\+t}}))}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a8c2537ba17a49647cef36d14c3b28dc2}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a8c2537ba17a49647cef36d14c3b28dc2}} 
+\index{freertos\_mpool.h@{freertos\_mpool.h}!MPOOL\_STATUS@{MPOOL\_STATUS}}
+\index{MPOOL\_STATUS@{MPOOL\_STATUS}!freertos\_mpool.h@{freertos\_mpool.h}}
+\doxysubsubsection{\texorpdfstring{MPOOL\_STATUS}{MPOOL\_STATUS}}
+{\footnotesize\ttfamily \#define MPOOL\+\_\+\+STATUS~0x5\+EED0000U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_ae5af460c49022acb8519d9a1a5fda576}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_ae5af460c49022acb8519d9a1a5fda576}} 
+\index{freertos\_mpool.h@{freertos\_mpool.h}!StaticMemPool\_t@{StaticMemPool\_t}}
+\index{StaticMemPool\_t@{StaticMemPool\_t}!freertos\_mpool.h@{freertos\_mpool.h}}
+\doxysubsubsection{\texorpdfstring{StaticMemPool\_t}{StaticMemPool\_t}}
+{\footnotesize\ttfamily \#define Static\+Mem\+Pool\+\_\+t~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b_a5527322a832173b5ca1a3b0e8b40ffc1}{Mem\+Pool\+\_\+t}}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a5527322a832173b5ca1a3b0e8b40ffc1}\label{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s_7c4473d01a4c33e3bd05d64c5bc95c10_a5527322a832173b5ca1a3b0e8b40ffc1}} 
+\index{freertos\_mpool.h@{freertos\_mpool.h}!MemPool\_t@{MemPool\_t}}
+\index{MemPool\_t@{MemPool\_t}!freertos\_mpool.h@{freertos\_mpool.h}}
+\doxysubsubsection{\texorpdfstring{MemPool\_t}{MemPool\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_mem_pool_def__t}{Mem\+Pool\+Def\+\_\+t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b_a5527322a832173b5ca1a3b0e8b40ffc1}{Mem\+Pool\+\_\+t}}}
+

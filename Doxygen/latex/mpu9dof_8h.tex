@@ -1,0 +1,257 @@
+\hypertarget{mpu9dof_8h}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Core/\+Inc/mpu9dof.h File Reference}
+\label{mpu9dof_8h}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/mpu9dof.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/mpu9dof.h}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mpu9dof_8h_a949f4308c28a7a773584c8e6c281e3cb}{mpu9dof\+\_\+default\+\_\+cfg}} ()
+\begin{DoxyCompactList}\small\item\em \+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8h_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read}} (const uint8\+\_\+t $\ast$sensor)
+\begin{DoxyCompactList}\small\item\em Read sensor data from MPU9\+DOF module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8h_a9142720b7540c091b60f8994f33e6ec2}{calibrate\+Raw\+Values}} ()
+\item 
+void \mbox{\hyperlink{mpu9dof_8h_ad71d9c59c88e17c72bf8b6e9fd4b9c41}{mpu9dof\+\_\+calibrate\+\_\+module}} (void)
+\begin{DoxyCompactList}\small\item\em Calibrates the 9DOF MPU module by calculating the value of the sample data. This function performs calibration for the 9DOF MPU module. The calibration process is performed by reading gyro data using the \mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read()}} function with the sensor type set to GYRO. The sample data is accumulated in the gyro\+\_\+sum array. After collecting the required number of samples defined by CALIBRATION\+\_\+\+SAMPLES, the mean value is calculated for each gyro axis. The gyro offset values are stored in the offset\+Values.\+gyro\+\_\+offset array, and the calibrated gyro data is stored in the calibrated\+Data.\+gyro\+\_\+calib array. Additionally, a normal 1G offset of the accelerometer in the Z-\/axis is accounted for by subtracting 16384 from the offset\+Values.\+acc\+\_\+offset\mbox{[}2\mbox{]} value. The calibrated accelerometer data is stored in the calibrated\+Data.\+acc\+\_\+calib\mbox{[}2\mbox{]} variable. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{mpu9dof_8h_a5dca872f23051d28a05126a0429321d6}{mpu9dof\+\_\+process}} (void)
+\begin{DoxyCompactList}\small\item\em Process sensor data and calculate roll, pitch, and shake detection. This function processes the sensor data and performs calculations to determine the roll, pitch, and shake detection values. It takes the raw gyro and accelerometer data from raw\+Data and applies necessary conversions to obtain the values in appropriate units. The function converts the raw gyro values to degrees per second by subtracting the gyro offset values and dividing by 131.\+0. Similarly, the raw accelerometer values are converted to G\textquotesingle{}s by dividing them by 4096.\+0. The roll and pitch angles are calculated from the accelerometer data using the atan2f function and then converted to degrees by multiplying with the RAD\+\_\+\+TO\+\_\+\+DEG constant. The complementary filter is applied to combine the gyro and accelerometer data for the roll and pitch angles. The filtered roll and pitch values are updated in processed\+Data using the COMPLEMENTARY\+\_\+\+RATIO and DELTA\+\_\+\+TIME constants. The shake detection is performed by calculating the magnitude of the accelerometer readings and comparing it to the SHAKE\+\_\+\+THRESHOLD. If the magnitude exceeds the threshold, shake is considered to be detected, and the processed\+Data.\+shake value is set to 0; otherwise, it is set to 1. The function returns a pointer to the processed\+Data structure containing the calculated roll, pitch, and shake values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8h_a5433079579490b97f6094c3659af0089}{mpu9dof\+\_\+log\+\_\+data}} (const uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Log data based on the specified type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8h_a19362190b7708f09cf198ac33319d513}{mpu9dof\+\_\+generic\+\_\+write}} (const uint8\+\_\+t $\ast$reg, const uint8\+\_\+t $\ast$data\+\_\+buf, const uint8\+\_\+t $\ast$len)
+\begin{DoxyCompactList}\small\item\em Generic write function for MPU9\+DOF module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mpu9dof_8h_a01269a22d6a6e761803b82be318f568e}{mpu9dof\+\_\+generic\+\_\+read}} (const uint8\+\_\+t $\ast$reg, uint8\+\_\+t $\ast$data\+\_\+buf, const uint8\+\_\+t $\ast$len)
+\begin{DoxyCompactList}\small\item\em Generic read function for MPU9\+DOF module. This function is used to read data from the MPU9\+DOF module. It accepts a register address specified by the reg parameter, a data buffer specified by the data\+\_\+buf parameter, and the length of the data buffer specified by the len parameter. The function begins by acquiring a critical section to ensure exclusive access to shared resources. It then calls the HAL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read function to read data from the MPU9\+DOF module. The function specifies the I2C interface (hi2c1), the I2C device address obtained by left-\/shifting MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 by 1, the register address ($\ast$reg), the size of the register address (I2\+C\+\_\+\+MEMADD\+\_\+\+SIZE\+\_\+8\+BIT), the data buffer to store the read data (data\+\_\+buf), the length of the data to be read ($\ast$len), and the maximum delay for the operation (HAL\+\_\+\+MAX\+\_\+\+DELAY). Finally, the function releases the critical section and returns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpu9dof_8h_a9142720b7540c091b60f8994f33e6ec2}\label{mpu9dof_8h_a9142720b7540c091b60f8994f33e6ec2}} 
+\index{mpu9dof.h@{mpu9dof.h}!calibrateRawValues@{calibrateRawValues}}
+\index{calibrateRawValues@{calibrateRawValues}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{calibrateRawValues()}{calibrateRawValues()}}
+{\footnotesize\ttfamily void calibrate\+Raw\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu9dof_8h_ad71d9c59c88e17c72bf8b6e9fd4b9c41}\label{mpu9dof_8h_ad71d9c59c88e17c72bf8b6e9fd4b9c41}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_calibrate\_module@{mpu9dof\_calibrate\_module}}
+\index{mpu9dof\_calibrate\_module@{mpu9dof\_calibrate\_module}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_calibrate\_module()}{mpu9dof\_calibrate\_module()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+calibrate\+\_\+module (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Calibrates the 9DOF MPU module by calculating the value of the sample data. This function performs calibration for the 9DOF MPU module. The calibration process is performed by reading gyro data using the \mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read()}} function with the sensor type set to GYRO. The sample data is accumulated in the gyro\+\_\+sum array. After collecting the required number of samples defined by CALIBRATION\+\_\+\+SAMPLES, the mean value is calculated for each gyro axis. The gyro offset values are stored in the offset\+Values.\+gyro\+\_\+offset array, and the calibrated gyro data is stored in the calibrated\+Data.\+gyro\+\_\+calib array. Additionally, a normal 1G offset of the accelerometer in the Z-\/axis is accounted for by subtracting 16384 from the offset\+Values.\+acc\+\_\+offset\mbox{[}2\mbox{]} value. The calibrated accelerometer data is stored in the calibrated\+Data.\+acc\+\_\+calib\mbox{[}2\mbox{]} variable. 
+
+\begin{DoxyNote}{Note}
+The calibration process assumes that the sensor is at a stable and neutral position during calibration. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{mpu9dof_8c_abc02bdc34e18dabb24af73d49310a0df}{mpu9dof\+\_\+read()}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a1159e4f53de21839e7731629ab36c2d6}{CALIBRATION\+\_\+\+SAMPLES}} 
+
+\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_src_2freertos_8c_ac2203bf8f6dd5851eca6112dea4f7b1b}{GYRO}} 
+
+gyro\+\_\+sum 
+
+offset\+Values.\+gyro\+\_\+offset 
+
+calibrated\+Data.\+gyro\+\_\+calib 
+
+offset\+Values.\+acc\+\_\+offset 
+
+calibrated\+Data.\+acc\+\_\+calib 
+\end{DoxySeeAlso}
+Apply a normal 1G offset correction to the Z-\/axis accelerometer data.\mbox{\Hypertarget{mpu9dof_8h_a949f4308c28a7a773584c8e6c281e3cb}\label{mpu9dof_8h_a949f4308c28a7a773584c8e6c281e3cb}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_default\_cfg@{mpu9dof\_default\_cfg}}
+\index{mpu9dof\_default\_cfg@{mpu9dof\_default\_cfg}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_default\_cfg()}{mpu9dof\_default\_cfg()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+default\+\_\+cfg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\+: 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: 
+\end{DoxyReturn}
+Chip reset\+: Resets the chip and adds a 10ms delay.
+
+Initialize accel \& gyro\+: Sets the sample rate divider to default value and adds a 10ms delay.
+
+Disable FIFOs\+: Disables the FIFO feature and adds a 10ms delay.
+
+Bypass mode enabled\+: Enables the bypass mode by setting the appropriate configuration in the INT\+\_\+\+PIN\+\_\+\+CFG register. Adds a 10ms delay.
+
+Disable all interrupts\+: Disables all interrupts by writing the default value to the INT\+\_\+\+ENABLE register. Adds a 10ms delay.
+
+No FIFO and no I2C slaves\+: Disables the FIFO and I2C slave features by setting the default value in the USER\+\_\+\+CTRL register. Adds a 10ms delay.
+
+No power management, internal clock source\+: Disables power management and sets the internal clock source by writing the default value to the PWR\+\_\+\+MGMT\+\_\+1 register. Adds a 10ms delay.\mbox{\Hypertarget{mpu9dof_8h_a01269a22d6a6e761803b82be318f568e}\label{mpu9dof_8h_a01269a22d6a6e761803b82be318f568e}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_generic\_read@{mpu9dof\_generic\_read}}
+\index{mpu9dof\_generic\_read@{mpu9dof\_generic\_read}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_generic\_read()}{mpu9dof\_generic\_read()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+generic\+\_\+read (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{reg,  }\item[{uint8\+\_\+t $\ast$}]{data\+\_\+buf,  }\item[{const uint8\+\_\+t $\ast$}]{len }\end{DoxyParamCaption})}
+
+
+
+Generic read function for MPU9\+DOF module. This function is used to read data from the MPU9\+DOF module. It accepts a register address specified by the reg parameter, a data buffer specified by the data\+\_\+buf parameter, and the length of the data buffer specified by the len parameter. The function begins by acquiring a critical section to ensure exclusive access to shared resources. It then calls the HAL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read function to read data from the MPU9\+DOF module. The function specifies the I2C interface (hi2c1), the I2C device address obtained by left-\/shifting MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 by 1, the register address ($\ast$reg), the size of the register address (I2\+C\+\_\+\+MEMADD\+\_\+\+SIZE\+\_\+8\+BIT), the data buffer to store the read data (data\+\_\+buf), the length of the data to be read ($\ast$len), and the maximum delay for the operation (HAL\+\_\+\+MAX\+\_\+\+DELAY). Finally, the function releases the critical section and returns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & Pointer to the register address. \\
+\hline
+{\em data\+\_\+buf} & Pointer to the data buffer to store the read data. \\
+\hline
+{\em len} & Pointer to the length of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___i2_c___exported___functions___group2_ga7b593a1b85bd989dd002ee209eae4ad2}{HAL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read}} 
+
+\mbox{\hyperlink{mpu9dof_8c_ace92afad010308cb88a74c110408833a}{MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8h_a19362190b7708f09cf198ac33319d513}\label{mpu9dof_8h_a19362190b7708f09cf198ac33319d513}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_generic\_write@{mpu9dof\_generic\_write}}
+\index{mpu9dof\_generic\_write@{mpu9dof\_generic\_write}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_generic\_write()}{mpu9dof\_generic\_write()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+generic\+\_\+write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{reg,  }\item[{const uint8\+\_\+t $\ast$}]{data\+\_\+buf,  }\item[{const uint8\+\_\+t $\ast$}]{len }\end{DoxyParamCaption})}
+
+
+
+Generic write function for MPU9\+DOF module. 
+
+This function is used to write data to the MPU9\+DOF module. It accepts a register address specified by the reg parameter, a data buffer specified by the data\+\_\+buf parameter and the length of the data buffer specified by the len parameter. The function begins by acquiring a critical section to ensure exclusive access to shared resources. It then constructs a data array with the register address as the first element and copies the data from the data buffer into the remaining elements using the memcpy function. The function then calls the HAL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Transmit function to transmit the data array over the I2C interface to the MPU9\+DOF module. The I2C address used for transmission is obtained by left-\/shifting the constant MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1 by 1.
+
+Finally, the function releases the critical section and returns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & Pointer to the register address. \\
+\hline
+{\em data\+\_\+buf} & Pointer to the data buffer. \\
+\hline
+{\em len} & Pointer to the length of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___i2_c___exported___functions___group2_ga9440a306e25c7bd038cfa8619ec9a830}{HAL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Transmit}} 
+
+memcpy 
+
+\mbox{\hyperlink{mpu9dof_8c_ace92afad010308cb88a74c110408833a}{MPU9\+DOF\+\_\+\+XLG\+\_\+\+I2\+C\+\_\+\+ADDR\+\_\+1}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8h_a5433079579490b97f6094c3659af0089}\label{mpu9dof_8h_a5433079579490b97f6094c3659af0089}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_log\_data@{mpu9dof\_log\_data}}
+\index{mpu9dof\_log\_data@{mpu9dof\_log\_data}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_log\_data()}{mpu9dof\_log\_data()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+log\+\_\+data (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Log data based on the specified type. 
+
+This function logs different types of data based on the value of $\ast$data. The function accepts a pointer to the data variable, which is used in a switch statement to determine the type of data to log. If $\ast$data is 1, the function logs the raw accelerometer and gyroscope data by printing the values of raw\+Data.\+acc and raw\+Data.\+gyro using the printf function. If $\ast$data is 2, the function logs the calibration offset for the gyroscope by printing the values of offset\+Values.\+gyro\+\_\+offset using the printf function. If $\ast$data is 3, the function logs the calibrated data. (TODO\+: Add details if available.) If $\ast$data is 4, the function logs the processed final data, including the roll, pitch, and shake values from processed\+Data, using the printf function.
+
+If none of the above cases match, indicating an invalid value for $\ast$data, an error message is printed using the printf function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the data type specifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+raw\+Data.\+acc 
+
+raw\+Data.\+gyro 
+
+offset\+Values.\+gyro\+\_\+offset 
+
+processed\+Data.\+roll 
+
+processed\+Data.\+pitch 
+
+processed\+Data.\+shake 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8h_a5dca872f23051d28a05126a0429321d6}\label{mpu9dof_8h_a5dca872f23051d28a05126a0429321d6}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_process@{mpu9dof\_process}}
+\index{mpu9dof\_process@{mpu9dof\_process}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_process()}{mpu9dof\_process()}}
+{\footnotesize\ttfamily void $\ast$ mpu9dof\+\_\+process (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process sensor data and calculate roll, pitch, and shake detection. This function processes the sensor data and performs calculations to determine the roll, pitch, and shake detection values. It takes the raw gyro and accelerometer data from raw\+Data and applies necessary conversions to obtain the values in appropriate units. The function converts the raw gyro values to degrees per second by subtracting the gyro offset values and dividing by 131.\+0. Similarly, the raw accelerometer values are converted to G\textquotesingle{}s by dividing them by 4096.\+0. The roll and pitch angles are calculated from the accelerometer data using the atan2f function and then converted to degrees by multiplying with the RAD\+\_\+\+TO\+\_\+\+DEG constant. The complementary filter is applied to combine the gyro and accelerometer data for the roll and pitch angles. The filtered roll and pitch values are updated in processed\+Data using the COMPLEMENTARY\+\_\+\+RATIO and DELTA\+\_\+\+TIME constants. The shake detection is performed by calculating the magnitude of the accelerometer readings and comparing it to the SHAKE\+\_\+\+THRESHOLD. If the magnitude exceeds the threshold, shake is considered to be detected, and the processed\+Data.\+shake value is set to 0; otherwise, it is set to 1. The function returns a pointer to the processed\+Data structure containing the calculated roll, pitch, and shake values. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the processed\+Data structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+raw\+Data.\+gyro 
+
+offset\+Values.\+gyro\+\_\+offset 
+
+raw\+Data.\+acc 
+
+\mbox{\hyperlink{mpu9dof_8c_aa13aa37077c3b71dfcadf38e1bc7bfe4}{COMPLEMENTARY\+\_\+\+RATIO}} 
+
+\mbox{\hyperlink{mpu9dof_8c_ad41d7e66c90529c1f3d8e8be9df8ed95}{DELTA\+\_\+\+TIME}} 
+
+processed\+Data.\+roll 
+
+processed\+Data.\+pitch 
+
+\mbox{\hyperlink{mpu9dof_8c_a3e92e8253a6240e36fc8ed496aec2a03}{SHAKE\+\_\+\+THRESHOLD}} 
+
+processed\+Data.\+shake 
+
+\mbox{\hyperlink{mpu9dof_8c_a374e8373687339ac309e4f02b305fb0f}{RAD\+\_\+\+TO\+\_\+\+DEG}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{mpu9dof_8h_abc02bdc34e18dabb24af73d49310a0df}\label{mpu9dof_8h_abc02bdc34e18dabb24af73d49310a0df}} 
+\index{mpu9dof.h@{mpu9dof.h}!mpu9dof\_read@{mpu9dof\_read}}
+\index{mpu9dof\_read@{mpu9dof\_read}!mpu9dof.h@{mpu9dof.h}}
+\doxysubsubsection{\texorpdfstring{mpu9dof\_read()}{mpu9dof\_read()}}
+{\footnotesize\ttfamily void mpu9dof\+\_\+read (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+
+
+Read sensor data from MPU9\+DOF module. 
+
+This function reads sensor data from the MPU9\+DOF module based on the provided sensor type. The sensor type is specified using the parameter sensor. If sensor is equal to 1, the function reads gyro data from the module\textquotesingle{}s registers, including X, Y, and Z-\/axis gyro values, and stores them in the raw\+Data.\+gyro array. If sensor is equal to 2, the function reads accelerometer data from the module\textquotesingle{}s registers, including X, Y, and Z-\/axis accelerometer values, and stores them in the raw\+Data.\+acc array. If sensor is neither 1 nor 2, an error message is printed. 
+\begin{DoxyParams}{Parameters}
+{\em sensor} & Sensor type to read data from. Valid values are 1 (gyro) and 2 (accelerometer).\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{mpu9dof_8c_a01269a22d6a6e761803b82be318f568e}{mpu9dof\+\_\+generic\+\_\+read()}} 
+
+\mbox{\hyperlink{mpu9dof_8c_aa003a2decca0e11c619289f80f9d33ff}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_aa0f9f5d494a3ccc3c87c8fb88ae287dd}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a05da3d1b8555e6647aa4bcb108cd47f1}{MPU9\+DOF\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a5ee7c56be6f5ccd8c9fc46bd8f64fe1d}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_af3ab19293e1923b48e195a2cba1bdb0e}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H}} 
+
+\mbox{\hyperlink{mpu9dof_8c_a323047f22c2674ae3ea96f2c4f8d331d}{MPU9\+DOF\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H}} 
+
+raw\+Data.\+gyro 
+
+raw\+Data.\+acc 
+\end{DoxySeeAlso}

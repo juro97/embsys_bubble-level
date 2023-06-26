@@ -1,0 +1,69 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2freertos__mpool_8h_source}{}\doxysection{freertos\+\_\+mpool.\+h}
+\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2freertos__mpool_8h_source}\index{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/freertos\_mpool.h@{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/freertos\_mpool.h}}
+\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2freertos__mpool_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright (c) 2013-\/2020 Arm Limited. All rights reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * SPDX-\/License-\/Identifier: Apache-\/2.0}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Licensed under the Apache License, Version 2.0 (the License); you may}}
+\DoxyCodeLine{7 \textcolor{comment}{ * not use this file except in compliance with the License.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * You may obtain a copy of the License at}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{13 \textcolor{comment}{ * distributed under the License is distributed on an AS IS BASIS, WITHOUT}}
+\DoxyCodeLine{14 \textcolor{comment}{ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * See the License for the specific language governing permissions and}}
+\DoxyCodeLine{16 \textcolor{comment}{ * limitations under the License.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ *      Name:    freertos\_mpool.h}}
+\DoxyCodeLine{19 \textcolor{comment}{ *      Purpose: CMSIS RTOS2 wrapper for FreeRTOS}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifndef FREERTOS\_MPOOL\_H\_}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define FREERTOS\_MPOOL\_H\_}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}FreeRTOS.h"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}semphr.h"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{/* Memory Pool implementation definitions */}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define MPOOL\_STATUS              0x5EED0000U}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{/* Memory Block header */}}
+\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{35   \textcolor{keywordtype}{void} *next;                   \textcolor{comment}{/* Pointer to next block  */}}
+\DoxyCodeLine{36 \} \mbox{\hyperlink{struct_mem_pool_block__t}{MemPoolBlock\_t}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{/* Memory Pool control block */}}
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_mem_pool_def__t}{MemPoolDef\_t}} \{}
+\DoxyCodeLine{40   \mbox{\hyperlink{struct_mem_pool_block__t}{MemPoolBlock\_t}}    *\mbox{\hyperlink{struct_mem_pool_def__t_aec047e87dd125f4f7831eee3ace558a7}{head}};      \textcolor{comment}{/* Pointer to head block   */}}
+\DoxyCodeLine{41   \mbox{\hyperlink{struct_queue_definition}{SemaphoreHandle\_t}}  \mbox{\hyperlink{struct_mem_pool_def__t_a618ae1b51ee3f3f8e85cb7835d0ac485}{sem}};       \textcolor{comment}{/* Pool semaphore handle   */}}
+\DoxyCodeLine{42   uint8\_t           *\mbox{\hyperlink{struct_mem_pool_def__t_af3ec753d8acf9fbcdbd5050a120c0784}{mem\_arr}};   \textcolor{comment}{/* Pool memory array       */}}
+\DoxyCodeLine{43   uint32\_t           \mbox{\hyperlink{struct_mem_pool_def__t_a4c47851f734d76f2288be17e53971919}{mem\_sz}};    \textcolor{comment}{/* Pool memory array size  */}}
+\DoxyCodeLine{44   \textcolor{keyword}{const} \textcolor{keywordtype}{char}        *\mbox{\hyperlink{struct_mem_pool_def__t_afcd1706c9144e6d6eee6127661ae3be2}{name}};      \textcolor{comment}{/* Pointer to name string  */}}
+\DoxyCodeLine{45   uint32\_t           \mbox{\hyperlink{struct_mem_pool_def__t_a8165d81a5073988a6122e933ae7e8d52}{bl\_sz}};     \textcolor{comment}{/* Size of a single block  */}}
+\DoxyCodeLine{46   uint32\_t           \mbox{\hyperlink{struct_mem_pool_def__t_a0bbed3f53fcc7793fa714ecc8f17c4cc}{bl\_cnt}};    \textcolor{comment}{/* Number of blocks        */}}
+\DoxyCodeLine{47   uint32\_t           \mbox{\hyperlink{struct_mem_pool_def__t_a3d8a9527a2ee4a7ebf59175650142e75}{n}};         \textcolor{comment}{/* Block allocation index  */}}
+\DoxyCodeLine{48   \textcolor{keyword}{volatile} uint32\_t  \mbox{\hyperlink{struct_mem_pool_def__t_a9d5ec73a70e8d3f1e4e13411f24f4135}{status}};    \textcolor{comment}{/* Object status flags     */}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#if (configSUPPORT\_STATIC\_ALLOCATION == 1)}}
+\DoxyCodeLine{50   \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticSemaphore\_t}}  mem\_sem;   \textcolor{comment}{/* Semaphore object memory */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{52 \} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_28513f2cec9b8687406218fdcaed4421b_a5527322a832173b5ca1a3b0e8b40ffc1}{MemPool\_t}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/* No need to hide static object type, just align to coding style */}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define StaticMemPool\_t         MemPool\_t}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{comment}{/* Define memory pool control block size */}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define MEMPOOL\_CB\_SIZE         (sizeof(StaticMemPool\_t))}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{/* Define size of the byte array required to create count of blocks of given size */}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define MEMPOOL\_ARR\_SIZE(bl\_count, bl\_size) (((((bl\_size) + (4 -\/ 1)) / 4) * 4)*(bl\_count))}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* FREERTOS\_MPOOL\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

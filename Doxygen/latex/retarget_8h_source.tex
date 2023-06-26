@@ -1,0 +1,25 @@
+\hypertarget{retarget_8h_source}{}\doxysection{retarget.\+h}
+\label{retarget_8h_source}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/retarget.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/retarget.h}}
+\mbox{\hyperlink{retarget_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// All credit to Carmine Noviello for this code}}
+\DoxyCodeLine{2 \textcolor{comment}{// https://github.com/cnoviello/mastering-\/stm32/blob/master/nucleo-\/f030R8/system/include/retarget/retarget.h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef \_RETARGET\_H\_\_}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define \_RETARGET\_H\_\_}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}stm32l4xx\_hal.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <sys/stat.h>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keywordtype}{void} \mbox{\hyperlink{retarget_8h_ac7028227e5051dfa3bb8fabb0edd07c8}{RetargetInit}}(\mbox{\hyperlink{struct_____u_a_r_t___handle_type_def}{UART\_HandleTypeDef}} *huart);}
+\DoxyCodeLine{11 \textcolor{keywordtype}{int} \mbox{\hyperlink{retarget_8h_a4284676ccba12d7f2061d338001f71fb}{\_isatty}}(\textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{12 \textcolor{keywordtype}{int} \mbox{\hyperlink{retarget_8h_a0c1fa2d02c07b22bf2ebd769a028b852}{\_write}}(\textcolor{keywordtype}{int} fd, \textcolor{keywordtype}{char}* ptr, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{13 \textcolor{keywordtype}{int} \mbox{\hyperlink{retarget_8h_a58a559c63748012aab165d5f82af766d}{\_close}}(\textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{14 \textcolor{keywordtype}{int} \mbox{\hyperlink{retarget_8h_a883d6c1f92ad3c6f19731e7b57b2c458}{\_lseek}}(\textcolor{keywordtype}{int} fd, \textcolor{keywordtype}{int} ptr, \textcolor{keywordtype}{int} dir);}
+\DoxyCodeLine{15 \textcolor{keywordtype}{int} \mbox{\hyperlink{retarget_8h_ab60e5acd5530805f1421802fc0dc1d35}{\_read}}(\textcolor{keywordtype}{int} fd, \textcolor{keywordtype}{char}* ptr, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{16 \textcolor{keywordtype}{int} \mbox{\hyperlink{retarget_8h_a6e8d95db883bc4efe10c487d74e96b06}{\_fstat}}(\textcolor{keywordtype}{int} fd, \textcolor{keyword}{struct} stat* st);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//\#ifndef \_RETARGET\_H\_\_}}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}

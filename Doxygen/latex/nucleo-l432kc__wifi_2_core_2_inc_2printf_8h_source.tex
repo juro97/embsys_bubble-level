@@ -1,0 +1,105 @@
+\hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2printf_8h_source}{}\doxysection{printf.\+h}
+\label{nucleo-l432kc__wifi_2_core_2_inc_2printf_8h_source}\index{nucleo-\/l432kc\_wifi/Core/Inc/printf.h@{nucleo-\/l432kc\_wifi/Core/Inc/printf.h}}
+\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2printf_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifndef PRINTF\_H\_}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define PRINTF\_H\_}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\# include <cstdarg>}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\# include <cstddef>}}
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\# include <stdarg.h>}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\# include <stddef.h>}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\# if ((\_\_GNUC\_\_ == 4 \&\& \_\_GNUC\_MINOR\_\_>= 4) || \_\_GNUC\_\_ > 4)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#  define ATTR\_PRINTF(one\_based\_format\_index, first\_arg) \(\backslash\)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\_\_attribute\_\_((format(gnu\_printf, (one\_based\_format\_index), (first\_arg))))}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\# define ATTR\_PRINTF(one\_based\_format\_index, first\_arg) \(\backslash\)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\_\_attribute\_\_((format(printf, (one\_based\_format\_index), (first\_arg))))}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\# define ATTR\_VPRINTF(one\_based\_format\_index) ATTR\_PRINTF((one\_based\_format\_index), 0)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\# define ATTR\_PRINTF(one\_based\_format\_index, first\_arg)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\# define ATTR\_VPRINTF(one\_based\_format\_index)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#ifndef PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES 0}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#if PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES\_HARD}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\# define printf\_    printf}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\# define sprintf\_   sprintf}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\# define vsprintf\_  vsprintf}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\# define snprintf\_  snprintf}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\# define vsnprintf\_ vsnprintf}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\# define vprintf\_   vprintf}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{comment}{// If you want to include this implementation file directly rather than}}
+\DoxyCodeLine{79 \textcolor{comment}{// link against, this will let you control the functions' visibility,}}
+\DoxyCodeLine{80 \textcolor{comment}{// e.g. make them static so as not to clash with other objects also}}
+\DoxyCodeLine{81 \textcolor{comment}{// using them.}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#ifndef PRINTF\_VISIBILITY}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define PRINTF\_VISIBILITY}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{105 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{106 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_aee27d330928d8c3cb71226f506cec42f}{putchar\_}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{122 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{123 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a2c62cacbfb172bbdfab5597d22a8b342}{printf\_}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* format, ...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\_PRINTF}}(1, 2);}
+\DoxyCodeLine{124 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{125 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a37d423a6b4d321147399b63eea93bb29}{vprintf\_}}(const \textcolor{keywordtype}{char}* format, va\_list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\_VPRINTF}}(1);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 }
+\DoxyCodeLine{143 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{144 \textcolor{keywordtype}{int}  \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_aa0320d28406c4c8399830583177fdc77}{sprintf\_}}(\textcolor{keywordtype}{char}* s, const \textcolor{keywordtype}{char}* format, ...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\_PRINTF}}(2, 3);}
+\DoxyCodeLine{145 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{146 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_ae12ecc9fd035416b6e7cddae9804f121}{vsprintf\_}}(\textcolor{keywordtype}{char}* s, const \textcolor{keywordtype}{char}* format, va\_list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\_VPRINTF}}(2);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 }
+\DoxyCodeLine{166 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{167 \textcolor{keywordtype}{int}  \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_abbaf9363f36b73a13dfa6b0a792a60c5}{snprintf\_}}(\textcolor{keywordtype}{char}* s, \textcolor{keywordtype}{size\_t} count, const \textcolor{keywordtype}{char}* format, ...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\_PRINTF}}(3, 4);}
+\DoxyCodeLine{168 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{169 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a25006737444a8712899101e9e89387c3}{vsnprintf\_}}(\textcolor{keywordtype}{char}* s, \textcolor{keywordtype}{size\_t} count, const \textcolor{keywordtype}{char}* format, va\_list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\_VPRINTF}}(3);}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 }
+\DoxyCodeLine{188 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{189 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a735494c5e2525e1ce372b86891b6e6e6}{fctprintf}}(\textcolor{keywordtype}{void} (*out)(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{void}* extra\_arg), \textcolor{keywordtype}{void}* extra\_arg, const \textcolor{keywordtype}{char}* format, ...) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a5f88f9136939f9dfc2ac7f7d7deed057}{ATTR\_PRINTF}}(3, 4);}
+\DoxyCodeLine{190 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a61adc6db95ba87f685e7d3253af87af4}{PRINTF\_VISIBILITY}}}
+\DoxyCodeLine{191 \textcolor{keywordtype}{int} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a47c8d7b7f2120352c780f49b0212a13d}{vfctprintf}}(\textcolor{keywordtype}{void} (*out)(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{void}* extra\_arg), \textcolor{keywordtype}{void}* extra\_arg, const \textcolor{keywordtype}{char}* format, va\_list arg) \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2printf_8h_a0bf4b55e618023b0a33ec7f5305b6b71}{ATTR\_VPRINTF}}(3);}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{194 \} \textcolor{comment}{// extern "{}C"{}}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#if PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES\_HARD}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\# undef printf\_}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\# undef sprintf\_}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\# undef vsprintf\_}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\# undef snprintf\_}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\# undef vsnprintf\_}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\# undef vprintf\_}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#if PRINTF\_ALIAS\_STANDARD\_FUNCTION\_NAMES\_SOFT}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\# define printf     printf\_}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\# define sprintf    sprintf\_}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\# define vsprintf   vsprintf\_}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\# define snprintf   snprintf\_}}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\# define vsnprintf  vsnprintf\_}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\# define vprintf    vprintf\_}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// PRINTF\_H\_}}
+
+\end{DoxyCode}

@@ -33,9 +33,14 @@
 
 /* USER CODE END 1 */
 
+
 /**
-  * Enable DMA controller clock
-  */
+
+    @brief Initializes the DMA controller.
+    This function enables the clock for the DMA controller and configures the DMA interrupt.
+    It specifically configures the DMA1_Channel5_IRQn interrupt by setting its priority and enabling it.
+    */
+
 void MX_DMA_Init(void)
 {
 

@@ -1,0 +1,31 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2wifi_click_8h_source}{}\doxysection{wifi\+Click.\+h}
+\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2wifi_click_8h_source}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/wifiClick.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/wifiClick.h}}
+\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2wifi_click_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef INC\_WIFICLICK\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define INC\_WIFICLICK\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}cmsis\_os2.h"{}}          \textcolor{comment}{// For CMSIS API functions}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}FreeRTOS.h"{}}           \textcolor{comment}{// For FreeRTOS API functions}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2usart_8h}{usart.h}}"{}}               \textcolor{comment}{// For UART handles}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}task.h"{}}               \textcolor{comment}{// for FreeRTOS task control functions}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}string.h"{}}             \textcolor{comment}{// for string functions}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}stdbool.h"{}}            \textcolor{comment}{// for boolean values}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}stm32l4xx\_ll\_usart.h"{}} \textcolor{comment}{// For lowlevel usart abstraction access}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2printf_8h}{printf.h}}"{}}             \textcolor{comment}{// For 3rd-\/party printf library specifically for embedded systems}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2_a_tcommands_8h}{ATcommands.h}}"{}}         \textcolor{comment}{// For AT-\/command-\/list and functions}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{// Define bit masks for the two types of events}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define UART1\_IDLE\_EVENT (1 << 0)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define UART2\_EVENT (1 << 1)}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define BUFFER\_SIZE 4096}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_aad65b35f61c407116a1beac47c78cda6}{StartWifiClick}}(\textcolor{keywordtype}{void} *argument);}
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_a93cfad7861382a5bfeede6d158314a2d}{UartHandlerTask}}(\textcolor{keywordtype}{void} *argument); \textcolor{comment}{// Task which handles the intermediate communication between UART interfaces}}
+\DoxyCodeLine{22 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2wifi_click_8h_af17fde34992dd4f6724f4ef9c50adef0}{SendATCommand}}(\textcolor{keywordtype}{char} *command, \textcolor{keywordtype}{int} length); \textcolor{comment}{// Function which transmits a provided string to UART1}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* INC\_WIFICLICK\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

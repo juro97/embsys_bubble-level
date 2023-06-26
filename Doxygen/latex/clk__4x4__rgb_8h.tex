@@ -1,0 +1,35 @@
+\hypertarget{clk__4x4__rgb_8h}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Core/\+Inc/clk\+\_\+4x4\+\_\+rgb.h File Reference}
+\label{clk__4x4__rgb_8h}\index{nucleo-\/l432kc\_4x4rgb/Core/Inc/clk\_4x4\_rgb.h@{nucleo-\/l432kc\_4x4rgb/Core/Inc/clk\_4x4\_rgb.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{clk__4x4__rgb_8h_af88f19ebd542240b0b461efbd2de3cc7}{print\+Data\+On\+Matrix}} (const char $\ast$const ch)
+\begin{DoxyCompactList}\small\item\em Prints the received Data from the Broker and prints it on the 4x4 Matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{clk__4x4__rgb_8h_af88f19ebd542240b0b461efbd2de3cc7}\label{clk__4x4__rgb_8h_af88f19ebd542240b0b461efbd2de3cc7}} 
+\index{clk\_4x4\_rgb.h@{clk\_4x4\_rgb.h}!printDataOnMatrix@{printDataOnMatrix}}
+\index{printDataOnMatrix@{printDataOnMatrix}!clk\_4x4\_rgb.h@{clk\_4x4\_rgb.h}}
+\doxysubsubsection{\texorpdfstring{printDataOnMatrix()}{printDataOnMatrix()}}
+{\footnotesize\ttfamily void print\+Data\+On\+Matrix (\begin{DoxyParamCaption}\item[{const char $\ast$const}]{ch }\end{DoxyParamCaption})}
+
+
+
+Prints the received Data from the Broker and prints it on the 4x4 Matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & -\/ Pointer to a Char holding the Information to print \\
+\hline
+\end{DoxyParams}
+Acquires a semaphore to wait until the previous DMA transfer is completed. This function waits until the semaphore \char`\"{}sem\+\_\+print\+Permission\+Handle\char`\"{} is acquired, indicating that the previous DMA transfer has been completed. It waits indefinitely until the semaphore is available.
+
+Starts DMA transfer for PWM output using TIM1. This function starts a DMA transfer for PWM output using TIM1 and the specified parameters. It utilizes a critical section to ensure exclusive access to the TIM1 and DMA resources. 
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+\+Rgb4x4\+Click} & Pointer to the data buffer for the DMA transfer.\\
+\hline
+\end{DoxyParams}

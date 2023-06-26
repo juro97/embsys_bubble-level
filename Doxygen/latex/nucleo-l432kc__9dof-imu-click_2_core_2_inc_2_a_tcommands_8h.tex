@@ -1,0 +1,1246 @@
+\hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h}{}\doxysection{nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Core/\+Inc/\+ATcommands.h File Reference}
+\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h}\index{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/ATcommands.h@{nucleo-\/l432kc\_9dof-\/imu-\/click/Core/Inc/ATcommands.h}}
+{\ttfamily \#include \char`\"{}printf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdarg.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab9f43c5aca12ae54c5228681e93f232d}{AT\+\_\+\+CMD\+\_\+\+BUFFER\+\_\+\+SIZE}}~128
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a19cedd1cc4ee18a31090933e3e43d12b}{AT\+\_\+\+CMD\+\_\+\+ERROR}}~-\/1
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a2e956e6649bef3dbfe09c2726d219fec}{AT\+\_\+\+Startup}}~\char`\"{}AT\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a0002d3d3bd94a0e4ad41afb3bd837a10}{AT\+\_\+\+Reset}}~\char`\"{}AT+RST\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af1d27ae3cdde7f75087579861d735da0}{AT\+\_\+\+Version}}~\char`\"{}AT+GMR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aba7740ece242e5816200468a61edf617}{AT\+\_\+\+Deep\+Sleep\+Mode}}~\char`\"{}AT+GSLP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa9625a1d209b44cb05f28ca1522692ab}{AT\+\_\+\+Echo}}~\char`\"{}ATE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9686d51171ffc60cac35f0adaaff1ff1}{AT\+\_\+\+Factory\+Reset}}~\char`\"{}AT+RESTORE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a856f2d0dd71099336ec5b20a9c601160}{AT\+\_\+\+UARTConfig}}~\char`\"{}AT+UART\+\_\+\+CUR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab0fea5945e388a1d287baaa2dfd4987e}{AT\+\_\+\+UARTDefault}}~\char`\"{}AT+UART\+\_\+\+DEF\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1aaae58548750c376f1113957dec0000}{AT\+\_\+\+Sleep\+Mode}}~\char`\"{}AT+SLEEP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac7ee6d90605e6dd669f97c89394821b6}{AT\+\_\+\+RAMSpace}}~\char`\"{}AT+SYSRAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8ac8533a74100507fd1d2774494bdbce}{AT\+\_\+\+User\+Flash}}~\char`\"{}AT+SYSFLASH\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a69ad7a2b4e525441e558b3999342c339}{AT\+\_\+\+File\+System\+Operation}}~\char`\"{}AT+SYSFS\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aef26c9715f9267fc33dfa8762ba687fa}{AT\+\_\+\+RFPower}}~\char`\"{}AT+RFPOWER\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad6a1a7f18a476bc8907ff24a13738895}{AT\+\_\+\+Enable}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afd544c052a31576d64f278e4061f4628}{AT\+\_\+\+Disable}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a456e78aa5a28d8844bf8d64663e72777}{AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+Mode}}~\char`\"{}AT+CWMODE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a24cb5b3e7a2f97d953fddf7bd445970a}{AT\+\_\+\+WIFI\+\_\+\+Connect}}~\char`\"{}AT+CWJAP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6e42db636eb02c90a4b8ac27174a057b}{AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+List\+AP\+\_\+\+Config}}~\char`\"{}AT+CWLAPOPT\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5bc9953cb631dd07aa687b2da9ec0da8}{AT\+\_\+\+WIFI\+\_\+\+List\+AP}}~\char`\"{}AT+CWLAP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a39b7672a078af305b692451cbf528de2}{AT\+\_\+\+WIFI\+\_\+\+Disconnect}}~\char`\"{}AT+CWQAP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1b9b599eadc747a2e7ede087c7eee539}{AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+Soft\+AP\+\_\+\+Config}}~\char`\"{}AT+CWSAP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_acd8ab6d1a614ea710336f050e166a0cd}{AT\+\_\+\+WIFI\+\_\+\+Get\+\_\+\+Station\+\_\+\+IP}}~\char`\"{}AT+CWLIF\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a79ee4af61548f926362ade1a3c8abaae}{AT\+\_\+\+WIFI\+\_\+\+Enable\+\_\+\+DHCP}}~\char`\"{}AT+CWDHCP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afe3ddc2d621c05a16206558c2ed45ec3}{AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+DHCP\+\_\+\+Range}}~\char`\"{}AT+CWDHCPS\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ade86dc388c197f824b187e3750c81ace}{AT\+\_\+\+WIFI\+\_\+\+Soft\+AP\+\_\+\+Autoconnect}}~\char`\"{}AT+CWAUTOCONN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa4ef92442f63b1c9e966205e6ad7e0fb}{AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Start}}~\char`\"{}AT+CWSTARTSMART\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9ae54a7c99de9fe4f7bf11b96e769ea1}{AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Stop}}~\char`\"{}AT+CWSTOPSMART\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a03e195eb90e9a8052bc6128933753df1}{AT\+\_\+\+WIFI\+\_\+\+Enable\+\_\+\+WPS}}~\char`\"{}AT+WPS\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a546779b34947ea903f18277b3566e16b}{AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+Hostname}}~\char`\"{}AT+CWHOSTNAME\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad88d773abbefeef08eb8a152f8c12a86}{AT\+\_\+\+WIFI\+\_\+\+MDNS}}~\char`\"{}AT+MDNS\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a7c15ee1884e2e029631d2ce476cfa127}{AT\+\_\+\+WIFI\+\_\+\+Null\+\_\+\+Mode}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a2da9bae19f38abdfef3751604fac847a}{AT\+\_\+\+WIFI\+\_\+\+Station\+\_\+\+Mode}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad4c0acc0b47db0f4a7b470b41cd39045}{AT\+\_\+\+WIFI\+\_\+\+Soft\+AP\+\_\+\+Mode}}~2U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a49e4a442116d18ba3e399c8b9c9cba3c}{AT\+\_\+\+WIFI\+\_\+\+Mixed\+\_\+\+Mode}}~3U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21b351799d5429094a65d595755e2003}{AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Timeout}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac7cbee81092e05e22a5b0a1aff30f45b}{AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Invalid\+Password}}~2U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1ee7abc66827fe1ebc3bb4cd0f27007f}{AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Unavailable\+Target}}~3U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_adcb0ae0c07a8c90b16d4506014ba1245}{AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Connection\+Failed}}~4U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_abeeb0753b279e50ff755af7d45239e9f}{AT\+\_\+\+WIFI\+\_\+\+List\+AP\+\_\+\+Ordered\+\_\+\+RSSI}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_abbd02c42ee9f924498d59185ce84fece}{AT\+\_\+\+WIFI\+\_\+\+List\+AP\+\_\+\+Unordered\+\_\+\+RSSI}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a944b276ba492af75d37d0cc12a940d7b}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+ECN}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5ad7d304969b64197d175b95da499e73}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+SSID}}~(1 $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5e5e2c3d7197a7616c9661c8cf9d4097}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+RSSI}}~(1 $<$$<$ 2)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a78bede0d039060d183c83fb1b6f7cba2}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+MAC}}~(1 $<$$<$ 3)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9c2c5967a35c528f4267f2bf9023eed}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+CHANNEL}}~(1 $<$$<$ 4)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a47105f69d22b459e33a880d1143a61a3}{AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+OPEN}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5496d966601800a657c7b716b5fc3d6a}{AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WEP}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a02484ed544fc96b99fd2617c281e50cc}{AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA\+\_\+\+PSK}}~2U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a415f1cc8a572ad93b7a5f25c2101831b}{AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA2\+\_\+\+PSK}}~3U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a314948856922667f8342d8623dca5647}{AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA\+\_\+\+WPA2\+\_\+\+PSK}}~4U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae7188ac212582d89a4327f8df3969994}{AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA2\+\_\+\+Enterprise}}~5U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae7af89fe5b34590e3b1870dee2c34a5a}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+Enable\+\_\+\+DHCP}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a035d9e1497025494ebc9d5676898a375}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+Enable\+\_\+\+Station\+\_\+\+DHCP}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a71a703de81211f534b9df2605286b689}{AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+Enable\+\_\+\+Soft\+AP\+\_\+\+DHCP}}~(1 $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afff4f45e0c9d4e2361c620d0f8cc4f21}{AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Type\+\_\+\+ESP\+\_\+\+TOUCH}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac82658550fd3cf7c8c9c04277db72c6e}{AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Type\+\_\+\+Air\+Kiss}}~2U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab2cd9a58277904de47e3860ddc603816}{AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Type\+\_\+\+Mixed}}~3U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae0128eceaff4f2282739c41304e39c29}{AT\+\_\+\+IP\+\_\+\+Connection\+Status}}~\char`\"{}AT+CIPSTATUS\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aac831bd6e0c83041f35da2f9279f06a0}{AT\+\_\+\+IP\+\_\+\+Domain}}~\char`\"{}AT+CIPDOMAIN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a44acac9b305e6bc832e17c1c5f88ee66}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+DNS\+\_\+\+Config}}~\char`\"{}AT+CIPDNS\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af3d53751f674763177e509994cdfdc37}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Station\+\_\+\+MAC}}~\char`\"{}AT+CIPSTAMAC\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8a6d29146130767486c81fe54c8f17a2}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Soft\+AP\+\_\+\+MAC}}~\char`\"{}AT+CIPAPMAC\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aea6ffc72b8a7a64454a2cb4d516212a5}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Station\+\_\+\+IP}}~\char`\"{}AT+CIPSTA\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa32c74675427977150965ffd8dd703b4}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Soft\+AP\+\_\+\+IP}}~\char`\"{}AT+CIPAP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a16bae8074ec661c1a0b11f1745bb865d}{AT\+\_\+\+IP\+\_\+\+Open\+Connection}}~\char`\"{}AT+CIPSTART\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa490f0f7de9dba821147e10d901e9b38}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+SSL\+\_\+\+Config}}~\char`\"{}AT+CIPSSLCCONF\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8f930b9ac1ac10993649e18040437524}{AT\+\_\+\+IP\+\_\+\+Send}}~\char`\"{}AT+CIPSEND\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af7ff46304fe79fc9b2698ed11e1f3de9}{AT\+\_\+\+IP\+\_\+\+Send\+\_\+\+Length}}~\char`\"{}AT+CIPSENDEX\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a56fa3542552dde9c4c0ed5078f322f39}{AT\+\_\+\+IP\+\_\+\+Close\+Connection}}~\char`\"{}AT+CIPCLOSE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a53489132b047a47e28e43d12510b54ee}{AT\+\_\+\+IP\+\_\+\+Get\+\_\+\+Local\+\_\+\+Address}}~\char`\"{}AT+CIFSR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab908c97683083163ddeb045cf82a01ba}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Multi\+Connection\+Mode}}~\char`\"{}AT+CIPMUX\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5d68cf46c950c68c5b69bf2658009872}{AT\+\_\+\+IP\+\_\+\+Server}}~\char`\"{}AT+CIPSERVER\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_acfdaeaa3af39b9bba9aa05d07304ef78}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Server\+\_\+\+Max\+\_\+\+Connections}}~\char`\"{}AT+CIPSERVERMAXCONN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad1221d73263f0633c8c127115b7deaa7}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Transmission\+Mode}}~\char`\"{}AT+CIPMODE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21e8dae3b3c8dfed951a3cf16ea00245}{AT\+\_\+\+IP\+\_\+\+Save\+Transmission\+Link}}~\char`\"{}AT+SAVETRANSLINK\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af1f052c73c1d651770f4241d15539b27}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+TCP\+\_\+\+Timeout}}~\char`\"{}AT+CIPSTO\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae4df607befec3a6296474ead161033f4}{AT\+\_\+\+IP\+\_\+\+Software\+Update}}~\char`\"{}AT+CIUPDATE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa2345ef1dc0de60aec965d8f0fe0b9a4}{AT\+\_\+\+IP\+\_\+\+Get\+\_\+\+Remote\+\_\+\+Information}}~\char`\"{}AT+CIPDINFO\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a56303850fdaf7506f8ac87e65f091845}{AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+SNTP\+\_\+\+Config}}~\char`\"{}AT+CIPSNTPCFG\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a616fa4c471d5e119a78fc5bdce0419cb}{AT\+\_\+\+IP\+\_\+\+Get\+\_\+\+SNTP\+\_\+\+Time}}~\char`\"{}AT+CIPSNTPTIME\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4daba17fa1be3dc0ffbc426de6574043}{AT\+\_\+\+IP\+\_\+\+Ping}}~\char`\"{}AT+PING\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3a3882979713b883b8ed91c51654f366}{AT\+\_\+\+IP\+\_\+\+Connected}}~2U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a13901ca65959b774ab8093a2ff87a36e}{AT\+\_\+\+IP\+\_\+\+Transmission\+\_\+\+Created}}~3U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5ba332e48321b692af04589284ef67b5}{AT\+\_\+\+IP\+\_\+\+Transmission\+\_\+\+Disconnected}}~4U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a542a538e7c49b246713cd318177a214e}{AT\+\_\+\+IP\+\_\+\+Disconnected}}~5U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9ba07d111b08c318d190d0f244f4274}{AT\+\_\+\+IP\+\_\+\+Connection\+\_\+\+Type\+\_\+\+Client}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21e6c034e3b17aae9b2d63e8a102e6a8}{AT\+\_\+\+IP\+\_\+\+Connection\+\_\+\+Type\+\_\+\+Server}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aff15fcc6568b7e07077e3af7c6e975ad}{AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+No\+Authentication}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a96ca6489c97dc84843c5abfed2e74947}{AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+Loading\+Cert}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae761e72ecd9867877b8a7a6093253164}{AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+Loading\+CA}}~2U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a66bc4ab2a31ed80c3e024c4a24ce58c9}{AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+Bi\+Directional}}~3U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a47dfc27f73c043cc28ad618b1703b1cb}{AT\+\_\+\+IP\+\_\+\+Connection\+Mode\+\_\+\+Single}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a19b13d546350ab34951ccf0c3bdf1b6e}{AT\+\_\+\+IP\+\_\+\+Connection\+Mode\+\_\+\+Multiple}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a609758b23fbf0bc3e792556a4bf5dbf7}{AT\+\_\+\+IP\+\_\+\+Server\+\_\+\+Delete}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1515e229bba8177e1d34bd2d3f1308f0}{AT\+\_\+\+IP\+\_\+\+Server\+\_\+\+Create}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab9c46c1c4fe7eccf5664d5d69ac2eff1}{AT\+\_\+\+IP\+\_\+\+Normal\+\_\+\+Transmission}}~0U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae250b483d7b9780f63b57f6ce42712f1}{AT\+\_\+\+IP\+\_\+\+UART\+\_\+\+Passthrough}}~1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aec3fdd66419fbac55d4dfa979cabaedd}{AT\+\_\+\+BLE\+\_\+\+Initialization}}~\char`\"{}AT+BLEINIT\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a098c4c772924f15e92d8c78d65aa4ebe}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Address}}~\char`\"{}AT+BLEADDR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8df0e8ee2aec69d198b46d7fbba78c58}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Device\+Name}}~\char`\"{}AT+BLENAME\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9fdf62052963ffa81663f2a9944b00b0}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Scan\+Parameters}}~\char`\"{}AT+BLESCANPARAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a39d6e88da26d874b84da31fd98e6f26f}{AT\+\_\+\+BLE\+\_\+\+Enable\+Scanning}}~\char`\"{}AT+BLESCAN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afa7df073ab24ef7513cacd66ae700702}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Scan\+Response}}~\char`\"{}AT+BLESCANRSPDATA\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3600c4c0cbc219e55c3ed5130d7e0640}{AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Config}}~\char`\"{}AT+BLEADVPARAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae944d9fbcdac387394ee90b9de26389d}{AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Data}}~\char`\"{}AT+BLEADVDATA\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac853e97ce8c5c1b25f2847ca1074d11f}{AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Start}}~\char`\"{}AT+BLEADVSTART\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8383c9f995dc44b1955a15f1eacc3b89}{AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Stop}}~\char`\"{}AT+BLEADVSTOP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a300bbe8ffec48a7b27bb3abde171a788}{AT\+\_\+\+BLE\+\_\+\+Connect}}~\char`\"{}AT+BLECONN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6f7804940b695c4778e693ee3ab196fd}{AT\+\_\+\+BLE\+\_\+\+Connection\+\_\+\+Config}}~\char`\"{}AT+BLECONNPARAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5630f4cfcb0a2c3e7cd34b3851aea2fe}{AT\+\_\+\+BLE\+\_\+\+Disconnect}}~\char`\"{}AT+BLEDISCONN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9505b09a627817913be72f5e4a74978}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Data\+Length}}~\char`\"{}AT+BLEDATALEN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8f4eef67aa2498ca64e50354eb2ff282}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+MTULength}}~\char`\"{}AT+BLECFGMTU\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4775741f10949e0151c6d691bb6ba433}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Services}}~\char`\"{}AT+BLEGATTSSRVCRE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afdb3fb0bece1726bcb1e3c80a8087d3b}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Start\+Services}}~\char`\"{}AT+BLEGATTSSRVSTART\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5c4a6b4285883b0cfea0c7009d997d5d}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Stop\+Services}}~\char`\"{}AT+BLEGATTSSRVSTOP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6308cdcbfaf8690d984e0a06089b0572}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Discover\+Services}}~\char`\"{}AT+BLEGATTSSRV\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aae3e93c20695dfd11792500c36077bb4}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Discover\+Char}}~\char`\"{}AT+BLEGATTSCHAR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a942ca9aeac974fd32a3f19990955401c}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Notify\+Char}}~\char`\"{}AT+BLEGATTSNTFY\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_add9c40140e3c703369750da8a71d8c84}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Indicate\+Char}}~\char`\"{}AT+BLEGATTSIND\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aea8a4b210fa12836f3fe7add1d8f0693}{AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Set\+\_\+\+Attributes}}~\char`\"{}AT+BLEGATTSSETATTR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae5ca1f269d6afb8160d62668c8f87636}{AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Discover\+Primary}}~\char`\"{}AT+BLEGATTCPRIMSRV\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4330d86592cd81dd1e7ff98e2cc92271}{AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Discover\+Included}}~\char`\"{}AT+BLEGATTCINCLSRV\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a041b98d0e2a054fabb521cc8d5b5b398}{AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Discover\+Char}}~\char`\"{}AT+BLEGATTCCHAR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1f3da8fbb996b5060a45eb6c981f696f}{AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Read\+Char}}~\char`\"{}AT+BLEGATTCRD\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1b9dd3c361c1a1c525ab79a1b8a6195a}{AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Write\+Char}}~\char`\"{}AT+BLEGATTCWR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a282efdc22436b996ed580d87da973d61}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+SPP\+\_\+\+Config}}~\char`\"{}AT+BLESPPCFG\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a86c232c538a251789a0af718eb9d2a8d}{AT\+\_\+\+BLE\+\_\+\+Enable\+\_\+\+SPP}}~\char`\"{}AT+BLESPP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a118fd68dc299421d2bba61732490f2c3}{AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+SMP\+\_\+\+Parameters}}~\char`\"{}AT+BLESECPARAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9e2b8a05cb7dbd402a141c4aff15573d}{AT\+\_\+\+BLE\+\_\+\+Start\+Pairing}}~\char`\"{}AT+BLEENC\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3cbaae6625982f4fc8263b06a0b024dd}{AT\+\_\+\+BLE\+\_\+\+Set\+Pairing\+Response}}~\char`\"{}AT+BLEENCRSP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af6cbb204a9a4c7afec7ce81c5e8a224a}{AT\+\_\+\+BLE\+\_\+\+Reply\+To\+Pairing\+Key}}~\char`\"{}AT+BLEKEYREPLY\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a26e7a23a7f04cca48dd87a325a3a2939}{AT\+\_\+\+BLE\+\_\+\+Reply\+To\+Pairing\+Result}}~\char`\"{}AT+BLECONFREPLY\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a028b539f5475ebcf25613dd801537287}{AT\+\_\+\+BLE\+\_\+\+List\+Bonded\+Devices}}~\char`\"{}AT+BLEENCDEV\char`\"{}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a00ca69ca428e7c24f34e09b7c86df6cb}{AT\+\_\+\+BLE\+\_\+\+Unbind\+Device}}~\char`\"{}AT+BLEENCCLEAR\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}) (char $\ast$buffer, int len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5229c4c78666597686e083bc969df116}{at\+\_\+test\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Sends a test command. This function formats the command as \char`\"{}\%s=?\char`\"{} and sends it over the transmit channel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3132c3123bbf85085996f919ad0b3c34}{at\+\_\+query\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Sends a query command. This function formats the command as \char`\"{}\%s?\char`\"{} and sends it over the transmit channel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa891b4a937c8dbb81e282c795dc4deda}{at\+\_\+set\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd, const char $\ast$param\+\_\+format,...)
+\begin{DoxyCompactList}\small\item\em Sends a set command with variable parameters. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a193e9e80d1572d1dff1ac1642b024138}{at\+\_\+setn\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, size\+\_\+t limit, char $\ast$cmd, const char $\ast$param\+\_\+format,...)
+\begin{DoxyCompactList}\small\item\em Sends a set command with limited length. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. The length of the formatted command is limited to the specified limit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3e057756c54e4e762389b4ff69b579de}{at\+\_\+execute\+\_\+command}} (char $\ast$buffer, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}} tx, char $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Sends an execute command. This function formats the command as \char`\"{}\%s\char`\"{} and sends it over the transmit channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3600c4c0cbc219e55c3ed5130d7e0640}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3600c4c0cbc219e55c3ed5130d7e0640}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Advertising\_Config@{AT\_BLE\_Advertising\_Config}}
+\index{AT\_BLE\_Advertising\_Config@{AT\_BLE\_Advertising\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Advertising\_Config}{AT\_BLE\_Advertising\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Config~\char`\"{}AT+BLEADVPARAM\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae944d9fbcdac387394ee90b9de26389d}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae944d9fbcdac387394ee90b9de26389d}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Advertising\_Data@{AT\_BLE\_Advertising\_Data}}
+\index{AT\_BLE\_Advertising\_Data@{AT\_BLE\_Advertising\_Data}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Advertising\_Data}{AT\_BLE\_Advertising\_Data}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Data~\char`\"{}AT+BLEADVDATA\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac853e97ce8c5c1b25f2847ca1074d11f}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac853e97ce8c5c1b25f2847ca1074d11f}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Advertising\_Start@{AT\_BLE\_Advertising\_Start}}
+\index{AT\_BLE\_Advertising\_Start@{AT\_BLE\_Advertising\_Start}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Advertising\_Start}{AT\_BLE\_Advertising\_Start}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Start~\char`\"{}AT+BLEADVSTART\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8383c9f995dc44b1955a15f1eacc3b89}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8383c9f995dc44b1955a15f1eacc3b89}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Advertising\_Stop@{AT\_BLE\_Advertising\_Stop}}
+\index{AT\_BLE\_Advertising\_Stop@{AT\_BLE\_Advertising\_Stop}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Advertising\_Stop}{AT\_BLE\_Advertising\_Stop}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Advertising\+\_\+\+Stop~\char`\"{}AT+BLEADVSTOP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a300bbe8ffec48a7b27bb3abde171a788}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a300bbe8ffec48a7b27bb3abde171a788}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Connect@{AT\_BLE\_Connect}}
+\index{AT\_BLE\_Connect@{AT\_BLE\_Connect}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Connect}{AT\_BLE\_Connect}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Connect~\char`\"{}AT+BLECONN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6f7804940b695c4778e693ee3ab196fd}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6f7804940b695c4778e693ee3ab196fd}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Connection\_Config@{AT\_BLE\_Connection\_Config}}
+\index{AT\_BLE\_Connection\_Config@{AT\_BLE\_Connection\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Connection\_Config}{AT\_BLE\_Connection\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Connection\+\_\+\+Config~\char`\"{}AT+BLECONNPARAM\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5630f4cfcb0a2c3e7cd34b3851aea2fe}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5630f4cfcb0a2c3e7cd34b3851aea2fe}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Disconnect@{AT\_BLE\_Disconnect}}
+\index{AT\_BLE\_Disconnect@{AT\_BLE\_Disconnect}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Disconnect}{AT\_BLE\_Disconnect}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Disconnect~\char`\"{}AT+BLEDISCONN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a86c232c538a251789a0af718eb9d2a8d}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a86c232c538a251789a0af718eb9d2a8d}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Enable\_SPP@{AT\_BLE\_Enable\_SPP}}
+\index{AT\_BLE\_Enable\_SPP@{AT\_BLE\_Enable\_SPP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Enable\_SPP}{AT\_BLE\_Enable\_SPP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Enable\+\_\+\+SPP~\char`\"{}AT+BLESPP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a39d6e88da26d874b84da31fd98e6f26f}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a39d6e88da26d874b84da31fd98e6f26f}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_EnableScanning@{AT\_BLE\_EnableScanning}}
+\index{AT\_BLE\_EnableScanning@{AT\_BLE\_EnableScanning}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_EnableScanning}{AT\_BLE\_EnableScanning}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Enable\+Scanning~\char`\"{}AT+BLESCAN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a041b98d0e2a054fabb521cc8d5b5b398}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a041b98d0e2a054fabb521cc8d5b5b398}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTC\_DiscoverChar@{AT\_BLE\_GATTC\_DiscoverChar}}
+\index{AT\_BLE\_GATTC\_DiscoverChar@{AT\_BLE\_GATTC\_DiscoverChar}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTC\_DiscoverChar}{AT\_BLE\_GATTC\_DiscoverChar}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Discover\+Char~\char`\"{}AT+BLEGATTCCHAR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4330d86592cd81dd1e7ff98e2cc92271}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4330d86592cd81dd1e7ff98e2cc92271}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTC\_DiscoverIncluded@{AT\_BLE\_GATTC\_DiscoverIncluded}}
+\index{AT\_BLE\_GATTC\_DiscoverIncluded@{AT\_BLE\_GATTC\_DiscoverIncluded}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTC\_DiscoverIncluded}{AT\_BLE\_GATTC\_DiscoverIncluded}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Discover\+Included~\char`\"{}AT+BLEGATTCINCLSRV\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae5ca1f269d6afb8160d62668c8f87636}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae5ca1f269d6afb8160d62668c8f87636}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTC\_DiscoverPrimary@{AT\_BLE\_GATTC\_DiscoverPrimary}}
+\index{AT\_BLE\_GATTC\_DiscoverPrimary@{AT\_BLE\_GATTC\_DiscoverPrimary}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTC\_DiscoverPrimary}{AT\_BLE\_GATTC\_DiscoverPrimary}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Discover\+Primary~\char`\"{}AT+BLEGATTCPRIMSRV\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1f3da8fbb996b5060a45eb6c981f696f}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1f3da8fbb996b5060a45eb6c981f696f}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTC\_ReadChar@{AT\_BLE\_GATTC\_ReadChar}}
+\index{AT\_BLE\_GATTC\_ReadChar@{AT\_BLE\_GATTC\_ReadChar}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTC\_ReadChar}{AT\_BLE\_GATTC\_ReadChar}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Read\+Char~\char`\"{}AT+BLEGATTCRD\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1b9dd3c361c1a1c525ab79a1b8a6195a}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1b9dd3c361c1a1c525ab79a1b8a6195a}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTC\_WriteChar@{AT\_BLE\_GATTC\_WriteChar}}
+\index{AT\_BLE\_GATTC\_WriteChar@{AT\_BLE\_GATTC\_WriteChar}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTC\_WriteChar}{AT\_BLE\_GATTC\_WriteChar}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTC\+\_\+\+Write\+Char~\char`\"{}AT+BLEGATTCWR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aae3e93c20695dfd11792500c36077bb4}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aae3e93c20695dfd11792500c36077bb4}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_DiscoverChar@{AT\_BLE\_GATTS\_DiscoverChar}}
+\index{AT\_BLE\_GATTS\_DiscoverChar@{AT\_BLE\_GATTS\_DiscoverChar}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_DiscoverChar}{AT\_BLE\_GATTS\_DiscoverChar}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Discover\+Char~\char`\"{}AT+BLEGATTSCHAR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6308cdcbfaf8690d984e0a06089b0572}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6308cdcbfaf8690d984e0a06089b0572}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_DiscoverServices@{AT\_BLE\_GATTS\_DiscoverServices}}
+\index{AT\_BLE\_GATTS\_DiscoverServices@{AT\_BLE\_GATTS\_DiscoverServices}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_DiscoverServices}{AT\_BLE\_GATTS\_DiscoverServices}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Discover\+Services~\char`\"{}AT+BLEGATTSSRV\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_add9c40140e3c703369750da8a71d8c84}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_add9c40140e3c703369750da8a71d8c84}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_IndicateChar@{AT\_BLE\_GATTS\_IndicateChar}}
+\index{AT\_BLE\_GATTS\_IndicateChar@{AT\_BLE\_GATTS\_IndicateChar}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_IndicateChar}{AT\_BLE\_GATTS\_IndicateChar}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Indicate\+Char~\char`\"{}AT+BLEGATTSIND\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a942ca9aeac974fd32a3f19990955401c}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a942ca9aeac974fd32a3f19990955401c}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_NotifyChar@{AT\_BLE\_GATTS\_NotifyChar}}
+\index{AT\_BLE\_GATTS\_NotifyChar@{AT\_BLE\_GATTS\_NotifyChar}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_NotifyChar}{AT\_BLE\_GATTS\_NotifyChar}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Notify\+Char~\char`\"{}AT+BLEGATTSNTFY\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4775741f10949e0151c6d691bb6ba433}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4775741f10949e0151c6d691bb6ba433}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_Services@{AT\_BLE\_GATTS\_Services}}
+\index{AT\_BLE\_GATTS\_Services@{AT\_BLE\_GATTS\_Services}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_Services}{AT\_BLE\_GATTS\_Services}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Services~\char`\"{}AT+BLEGATTSSRVCRE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aea8a4b210fa12836f3fe7add1d8f0693}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aea8a4b210fa12836f3fe7add1d8f0693}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_Set\_Attributes@{AT\_BLE\_GATTS\_Set\_Attributes}}
+\index{AT\_BLE\_GATTS\_Set\_Attributes@{AT\_BLE\_GATTS\_Set\_Attributes}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_Set\_Attributes}{AT\_BLE\_GATTS\_Set\_Attributes}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Set\+\_\+\+Attributes~\char`\"{}AT+BLEGATTSSETATTR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afdb3fb0bece1726bcb1e3c80a8087d3b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afdb3fb0bece1726bcb1e3c80a8087d3b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_StartServices@{AT\_BLE\_GATTS\_StartServices}}
+\index{AT\_BLE\_GATTS\_StartServices@{AT\_BLE\_GATTS\_StartServices}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_StartServices}{AT\_BLE\_GATTS\_StartServices}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Start\+Services~\char`\"{}AT+BLEGATTSSRVSTART\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5c4a6b4285883b0cfea0c7009d997d5d}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5c4a6b4285883b0cfea0c7009d997d5d}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_GATTS\_StopServices@{AT\_BLE\_GATTS\_StopServices}}
+\index{AT\_BLE\_GATTS\_StopServices@{AT\_BLE\_GATTS\_StopServices}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_GATTS\_StopServices}{AT\_BLE\_GATTS\_StopServices}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+GATTS\+\_\+\+Stop\+Services~\char`\"{}AT+BLEGATTSSRVSTOP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aec3fdd66419fbac55d4dfa979cabaedd}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aec3fdd66419fbac55d4dfa979cabaedd}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Initialization@{AT\_BLE\_Initialization}}
+\index{AT\_BLE\_Initialization@{AT\_BLE\_Initialization}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Initialization}{AT\_BLE\_Initialization}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Initialization~\char`\"{}AT+BLEINIT\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a028b539f5475ebcf25613dd801537287}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a028b539f5475ebcf25613dd801537287}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_ListBondedDevices@{AT\_BLE\_ListBondedDevices}}
+\index{AT\_BLE\_ListBondedDevices@{AT\_BLE\_ListBondedDevices}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_ListBondedDevices}{AT\_BLE\_ListBondedDevices}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+List\+Bonded\+Devices~\char`\"{}AT+BLEENCDEV\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af6cbb204a9a4c7afec7ce81c5e8a224a}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af6cbb204a9a4c7afec7ce81c5e8a224a}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_ReplyToPairingKey@{AT\_BLE\_ReplyToPairingKey}}
+\index{AT\_BLE\_ReplyToPairingKey@{AT\_BLE\_ReplyToPairingKey}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_ReplyToPairingKey}{AT\_BLE\_ReplyToPairingKey}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Reply\+To\+Pairing\+Key~\char`\"{}AT+BLEKEYREPLY\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a26e7a23a7f04cca48dd87a325a3a2939}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a26e7a23a7f04cca48dd87a325a3a2939}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_ReplyToPairingResult@{AT\_BLE\_ReplyToPairingResult}}
+\index{AT\_BLE\_ReplyToPairingResult@{AT\_BLE\_ReplyToPairingResult}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_ReplyToPairingResult}{AT\_BLE\_ReplyToPairingResult}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Reply\+To\+Pairing\+Result~\char`\"{}AT+BLECONFREPLY\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a098c4c772924f15e92d8c78d65aa4ebe}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a098c4c772924f15e92d8c78d65aa4ebe}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_Address@{AT\_BLE\_Set\_Address}}
+\index{AT\_BLE\_Set\_Address@{AT\_BLE\_Set\_Address}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_Address}{AT\_BLE\_Set\_Address}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Address~\char`\"{}AT+BLEADDR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9505b09a627817913be72f5e4a74978}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9505b09a627817913be72f5e4a74978}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_DataLength@{AT\_BLE\_Set\_DataLength}}
+\index{AT\_BLE\_Set\_DataLength@{AT\_BLE\_Set\_DataLength}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_DataLength}{AT\_BLE\_Set\_DataLength}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Data\+Length~\char`\"{}AT+BLEDATALEN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8df0e8ee2aec69d198b46d7fbba78c58}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8df0e8ee2aec69d198b46d7fbba78c58}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_DeviceName@{AT\_BLE\_Set\_DeviceName}}
+\index{AT\_BLE\_Set\_DeviceName@{AT\_BLE\_Set\_DeviceName}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_DeviceName}{AT\_BLE\_Set\_DeviceName}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Device\+Name~\char`\"{}AT+BLENAME\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8f4eef67aa2498ca64e50354eb2ff282}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8f4eef67aa2498ca64e50354eb2ff282}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_MTULength@{AT\_BLE\_Set\_MTULength}}
+\index{AT\_BLE\_Set\_MTULength@{AT\_BLE\_Set\_MTULength}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_MTULength}{AT\_BLE\_Set\_MTULength}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+MTULength~\char`\"{}AT+BLECFGMTU\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9fdf62052963ffa81663f2a9944b00b0}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9fdf62052963ffa81663f2a9944b00b0}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_ScanParameters@{AT\_BLE\_Set\_ScanParameters}}
+\index{AT\_BLE\_Set\_ScanParameters@{AT\_BLE\_Set\_ScanParameters}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_ScanParameters}{AT\_BLE\_Set\_ScanParameters}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Scan\+Parameters~\char`\"{}AT+BLESCANPARAM\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afa7df073ab24ef7513cacd66ae700702}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afa7df073ab24ef7513cacd66ae700702}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_ScanResponse@{AT\_BLE\_Set\_ScanResponse}}
+\index{AT\_BLE\_Set\_ScanResponse@{AT\_BLE\_Set\_ScanResponse}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_ScanResponse}{AT\_BLE\_Set\_ScanResponse}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+Scan\+Response~\char`\"{}AT+BLESCANRSPDATA\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a118fd68dc299421d2bba61732490f2c3}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a118fd68dc299421d2bba61732490f2c3}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_SMP\_Parameters@{AT\_BLE\_Set\_SMP\_Parameters}}
+\index{AT\_BLE\_Set\_SMP\_Parameters@{AT\_BLE\_Set\_SMP\_Parameters}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_SMP\_Parameters}{AT\_BLE\_Set\_SMP\_Parameters}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+SMP\+\_\+\+Parameters~\char`\"{}AT+BLESECPARAM\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a282efdc22436b996ed580d87da973d61}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a282efdc22436b996ed580d87da973d61}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_Set\_SPP\_Config@{AT\_BLE\_Set\_SPP\_Config}}
+\index{AT\_BLE\_Set\_SPP\_Config@{AT\_BLE\_Set\_SPP\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_Set\_SPP\_Config}{AT\_BLE\_Set\_SPP\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+\_\+\+SPP\+\_\+\+Config~\char`\"{}AT+BLESPPCFG\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3cbaae6625982f4fc8263b06a0b024dd}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3cbaae6625982f4fc8263b06a0b024dd}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_SetPairingResponse@{AT\_BLE\_SetPairingResponse}}
+\index{AT\_BLE\_SetPairingResponse@{AT\_BLE\_SetPairingResponse}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_SetPairingResponse}{AT\_BLE\_SetPairingResponse}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Set\+Pairing\+Response~\char`\"{}AT+BLEENCRSP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9e2b8a05cb7dbd402a141c4aff15573d}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9e2b8a05cb7dbd402a141c4aff15573d}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_StartPairing@{AT\_BLE\_StartPairing}}
+\index{AT\_BLE\_StartPairing@{AT\_BLE\_StartPairing}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_StartPairing}{AT\_BLE\_StartPairing}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Start\+Pairing~\char`\"{}AT+BLEENC\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a00ca69ca428e7c24f34e09b7c86df6cb}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a00ca69ca428e7c24f34e09b7c86df6cb}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_BLE\_UnbindDevice@{AT\_BLE\_UnbindDevice}}
+\index{AT\_BLE\_UnbindDevice@{AT\_BLE\_UnbindDevice}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_BLE\_UnbindDevice}{AT\_BLE\_UnbindDevice}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+BLE\+\_\+\+Unbind\+Device~\char`\"{}AT+BLEENCCLEAR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab9f43c5aca12ae54c5228681e93f232d}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab9f43c5aca12ae54c5228681e93f232d}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_CMD\_BUFFER\_SIZE@{AT\_CMD\_BUFFER\_SIZE}}
+\index{AT\_CMD\_BUFFER\_SIZE@{AT\_CMD\_BUFFER\_SIZE}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_CMD\_BUFFER\_SIZE}{AT\_CMD\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+CMD\+\_\+\+BUFFER\+\_\+\+SIZE~128}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a19cedd1cc4ee18a31090933e3e43d12b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a19cedd1cc4ee18a31090933e3e43d12b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_CMD\_ERROR@{AT\_CMD\_ERROR}}
+\index{AT\_CMD\_ERROR@{AT\_CMD\_ERROR}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_CMD\_ERROR}{AT\_CMD\_ERROR}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+CMD\+\_\+\+ERROR~-\/1}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aba7740ece242e5816200468a61edf617}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aba7740ece242e5816200468a61edf617}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_DeepSleepMode@{AT\_DeepSleepMode}}
+\index{AT\_DeepSleepMode@{AT\_DeepSleepMode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_DeepSleepMode}{AT\_DeepSleepMode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Deep\+Sleep\+Mode~\char`\"{}AT+GSLP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afd544c052a31576d64f278e4061f4628}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afd544c052a31576d64f278e4061f4628}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_Disable@{AT\_Disable}}
+\index{AT\_Disable@{AT\_Disable}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_Disable}{AT\_Disable}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Disable~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa9625a1d209b44cb05f28ca1522692ab}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa9625a1d209b44cb05f28ca1522692ab}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_Echo@{AT\_Echo}}
+\index{AT\_Echo@{AT\_Echo}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_Echo}{AT\_Echo}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Echo~\char`\"{}ATE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad6a1a7f18a476bc8907ff24a13738895}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad6a1a7f18a476bc8907ff24a13738895}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_Enable@{AT\_Enable}}
+\index{AT\_Enable@{AT\_Enable}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_Enable}{AT\_Enable}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Enable~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9686d51171ffc60cac35f0adaaff1ff1}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9686d51171ffc60cac35f0adaaff1ff1}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_FactoryReset@{AT\_FactoryReset}}
+\index{AT\_FactoryReset@{AT\_FactoryReset}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_FactoryReset}{AT\_FactoryReset}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Factory\+Reset~\char`\"{}AT+RESTORE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a69ad7a2b4e525441e558b3999342c339}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a69ad7a2b4e525441e558b3999342c339}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_FileSystemOperation@{AT\_FileSystemOperation}}
+\index{AT\_FileSystemOperation@{AT\_FileSystemOperation}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_FileSystemOperation}{AT\_FileSystemOperation}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+File\+System\+Operation~\char`\"{}AT+SYSFS\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a56fa3542552dde9c4c0ed5078f322f39}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a56fa3542552dde9c4c0ed5078f322f39}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_CloseConnection@{AT\_IP\_CloseConnection}}
+\index{AT\_IP\_CloseConnection@{AT\_IP\_CloseConnection}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_CloseConnection}{AT\_IP\_CloseConnection}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Close\+Connection~\char`\"{}AT+CIPCLOSE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3a3882979713b883b8ed91c51654f366}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3a3882979713b883b8ed91c51654f366}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Connected@{AT\_IP\_Connected}}
+\index{AT\_IP\_Connected@{AT\_IP\_Connected}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Connected}{AT\_IP\_Connected}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Connected~2U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9ba07d111b08c318d190d0f244f4274}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9ba07d111b08c318d190d0f244f4274}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Connection\_Type\_Client@{AT\_IP\_Connection\_Type\_Client}}
+\index{AT\_IP\_Connection\_Type\_Client@{AT\_IP\_Connection\_Type\_Client}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Connection\_Type\_Client}{AT\_IP\_Connection\_Type\_Client}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Connection\+\_\+\+Type\+\_\+\+Client~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21e6c034e3b17aae9b2d63e8a102e6a8}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21e6c034e3b17aae9b2d63e8a102e6a8}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Connection\_Type\_Server@{AT\_IP\_Connection\_Type\_Server}}
+\index{AT\_IP\_Connection\_Type\_Server@{AT\_IP\_Connection\_Type\_Server}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Connection\_Type\_Server}{AT\_IP\_Connection\_Type\_Server}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Connection\+\_\+\+Type\+\_\+\+Server~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a19b13d546350ab34951ccf0c3bdf1b6e}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a19b13d546350ab34951ccf0c3bdf1b6e}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_ConnectionMode\_Multiple@{AT\_IP\_ConnectionMode\_Multiple}}
+\index{AT\_IP\_ConnectionMode\_Multiple@{AT\_IP\_ConnectionMode\_Multiple}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_ConnectionMode\_Multiple}{AT\_IP\_ConnectionMode\_Multiple}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Connection\+Mode\+\_\+\+Multiple~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a47dfc27f73c043cc28ad618b1703b1cb}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a47dfc27f73c043cc28ad618b1703b1cb}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_ConnectionMode\_Single@{AT\_IP\_ConnectionMode\_Single}}
+\index{AT\_IP\_ConnectionMode\_Single@{AT\_IP\_ConnectionMode\_Single}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_ConnectionMode\_Single}{AT\_IP\_ConnectionMode\_Single}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Connection\+Mode\+\_\+\+Single~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae0128eceaff4f2282739c41304e39c29}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae0128eceaff4f2282739c41304e39c29}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_ConnectionStatus@{AT\_IP\_ConnectionStatus}}
+\index{AT\_IP\_ConnectionStatus@{AT\_IP\_ConnectionStatus}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_ConnectionStatus}{AT\_IP\_ConnectionStatus}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Connection\+Status~\char`\"{}AT+CIPSTATUS\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a542a538e7c49b246713cd318177a214e}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a542a538e7c49b246713cd318177a214e}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Disconnected@{AT\_IP\_Disconnected}}
+\index{AT\_IP\_Disconnected@{AT\_IP\_Disconnected}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Disconnected}{AT\_IP\_Disconnected}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Disconnected~5U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aac831bd6e0c83041f35da2f9279f06a0}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aac831bd6e0c83041f35da2f9279f06a0}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Domain@{AT\_IP\_Domain}}
+\index{AT\_IP\_Domain@{AT\_IP\_Domain}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Domain}{AT\_IP\_Domain}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Domain~\char`\"{}AT+CIPDOMAIN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a53489132b047a47e28e43d12510b54ee}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a53489132b047a47e28e43d12510b54ee}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Get\_Local\_Address@{AT\_IP\_Get\_Local\_Address}}
+\index{AT\_IP\_Get\_Local\_Address@{AT\_IP\_Get\_Local\_Address}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Get\_Local\_Address}{AT\_IP\_Get\_Local\_Address}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Get\+\_\+\+Local\+\_\+\+Address~\char`\"{}AT+CIFSR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa2345ef1dc0de60aec965d8f0fe0b9a4}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa2345ef1dc0de60aec965d8f0fe0b9a4}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Get\_Remote\_Information@{AT\_IP\_Get\_Remote\_Information}}
+\index{AT\_IP\_Get\_Remote\_Information@{AT\_IP\_Get\_Remote\_Information}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Get\_Remote\_Information}{AT\_IP\_Get\_Remote\_Information}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Get\+\_\+\+Remote\+\_\+\+Information~\char`\"{}AT+CIPDINFO\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a616fa4c471d5e119a78fc5bdce0419cb}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a616fa4c471d5e119a78fc5bdce0419cb}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Get\_SNTP\_Time@{AT\_IP\_Get\_SNTP\_Time}}
+\index{AT\_IP\_Get\_SNTP\_Time@{AT\_IP\_Get\_SNTP\_Time}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Get\_SNTP\_Time}{AT\_IP\_Get\_SNTP\_Time}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Get\+\_\+\+SNTP\+\_\+\+Time~\char`\"{}AT+CIPSNTPTIME\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab9c46c1c4fe7eccf5664d5d69ac2eff1}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab9c46c1c4fe7eccf5664d5d69ac2eff1}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Normal\_Transmission@{AT\_IP\_Normal\_Transmission}}
+\index{AT\_IP\_Normal\_Transmission@{AT\_IP\_Normal\_Transmission}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Normal\_Transmission}{AT\_IP\_Normal\_Transmission}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Normal\+\_\+\+Transmission~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a16bae8074ec661c1a0b11f1745bb865d}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a16bae8074ec661c1a0b11f1745bb865d}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_OpenConnection@{AT\_IP\_OpenConnection}}
+\index{AT\_IP\_OpenConnection@{AT\_IP\_OpenConnection}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_OpenConnection}{AT\_IP\_OpenConnection}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Open\+Connection~\char`\"{}AT+CIPSTART\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4daba17fa1be3dc0ffbc426de6574043}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a4daba17fa1be3dc0ffbc426de6574043}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Ping@{AT\_IP\_Ping}}
+\index{AT\_IP\_Ping@{AT\_IP\_Ping}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Ping}{AT\_IP\_Ping}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Ping~\char`\"{}AT+PING\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21e8dae3b3c8dfed951a3cf16ea00245}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21e8dae3b3c8dfed951a3cf16ea00245}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_SaveTransmissionLink@{AT\_IP\_SaveTransmissionLink}}
+\index{AT\_IP\_SaveTransmissionLink@{AT\_IP\_SaveTransmissionLink}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_SaveTransmissionLink}{AT\_IP\_SaveTransmissionLink}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Save\+Transmission\+Link~\char`\"{}AT+SAVETRANSLINK\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8f930b9ac1ac10993649e18040437524}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8f930b9ac1ac10993649e18040437524}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Send@{AT\_IP\_Send}}
+\index{AT\_IP\_Send@{AT\_IP\_Send}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Send}{AT\_IP\_Send}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Send~\char`\"{}AT+CIPSEND\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af7ff46304fe79fc9b2698ed11e1f3de9}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af7ff46304fe79fc9b2698ed11e1f3de9}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Send\_Length@{AT\_IP\_Send\_Length}}
+\index{AT\_IP\_Send\_Length@{AT\_IP\_Send\_Length}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Send\_Length}{AT\_IP\_Send\_Length}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Send\+\_\+\+Length~\char`\"{}AT+CIPSENDEX\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5d68cf46c950c68c5b69bf2658009872}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5d68cf46c950c68c5b69bf2658009872}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Server@{AT\_IP\_Server}}
+\index{AT\_IP\_Server@{AT\_IP\_Server}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Server}{AT\_IP\_Server}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Server~\char`\"{}AT+CIPSERVER\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1515e229bba8177e1d34bd2d3f1308f0}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1515e229bba8177e1d34bd2d3f1308f0}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Server\_Create@{AT\_IP\_Server\_Create}}
+\index{AT\_IP\_Server\_Create@{AT\_IP\_Server\_Create}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Server\_Create}{AT\_IP\_Server\_Create}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Server\+\_\+\+Create~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a609758b23fbf0bc3e792556a4bf5dbf7}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a609758b23fbf0bc3e792556a4bf5dbf7}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Server\_Delete@{AT\_IP\_Server\_Delete}}
+\index{AT\_IP\_Server\_Delete@{AT\_IP\_Server\_Delete}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Server\_Delete}{AT\_IP\_Server\_Delete}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Server\+\_\+\+Delete~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a44acac9b305e6bc832e17c1c5f88ee66}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a44acac9b305e6bc832e17c1c5f88ee66}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_DNS\_Config@{AT\_IP\_Set\_DNS\_Config}}
+\index{AT\_IP\_Set\_DNS\_Config@{AT\_IP\_Set\_DNS\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_DNS\_Config}{AT\_IP\_Set\_DNS\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+DNS\+\_\+\+Config~\char`\"{}AT+CIPDNS\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab908c97683083163ddeb045cf82a01ba}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab908c97683083163ddeb045cf82a01ba}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_MultiConnectionMode@{AT\_IP\_Set\_MultiConnectionMode}}
+\index{AT\_IP\_Set\_MultiConnectionMode@{AT\_IP\_Set\_MultiConnectionMode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_MultiConnectionMode}{AT\_IP\_Set\_MultiConnectionMode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Multi\+Connection\+Mode~\char`\"{}AT+CIPMUX\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_acfdaeaa3af39b9bba9aa05d07304ef78}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_acfdaeaa3af39b9bba9aa05d07304ef78}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_Server\_Max\_Connections@{AT\_IP\_Set\_Server\_Max\_Connections}}
+\index{AT\_IP\_Set\_Server\_Max\_Connections@{AT\_IP\_Set\_Server\_Max\_Connections}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_Server\_Max\_Connections}{AT\_IP\_Set\_Server\_Max\_Connections}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Server\+\_\+\+Max\+\_\+\+Connections~\char`\"{}AT+CIPSERVERMAXCONN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a56303850fdaf7506f8ac87e65f091845}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a56303850fdaf7506f8ac87e65f091845}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_SNTP\_Config@{AT\_IP\_Set\_SNTP\_Config}}
+\index{AT\_IP\_Set\_SNTP\_Config@{AT\_IP\_Set\_SNTP\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_SNTP\_Config}{AT\_IP\_Set\_SNTP\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+SNTP\+\_\+\+Config~\char`\"{}AT+CIPSNTPCFG\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa32c74675427977150965ffd8dd703b4}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa32c74675427977150965ffd8dd703b4}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_SoftAP\_IP@{AT\_IP\_Set\_SoftAP\_IP}}
+\index{AT\_IP\_Set\_SoftAP\_IP@{AT\_IP\_Set\_SoftAP\_IP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_SoftAP\_IP}{AT\_IP\_Set\_SoftAP\_IP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Soft\+AP\+\_\+\+IP~\char`\"{}AT+CIPAP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8a6d29146130767486c81fe54c8f17a2}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8a6d29146130767486c81fe54c8f17a2}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_SoftAP\_MAC@{AT\_IP\_Set\_SoftAP\_MAC}}
+\index{AT\_IP\_Set\_SoftAP\_MAC@{AT\_IP\_Set\_SoftAP\_MAC}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_SoftAP\_MAC}{AT\_IP\_Set\_SoftAP\_MAC}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Soft\+AP\+\_\+\+MAC~\char`\"{}AT+CIPAPMAC\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa490f0f7de9dba821147e10d901e9b38}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa490f0f7de9dba821147e10d901e9b38}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_SSL\_Config@{AT\_IP\_Set\_SSL\_Config}}
+\index{AT\_IP\_Set\_SSL\_Config@{AT\_IP\_Set\_SSL\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_SSL\_Config}{AT\_IP\_Set\_SSL\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+SSL\+\_\+\+Config~\char`\"{}AT+CIPSSLCCONF\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aea6ffc72b8a7a64454a2cb4d516212a5}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aea6ffc72b8a7a64454a2cb4d516212a5}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_Station\_IP@{AT\_IP\_Set\_Station\_IP}}
+\index{AT\_IP\_Set\_Station\_IP@{AT\_IP\_Set\_Station\_IP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_Station\_IP}{AT\_IP\_Set\_Station\_IP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Station\+\_\+\+IP~\char`\"{}AT+CIPSTA\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af3d53751f674763177e509994cdfdc37}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af3d53751f674763177e509994cdfdc37}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_Station\_MAC@{AT\_IP\_Set\_Station\_MAC}}
+\index{AT\_IP\_Set\_Station\_MAC@{AT\_IP\_Set\_Station\_MAC}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_Station\_MAC}{AT\_IP\_Set\_Station\_MAC}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Station\+\_\+\+MAC~\char`\"{}AT+CIPSTAMAC\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af1f052c73c1d651770f4241d15539b27}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af1f052c73c1d651770f4241d15539b27}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_TCP\_Timeout@{AT\_IP\_Set\_TCP\_Timeout}}
+\index{AT\_IP\_Set\_TCP\_Timeout@{AT\_IP\_Set\_TCP\_Timeout}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_TCP\_Timeout}{AT\_IP\_Set\_TCP\_Timeout}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+TCP\+\_\+\+Timeout~\char`\"{}AT+CIPSTO\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad1221d73263f0633c8c127115b7deaa7}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad1221d73263f0633c8c127115b7deaa7}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Set\_TransmissionMode@{AT\_IP\_Set\_TransmissionMode}}
+\index{AT\_IP\_Set\_TransmissionMode@{AT\_IP\_Set\_TransmissionMode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Set\_TransmissionMode}{AT\_IP\_Set\_TransmissionMode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Set\+\_\+\+Transmission\+Mode~\char`\"{}AT+CIPMODE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae4df607befec3a6296474ead161033f4}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae4df607befec3a6296474ead161033f4}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_SoftwareUpdate@{AT\_IP\_SoftwareUpdate}}
+\index{AT\_IP\_SoftwareUpdate@{AT\_IP\_SoftwareUpdate}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_SoftwareUpdate}{AT\_IP\_SoftwareUpdate}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Software\+Update~\char`\"{}AT+CIUPDATE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a66bc4ab2a31ed80c3e024c4a24ce58c9}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a66bc4ab2a31ed80c3e024c4a24ce58c9}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_SSL\_Type\_BiDirectional@{AT\_IP\_SSL\_Type\_BiDirectional}}
+\index{AT\_IP\_SSL\_Type\_BiDirectional@{AT\_IP\_SSL\_Type\_BiDirectional}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_SSL\_Type\_BiDirectional}{AT\_IP\_SSL\_Type\_BiDirectional}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+Bi\+Directional~3U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae761e72ecd9867877b8a7a6093253164}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae761e72ecd9867877b8a7a6093253164}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_SSL\_Type\_LoadingCA@{AT\_IP\_SSL\_Type\_LoadingCA}}
+\index{AT\_IP\_SSL\_Type\_LoadingCA@{AT\_IP\_SSL\_Type\_LoadingCA}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_SSL\_Type\_LoadingCA}{AT\_IP\_SSL\_Type\_LoadingCA}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+Loading\+CA~2U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a96ca6489c97dc84843c5abfed2e74947}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a96ca6489c97dc84843c5abfed2e74947}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_SSL\_Type\_LoadingCert@{AT\_IP\_SSL\_Type\_LoadingCert}}
+\index{AT\_IP\_SSL\_Type\_LoadingCert@{AT\_IP\_SSL\_Type\_LoadingCert}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_SSL\_Type\_LoadingCert}{AT\_IP\_SSL\_Type\_LoadingCert}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+Loading\+Cert~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aff15fcc6568b7e07077e3af7c6e975ad}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aff15fcc6568b7e07077e3af7c6e975ad}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_SSL\_Type\_NoAuthentication@{AT\_IP\_SSL\_Type\_NoAuthentication}}
+\index{AT\_IP\_SSL\_Type\_NoAuthentication@{AT\_IP\_SSL\_Type\_NoAuthentication}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_SSL\_Type\_NoAuthentication}{AT\_IP\_SSL\_Type\_NoAuthentication}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+SSL\+\_\+\+Type\+\_\+\+No\+Authentication~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a13901ca65959b774ab8093a2ff87a36e}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a13901ca65959b774ab8093a2ff87a36e}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Transmission\_Created@{AT\_IP\_Transmission\_Created}}
+\index{AT\_IP\_Transmission\_Created@{AT\_IP\_Transmission\_Created}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Transmission\_Created}{AT\_IP\_Transmission\_Created}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Transmission\+\_\+\+Created~3U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5ba332e48321b692af04589284ef67b5}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5ba332e48321b692af04589284ef67b5}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_Transmission\_Disconnected@{AT\_IP\_Transmission\_Disconnected}}
+\index{AT\_IP\_Transmission\_Disconnected@{AT\_IP\_Transmission\_Disconnected}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_Transmission\_Disconnected}{AT\_IP\_Transmission\_Disconnected}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+Transmission\+\_\+\+Disconnected~4U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae250b483d7b9780f63b57f6ce42712f1}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae250b483d7b9780f63b57f6ce42712f1}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_IP\_UART\_Passthrough@{AT\_IP\_UART\_Passthrough}}
+\index{AT\_IP\_UART\_Passthrough@{AT\_IP\_UART\_Passthrough}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_IP\_UART\_Passthrough}{AT\_IP\_UART\_Passthrough}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+IP\+\_\+\+UART\+\_\+\+Passthrough~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac7ee6d90605e6dd669f97c89394821b6}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac7ee6d90605e6dd669f97c89394821b6}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_RAMSpace@{AT\_RAMSpace}}
+\index{AT\_RAMSpace@{AT\_RAMSpace}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_RAMSpace}{AT\_RAMSpace}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+RAMSpace~\char`\"{}AT+SYSRAM\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a0002d3d3bd94a0e4ad41afb3bd837a10}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a0002d3d3bd94a0e4ad41afb3bd837a10}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_Reset@{AT\_Reset}}
+\index{AT\_Reset@{AT\_Reset}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_Reset}{AT\_Reset}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Reset~\char`\"{}AT+RST\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aef26c9715f9267fc33dfa8762ba687fa}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aef26c9715f9267fc33dfa8762ba687fa}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_RFPower@{AT\_RFPower}}
+\index{AT\_RFPower@{AT\_RFPower}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_RFPower}{AT\_RFPower}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+RFPower~\char`\"{}AT+RFPOWER\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1aaae58548750c376f1113957dec0000}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1aaae58548750c376f1113957dec0000}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_SleepMode@{AT\_SleepMode}}
+\index{AT\_SleepMode@{AT\_SleepMode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_SleepMode}{AT\_SleepMode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Sleep\+Mode~\char`\"{}AT+SLEEP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a2e956e6649bef3dbfe09c2726d219fec}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a2e956e6649bef3dbfe09c2726d219fec}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_Startup@{AT\_Startup}}
+\index{AT\_Startup@{AT\_Startup}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_Startup}{AT\_Startup}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Startup~\char`\"{}AT\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a856f2d0dd71099336ec5b20a9c601160}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a856f2d0dd71099336ec5b20a9c601160}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_UARTConfig@{AT\_UARTConfig}}
+\index{AT\_UARTConfig@{AT\_UARTConfig}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_UARTConfig}{AT\_UARTConfig}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+UARTConfig~\char`\"{}AT+UART\+\_\+\+CUR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab0fea5945e388a1d287baaa2dfd4987e}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab0fea5945e388a1d287baaa2dfd4987e}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_UARTDefault@{AT\_UARTDefault}}
+\index{AT\_UARTDefault@{AT\_UARTDefault}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_UARTDefault}{AT\_UARTDefault}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+UARTDefault~\char`\"{}AT+UART\+\_\+\+DEF\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8ac8533a74100507fd1d2774494bdbce}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a8ac8533a74100507fd1d2774494bdbce}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_UserFlash@{AT\_UserFlash}}
+\index{AT\_UserFlash@{AT\_UserFlash}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_UserFlash}{AT\_UserFlash}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+User\+Flash~\char`\"{}AT+SYSFLASH\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af1d27ae3cdde7f75087579861d735da0}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af1d27ae3cdde7f75087579861d735da0}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_Version@{AT\_Version}}
+\index{AT\_Version@{AT\_Version}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_Version}{AT\_Version}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+Version~\char`\"{}AT+GMR\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_adcb0ae0c07a8c90b16d4506014ba1245}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_adcb0ae0c07a8c90b16d4506014ba1245}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_AP\_ConnectionFailed@{AT\_WIFI\_AP\_ConnectionFailed}}
+\index{AT\_WIFI\_AP\_ConnectionFailed@{AT\_WIFI\_AP\_ConnectionFailed}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_AP\_ConnectionFailed}{AT\_WIFI\_AP\_ConnectionFailed}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Connection\+Failed~4U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac7cbee81092e05e22a5b0a1aff30f45b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac7cbee81092e05e22a5b0a1aff30f45b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_AP\_InvalidPassword@{AT\_WIFI\_AP\_InvalidPassword}}
+\index{AT\_WIFI\_AP\_InvalidPassword@{AT\_WIFI\_AP\_InvalidPassword}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_AP\_InvalidPassword}{AT\_WIFI\_AP\_InvalidPassword}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Invalid\+Password~2U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21b351799d5429094a65d595755e2003}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a21b351799d5429094a65d595755e2003}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_AP\_Timeout@{AT\_WIFI\_AP\_Timeout}}
+\index{AT\_WIFI\_AP\_Timeout@{AT\_WIFI\_AP\_Timeout}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_AP\_Timeout}{AT\_WIFI\_AP\_Timeout}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Timeout~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1ee7abc66827fe1ebc3bb4cd0f27007f}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1ee7abc66827fe1ebc3bb4cd0f27007f}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_AP\_UnavailableTarget@{AT\_WIFI\_AP\_UnavailableTarget}}
+\index{AT\_WIFI\_AP\_UnavailableTarget@{AT\_WIFI\_AP\_UnavailableTarget}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_AP\_UnavailableTarget}{AT\_WIFI\_AP\_UnavailableTarget}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+AP\+\_\+\+Unavailable\+Target~3U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a24cb5b3e7a2f97d953fddf7bd445970a}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a24cb5b3e7a2f97d953fddf7bd445970a}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Connect@{AT\_WIFI\_Connect}}
+\index{AT\_WIFI\_Connect@{AT\_WIFI\_Connect}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Connect}{AT\_WIFI\_Connect}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Connect~\char`\"{}AT+CWJAP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a39b7672a078af305b692451cbf528de2}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a39b7672a078af305b692451cbf528de2}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Disconnect@{AT\_WIFI\_Disconnect}}
+\index{AT\_WIFI\_Disconnect@{AT\_WIFI\_Disconnect}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Disconnect}{AT\_WIFI\_Disconnect}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Disconnect~\char`\"{}AT+CWQAP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a79ee4af61548f926362ade1a3c8abaae}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a79ee4af61548f926362ade1a3c8abaae}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Enable\_DHCP@{AT\_WIFI\_Enable\_DHCP}}
+\index{AT\_WIFI\_Enable\_DHCP@{AT\_WIFI\_Enable\_DHCP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Enable\_DHCP}{AT\_WIFI\_Enable\_DHCP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Enable\+\_\+\+DHCP~\char`\"{}AT+CWDHCP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a03e195eb90e9a8052bc6128933753df1}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a03e195eb90e9a8052bc6128933753df1}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Enable\_WPS@{AT\_WIFI\_Enable\_WPS}}
+\index{AT\_WIFI\_Enable\_WPS@{AT\_WIFI\_Enable\_WPS}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Enable\_WPS}{AT\_WIFI\_Enable\_WPS}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Enable\+\_\+\+WPS~\char`\"{}AT+WPS\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a47105f69d22b459e33a880d1143a61a3}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a47105f69d22b459e33a880d1143a61a3}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Encryption\_OPEN@{AT\_WIFI\_Encryption\_OPEN}}
+\index{AT\_WIFI\_Encryption\_OPEN@{AT\_WIFI\_Encryption\_OPEN}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Encryption\_OPEN}{AT\_WIFI\_Encryption\_OPEN}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+OPEN~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5496d966601800a657c7b716b5fc3d6a}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5496d966601800a657c7b716b5fc3d6a}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Encryption\_WEP@{AT\_WIFI\_Encryption\_WEP}}
+\index{AT\_WIFI\_Encryption\_WEP@{AT\_WIFI\_Encryption\_WEP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Encryption\_WEP}{AT\_WIFI\_Encryption\_WEP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WEP~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae7188ac212582d89a4327f8df3969994}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae7188ac212582d89a4327f8df3969994}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Encryption\_WPA2\_Enterprise@{AT\_WIFI\_Encryption\_WPA2\_Enterprise}}
+\index{AT\_WIFI\_Encryption\_WPA2\_Enterprise@{AT\_WIFI\_Encryption\_WPA2\_Enterprise}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Encryption\_WPA2\_Enterprise}{AT\_WIFI\_Encryption\_WPA2\_Enterprise}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA2\+\_\+\+Enterprise~5U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a415f1cc8a572ad93b7a5f25c2101831b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a415f1cc8a572ad93b7a5f25c2101831b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Encryption\_WPA2\_PSK@{AT\_WIFI\_Encryption\_WPA2\_PSK}}
+\index{AT\_WIFI\_Encryption\_WPA2\_PSK@{AT\_WIFI\_Encryption\_WPA2\_PSK}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Encryption\_WPA2\_PSK}{AT\_WIFI\_Encryption\_WPA2\_PSK}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA2\+\_\+\+PSK~3U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a02484ed544fc96b99fd2617c281e50cc}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a02484ed544fc96b99fd2617c281e50cc}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Encryption\_WPA\_PSK@{AT\_WIFI\_Encryption\_WPA\_PSK}}
+\index{AT\_WIFI\_Encryption\_WPA\_PSK@{AT\_WIFI\_Encryption\_WPA\_PSK}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Encryption\_WPA\_PSK}{AT\_WIFI\_Encryption\_WPA\_PSK}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA\+\_\+\+PSK~2U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a314948856922667f8342d8623dca5647}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a314948856922667f8342d8623dca5647}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK@{AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK}}
+\index{AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK@{AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK}{AT\_WIFI\_Encryption\_WPA\_WPA2\_PSK}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Encryption\+\_\+\+WPA\+\_\+\+WPA2\+\_\+\+PSK~4U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_acd8ab6d1a614ea710336f050e166a0cd}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_acd8ab6d1a614ea710336f050e166a0cd}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Get\_Station\_IP@{AT\_WIFI\_Get\_Station\_IP}}
+\index{AT\_WIFI\_Get\_Station\_IP@{AT\_WIFI\_Get\_Station\_IP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Get\_Station\_IP}{AT\_WIFI\_Get\_Station\_IP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Get\+\_\+\+Station\+\_\+\+IP~\char`\"{}AT+CWLIF\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5bc9953cb631dd07aa687b2da9ec0da8}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5bc9953cb631dd07aa687b2da9ec0da8}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_ListAP@{AT\_WIFI\_ListAP}}
+\index{AT\_WIFI\_ListAP@{AT\_WIFI\_ListAP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_ListAP}{AT\_WIFI\_ListAP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+List\+AP~\char`\"{}AT+CWLAP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_abeeb0753b279e50ff755af7d45239e9f}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_abeeb0753b279e50ff755af7d45239e9f}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_ListAP\_Ordered\_RSSI@{AT\_WIFI\_ListAP\_Ordered\_RSSI}}
+\index{AT\_WIFI\_ListAP\_Ordered\_RSSI@{AT\_WIFI\_ListAP\_Ordered\_RSSI}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_ListAP\_Ordered\_RSSI}{AT\_WIFI\_ListAP\_Ordered\_RSSI}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+List\+AP\+\_\+\+Ordered\+\_\+\+RSSI~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_abbd02c42ee9f924498d59185ce84fece}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_abbd02c42ee9f924498d59185ce84fece}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_ListAP\_Unordered\_RSSI@{AT\_WIFI\_ListAP\_Unordered\_RSSI}}
+\index{AT\_WIFI\_ListAP\_Unordered\_RSSI@{AT\_WIFI\_ListAP\_Unordered\_RSSI}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_ListAP\_Unordered\_RSSI}{AT\_WIFI\_ListAP\_Unordered\_RSSI}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+List\+AP\+\_\+\+Unordered\+\_\+\+RSSI~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae7af89fe5b34590e3b1870dee2c34a5a}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ae7af89fe5b34590e3b1870dee2c34a5a}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_Enable\_DHCP@{AT\_WIFI\_Mask\_Enable\_DHCP}}
+\index{AT\_WIFI\_Mask\_Enable\_DHCP@{AT\_WIFI\_Mask\_Enable\_DHCP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_Enable\_DHCP}{AT\_WIFI\_Mask\_Enable\_DHCP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+Enable\+\_\+\+DHCP~(1 $<$$<$ 0)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a71a703de81211f534b9df2605286b689}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a71a703de81211f534b9df2605286b689}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP@{AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP}}
+\index{AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP@{AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP}{AT\_WIFI\_Mask\_Enable\_SoftAP\_DHCP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+Enable\+\_\+\+Soft\+AP\+\_\+\+DHCP~(1 $<$$<$ 1)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a035d9e1497025494ebc9d5676898a375}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a035d9e1497025494ebc9d5676898a375}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_Enable\_Station\_DHCP@{AT\_WIFI\_Mask\_Enable\_Station\_DHCP}}
+\index{AT\_WIFI\_Mask\_Enable\_Station\_DHCP@{AT\_WIFI\_Mask\_Enable\_Station\_DHCP}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_Enable\_Station\_DHCP}{AT\_WIFI\_Mask\_Enable\_Station\_DHCP}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+Enable\+\_\+\+Station\+\_\+\+DHCP~(1 $<$$<$ 0)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9c2c5967a35c528f4267f2bf9023eed}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_af9c2c5967a35c528f4267f2bf9023eed}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_ListAP\_CHANNEL@{AT\_WIFI\_Mask\_ListAP\_CHANNEL}}
+\index{AT\_WIFI\_Mask\_ListAP\_CHANNEL@{AT\_WIFI\_Mask\_ListAP\_CHANNEL}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_ListAP\_CHANNEL}{AT\_WIFI\_Mask\_ListAP\_CHANNEL}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+CHANNEL~(1 $<$$<$ 4)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a944b276ba492af75d37d0cc12a940d7b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a944b276ba492af75d37d0cc12a940d7b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_ListAP\_ECN@{AT\_WIFI\_Mask\_ListAP\_ECN}}
+\index{AT\_WIFI\_Mask\_ListAP\_ECN@{AT\_WIFI\_Mask\_ListAP\_ECN}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_ListAP\_ECN}{AT\_WIFI\_Mask\_ListAP\_ECN}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+ECN~(1 $<$$<$ 0)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a78bede0d039060d183c83fb1b6f7cba2}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a78bede0d039060d183c83fb1b6f7cba2}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_ListAP\_MAC@{AT\_WIFI\_Mask\_ListAP\_MAC}}
+\index{AT\_WIFI\_Mask\_ListAP\_MAC@{AT\_WIFI\_Mask\_ListAP\_MAC}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_ListAP\_MAC}{AT\_WIFI\_Mask\_ListAP\_MAC}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+MAC~(1 $<$$<$ 3)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5e5e2c3d7197a7616c9661c8cf9d4097}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5e5e2c3d7197a7616c9661c8cf9d4097}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_ListAP\_RSSI@{AT\_WIFI\_Mask\_ListAP\_RSSI}}
+\index{AT\_WIFI\_Mask\_ListAP\_RSSI@{AT\_WIFI\_Mask\_ListAP\_RSSI}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_ListAP\_RSSI}{AT\_WIFI\_Mask\_ListAP\_RSSI}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+RSSI~(1 $<$$<$ 2)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5ad7d304969b64197d175b95da499e73}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5ad7d304969b64197d175b95da499e73}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mask\_ListAP\_SSID@{AT\_WIFI\_Mask\_ListAP\_SSID}}
+\index{AT\_WIFI\_Mask\_ListAP\_SSID@{AT\_WIFI\_Mask\_ListAP\_SSID}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mask\_ListAP\_SSID}{AT\_WIFI\_Mask\_ListAP\_SSID}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mask\+\_\+\+List\+AP\+\_\+\+SSID~(1 $<$$<$ 1)}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad88d773abbefeef08eb8a152f8c12a86}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad88d773abbefeef08eb8a152f8c12a86}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_MDNS@{AT\_WIFI\_MDNS}}
+\index{AT\_WIFI\_MDNS@{AT\_WIFI\_MDNS}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_MDNS}{AT\_WIFI\_MDNS}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+MDNS~\char`\"{}AT+MDNS\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a49e4a442116d18ba3e399c8b9c9cba3c}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a49e4a442116d18ba3e399c8b9c9cba3c}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Mixed\_Mode@{AT\_WIFI\_Mixed\_Mode}}
+\index{AT\_WIFI\_Mixed\_Mode@{AT\_WIFI\_Mixed\_Mode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Mixed\_Mode}{AT\_WIFI\_Mixed\_Mode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Mixed\+\_\+\+Mode~3U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a7c15ee1884e2e029631d2ce476cfa127}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a7c15ee1884e2e029631d2ce476cfa127}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Null\_Mode@{AT\_WIFI\_Null\_Mode}}
+\index{AT\_WIFI\_Null\_Mode@{AT\_WIFI\_Null\_Mode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Null\_Mode}{AT\_WIFI\_Null\_Mode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Null\+\_\+\+Mode~0U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afe3ddc2d621c05a16206558c2ed45ec3}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afe3ddc2d621c05a16206558c2ed45ec3}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Set\_DHCP\_Range@{AT\_WIFI\_Set\_DHCP\_Range}}
+\index{AT\_WIFI\_Set\_DHCP\_Range@{AT\_WIFI\_Set\_DHCP\_Range}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Set\_DHCP\_Range}{AT\_WIFI\_Set\_DHCP\_Range}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+DHCP\+\_\+\+Range~\char`\"{}AT+CWDHCPS\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a546779b34947ea903f18277b3566e16b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a546779b34947ea903f18277b3566e16b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Set\_Hostname@{AT\_WIFI\_Set\_Hostname}}
+\index{AT\_WIFI\_Set\_Hostname@{AT\_WIFI\_Set\_Hostname}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Set\_Hostname}{AT\_WIFI\_Set\_Hostname}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+Hostname~\char`\"{}AT+CWHOSTNAME\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6e42db636eb02c90a4b8ac27174a057b}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a6e42db636eb02c90a4b8ac27174a057b}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Set\_ListAP\_Config@{AT\_WIFI\_Set\_ListAP\_Config}}
+\index{AT\_WIFI\_Set\_ListAP\_Config@{AT\_WIFI\_Set\_ListAP\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Set\_ListAP\_Config}{AT\_WIFI\_Set\_ListAP\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+List\+AP\+\_\+\+Config~\char`\"{}AT+CWLAPOPT\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a456e78aa5a28d8844bf8d64663e72777}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a456e78aa5a28d8844bf8d64663e72777}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Set\_Mode@{AT\_WIFI\_Set\_Mode}}
+\index{AT\_WIFI\_Set\_Mode@{AT\_WIFI\_Set\_Mode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Set\_Mode}{AT\_WIFI\_Set\_Mode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+Mode~\char`\"{}AT+CWMODE\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1b9b599eadc747a2e7ede087c7eee539}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1b9b599eadc747a2e7ede087c7eee539}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Set\_SoftAP\_Config@{AT\_WIFI\_Set\_SoftAP\_Config}}
+\index{AT\_WIFI\_Set\_SoftAP\_Config@{AT\_WIFI\_Set\_SoftAP\_Config}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Set\_SoftAP\_Config}{AT\_WIFI\_Set\_SoftAP\_Config}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Set\+\_\+\+Soft\+AP\+\_\+\+Config~\char`\"{}AT+CWSAP\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa4ef92442f63b1c9e966205e6ad7e0fb}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa4ef92442f63b1c9e966205e6ad7e0fb}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SmartConfig\_Start@{AT\_WIFI\_SmartConfig\_Start}}
+\index{AT\_WIFI\_SmartConfig\_Start@{AT\_WIFI\_SmartConfig\_Start}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SmartConfig\_Start}{AT\_WIFI\_SmartConfig\_Start}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Start~\char`\"{}AT+CWSTARTSMART\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9ae54a7c99de9fe4f7bf11b96e769ea1}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a9ae54a7c99de9fe4f7bf11b96e769ea1}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SmartConfig\_Stop@{AT\_WIFI\_SmartConfig\_Stop}}
+\index{AT\_WIFI\_SmartConfig\_Stop@{AT\_WIFI\_SmartConfig\_Stop}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SmartConfig\_Stop}{AT\_WIFI\_SmartConfig\_Stop}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Stop~\char`\"{}AT+CWSTOPSMART\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac82658550fd3cf7c8c9c04277db72c6e}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ac82658550fd3cf7c8c9c04277db72c6e}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SmartConfig\_Type\_AirKiss@{AT\_WIFI\_SmartConfig\_Type\_AirKiss}}
+\index{AT\_WIFI\_SmartConfig\_Type\_AirKiss@{AT\_WIFI\_SmartConfig\_Type\_AirKiss}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SmartConfig\_Type\_AirKiss}{AT\_WIFI\_SmartConfig\_Type\_AirKiss}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Type\+\_\+\+Air\+Kiss~2U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afff4f45e0c9d4e2361c620d0f8cc4f21}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_afff4f45e0c9d4e2361c620d0f8cc4f21}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH@{AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH}}
+\index{AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH@{AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH}{AT\_WIFI\_SmartConfig\_Type\_ESP\_TOUCH}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Type\+\_\+\+ESP\+\_\+\+TOUCH~1U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab2cd9a58277904de47e3860ddc603816}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ab2cd9a58277904de47e3860ddc603816}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SmartConfig\_Type\_Mixed@{AT\_WIFI\_SmartConfig\_Type\_Mixed}}
+\index{AT\_WIFI\_SmartConfig\_Type\_Mixed@{AT\_WIFI\_SmartConfig\_Type\_Mixed}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SmartConfig\_Type\_Mixed}{AT\_WIFI\_SmartConfig\_Type\_Mixed}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Smart\+Config\+\_\+\+Type\+\_\+\+Mixed~3U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ade86dc388c197f824b187e3750c81ace}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ade86dc388c197f824b187e3750c81ace}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SoftAP\_Autoconnect@{AT\_WIFI\_SoftAP\_Autoconnect}}
+\index{AT\_WIFI\_SoftAP\_Autoconnect@{AT\_WIFI\_SoftAP\_Autoconnect}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SoftAP\_Autoconnect}{AT\_WIFI\_SoftAP\_Autoconnect}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Soft\+AP\+\_\+\+Autoconnect~\char`\"{}AT+CWAUTOCONN\char`\"{}}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad4c0acc0b47db0f4a7b470b41cd39045}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_ad4c0acc0b47db0f4a7b470b41cd39045}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_SoftAP\_Mode@{AT\_WIFI\_SoftAP\_Mode}}
+\index{AT\_WIFI\_SoftAP\_Mode@{AT\_WIFI\_SoftAP\_Mode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_SoftAP\_Mode}{AT\_WIFI\_SoftAP\_Mode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Soft\+AP\+\_\+\+Mode~2U}
+
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a2da9bae19f38abdfef3751604fac847a}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a2da9bae19f38abdfef3751604fac847a}} 
+\index{ATcommands.h@{ATcommands.h}!AT\_WIFI\_Station\_Mode@{AT\_WIFI\_Station\_Mode}}
+\index{AT\_WIFI\_Station\_Mode@{AT\_WIFI\_Station\_Mode}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{AT\_WIFI\_Station\_Mode}{AT\_WIFI\_Station\_Mode}}
+{\footnotesize\ttfamily \#define AT\+\_\+\+WIFI\+\_\+\+Station\+\_\+\+Mode~1U}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}} 
+\index{ATcommands.h@{ATcommands.h}!transmit\_t@{transmit\_t}}
+\index{transmit\_t@{transmit\_t}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{transmit\_t}{transmit\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ transmit\+\_\+t) (char $\ast$buffer, int len)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3e057756c54e4e762389b4ff69b579de}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3e057756c54e4e762389b4ff69b579de}} 
+\index{ATcommands.h@{ATcommands.h}!at\_execute\_command@{at\_execute\_command}}
+\index{at\_execute\_command@{at\_execute\_command}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{at\_execute\_command()}{at\_execute\_command()}}
+{\footnotesize\ttfamily int at\+\_\+execute\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends an execute command. This function formats the command as \char`\"{}\%s\char`\"{} and sends it over the transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3132c3123bbf85085996f919ad0b3c34}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a3132c3123bbf85085996f919ad0b3c34}} 
+\index{ATcommands.h@{ATcommands.h}!at\_query\_command@{at\_query\_command}}
+\index{at\_query\_command@{at\_query\_command}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{at\_query\_command()}{at\_query\_command()}}
+{\footnotesize\ttfamily int at\+\_\+query\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends a query command. This function formats the command as \char`\"{}\%s?\char`\"{} and sends it over the transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa891b4a937c8dbb81e282c795dc4deda}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_aa891b4a937c8dbb81e282c795dc4deda}} 
+\index{ATcommands.h@{ATcommands.h}!at\_set\_command@{at\_set\_command}}
+\index{at\_set\_command@{at\_set\_command}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{at\_set\_command()}{at\_set\_command()}}
+{\footnotesize\ttfamily int at\+\_\+set\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd,  }\item[{const char $\ast$}]{param\+\_\+format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Sends a set command with variable parameters. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+{\em param\+\_\+format} & The format string for the parameters. \\
+\hline
+{\em ...} & Additional parameters for the format string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a193e9e80d1572d1dff1ac1642b024138}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a193e9e80d1572d1dff1ac1642b024138}} 
+\index{ATcommands.h@{ATcommands.h}!at\_setn\_command@{at\_setn\_command}}
+\index{at\_setn\_command@{at\_setn\_command}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{at\_setn\_command()}{at\_setn\_command()}}
+{\footnotesize\ttfamily int at\+\_\+setn\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{size\+\_\+t}]{limit,  }\item[{char $\ast$}]{cmd,  }\item[{const char $\ast$}]{param\+\_\+format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Sends a set command with limited length. This function formats the command as \char`\"{}\%s=$<$param\+\_\+format$>$\char`\"{} and sends it over the transmit channel. The parameter format and additional parameters are specified using variable arguments. The length of the formatted command is limited to the specified limit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em limit} & The maximum length of the formatted command. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+{\em param\+\_\+format} & The format string for the parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5229c4c78666597686e083bc969df116}\label{nucleo-l432kc__9dof-imu-click_2_core_2_inc_2_a_tcommands_8h_a5229c4c78666597686e083bc969df116}} 
+\index{ATcommands.h@{ATcommands.h}!at\_test\_command@{at\_test\_command}}
+\index{at\_test\_command@{at\_test\_command}!ATcommands.h@{ATcommands.h}}
+\doxysubsubsection{\texorpdfstring{at\_test\_command()}{at\_test\_command()}}
+{\footnotesize\ttfamily int at\+\_\+test\+\_\+command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_core_2_inc_2_a_tcommands_8h_a1110e20b4b7564aa16b07222f6fb683c}{transmit\+\_\+t}}}]{tx,  }\item[{char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends a test command. This function formats the command as \char`\"{}\%s=?\char`\"{} and sends it over the transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to store the formatted command. \\
+\hline
+{\em tx} & The transmit function. \\
+\hline
+{\em cmd} & The command string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the formatted command if successful, otherwise AT\+\_\+\+CMD\+\_\+\+ERROR. 
+\end{DoxyReturn}

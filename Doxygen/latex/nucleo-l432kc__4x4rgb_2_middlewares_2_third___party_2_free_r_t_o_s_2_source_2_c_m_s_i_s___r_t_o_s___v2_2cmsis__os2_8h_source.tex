@@ -1,0 +1,460 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os2_8h_source}{}\doxysection{cmsis\+\_\+os2.\+h}
+\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os2_8h_source}\index{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/cmsis\_os2.h@{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/CMSIS\_RTOS\_V2/cmsis\_os2.h}}
+\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s___v2_2cmsis__os2_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Portions Copyright © 2017 STMicroelectronics International N.V. All rights reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Portions Copyright (c) 2013-\/2017 ARM Limited. All rights reserved.}}
+\DoxyCodeLine{4 \textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * SPDX-\/License-\/Identifier: Apache-\/2.0}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Licensed under the Apache License, Version 2.0 (the License); you may}}
+\DoxyCodeLine{9 \textcolor{comment}{ * not use this file except in compliance with the License.}}
+\DoxyCodeLine{10 \textcolor{comment}{ * You may obtain a copy of the License at}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{15 \textcolor{comment}{ * distributed under the License is distributed on an AS IS BASIS, WITHOUT}}
+\DoxyCodeLine{16 \textcolor{comment}{ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{17 \textcolor{comment}{ * See the License for the specific language governing permissions and}}
+\DoxyCodeLine{18 \textcolor{comment}{ * limitations under the License.}}
+\DoxyCodeLine{19 \textcolor{comment}{ *}}
+\DoxyCodeLine{20 \textcolor{comment}{ *      Name:    cmsis\_os2.h}}
+\DoxyCodeLine{21 \textcolor{comment}{ *      Purpose: CMSIS RTOS2 wrapper for FreeRTOS}}
+\DoxyCodeLine{22 \textcolor{comment}{ *}}
+\DoxyCodeLine{23 \textcolor{comment}{ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifndef CMSIS\_OS2\_H\_}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define CMSIS\_OS2\_H\_}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifndef \_\_NO\_RETURN}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#if   defined(\_\_CC\_ARM)}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define \_\_NO\_RETURN \_\_declspec(noreturn)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#elif defined(\_\_ARMCC\_VERSION) \&\& (\_\_ARMCC\_VERSION >= 6010050)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define \_\_NO\_RETURN \_\_attribute\_\_((\_\_noreturn\_\_))}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#elif defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define \_\_NO\_RETURN \_\_attribute\_\_((\_\_noreturn\_\_))}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#elif defined(\_\_ICCARM\_\_)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define \_\_NO\_RETURN \_\_noreturn}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define \_\_NO\_RETURN}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{//  ==== Enumerations, structures, defines ====}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{55   uint32\_t                       api;   }
+\DoxyCodeLine{56   uint32\_t                    kernel;   }
+\DoxyCodeLine{57 \} \mbox{\hyperlink{structos_version__t}{osVersion\_t}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{61   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4ae9a7d578873c28590009479283922db9}{osKernelInactive}}        =  0,         }
+\DoxyCodeLine{62   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4a87ef9718301b92bfa9c97d61d660a8aa}{osKernelReady}}           =  1,         }
+\DoxyCodeLine{63   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4a98d8ad539d2cc6c3dbb7138356049db2}{osKernelRunning}}         =  2,         }
+\DoxyCodeLine{64   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4a033026d41a9309bd9551df1ae8153553}{osKernelLocked}}          =  3,         }
+\DoxyCodeLine{65   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4a3240807627595e80f59a46434639b765}{osKernelSuspended}}       =  4,         }
+\DoxyCodeLine{66   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4a1b942a8c76daeba2925a763d4d7567a2}{osKernelError}}           = -\/1,         }
+\DoxyCodeLine{67   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4a9cc4cc562a20a28c0f6f4b878ecf2df5}{osKernelReserved}}        = 0x7FFFFFFFU }
+\DoxyCodeLine{68 \} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4}{osKernelState\_t}};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{72   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820da7d7d4f719a1be6daa63a251563585fdd}{osThreadInactive}}        =  0,         }
+\DoxyCodeLine{73   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820dad9a040e03d7e7943c0217a3359fc1e8b}{osThreadReady}}           =  1,         }
+\DoxyCodeLine{74   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820da71dae1f35a4b4d9d2ab24e186461a17f}{osThreadRunning}}         =  2,         }
+\DoxyCodeLine{75   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820da476cd2370e6938974fb2a79811408819}{osThreadBlocked}}         =  3,         }
+\DoxyCodeLine{76   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820dac2a35280d5475f56352c539c9c9b42f9}{osThreadTerminated}}      =  4,         }
+\DoxyCodeLine{77   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820dac841e73a7198a42364c9450f1f54a0ef}{osThreadError}}           = -\/1,         }
+\DoxyCodeLine{78   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820da8872f7e352370eb11ee772c7dcca6e6c}{osThreadReserved}}        = 0x7FFFFFFF  }
+\DoxyCodeLine{79 \} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820d}{osThreadState\_t}};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{82 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{83   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca6c437c7185161a3bd1e7e4669dfa17a3}{osPriorityNone}}          =  0,         }
+\DoxyCodeLine{84   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca549e79a43ff4f8b2b31afb613f5caa81}{osPriorityIdle}}          =  1,         }
+\DoxyCodeLine{85   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}{osPriorityLow}}           =  8,         }
+\DoxyCodeLine{86   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecaba2b6919f0b630c8c1b2c940e3bfadbe}{osPriorityLow1}}          =  8+1,       }
+\DoxyCodeLine{87   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca78ad5d00aa07a2b4bf30a639544f5507}{osPriorityLow2}}          =  8+2,       }
+\DoxyCodeLine{88   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca28ccb07942c16f5f5efefb6cf68a7f50}{osPriorityLow3}}          =  8+3,       }
+\DoxyCodeLine{89   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca5a4a4f26d5b220a968e221e854f69a81}{osPriorityLow4}}          =  8+4,       }
+\DoxyCodeLine{90   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecad69b8c14809bc5bdce4887f5a57d9353}{osPriorityLow5}}          =  8+5,       }
+\DoxyCodeLine{91   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecac0f188468664d06d4cd9e6e1ed351393}{osPriorityLow6}}          =  8+6,       }
+\DoxyCodeLine{92   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca5b151ebba7fdeb1baaa9b7b420890b7a}{osPriorityLow7}}          =  8+7,       }
+\DoxyCodeLine{93   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca193b650117c209b4a203954542bcc3e6}{osPriorityBelowNormal}}   = 16,         }
+\DoxyCodeLine{94   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca9138da7187690b15f52d8e5729c18da5}{osPriorityBelowNormal1}}  = 16+1,       }
+\DoxyCodeLine{95   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca4f081d6735bf2f513338b07eddf13ae3}{osPriorityBelowNormal2}}  = 16+2,       }
+\DoxyCodeLine{96   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca19c013690d0d6bf3ac90707942be3fdf}{osPriorityBelowNormal3}}  = 16+3,       }
+\DoxyCodeLine{97   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca36931ad6cee5e4700e2c8622bdd2cd24}{osPriorityBelowNormal4}}  = 16+4,       }
+\DoxyCodeLine{98   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca0bcd9ad1e7a02e3bf03be7dcc8ece38e}{osPriorityBelowNormal5}}  = 16+5,       }
+\DoxyCodeLine{99   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecabd3cc7df5b92b752ddf1e7843a786c05}{osPriorityBelowNormal6}}  = 16+6,       }
+\DoxyCodeLine{100   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecab18e3bda7b5e418e309a62d6267ea14b}{osPriorityBelowNormal7}}  = 16+7,       }
+\DoxyCodeLine{101   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca45a2895ad30c79fb97de18cac7cc19f1}{osPriorityNormal}}        = 24,         }
+\DoxyCodeLine{102   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca3e70c19e03d5a54e66bd071f0776782c}{osPriorityNormal1}}       = 24+1,       }
+\DoxyCodeLine{103   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca19e96f2b025b6462a43b1965043c8205}{osPriorityNormal2}}       = 24+2,       }
+\DoxyCodeLine{104   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca402bd7ab26fb57c8cee8cf94168f4c91}{osPriorityNormal3}}       = 24+3,       }
+\DoxyCodeLine{105   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca93ef07d3a107aeee6508bfd29ba3485d}{osPriorityNormal4}}       = 24+4,       }
+\DoxyCodeLine{106   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca68f3f6fdaa639de300277802aa13a0ab}{osPriorityNormal5}}       = 24+5,       }
+\DoxyCodeLine{107   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca8221eb0d059726a6309f1f2d0cdb6204}{osPriorityNormal6}}       = 24+6,       }
+\DoxyCodeLine{108   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca049abd04f8951415407ec9d92bd9b80b}{osPriorityNormal7}}       = 24+7,       }
+\DoxyCodeLine{109   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca17b36cd9cd38652c2bc6d4803990674b}{osPriorityAboveNormal}}   = 32,         }
+\DoxyCodeLine{110   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecabfeafc713edfc7b9130aa5c762d68998}{osPriorityAboveNormal1}}  = 32+1,       }
+\DoxyCodeLine{111   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca901acf86070e06f5990b611734ee2562}{osPriorityAboveNormal2}}  = 32+2,       }
+\DoxyCodeLine{112   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecad566b876b64e6efdc3eba0fc04e54013}{osPriorityAboveNormal3}}  = 32+3,       }
+\DoxyCodeLine{113   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca6ccac37d7dae4586a2031966d36a63ec}{osPriorityAboveNormal4}}  = 32+4,       }
+\DoxyCodeLine{114   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecae36e8b38ee046a3104bcccabb10cf78c}{osPriorityAboveNormal5}}  = 32+5,       }
+\DoxyCodeLine{115   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca61e6ce27e1e0f34f2540b413b8a8b207}{osPriorityAboveNormal6}}  = 32+6,       }
+\DoxyCodeLine{116   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecadbbb0fed3ada6b9b50d4a628abc2a67d}{osPriorityAboveNormal7}}  = 32+7,       }
+\DoxyCodeLine{117   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca914433934143a9ba767e59577c56e6c2}{osPriorityHigh}}          = 40,         }
+\DoxyCodeLine{118   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca17b7a7e6febf12444a84e90edfce36cb}{osPriorityHigh1}}         = 40+1,       }
+\DoxyCodeLine{119   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca40a120cf8bbc42e575455c027f3d9b03}{osPriorityHigh2}}         = 40+2,       }
+\DoxyCodeLine{120   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca0b15518b0b5321a29efa0b42b2f8c759}{osPriorityHigh3}}         = 40+3,       }
+\DoxyCodeLine{121   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecafe5a4f393fab04551ac7d93e80cdf0fb}{osPriorityHigh4}}         = 40+4,       }
+\DoxyCodeLine{122   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca5960841bfbdd959b163429e8502ea4e9}{osPriorityHigh5}}         = 40+5,       }
+\DoxyCodeLine{123   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca5714dda6effc1a3f8ec155d97e3e69bc}{osPriorityHigh6}}         = 40+6,       }
+\DoxyCodeLine{124   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca63ad0cc52a701ef3d9df52b59b995652}{osPriorityHigh7}}         = 40+7,       }
+\DoxyCodeLine{125   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca1485dec3702434a1ec3cb74c7a17a4af}{osPriorityRealtime}}      = 48,         }
+\DoxyCodeLine{126   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecaf685a06b30f0635476e21347a986305b}{osPriorityRealtime1}}     = 48+1,       }
+\DoxyCodeLine{127   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecab832bd9de84e5eec2ecad69d085dadff}{osPriorityRealtime2}}     = 48+2,       }
+\DoxyCodeLine{128   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca3f2261e5e733e92844ae8c630f2f9eaa}{osPriorityRealtime3}}     = 48+3,       }
+\DoxyCodeLine{129   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecaf614e3dc966d559cd9d9d2a0f78ebe70}{osPriorityRealtime4}}     = 48+4,       }
+\DoxyCodeLine{130   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecaff84f31ceff203c711fb9476443507df}{osPriorityRealtime5}}     = 48+5,       }
+\DoxyCodeLine{131   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca80ae9d0dd256312c0c8f44af48316194}{osPriorityRealtime6}}     = 48+6,       }
+\DoxyCodeLine{132   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecaa76da6825c4bd31c4958200bc289103b}{osPriorityRealtime7}}     = 48+7,       }
+\DoxyCodeLine{133   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342eca3943224956e1ea667c6a931c74137b79}{osPriorityISR}}           = 56,         }
+\DoxyCodeLine{134   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecae35f5e2f9c64ad346822521b643bdea4}{osPriorityError}}         = -\/1,         }
+\DoxyCodeLine{135   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ecac86c171f8d466cced0cb1b03bb03343b}{osPriorityReserved}}      = 0x7FFFFFFF  }
+\DoxyCodeLine{136 \} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{139 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8ef2773ed8ef63ab8727e0d06ebec4d2}{osThreadFunc\_t}}) (\textcolor{keywordtype}{void} *argument);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{142 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a77a298218f3c8382b39a09a6d134d040}{osTimerFunc\_t}}) (\textcolor{keywordtype}{void} *argument);}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{145 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{146   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7dc24a4c2b90334427081c3da7a71915ad21712f8df5f97069c82dc9eec37b951}{osTimerOnce}}               = 0,          }
+\DoxyCodeLine{147   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7dc24a4c2b90334427081c3da7a71915ab9c91f9699162edb09bb7c90c11c8788}{osTimerPeriodic}}           = 1           }
+\DoxyCodeLine{148 \} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7dc24a4c2b90334427081c3da7a71915}{osTimerType\_t}};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{comment}{// Timeout value.}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define osWaitForever         0xFFFFFFFFU }}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{// Flags options (\(\backslash\)ref osThreadFlagsWait and \(\backslash\)ref osEventFlagsWait).}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define osFlagsWaitAny        0x00000000U }}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define osFlagsWaitAll        0x00000001U }}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define osFlagsNoClear        0x00000002U }}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{comment}{// Flags errors (returned by osThreadFlagsXxxx and osEventFlagsXxxx).}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define osFlagsError          0x80000000U }}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define osFlagsErrorUnknown   0xFFFFFFFFU }}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define osFlagsErrorTimeout   0xFFFFFFFEU }}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define osFlagsErrorResource  0xFFFFFFFDU }}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define osFlagsErrorParameter 0xFFFFFFFCU }}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define osFlagsErrorISR       0xFFFFFFFAU }}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{comment}{// Thread attributes (attr\_bits in \(\backslash\)ref osThreadAttr\_t).}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define osThreadDetached      0x00000000U }}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define osThreadJoinable      0x00000001U }}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \textcolor{comment}{// Mutex attributes (attr\_bits in \(\backslash\)ref osMutexAttr\_t).}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define osMutexRecursive      0x00000001U }}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define osMutexPrioInherit    0x00000002U }}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define osMutexRobust         0x00000008U }}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{176 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{177   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea9e1c9e2550bb4de8969a935acffc968f}{osOK}}                      =  0,         }
+\DoxyCodeLine{178   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813eabb7b2d2c4efa66df42f1c10635467b09}{osError}}                   = -\/1,         }
+\DoxyCodeLine{179   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{osErrorTimeout}}            = -\/2,         }
+\DoxyCodeLine{180   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea8fc5801e8b0482bdf22ad63a77f0155d}{osErrorResource}}           = -\/3,         }
+\DoxyCodeLine{181   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813eac24adca6a5d072c9f01c32178ba0d109}{osErrorParameter}}          = -\/4,         }
+\DoxyCodeLine{182   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813eaf1fac0240218e51eb30a13da2f8aae81}{osErrorNoMemory}}           = -\/5,         }
+\DoxyCodeLine{183   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea21635bdc492d3094fe83027fa4a30e2f}{osErrorISR}}                = -\/6,         }
+\DoxyCodeLine{184   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813ea66cc9ce9106b508df0e4a733a55a439d}{osStatusReserved}}          = 0x7FFFFFFF  }
+\DoxyCodeLine{185 \} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}};}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{189 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}};}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{192 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}};}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{195 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}};}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{198 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}};}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{201 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}};}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}};}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{207 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#ifndef TZ\_MODULEID\_T}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define TZ\_MODULEID\_T}}
+\DoxyCodeLine{213 \textcolor{keyword}{typedef} uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad5ef21485fe5f60263bc0b48006202cb}{TZ\_ModuleId\_t}};}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 }
+\DoxyCodeLine{218 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{219   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{220   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{221   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{222   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{223   \textcolor{keywordtype}{void}                   *stack\_mem;    }
+\DoxyCodeLine{224   uint32\_t                stack\_size;   }
+\DoxyCodeLine{225   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}}              priority;   }
+\DoxyCodeLine{226   \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_drivers_2_c_m_s_i_s_2_include_2tz__context_8h_ad5ef21485fe5f60263bc0b48006202cb}{TZ\_ModuleId\_t}}            tz\_module;   }
+\DoxyCodeLine{227   uint32\_t                  reserved;   }
+\DoxyCodeLine{228 \} \mbox{\hyperlink{structos_thread_attr__t}{osThreadAttr\_t}};}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{231 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{232   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{233   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{234   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{235   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{236 \} \mbox{\hyperlink{structos_timer_attr__t}{osTimerAttr\_t}};}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{239 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{240   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{241   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{242   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{243   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{244 \} \mbox{\hyperlink{structos_event_flags_attr__t}{osEventFlagsAttr\_t}};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{247 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{248   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{249   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{250   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{251   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{252 \} \mbox{\hyperlink{structos_mutex_attr__t}{osMutexAttr\_t}};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{255 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{256   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{257   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{258   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{259   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{260 \} \mbox{\hyperlink{structos_semaphore_attr__t}{osSemaphoreAttr\_t}};}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{263 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{264   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{265   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{266   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{267   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{268   \textcolor{keywordtype}{void}                      *mp\_mem;    }
+\DoxyCodeLine{269   uint32\_t                   mp\_size;   }
+\DoxyCodeLine{270 \} \mbox{\hyperlink{structos_memory_pool_attr__t}{osMemoryPoolAttr\_t}};}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{273 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{274   \textcolor{keyword}{const} \textcolor{keywordtype}{char}                   *name;   }
+\DoxyCodeLine{275   uint32\_t                 attr\_bits;   }
+\DoxyCodeLine{276   \textcolor{keywordtype}{void}                      *cb\_mem;    }
+\DoxyCodeLine{277   uint32\_t                   cb\_size;   }
+\DoxyCodeLine{278   \textcolor{keywordtype}{void}                      *mq\_mem;    }
+\DoxyCodeLine{279   uint32\_t                   mq\_size;   }
+\DoxyCodeLine{280 \} \mbox{\hyperlink{structos_message_queue_attr__t}{osMessageQueueAttr\_t}};}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283 \textcolor{comment}{//  ==== Kernel Management Functions ====}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{287 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ae818f6611d25ba3140bede410a52d659}{osKernelInitialize}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{294 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6f7764e7250c5c5364c00c45a5d1d199}{osKernelGetInfo}} (\mbox{\hyperlink{structos_version__t}{osVersion\_t}} *version, \textcolor{keywordtype}{char} *id\_buf, uint32\_t id\_size);}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{298 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a08326469274b668140ca934b168a5ad4}{osKernelState\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a48b69b81012fce051f639be288b243ba}{osKernelGetState}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{302 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a9ae2cc00f0d89d7b6a307bba942b5221}{osKernelStart}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{306 int32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a948609ee930d9b38336b9e1c2a4dfe12}{osKernelLock}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{310 int32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af401728b4657456198c33fe75f8d6720}{osKernelUnlock}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{315 int32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ae7d0a71b9586cbbb49fcbdf6a04f0289}{osKernelRestoreLock}} (int32\_t lock);}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{319 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ae26683e1606ec633354a2876c68f0c1f}{osKernelSuspend}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{323 \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8c4b4d7ed34cab73c001665d9176aced}{osKernelResume}} (uint32\_t sleep\_ticks);}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{327 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a84bcdbf2fb76b10c8df4e439f0c7e11b}{osKernelGetTickCount}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{331 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7a8d7bd927eaaa58999f91d7d6310cee}{osKernelGetTickFreq}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{335 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ae0fcaff6cecfb4013bb556c87afcd7d2}{osKernelGetSysTimerCount}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{339 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a4d69215a93220f72be3684cad582f16a}{osKernelGetSysTimerFreq}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 \textcolor{comment}{//  ==== Thread Management Functions ====}}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{349 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a48d68b8666d99d28fa646ee1d2182b8f}{osThreadNew}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8ef2773ed8ef63ab8727e0d06ebec4d2}{osThreadFunc\_t}} func, \textcolor{keywordtype}{void} *argument, \textcolor{keyword}{const} \mbox{\hyperlink{structos_thread_attr__t}{osThreadAttr\_t}} *attr);}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{354 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac3230f3a55a297514b013ebf38f27e0a}{osThreadGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{358 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8df03548e89fbc56402a5cd584a505da}{osThreadGetId}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{363 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad3dc89e942e38d9f3af858a0269a820d}{osThreadState\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_acc0a98b42f0a5928e12dc91dc76866b9}{osThreadGetState}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{368 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ab9f8bd715d671c6ee27644867bc1bf65}{osThreadGetStackSize}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{373 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a9c83bd5dd8de329701775d6ef7012720}{osThreadGetStackSpace}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{379 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a861a420fb2d643115b06622903fb3bfb}{osThreadSetPriority}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}} priority);}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{384 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e3e0971b41f2d17584a8c6837342ec}{osPriority\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a0aeaf349604f456e68e78f9d3b42e44b}{osThreadGetPriority}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{388 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad01c7ec26535b1de6b018bb9466720e2}{osThreadYield}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{393 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_aa9de419d0152bf77e9bbcd1f369fb990}{osThreadSuspend}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{398 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a3dbad90eff394b02de76a452c84c5d80}{osThreadResume}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{403 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_aaad14cd9547341ea8109dc4e8540f1dc}{osThreadDetach}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{408 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a3fca90fb0679afeb968aa8c3d5874487}{osThreadJoin}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{411 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a153a4a31b276a9758959580538720a51}{\_\_NO\_RETURN}} \textcolor{keywordtype}{void} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_addaa452dd7610e4096647a566d3556fc}{osThreadExit}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{416 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a2f8ba6dba6e9c065a6e236ffd410d74a}{osThreadTerminate}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id);}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{420 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a495b3f812224e7301f23a691793765db}{osThreadGetCount}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{426 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5606604d56e21ece1a654664be877439}{osThreadEnumerate}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} *thread\_array, uint32\_t array\_items);}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429 \textcolor{comment}{//  ==== Thread Flags Functions ====}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{435 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6f89ef9caded1d9963c7b12b0f6412c9}{osThreadFlagsSet}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} thread\_id, uint32\_t flags);}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{440 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a656abc1c862c5b9a2b13584c42cc0bfa}{osThreadFlagsClear}} (uint32\_t flags);}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{444 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a85c8d2c89466e25abbcb545d9ddd71ba}{osThreadFlagsGet}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{451 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac11542ad6300b600f872fc96e340ec2b}{osThreadFlagsWait}} (uint32\_t flags, uint32\_t options, uint32\_t timeout);}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454 \textcolor{comment}{//  ==== Generic Wait Functions ====}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{459 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af6055a51390ef65b6b6edc28bf47322e}{osDelay}} (uint32\_t ticks);}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{464 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a3c807924c2d6d43bc2ffb49da3f7f3a1}{osDelayUntil}} (uint32\_t ticks);}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467 \textcolor{comment}{//  ==== Timer Management Functions ====}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{475 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad4e7f785c5f700a509f55a3bf6a62bec}{osTimerNew}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a77a298218f3c8382b39a09a6d134d040}{osTimerFunc\_t}} func, \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7dc24a4c2b90334427081c3da7a71915}{osTimerType\_t}} type, \textcolor{keywordtype}{void} *argument, \textcolor{keyword}{const} \mbox{\hyperlink{structos_timer_attr__t}{osTimerAttr\_t}} *attr);}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{480 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7938dde88ada1a01b60f41cf120069c0}{osTimerGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}} timer\_id);}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{486 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ab6ee2859ea657641b7adfac599b8121d}{osTimerStart}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}} timer\_id, uint32\_t ticks);}
+\DoxyCodeLine{487 }
+\DoxyCodeLine{491 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abd7a89356da7717293eb0bc5d87b8ac9}{osTimerStop}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}} timer\_id);}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{496 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a69d3589f54194022c30dd01e45ec6741}{osTimerIsRunning}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}} timer\_id);}
+\DoxyCodeLine{497 }
+\DoxyCodeLine{501 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad0001dd74721ab461789324806db2453}{osTimerDelete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac2000ac2a8c6740700fd8e6c938cff44}{osTimerId\_t}} timer\_id);}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504 \textcolor{comment}{//  ==== Event Flags Management Functions ====}}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{509 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ab14b1caeb12ffa42cce1bfe889cd07df}{osEventFlagsNew}} (\textcolor{keyword}{const} \mbox{\hyperlink{structos_event_flags_attr__t}{osEventFlagsAttr\_t}} *attr);}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{514 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a59f4ddf0ee8c395b1672bb978d1cfc88}{osEventFlagsGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} ef\_id);}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{520 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a33b71d14cecf90b4e72639dd19f23a5e}{osEventFlagsSet}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} ef\_id, uint32\_t flags);}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{526 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a93bf258ca0007c6641fbe8e4f2b8a1e5}{osEventFlagsClear}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} ef\_id, uint32\_t flags);}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{531 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8bda3185f46bfd278cea8a6cf357677d}{osEventFlagsGet}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} ef\_id);}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{539 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a52acb34a8322e58020227344fe662b4e}{osEventFlagsWait}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} ef\_id, uint32\_t flags, uint32\_t options, uint32\_t timeout);}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{544 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7c4acf2fb0d506ec82905dee53fb5435}{osEventFlagsDelete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_af0a3ba8f502ca6581ed1009005c0dadd}{osEventFlagsId\_t}} ef\_id);}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547 \textcolor{comment}{//  ==== Mutex Management Functions ====}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{552 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ab90920022ab944296821368ef6bb52f8}{osMutexNew}} (\textcolor{keyword}{const} \mbox{\hyperlink{structos_mutex_attr__t}{osMutexAttr\_t}} *attr);}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{557 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a180839843a2eac396fb5afe165f28005}{osMutexGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}} mutex\_id);}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{563 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abc54686ea0fc281823b1763422d2a924}{osMutexAcquire}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}} mutex\_id, uint32\_t timeout);}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{568 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_aea629705703580ff58776bf73c8db915}{osMutexRelease}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}} mutex\_id);}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{573 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6333e016ba9b008e6dd76851c38b9217}{osThreadId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7f9a7666df0978738cd570cb700b83fb}{osMutexGetOwner}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}} mutex\_id);}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{578 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abee73ad227ba4587d3db12ef9bd582bc}{osMutexDelete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a29b7ba721f4fe0b11c84c55d079cc3e7}{osMutexId\_t}} mutex\_id);}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580 }
+\DoxyCodeLine{581 \textcolor{comment}{//  ==== Semaphore Management Functions ====}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{588 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a2a39806ace781a0008a4374ca701b14a}{osSemaphoreNew}} (uint32\_t max\_count, uint32\_t initial\_count, \textcolor{keyword}{const} \mbox{\hyperlink{structos_semaphore_attr__t}{osSemaphoreAttr\_t}} *attr);}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{593 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a9586952051f00285f1482dbe6695bbc4}{osSemaphoreGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}} semaphore\_id);}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{599 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7e94c8b242a0c81f2cc79ec22895c87b}{osSemaphoreAcquire}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}} semaphore\_id, uint32\_t timeout);}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{604 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a0abcee1b5449d7a6928fb9248c690bb6}{osSemaphoreRelease}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}} semaphore\_id);}
+\DoxyCodeLine{605 }
+\DoxyCodeLine{609 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a7559d4dff3cda9992fc5ab5de3e74c70}{osSemaphoreGetCount}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}} semaphore\_id);}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{614 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a81258ce9c67fa89f07cc49d2e136cd88}{osSemaphoreDelete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a5abc2c02a86678b63a711e13894ac5b1}{osSemaphoreId\_t}} semaphore\_id);}
+\DoxyCodeLine{615 }
+\DoxyCodeLine{616 }
+\DoxyCodeLine{617 \textcolor{comment}{//  ==== Memory Pool Management Functions ====}}
+\DoxyCodeLine{618 }
+\DoxyCodeLine{624 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a497ced5d72dc5cd405c4c418516220dc}{osMemoryPoolNew}} (uint32\_t block\_count, uint32\_t block\_size, \textcolor{keyword}{const} \mbox{\hyperlink{structos_memory_pool_attr__t}{osMemoryPoolAttr\_t}} *attr);}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{629 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ab414a1e138205a55820acfa277c8f386}{osMemoryPoolGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id);}
+\DoxyCodeLine{630 }
+\DoxyCodeLine{635 \textcolor{keywordtype}{void} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8ead54e99ccb8f112356c88f99d38fbe}{osMemoryPoolAlloc}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id, uint32\_t timeout);}
+\DoxyCodeLine{636 }
+\DoxyCodeLine{641 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abb4f4560daa6d1f8c8789082ee186d16}{osMemoryPoolFree}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id, \textcolor{keywordtype}{void} *block);}
+\DoxyCodeLine{642 }
+\DoxyCodeLine{646 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad696e94bfbe28f0b6613f9303fdf6a37}{osMemoryPoolGetCapacity}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id);}
+\DoxyCodeLine{647 }
+\DoxyCodeLine{651 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ab2bf059b7fa7679c3cccdaeec60b6c0e}{osMemoryPoolGetBlockSize}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id);}
+\DoxyCodeLine{652 }
+\DoxyCodeLine{656 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a958a9449bff8c95ce213de98eef5739d}{osMemoryPoolGetCount}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id);}
+\DoxyCodeLine{657 }
+\DoxyCodeLine{661 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a0394cffa9479a7994e3b03c79c1cb909}{osMemoryPoolGetSpace}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id);}
+\DoxyCodeLine{662 }
+\DoxyCodeLine{666 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a8c39e7e5cd2b9eda907466808e59d62e}{osMemoryPoolDelete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}} mp\_id);}
+\DoxyCodeLine{667 }
+\DoxyCodeLine{668 }
+\DoxyCodeLine{669 \textcolor{comment}{//  ==== Message Queue Management Functions ====}}
+\DoxyCodeLine{670 }
+\DoxyCodeLine{676 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a24e895a00f9d484db33aaf784c57bfed}{osMessageQueueNew}} (uint32\_t msg\_count, uint32\_t msg\_size, \textcolor{keyword}{const} \mbox{\hyperlink{structos_message_queue_attr__t}{osMessageQueueAttr\_t}} *attr);}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{681 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ae7cf7bf2b97a5ae481fb60fcce99247a}{osMessageQueueGetName}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{682 }
+\DoxyCodeLine{689 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_aa515fc8b956f721a8f72b2c505813bfc}{osMessageQueuePut}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *msg\_ptr, uint8\_t msg\_prio, uint32\_t timeout);}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{697 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ad90d4959466a7a65105061da8256ab9e}{osMessageQueueGet}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id, \textcolor{keywordtype}{void} *msg\_ptr, uint8\_t *msg\_prio, uint32\_t timeout);}
+\DoxyCodeLine{698 }
+\DoxyCodeLine{702 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac24f87d4f395e9e9c900c320e45ade8a}{osMessageQueueGetCapacity}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{703 }
+\DoxyCodeLine{707 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a96d3d84069b20359de48109e28a1a89e}{osMessageQueueGetMsgSize}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{708 }
+\DoxyCodeLine{712 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6a32ac394fcff568b251c160cc3014b2}{osMessageQueueGetCount}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{713 }
+\DoxyCodeLine{717 uint32\_t \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_addf0904427436dd3880d46263c2dc9fa}{osMessageQueueGetSpace}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{722 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_ac6dce7f9ad132d266292c2e979d861b4}{osMessageQueueReset}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{723 }
+\DoxyCodeLine{727 \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}} \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_aba987f665444e0d83fa6a3a68bc72abe}{osMessageQueueDelete}} (\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_27fdd3f378ace5d8a73f2198417b96140_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}} mq\_id);}
+\DoxyCodeLine{728 }
+\DoxyCodeLine{729 }
+\DoxyCodeLine{730 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{731 \}}
+\DoxyCodeLine{732 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{733 }
+\DoxyCodeLine{734 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// CMSIS\_OS2\_H\_}}
+
+\end{DoxyCode}

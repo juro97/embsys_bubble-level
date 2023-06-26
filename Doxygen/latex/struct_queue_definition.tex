@@ -1,0 +1,156 @@
+\hypertarget{struct_queue_definition}{}\doxysection{Queue\+Definition Struct Reference}
+\label{struct_queue_definition}\index{QueueDefinition@{QueueDefinition}}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t $\ast$ \mbox{\hyperlink{struct_queue_definition_a02fc89e147ef3576d955ec6453ef0386}{pc\+Head}}
+\item 
+int8\+\_\+t $\ast$ \mbox{\hyperlink{struct_queue_definition_a6caf9139d074fd5a3f73ffc9244ce1a9}{pc\+Write\+To}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_afa576747932ccf4c923633fc6a46a0d8}{QueuePointers\_t}} \mbox{\hyperlink{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}{xQueue}}\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{SemaphoreData\_t}} \mbox{\hyperlink{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}{xSemaphore}}\\
+\} \mbox{\hyperlink{struct_queue_definition_ad6627fd6bf54b86a6f0940986c770b70}{u}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a5cfd8ae6db5da134ed16405043a0d898}{x\+Tasks\+Waiting\+To\+Send}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a8ad185d9d83713c774e6a897580d8313}{x\+Tasks\+Waiting\+To\+Receive}}
+\item 
+volatile \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_afb61b3f2247402ed3b8b159311c408b7}{ux\+Messages\+Waiting}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a619169da78e43281a73fbdf13f9eddfb}{ux\+Length}}
+\item 
+\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a216cc99516d7f82573f6cb19f5a9f626}{ux\+Item\+Size}}
+\item 
+volatile int8\+\_\+t \mbox{\hyperlink{struct_queue_definition_a2017e9e2e81e1fd301fa88236614653e}{c\+Rx\+Lock}}
+\item 
+volatile int8\+\_\+t \mbox{\hyperlink{struct_queue_definition_a77c52e94671f477fd2942db97e20838b}{c\+Tx\+Lock}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_afa576747932ccf4c923633fc6a46a0d8}{QueuePointers\_t}} \mbox{\hyperlink{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}{xQueue}}\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{SemaphoreData\_t}} \mbox{\hyperlink{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}{xSemaphore}}\\
+\} \mbox{\hyperlink{struct_queue_definition_a677b629e3eb8942b4093cca4d47fe79d}{u}}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_afa576747932ccf4c923633fc6a46a0d8}{QueuePointers\_t}} \mbox{\hyperlink{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}{xQueue}}\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{SemaphoreData\_t}} \mbox{\hyperlink{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}{xSemaphore}}\\
+\} \mbox{\hyperlink{struct_queue_definition_a470ce62c222547e6d5205454661dc2fa}{u}}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_afa576747932ccf4c923633fc6a46a0d8}{QueuePointers\_t}} \mbox{\hyperlink{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}{xQueue}}\\
+\>\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{SemaphoreData\_t}} \mbox{\hyperlink{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}{xSemaphore}}\\
+\} \mbox{\hyperlink{struct_queue_definition_a7f958a545d1fdef2d0cd10ebb9a027cf}{u}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_queue_definition_a2017e9e2e81e1fd301fa88236614653e}\label{struct_queue_definition_a2017e9e2e81e1fd301fa88236614653e}} 
+\index{QueueDefinition@{QueueDefinition}!cRxLock@{cRxLock}}
+\index{cRxLock@{cRxLock}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{cRxLock}{cRxLock}}
+{\footnotesize\ttfamily volatile int8\+\_\+t c\+Rx\+Lock}
+
+\mbox{\Hypertarget{struct_queue_definition_a77c52e94671f477fd2942db97e20838b}\label{struct_queue_definition_a77c52e94671f477fd2942db97e20838b}} 
+\index{QueueDefinition@{QueueDefinition}!cTxLock@{cTxLock}}
+\index{cTxLock@{cTxLock}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{cTxLock}{cTxLock}}
+{\footnotesize\ttfamily volatile int8\+\_\+t c\+Tx\+Lock}
+
+\mbox{\Hypertarget{struct_queue_definition_a02fc89e147ef3576d955ec6453ef0386}\label{struct_queue_definition_a02fc89e147ef3576d955ec6453ef0386}} 
+\index{QueueDefinition@{QueueDefinition}!pcHead@{pcHead}}
+\index{pcHead@{pcHead}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{pcHead}{pcHead}}
+{\footnotesize\ttfamily int8\+\_\+t $\ast$ pc\+Head}
+
+\mbox{\Hypertarget{struct_queue_definition_a6caf9139d074fd5a3f73ffc9244ce1a9}\label{struct_queue_definition_a6caf9139d074fd5a3f73ffc9244ce1a9}} 
+\index{QueueDefinition@{QueueDefinition}!pcWriteTo@{pcWriteTo}}
+\index{pcWriteTo@{pcWriteTo}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{pcWriteTo}{pcWriteTo}}
+{\footnotesize\ttfamily int8\+\_\+t $\ast$ pc\+Write\+To}
+
+\mbox{\Hypertarget{struct_queue_definition_ad6627fd6bf54b86a6f0940986c770b70}\label{struct_queue_definition_ad6627fd6bf54b86a6f0940986c770b70}} 
+\index{QueueDefinition@{QueueDefinition}!u@{u}}
+\index{u@{u}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  u}
+
+\mbox{\Hypertarget{struct_queue_definition_a677b629e3eb8942b4093cca4d47fe79d}\label{struct_queue_definition_a677b629e3eb8942b4093cca4d47fe79d}} 
+\index{QueueDefinition@{QueueDefinition}!u@{u}}
+\index{u@{u}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  u}
+
+\mbox{\Hypertarget{struct_queue_definition_a470ce62c222547e6d5205454661dc2fa}\label{struct_queue_definition_a470ce62c222547e6d5205454661dc2fa}} 
+\index{QueueDefinition@{QueueDefinition}!u@{u}}
+\index{u@{u}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  u}
+
+\mbox{\Hypertarget{struct_queue_definition_a7f958a545d1fdef2d0cd10ebb9a027cf}\label{struct_queue_definition_a7f958a545d1fdef2d0cd10ebb9a027cf}} 
+\index{QueueDefinition@{QueueDefinition}!u@{u}}
+\index{u@{u}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{}{}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily union  \{ ... \}  u}
+
+\mbox{\Hypertarget{struct_queue_definition_a216cc99516d7f82573f6cb19f5a9f626}\label{struct_queue_definition_a216cc99516d7f82573f6cb19f5a9f626}} 
+\index{QueueDefinition@{QueueDefinition}!uxItemSize@{uxItemSize}}
+\index{uxItemSize@{uxItemSize}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{uxItemSize}{uxItemSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Item\+Size}
+
+\mbox{\Hypertarget{struct_queue_definition_a619169da78e43281a73fbdf13f9eddfb}\label{struct_queue_definition_a619169da78e43281a73fbdf13f9eddfb}} 
+\index{QueueDefinition@{QueueDefinition}!uxLength@{uxLength}}
+\index{uxLength@{uxLength}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{uxLength}{uxLength}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Length}
+
+\mbox{\Hypertarget{struct_queue_definition_afb61b3f2247402ed3b8b159311c408b7}\label{struct_queue_definition_afb61b3f2247402ed3b8b159311c408b7}} 
+\index{QueueDefinition@{QueueDefinition}!uxMessagesWaiting@{uxMessagesWaiting}}
+\index{uxMessagesWaiting@{uxMessagesWaiting}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{uxMessagesWaiting}{uxMessagesWaiting}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Messages\+Waiting}
+
+\mbox{\Hypertarget{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}\label{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}} 
+\index{QueueDefinition@{QueueDefinition}!xQueue@{xQueue}}
+\index{xQueue@{xQueue}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xQueue}{xQueue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_afa576747932ccf4c923633fc6a46a0d8}{Queue\+Pointers\+\_\+t}} x\+Queue}
+
+\mbox{\Hypertarget{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}\label{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}} 
+\index{QueueDefinition@{QueueDefinition}!xSemaphore@{xSemaphore}}
+\index{xSemaphore@{xSemaphore}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xSemaphore}{xSemaphore}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{Semaphore\+Data\+\_\+t}} x\+Semaphore}
+
+\mbox{\Hypertarget{struct_queue_definition_a8ad185d9d83713c774e6a897580d8313}\label{struct_queue_definition_a8ad185d9d83713c774e6a897580d8313}} 
+\index{QueueDefinition@{QueueDefinition}!xTasksWaitingToReceive@{xTasksWaitingToReceive}}
+\index{xTasksWaitingToReceive@{xTasksWaitingToReceive}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xTasksWaitingToReceive}{xTasksWaitingToReceive}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} x\+Tasks\+Waiting\+To\+Receive}
+
+\mbox{\Hypertarget{struct_queue_definition_a5cfd8ae6db5da134ed16405043a0d898}\label{struct_queue_definition_a5cfd8ae6db5da134ed16405043a0d898}} 
+\index{QueueDefinition@{QueueDefinition}!xTasksWaitingToSend@{xTasksWaitingToSend}}
+\index{xTasksWaitingToSend@{xTasksWaitingToSend}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xTasksWaitingToSend}{xTasksWaitingToSend}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} x\+Tasks\+Waiting\+To\+Send}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+nucleo-\/l432c\+\_\+piezo-\/beeper/\+Switch\+Buzz/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c}{queue.\+c}}\item 
+nucleo-\/l432kc\+\_\+4x4rgb/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c}{queue.\+c}}\item 
+nucleo-\/l432kc\+\_\+9dof-\/imu-\/click/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432kc__9dof-imu-click_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c}{queue.\+c}}\item 
+nucleo-\/l432kc\+\_\+wifi/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\mbox{\hyperlink{nucleo-l432kc__wifi_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2queue_8c}{queue.\+c}}\end{DoxyCompactItemize}

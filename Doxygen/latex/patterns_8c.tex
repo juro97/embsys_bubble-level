@@ -1,0 +1,605 @@
+\hypertarget{patterns_8c}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Core/\+Src/patterns.c File Reference}
+\label{patterns_8c}\index{nucleo-\/l432kc\_4x4rgb/Core/Src/patterns.c@{nucleo-\/l432kc\_4x4rgb/Core/Src/patterns.c}}
+{\ttfamily \#include \char`\"{}patterns.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}~57
+\begin{DoxyCompactList}\small\item\em CCR Register Values for PWM Duty Cycle. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}~31
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}
+\begin{DoxyCompactList}\small\item\em Predefined Colors for one LED. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_aa884f24f59d9b434e64ce4a7ff7612a5}{all\+\_\+on}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_a600da2309683c4d50bbb939d50473120}{orange}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a54aa7886737260abb6f59582b0c945a5}{rgb4x4click\+\_\+centered}}
+\begin{DoxyCompactList}\small\item\em Predefined Patterns for the Matrix. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a89bef7e41d998c6e230a4a5435dc6c13}{rgb4x4click\+\_\+out\+Of\+Scope}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a6eda74bb7f1495b8e53e104122a78860}{rgb4x4click\+\_\+shake\+Detection}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_adb48ca313d50b223039680a6fd0eb2c1}{rgb4x4click\+\_\+light\+Shift\+\_\+lu}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a752c01030b6f265a9cc7785f4b69d353}{rgb4x4click\+\_\+light\+Shift\+\_\+lo}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a7d32e5be9390e1366946e208d721d3aa}{rgb4x4click\+\_\+light\+Shift\+\_\+ru}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a4776810c9f0c8f04044f48903772996f}{rgb4x4click\+\_\+light\+Shift\+\_\+ro}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_ac51f93f6cf9fa4b609e9b3c9d694c340}{rgb4x4click\+\_\+strong\+Shift\+\_\+r1c1}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_af91ce517c0206d9811c3e25a5e9ccf5e}{rgb4x4click\+\_\+strong\+Shift\+\_\+r1c2}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a215d4b42568a620fede71fb8eb72a42e}{rgb4x4click\+\_\+strong\+Shift\+\_\+r1c3}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a26db66e5958943feeef307cd16353495}{rgb4x4click\+\_\+strong\+Shift\+\_\+r1c4}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a729ecfd7772902afa600a41e1b18365e}{rgb4x4click\+\_\+strong\+Shift\+\_\+r2c1}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a737fcead111ec0777cf4c978690799e1}{rgb4x4click\+\_\+strong\+Shift\+\_\+r2c4}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a8a854655c72ece607eb1abaf781f441a}{rgb4x4click\+\_\+strong\+Shift\+\_\+r3c1}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a43df673d07902b2a27a88239e08020ad}{rgb4x4click\+\_\+strong\+Shift\+\_\+r3c4}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a365556c69b4e54d5ae0f30d3e9e4ae53}{rgb4x4click\+\_\+strong\+Shift\+\_\+r4c1}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a983b98adccf1e4b05670fac7ae896062}{rgb4x4click\+\_\+strong\+Shift\+\_\+r4c2}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a76120d09a94229f56df0fff93126033c}{rgb4x4click\+\_\+strong\+Shift\+\_\+r4c3}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a67d83c950e6bd7eff1aa94593592b6cd}{rgb4x4click\+\_\+strong\+Shift\+\_\+r4c4}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_af039b4f12def6f5f0a4c3339040233f2}{rgb4x4click\+\_\+error}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_ab4acfcbebbaf38e087ef87e901333b56}{rgb4x4click\+\_\+pairing}}
+\item 
+const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} \mbox{\hyperlink{patterns_8c_a0f67efcf3265fc088f5c9f0f9477856c}{rgb4x4click\+\_\+all\+\_\+off}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{patterns_8c_a206b6f5362e56b51ca957635350b70b6}\label{patterns_8c_a206b6f5362e56b51ca957635350b70b6}} 
+\index{patterns.c@{patterns.c}!ONE@{ONE}}
+\index{ONE@{ONE}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{ONE}{ONE}}
+{\footnotesize\ttfamily \#define ONE~57}
+
+
+
+CCR Register Values for PWM Duty Cycle. 
+
+\mbox{\Hypertarget{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}\label{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}} 
+\index{patterns.c@{patterns.c}!ZERO@{ZERO}}
+\index{ZERO@{ZERO}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{ZERO}{ZERO}}
+{\footnotesize\ttfamily \#define ZERO~31}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{patterns_8c_aa884f24f59d9b434e64ce4a7ff7612a5}\label{patterns_8c_aa884f24f59d9b434e64ce4a7ff7612a5}} 
+\index{patterns.c@{patterns.c}!all\_on@{all\_on}}
+\index{all\_on@{all\_on}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{all\_on}{all\_on}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} all\+\_\+on}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}\label{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}} 
+\index{patterns.c@{patterns.c}!blue@{blue}}
+\index{blue@{blue}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{blue}{blue}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} blue}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}\label{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}} 
+\index{patterns.c@{patterns.c}!green@{green}}
+\index{green@{green}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{green}{green}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} green}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}\label{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}} 
+\index{patterns.c@{patterns.c}!off@{off}}
+\index{off@{off}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{off}{off}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} off}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}},\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Predefined Colors for one LED. 
+
+\mbox{\Hypertarget{patterns_8c_a600da2309683c4d50bbb939d50473120}\label{patterns_8c_a600da2309683c4d50bbb939d50473120}} 
+\index{patterns.c@{patterns.c}!orange@{orange}}
+\index{orange@{orange}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{orange}{orange}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} orange}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_ad7641108f63d1fa559eb23c17967709f}\label{patterns_8c_ad7641108f63d1fa559eb23c17967709f}} 
+\index{patterns.c@{patterns.c}!red@{red}}
+\index{red@{red}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{red}{red}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} red}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}},  \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a0f67efcf3265fc088f5c9f0f9477856c}\label{patterns_8c_a0f67efcf3265fc088f5c9f0f9477856c}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_all\_off@{rgb4x4click\_all\_off}}
+\index{rgb4x4click\_all\_off@{rgb4x4click\_all\_off}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_all\_off}{rgb4x4click\_all\_off}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+all\+\_\+off}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a54aa7886737260abb6f59582b0c945a5}\label{patterns_8c_a54aa7886737260abb6f59582b0c945a5}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_centered@{rgb4x4click\_centered}}
+\index{rgb4x4click\_centered@{rgb4x4click\_centered}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_centered}{rgb4x4click\_centered}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+centered}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},     \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},     \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}, \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Predefined Patterns for the Matrix. 
+
+\mbox{\Hypertarget{patterns_8c_af039b4f12def6f5f0a4c3339040233f2}\label{patterns_8c_af039b4f12def6f5f0a4c3339040233f2}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_error@{rgb4x4click\_error}}
+\index{rgb4x4click\_error@{rgb4x4click\_error}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_error}{rgb4x4click\_error}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+error}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a752c01030b6f265a9cc7785f4b69d353}\label{patterns_8c_a752c01030b6f265a9cc7785f4b69d353}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_lightShift\_lo@{rgb4x4click\_lightShift\_lo}}
+\index{rgb4x4click\_lightShift\_lo@{rgb4x4click\_lightShift\_lo}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_lightShift\_lo}{rgb4x4click\_lightShift\_lo}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+light\+Shift\+\_\+lo}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_adb48ca313d50b223039680a6fd0eb2c1}\label{patterns_8c_adb48ca313d50b223039680a6fd0eb2c1}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_lightShift\_lu@{rgb4x4click\_lightShift\_lu}}
+\index{rgb4x4click\_lightShift\_lu@{rgb4x4click\_lightShift\_lu}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_lightShift\_lu}{rgb4x4click\_lightShift\_lu}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+light\+Shift\+\_\+lu}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a4776810c9f0c8f04044f48903772996f}\label{patterns_8c_a4776810c9f0c8f04044f48903772996f}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_lightShift\_ro@{rgb4x4click\_lightShift\_ro}}
+\index{rgb4x4click\_lightShift\_ro@{rgb4x4click\_lightShift\_ro}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_lightShift\_ro}{rgb4x4click\_lightShift\_ro}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+light\+Shift\+\_\+ro}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a7d32e5be9390e1366946e208d721d3aa}\label{patterns_8c_a7d32e5be9390e1366946e208d721d3aa}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_lightShift\_ru@{rgb4x4click\_lightShift\_ru}}
+\index{rgb4x4click\_lightShift\_ru@{rgb4x4click\_lightShift\_ru}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_lightShift\_ru}{rgb4x4click\_lightShift\_ru}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+light\+Shift\+\_\+ru}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a4e013e1e40881b731e813eb7b31c9cdd}{green}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a89bef7e41d998c6e230a4a5435dc6c13}\label{patterns_8c_a89bef7e41d998c6e230a4a5435dc6c13}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_outOfScope@{rgb4x4click\_outOfScope}}
+\index{rgb4x4click\_outOfScope@{rgb4x4click\_outOfScope}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_outOfScope}{rgb4x4click\_outOfScope}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+out\+Of\+Scope}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}, \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}, \mbox{\hyperlink{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}{white}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_ab4acfcbebbaf38e087ef87e901333b56}\label{patterns_8c_ab4acfcbebbaf38e087ef87e901333b56}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_pairing@{rgb4x4click\_pairing}}
+\index{rgb4x4click\_pairing@{rgb4x4click\_pairing}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_pairing}{rgb4x4click\_pairing}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+pairing}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a6eda74bb7f1495b8e53e104122a78860}\label{patterns_8c_a6eda74bb7f1495b8e53e104122a78860}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_shakeDetection@{rgb4x4click\_shakeDetection}}
+\index{rgb4x4click\_shakeDetection@{rgb4x4click\_shakeDetection}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_shakeDetection}{rgb4x4click\_shakeDetection}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+shake\+Detection}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},   \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},   \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_aa26c5b387c4ab5f27a26e9d368e490d9}{blue}}}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_ac51f93f6cf9fa4b609e9b3c9d694c340}\label{patterns_8c_ac51f93f6cf9fa4b609e9b3c9d694c340}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r1c1@{rgb4x4click\_strongShift\_r1c1}}
+\index{rgb4x4click\_strongShift\_r1c1@{rgb4x4click\_strongShift\_r1c1}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r1c1}{rgb4x4click\_strongShift\_r1c1}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r1c1}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_af91ce517c0206d9811c3e25a5e9ccf5e}\label{patterns_8c_af91ce517c0206d9811c3e25a5e9ccf5e}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r1c2@{rgb4x4click\_strongShift\_r1c2}}
+\index{rgb4x4click\_strongShift\_r1c2@{rgb4x4click\_strongShift\_r1c2}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r1c2}{rgb4x4click\_strongShift\_r1c2}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r1c2}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a215d4b42568a620fede71fb8eb72a42e}\label{patterns_8c_a215d4b42568a620fede71fb8eb72a42e}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r1c3@{rgb4x4click\_strongShift\_r1c3}}
+\index{rgb4x4click\_strongShift\_r1c3@{rgb4x4click\_strongShift\_r1c3}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r1c3}{rgb4x4click\_strongShift\_r1c3}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r1c3}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a26db66e5958943feeef307cd16353495}\label{patterns_8c_a26db66e5958943feeef307cd16353495}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r1c4@{rgb4x4click\_strongShift\_r1c4}}
+\index{rgb4x4click\_strongShift\_r1c4@{rgb4x4click\_strongShift\_r1c4}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r1c4}{rgb4x4click\_strongShift\_r1c4}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r1c4}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a729ecfd7772902afa600a41e1b18365e}\label{patterns_8c_a729ecfd7772902afa600a41e1b18365e}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r2c1@{rgb4x4click\_strongShift\_r2c1}}
+\index{rgb4x4click\_strongShift\_r2c1@{rgb4x4click\_strongShift\_r2c1}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r2c1}{rgb4x4click\_strongShift\_r2c1}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r2c1}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a737fcead111ec0777cf4c978690799e1}\label{patterns_8c_a737fcead111ec0777cf4c978690799e1}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r2c4@{rgb4x4click\_strongShift\_r2c4}}
+\index{rgb4x4click\_strongShift\_r2c4@{rgb4x4click\_strongShift\_r2c4}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r2c4}{rgb4x4click\_strongShift\_r2c4}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r2c4}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a8a854655c72ece607eb1abaf781f441a}\label{patterns_8c_a8a854655c72ece607eb1abaf781f441a}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r3c1@{rgb4x4click\_strongShift\_r3c1}}
+\index{rgb4x4click\_strongShift\_r3c1@{rgb4x4click\_strongShift\_r3c1}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r3c1}{rgb4x4click\_strongShift\_r3c1}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r3c1}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a43df673d07902b2a27a88239e08020ad}\label{patterns_8c_a43df673d07902b2a27a88239e08020ad}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r3c4@{rgb4x4click\_strongShift\_r3c4}}
+\index{rgb4x4click\_strongShift\_r3c4@{rgb4x4click\_strongShift\_r3c4}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r3c4}{rgb4x4click\_strongShift\_r3c4}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r3c4}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a365556c69b4e54d5ae0f30d3e9e4ae53}\label{patterns_8c_a365556c69b4e54d5ae0f30d3e9e4ae53}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r4c1@{rgb4x4click\_strongShift\_r4c1}}
+\index{rgb4x4click\_strongShift\_r4c1@{rgb4x4click\_strongShift\_r4c1}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r4c1}{rgb4x4click\_strongShift\_r4c1}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r4c1}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},   \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a983b98adccf1e4b05670fac7ae896062}\label{patterns_8c_a983b98adccf1e4b05670fac7ae896062}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r4c2@{rgb4x4click\_strongShift\_r4c2}}
+\index{rgb4x4click\_strongShift\_r4c2@{rgb4x4click\_strongShift\_r4c2}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r4c2}{rgb4x4click\_strongShift\_r4c2}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r4c2}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a76120d09a94229f56df0fff93126033c}\label{patterns_8c_a76120d09a94229f56df0fff93126033c}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r4c3@{rgb4x4click\_strongShift\_r4c3}}
+\index{rgb4x4click\_strongShift\_r4c3@{rgb4x4click\_strongShift\_r4c3}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r4c3}{rgb4x4click\_strongShift\_r4c3}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r4c3}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}},   \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a67d83c950e6bd7eff1aa94593592b6cd}\label{patterns_8c_a67d83c950e6bd7eff1aa94593592b6cd}} 
+\index{patterns.c@{patterns.c}!rgb4x4click\_strongShift\_r4c4@{rgb4x4click\_strongShift\_r4c4}}
+\index{rgb4x4click\_strongShift\_r4c4@{rgb4x4click\_strongShift\_r4c4}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{rgb4x4click\_strongShift\_r4c4}{rgb4x4click\_strongShift\_r4c4}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a81f038c6ba1bdd6cc078bdb163dd503a}{rgb\+\_\+pattern}} rgb4x4click\+\_\+strong\+Shift\+\_\+r4c4}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}},}
+\DoxyCodeLine{    \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}},     \mbox{\hyperlink{patterns_8c_a0d6f28f6d55a0c7325fba35f7b3d1304}{off}}, \mbox{\hyperlink{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}{yellow}}, \mbox{\hyperlink{patterns_8c_ad7641108f63d1fa559eb23c17967709f}{red}}}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}\label{patterns_8c_a601bacfce65d60f0ed4b5e1c6305fc11}} 
+\index{patterns.c@{patterns.c}!white@{white}}
+\index{white@{white}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{white}{white}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} white}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}\label{patterns_8c_ac30a66a809054ff42fff7c5c0032eef2}} 
+\index{patterns.c@{patterns.c}!yellow@{yellow}}
+\index{yellow@{yellow}!patterns.c@{patterns.c}}
+\doxysubsubsection{\texorpdfstring{yellow}{yellow}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{patterns_8h_a86b4293b9fd7c3ff9221b63e17ec845a}{rgb\+\_\+led}} yellow}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}, \mbox{\hyperlink{patterns_8c_a206b6f5362e56b51ca957635350b70b6}{ONE}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}, \mbox{\hyperlink{patterns_8c_ac328e551bde3d39b6d7b8cc9e048d941}{ZERO}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

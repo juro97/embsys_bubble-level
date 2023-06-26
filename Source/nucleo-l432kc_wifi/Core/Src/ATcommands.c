@@ -1,10 +1,3 @@
-/*
- * ATcommands.c
- *
- *  Created on: Jun 18, 2023
- *      Author: rini
- */
-
 #include "ATcommands.h"
 
 int at_test_command(char *buffer, transmit_t tx, char *cmd) {

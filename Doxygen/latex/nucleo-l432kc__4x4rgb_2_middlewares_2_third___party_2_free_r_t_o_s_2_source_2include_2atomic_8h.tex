@@ -1,0 +1,59 @@
+\hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h}{}\doxysection{nucleo-\/l432kc\+\_\+4x4rgb/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/include/atomic.h File Reference}
+\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h}\index{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/include/atomic.h@{nucleo-\/l432kc\_4x4rgb/Middlewares/Third\_Party/FreeRTOS/Source/include/atomic.h}}
+
+
+Free\+RTOS atomic operation support.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a155d89b2444fe81cbc8d051f0fd849c9}{ATOMIC\+\_\+\+ENTER\+\_\+\+CRITICAL}}()~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a8a09321ad004019f3c8d0f2e4d7224c7}{port\+ENTER\+\_\+\+CRITICAL}}()
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a1aab48db50f9e59e44032386aa3eb5b8}{ATOMIC\+\_\+\+EXIT\+\_\+\+CRITICAL}}()~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a529358e6147881dd881c890ade21c9bd}{port\+EXIT\+\_\+\+CRITICAL}}()
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_aaa356ca7932487d20a42d6839842d308}{port\+FORCE\+\_\+\+INLINE}}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a2d30f083e50b866caf8822ec31a75969}{ATOMIC\+\_\+\+COMPARE\+\_\+\+AND\+\_\+\+SWAP\+\_\+\+SUCCESS}}~0x1U
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_ab374919fbdbc585c3436a94f5bad31b6}{ATOMIC\+\_\+\+COMPARE\+\_\+\+AND\+\_\+\+SWAP\+\_\+\+FAILURE}}~0x0U
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Free\+RTOS atomic operation support. 
+
+This file implements atomic functions by disabling interrupts globally. Implementations with architecture specific atomic instructions can be provided under each compiler directory. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_ab374919fbdbc585c3436a94f5bad31b6}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_ab374919fbdbc585c3436a94f5bad31b6}} 
+\index{atomic.h@{atomic.h}!ATOMIC\_COMPARE\_AND\_SWAP\_FAILURE@{ATOMIC\_COMPARE\_AND\_SWAP\_FAILURE}}
+\index{ATOMIC\_COMPARE\_AND\_SWAP\_FAILURE@{ATOMIC\_COMPARE\_AND\_SWAP\_FAILURE}!atomic.h@{atomic.h}}
+\doxysubsubsection{\texorpdfstring{ATOMIC\_COMPARE\_AND\_SWAP\_FAILURE}{ATOMIC\_COMPARE\_AND\_SWAP\_FAILURE}}
+{\footnotesize\ttfamily \#define ATOMIC\+\_\+\+COMPARE\+\_\+\+AND\+\_\+\+SWAP\+\_\+\+FAILURE~0x0U}
+
+Compare and swap failed, did not swap. \mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a2d30f083e50b866caf8822ec31a75969}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a2d30f083e50b866caf8822ec31a75969}} 
+\index{atomic.h@{atomic.h}!ATOMIC\_COMPARE\_AND\_SWAP\_SUCCESS@{ATOMIC\_COMPARE\_AND\_SWAP\_SUCCESS}}
+\index{ATOMIC\_COMPARE\_AND\_SWAP\_SUCCESS@{ATOMIC\_COMPARE\_AND\_SWAP\_SUCCESS}!atomic.h@{atomic.h}}
+\doxysubsubsection{\texorpdfstring{ATOMIC\_COMPARE\_AND\_SWAP\_SUCCESS}{ATOMIC\_COMPARE\_AND\_SWAP\_SUCCESS}}
+{\footnotesize\ttfamily \#define ATOMIC\+\_\+\+COMPARE\+\_\+\+AND\+\_\+\+SWAP\+\_\+\+SUCCESS~0x1U}
+
+Compare and swap succeeded, swapped. \mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a155d89b2444fe81cbc8d051f0fd849c9}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a155d89b2444fe81cbc8d051f0fd849c9}} 
+\index{atomic.h@{atomic.h}!ATOMIC\_ENTER\_CRITICAL@{ATOMIC\_ENTER\_CRITICAL}}
+\index{ATOMIC\_ENTER\_CRITICAL@{ATOMIC\_ENTER\_CRITICAL}!atomic.h@{atomic.h}}
+\doxysubsubsection{\texorpdfstring{ATOMIC\_ENTER\_CRITICAL}{ATOMIC\_ENTER\_CRITICAL}}
+{\footnotesize\ttfamily \#define ATOMIC\+\_\+\+ENTER\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a8a09321ad004019f3c8d0f2e4d7224c7}{port\+ENTER\+\_\+\+CRITICAL}}()}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a1aab48db50f9e59e44032386aa3eb5b8}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_a1aab48db50f9e59e44032386aa3eb5b8}} 
+\index{atomic.h@{atomic.h}!ATOMIC\_EXIT\_CRITICAL@{ATOMIC\_EXIT\_CRITICAL}}
+\index{ATOMIC\_EXIT\_CRITICAL@{ATOMIC\_EXIT\_CRITICAL}!atomic.h@{atomic.h}}
+\doxysubsubsection{\texorpdfstring{ATOMIC\_EXIT\_CRITICAL}{ATOMIC\_EXIT\_CRITICAL}}
+{\footnotesize\ttfamily \#define ATOMIC\+\_\+\+EXIT\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{nucleo-l432c__piezo-beeper_2_switch_buzz_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_22c67693d69314f31e1c13277379a4e4d_a529358e6147881dd881c890ade21c9bd}{port\+EXIT\+\_\+\+CRITICAL}}()}
+
+\mbox{\Hypertarget{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_aaa356ca7932487d20a42d6839842d308}\label{nucleo-l432kc__4x4rgb_2_middlewares_2_third___party_2_free_r_t_o_s_2_source_2include_2atomic_8h_aaa356ca7932487d20a42d6839842d308}} 
+\index{atomic.h@{atomic.h}!portFORCE\_INLINE@{portFORCE\_INLINE}}
+\index{portFORCE\_INLINE@{portFORCE\_INLINE}!atomic.h@{atomic.h}}
+\doxysubsubsection{\texorpdfstring{portFORCE\_INLINE}{portFORCE\_INLINE}}
+{\footnotesize\ttfamily \#define port\+FORCE\+\_\+\+INLINE}
+

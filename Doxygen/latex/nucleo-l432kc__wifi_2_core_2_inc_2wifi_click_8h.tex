@@ -1,0 +1,122 @@
+\hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h}{}\doxysection{nucleo-\/l432kc\+\_\+wifi/\+Core/\+Inc/wifi\+Click.h File Reference}
+\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h}\index{nucleo-\/l432kc\_wifi/Core/Inc/wifiClick.h@{nucleo-\/l432kc\_wifi/Core/Inc/wifiClick.h}}
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdbool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32l4xx\+\_\+ll\+\_\+usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}printf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ATcommands.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a4efdd32a59ef066eb4e49123e1276514}{UART1\+\_\+\+IDLE\+\_\+\+EVENT}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a377fe796281e99d2b85652113c2fc091}{UART2\+\_\+\+EVENT}}~(1 $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}~4096
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a8f0e950ccf7eea660fadc168eb8a1022}{Start\+Default\+Task}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the default\+Task thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a97cc15cd99efbfdf8b59aaf46c8294e9}{Uart\+Handler\+Task}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em UART handler task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_af17fde34992dd4f6724f4ef9c50adef0}{Send\+ATCommand}} (char $\ast$command, int length)
+\begin{DoxyCompactList}\small\item\em Sends an AT command over UART. This function transmits the specified AT command over UART1 with the given length. It uses a critical section to ensure exclusive access to the UART transmission. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a6b20d41d6252e9871430c242cb1a56e7}} 
+\index{wifiClick.h@{wifiClick.h}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!wifiClick.h@{wifiClick.h}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define BUFFER\+\_\+\+SIZE~4096}
+
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a4efdd32a59ef066eb4e49123e1276514}\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a4efdd32a59ef066eb4e49123e1276514}} 
+\index{wifiClick.h@{wifiClick.h}!UART1\_IDLE\_EVENT@{UART1\_IDLE\_EVENT}}
+\index{UART1\_IDLE\_EVENT@{UART1\_IDLE\_EVENT}!wifiClick.h@{wifiClick.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_IDLE\_EVENT}{UART1\_IDLE\_EVENT}}
+{\footnotesize\ttfamily \#define UART1\+\_\+\+IDLE\+\_\+\+EVENT~(1 $<$$<$ 0)}
+
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a377fe796281e99d2b85652113c2fc091}\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a377fe796281e99d2b85652113c2fc091}} 
+\index{wifiClick.h@{wifiClick.h}!UART2\_EVENT@{UART2\_EVENT}}
+\index{UART2\_EVENT@{UART2\_EVENT}!wifiClick.h@{wifiClick.h}}
+\doxysubsubsection{\texorpdfstring{UART2\_EVENT}{UART2\_EVENT}}
+{\footnotesize\ttfamily \#define UART2\+\_\+\+EVENT~(1 $<$$<$ 1)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_af17fde34992dd4f6724f4ef9c50adef0}\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_af17fde34992dd4f6724f4ef9c50adef0}} 
+\index{wifiClick.h@{wifiClick.h}!SendATCommand@{SendATCommand}}
+\index{SendATCommand@{SendATCommand}!wifiClick.h@{wifiClick.h}}
+\doxysubsubsection{\texorpdfstring{SendATCommand()}{SendATCommand()}}
+{\footnotesize\ttfamily void Send\+ATCommand (\begin{DoxyParamCaption}\item[{char $\ast$}]{command,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+Sends an AT command over UART. This function transmits the specified AT command over UART1 with the given length. It uses a critical section to ensure exclusive access to the UART transmission. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Pointer to the AT command string. \\
+\hline
+{\em length} & Length of the command string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a8f0e950ccf7eea660fadc168eb8a1022}\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a8f0e950ccf7eea660fadc168eb8a1022}} 
+\index{wifiClick.h@{wifiClick.h}!StartDefaultTask@{StartDefaultTask}}
+\index{StartDefaultTask@{StartDefaultTask}!wifiClick.h@{wifiClick.h}}
+\doxysubsubsection{\texorpdfstring{StartDefaultTask()}{StartDefaultTask()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void Start\+Default\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the default\+Task thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a97cc15cd99efbfdf8b59aaf46c8294e9}\label{nucleo-l432kc__wifi_2_core_2_inc_2wifi_click_8h_a97cc15cd99efbfdf8b59aaf46c8294e9}} 
+\index{wifiClick.h@{wifiClick.h}!UartHandlerTask@{UartHandlerTask}}
+\index{UartHandlerTask@{UartHandlerTask}!wifiClick.h@{wifiClick.h}}
+\doxysubsubsection{\texorpdfstring{UartHandlerTask()}{UartHandlerTask()}}
+{\footnotesize\ttfamily void Uart\+Handler\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+UART handler task. 
+
+This task waits for a task notification indicating a UART event. If the notification is received, it processes the received data and performs appropriate actions. It handles both UART1 and UART2 events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Pointer to the argument passed to the function (unused). \\
+\hline
+\end{DoxyParams}
+Track the position of last character processed
+
+Update the position of the last character processed
+
+Echo back the character to the terminal
+
+If newline, forward the buffer to UART1 and reset buffer
+
+Track the position of last character processed
+
+Update the position of the last character processed
+
+Echo back the character to the terminal
+
+If newline, forward the buffer to UART1 and reset buffer
